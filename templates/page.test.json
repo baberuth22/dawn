@@ -51,7 +51,7 @@
         "show_text_below": false
       }
     },
-    "1635931774450ac20a": {
+    "collage1": {
       "type": "collage",
       "blocks": {
         "vid1": {
@@ -93,7 +93,7 @@
         "mobile_layout": "collage"
       }
     },
-    "16359323108169b748": {
+    "columns1": {
       "type": "multicolumn",
       "blocks": {
         "16359323108169b748-0": {
@@ -138,7 +138,7 @@
   "order": [
     "main",
     "banner1",
-    "1635931774450ac20a",
-    "16359323108169b748"
+    "collage1",
+    "columns1"
   ]
 }
