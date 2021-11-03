@@ -4,9 +4,56 @@
       "type": "main-page",
       "settings": {
       }
+    },
+    "1635931354b07261fd": {
+      "type": "image-banner",
+      "blocks": {
+        "1635931354b07261fd-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image banner",
+            "heading_size": "medium"
+          }
+        },
+        "1635931354b07261fd-1": {
+          "type": "text",
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template."
+          }
+        },
+        "1635931354b07261fd-2": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "1635931354b07261fd-0",
+        "1635931354b07261fd-1",
+        "1635931354b07261fd-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/2021-fantasy-football_375.jpg",
+        "image_2": "shopify:\/\/shop_images\/bryan_104.jpg",
+        "image_height": "large",
+        "adapt_height_first_image": true,
+        "desktop_text_box_position": "flex-end",
+        "show_text_box": true,
+        "image_overlay_opacity": 20,
+        "color_scheme": "accent-1",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "1635931354b07261fd"
   ]
 }
