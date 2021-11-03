@@ -54,7 +54,7 @@
     "1635931774450ac20a": {
       "type": "collage",
       "blocks": {
-        "1635931774450ac20a-0": {
+        "vid1": {
           "type": "video",
           "settings": {
             "cover_image": "shopify:\/\/shop_images\/bb4.jpg",
@@ -72,7 +72,7 @@
             "secondary_background": false
           }
         },
-        "847b714b-71ac-4f1d-bd64-8ad168a9128f": {
+        "vid3": {
           "type": "video",
           "settings": {
             "cover_image": "shopify:\/\/shop_images\/bb3.jpg",
@@ -83,9 +83,9 @@
         }
       },
       "block_order": [
-        "1635931774450ac20a-0",
+        "vid1",
         "1635931774450ac20a-1",
-        "847b714b-71ac-4f1d-bd64-8ad168a9128f"
+        "vid3"
       ],
       "settings": {
         "heading": "Multimedia collage",
