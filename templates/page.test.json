@@ -8,7 +8,7 @@
     "1635931354b07261fd": {
       "type": "image-banner",
       "blocks": {
-        "1635931354b07261fd-0": {
+        "74479a24-d114-4ee8-a950-bcd6455a24a0": {
           "type": "heading",
           "settings": {
             "heading": "Image banner",
@@ -34,7 +34,7 @@
         }
       },
       "block_order": [
-        "1635931354b07261fd-0",
+        "74479a24-d114-4ee8-a950-bcd6455a24a0",
         "1635931354b07261fd-1",
         "1635931354b07261fd-2"
       ],
@@ -50,10 +50,53 @@
         "stack_images_on_mobile": true,
         "show_text_below": false
       }
+    },
+    "1635931774450ac20a": {
+      "type": "collage",
+      "blocks": {
+        "1635931774450ac20a-0": {
+          "type": "video",
+          "settings": {
+            "cover_image": "shopify:\/\/shop_images\/bb4.jpg",
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "description": "Describe the video",
+            "image_padding": false
+          }
+        },
+        "1635931774450ac20a-1": {
+          "type": "product",
+          "settings": {
+            "product": "black-leather-bag",
+            "second_image": false,
+            "image_padding": false,
+            "secondary_background": false
+          }
+        },
+        "847b714b-71ac-4f1d-bd64-8ad168a9128f": {
+          "type": "video",
+          "settings": {
+            "cover_image": "shopify:\/\/shop_images\/bb3.jpg",
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "description": "Describe the video",
+            "image_padding": false
+          }
+        }
+      },
+      "block_order": [
+        "1635931774450ac20a-0",
+        "1635931774450ac20a-1",
+        "847b714b-71ac-4f1d-bd64-8ad168a9128f"
+      ],
+      "settings": {
+        "heading": "Multimedia collage",
+        "desktop_layout": "left",
+        "mobile_layout": "collage"
+      }
     }
   },
   "order": [
     "main",
-    "1635931354b07261fd"
+    "1635931354b07261fd",
+    "1635931774450ac20a"
   ]
 }
