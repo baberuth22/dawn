@@ -1,0 +1,89 @@
+{%- comment -%}
+  {
+    "name": "Video Youtube base",
+    "author": "PusherCommerce"
+    "description": "Please DO NOT copy in any form. Any act of copying will be sued and held responsible with the law"
+  }
+{%- endcomment -%}
+{% capture minify %}
+  <style>
+    #psb-{{ section.id }} .youtube-base__wrapper {
+      aspect-ratio: 16/9;
+    }
+
+    #psb-{{ section.id }} iframe {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+{% endcapture %}
+{{ minify | strip_newlines }}
+
+<div id="psb-{{ section.id }}" class="psb-{{ section.id }} psb-section psb-video-video-youtube-base" style="display: none;">
+  <div class="{{ section.settings.container_width }}">
+    <div class="youtube-base__wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/{{ section.settings.youtube_url.id }}"
+        title="{{ section.settings.youtube_title }}"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "⚡︎PSB: Video Youtube base",
+  "tag": "section",
+  "class": "psb-section-wrapper",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "💡 Tips: Utility sections can be combined well with this section."
+    },
+    {
+      "type": "paragraph",
+      "content": "E.g. ⚡︎PSB: Heading, ⚡︎PSB: Space, ⚡︎PSB: Line..."
+    },
+    {
+      "type": "select",
+      "id": "container_width",
+      "options": [
+        {
+          "value": "psb-container",
+          "label": "Container"
+        },
+        {
+          "value": "psb-container-fluid",
+          "label": "Container Fluid"
+        },
+        {
+          "value": "psb-container-fullwidth",
+          "label": "Container Fullwidth"
+        }
+      ],
+      "default": "psb-container",
+      "label": "Container width"
+    },
+    {
+      "type": "video_url",
+      "id": "youtube_url",
+      "accept": ["youtube"],
+      "label": "Youtube video url"
+    },
+    {
+      "type": "text",
+      "id": "youtube_title",
+      "default": "Our video",
+      "label": "Video title",
+      "info": "Don't show, but better for SEO"
+    }
+  ],
+  "presets": [
+    {
+      "name": "⚡︎PSB: Video Youtube base"
+    }
+  ]
+}
+{% endschema %}
