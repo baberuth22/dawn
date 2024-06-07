@@ -18,7 +18,7 @@
       "name": "Image",
       "settings": [
         {
-          "type": "url",
+          "type": "image_picker",
           "id": "image_url",
           "label": "Image URL"
         },
@@ -43,7 +43,14 @@
   <sl-carousel pagination>
     {% for block in section.blocks %}
       <sl-carousel-item>
-        <img alt="{{ block.settings.image_alt }}" src="{{ block.settings.image_url }}" />
+        <img 
+        class="image"
+        src="{{ block.settings.image_url | image_url }}" 
+        loading="lazy" 
+        height="{{ block.settings.image_url.height }}" 
+        width="{{ block.settings.image_url.width }}"
+        alt="{{ block.settings.image_alt }}"
+      />
       </sl-carousel-item>
     {% endfor %}
   </sl-carousel>
