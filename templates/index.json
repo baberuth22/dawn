@@ -2,6 +2,42 @@
   "sections": {
     "sl_carousel_9e7Hdy": {
       "type": "sl-carousel",
+      "blocks": {
+        "image_RBxz8y": {
+          "type": "image",
+          "settings": {
+            "image_url": "shopify:\/\/shop_images\/bb9_865.jpg",
+            "image_alt": "grey shirt"
+          }
+        },
+        "image_qJyyCH": {
+          "type": "image",
+          "settings": {
+            "image_url": "shopify:\/\/shop_images\/bb13_647.jpg",
+            "image_alt": ""
+          }
+        },
+        "image_iN494p": {
+          "type": "image",
+          "settings": {
+            "image_url": "shopify:\/\/shop_images\/bb15_881.jpg",
+            "image_alt": ""
+          }
+        },
+        "image_aTRWzE": {
+          "type": "image",
+          "settings": {
+            "image_url": "shopify:\/\/shop_images\/bb3_590.jpg",
+            "image_alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_RBxz8y",
+        "image_qJyyCH",
+        "image_iN494p",
+        "image_aTRWzE"
+      ],
       "settings": {
         "max_width": 540
       }
