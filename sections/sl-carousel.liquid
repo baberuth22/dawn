@@ -1,0 +1,60 @@
+{% schema %}
+{
+  "name": "SL Carousel",
+  "settings": [
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Max Width (px)",
+      "default": 800,
+      "min": 300,
+      "max": 1200,
+      "step": 10
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "url",
+          "id": "image_url",
+          "label": "Image URL"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image Alt Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SL Carousel",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="sl-carousel-wrapper" style="max-width: {{ section.settings.max_width }}px;">
+  <sl-carousel pagination>
+    {% for block in section.blocks %}
+      <sl-carousel-item>
+        <img alt="{{ block.settings.image_alt }}" src="{{ block.settings.image_url }}" />
+      </sl-carousel-item>
+    {% endfor %}
+  </sl-carousel>
+</div>
+
+<style>
+.sl-carousel-wrapper {
+  margin: 0 auto;
+}
+</style>
+
+<script type="module">
+  import { SlCarousel } from 'https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace/dist/shoelace.js';
+</script>
