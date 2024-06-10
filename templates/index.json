@@ -6,8 +6,8 @@
         "section_title": "Shader Dood",
         "color1": "#1eff00",
         "color2": "#00ffa4",
-        "speed": 1,
-        "animation_type": "circle_pattern"
+        "speed": 5,
+        "animation_type": "sine_wave"
       }
     },
     "shader_Cf4gRF": {
