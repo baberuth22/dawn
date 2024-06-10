@@ -1,5 +1,12 @@
 {
   "sections": {
+    "shader_Cf4gRF": {
+      "type": "shader",
+      "settings": {
+        "section_title": "Shader Doodle",
+        "shader_script": "void main() {\n  vec2 st = gl_FragCoord.xy \/ u_resolution.xy;\n  vec3 color = vec3(st.x, st.y, abs(sin(u_time)));\n  gl_FragColor = vec4(color, 1.0);\n}"
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -1125,6 +1132,7 @@
     }
   },
   "order": [
+    "shader_Cf4gRF",
     "image_banner",
     "rich_text",
     "featured_products",
