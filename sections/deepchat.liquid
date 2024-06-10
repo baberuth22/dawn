@@ -28,6 +28,12 @@
     },
     {
       "type": "text",
+      "id": "initial_placeholder",
+      "label": "Initial Placeholder Message",
+      "default": "I am doing very well!"
+    },
+    {
+      "type": "text",
       "id": "api_key",
       "label": "Open AI API Key",
       "default": "your-open-ai-api-keyhere"
@@ -60,7 +66,7 @@
     directConnection='{"openAI":{"key": "{{ section.settings.api_key }}"}}'
     id="chat-element"
     demo="true"
-    textInput='{"placeholder":{"text": "Welcome to the demo!"}}'
+    textInput='{"placeholder":{"text": "{{ section.settings.initial_placeholder }}"}}'
     style="width: {{ section.settings.chat_box_width }}px; height: {{ section.settings.chat_box_height }}px;"
   ></deep-chat>
 </div>
