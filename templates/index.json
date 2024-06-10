@@ -3,8 +3,11 @@
     "shader_Cf4gRF": {
       "type": "shader",
       "settings": {
-        "section_title": "",
-        "shader_script": "void main() {\n  vec2 st = gl_FragCoord.xy \/ u_resolution.xy;\n  vec3 color = vec3(st.x, st.y, abs(cos(u_time)));\n  gl_FragColor = vec4(color, 1.0);\n}"
+        "section_title": "Shader Doodle",
+        "color1": "#ff0000",
+        "color2": "#00ff00",
+        "speed": 1,
+        "animation_type": "sine_wave"
       }
     },
     "image_banner": {
