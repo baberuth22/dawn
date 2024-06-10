@@ -4,10 +4,10 @@
       "type": "shader",
       "settings": {
         "section_title": "Shader Dood",
-        "color1": "#1eff00",
-        "color2": "#00ffa4",
+        "color1": "#0f160d",
+        "color2": "#ff0000",
         "speed": 1.7,
-        "animation_type": "sine_wave"
+        "animation_type": "circle_pattern"
       }
     },
     "shader_Cf4gRF": {
