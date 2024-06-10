@@ -5,9 +5,9 @@
       "settings": {
         "section_title": "Shader Doodle",
         "color1": "#1eff00",
-        "color2": "#d5ff00",
-        "speed": 5,
-        "animation_type": "sine_wave"
+        "color2": "#00ffa4",
+        "speed": 1,
+        "animation_type": "circle_pattern"
       }
     },
     "shader_Cf4gRF": {
