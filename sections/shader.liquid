@@ -9,10 +9,41 @@
       "default": "Shader Doodle"
     },
     {
-      "type": "textarea",
-      "id": "shader_script",
-      "label": "Shader Script",
-      "default": "void main() {\n  vec2 st = gl_FragCoord.xy / u_resolution.xy;\n  vec3 color = vec3(st.x, st.y, abs(sin(u_time)));\n  gl_FragColor = vec4(color, 1.0);\n}"
+      "type": "color",
+      "id": "color1",
+      "label": "Color 1",
+      "default": "#ff0000"
+    },
+    {
+      "type": "color",
+      "id": "color2",
+      "label": "Color 2",
+      "default": "#00ff00"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Animation Speed",
+      "default": 1,
+      "min": 0.1,
+      "max": 5,
+      "step": 0.1
+    },
+    {
+      "type": "select",
+      "id": "animation_type",
+      "label": "Animation Type",
+      "options": [
+        {
+          "value": "sine_wave",
+          "label": "Sine Wave"
+        },
+        {
+          "value": "circle_pattern",
+          "label": "Circle Pattern"
+        }
+      ],
+      "default": "sine_wave"
     }
   ],
   "presets": [
@@ -28,7 +59,19 @@
   <h2>{{ section.settings.section_title }}</h2>
   <shader-doodle>
     <script type="x-shader/x-fragment">
-      {{ section.settings.shader_script | escape }}
+      void main() {
+        vec2 st = gl_FragCoord.xy / u_resolution.xy;
+        vec3 color;
+        {% if section.settings.animation_type == 'sine_wave' %}
+          color = vec3(st.x, st.y, abs(sin(u_time * {{ section.settings.speed }})));
+        {% elsif section.settings.animation_type == 'circle_pattern' %}
+          vec2 toCenter = st - vec2(0.5);
+          float angle = atan(toCenter.y, toCenter.x);
+          float radius = length(toCenter) * 2.0;
+          color = vec3(0.5 + 0.5 * cos(angle + u_time * {{ section.settings.speed }}), 0.5 + 0.5 * sin(angle + u_time * {{ section.settings.speed }}), 0.5);
+        {% endif %}
+        gl_FragColor = vec4(color, 1.0);
+      }
     </script>
   </shader-doodle>
 </div>
