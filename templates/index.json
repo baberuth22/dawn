@@ -23,12 +23,20 @@
             "image_url": "shopify:\/\/shop_images\/bb13_820.jpg",
             "image_alt": ""
           }
+        },
+        "image_zrRXyG": {
+          "type": "image",
+          "settings": {
+            "image_url": "shopify:\/\/shop_images\/bb15_881.jpg",
+            "image_alt": ""
+          }
         }
       },
       "block_order": [
         "image_pKARcj",
         "image_aFHGLn",
-        "image_6JiDiB"
+        "image_6JiDiB",
+        "image_zrRXyG"
       ],
       "settings": {
         "max_width": 800
