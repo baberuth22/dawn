@@ -80,8 +80,7 @@ sl-carousel-item {
 </style>
 
 <script type="module">
-  document.addEventListener('DOMContentLoaded', () => {
-    console.log('coontent loaded, now load shoelace js')
-    import { SlCarousel } from 'https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace/dist/shoelace.js';
-  });
+  import { SlCarousel, SlCarouselItem } from 'https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace/dist/shoelace.js';
+  customElements.define('sl-carousel', SlCarousel);
+  customElements.define('sl-carousel-item', SlCarouselItem);
 </script>
