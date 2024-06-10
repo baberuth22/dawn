@@ -1,5 +1,14 @@
 {
   "sections": {
+    "deepchat_q3p8n3": {
+      "type": "deepchat",
+      "settings": {
+        "section_title": "Deep Chat",
+        "intro_message": "JavaScript demo for the Deep Chat component.",
+        "initial_user_message": "Hey, how are you today?",
+        "initial_ai_message": "I am doing very well!"
+      }
+    },
     "shader_6Yr9zn": {
       "type": "shader",
       "settings": {
@@ -1135,6 +1144,7 @@
     }
   },
   "order": [
+    "deepchat_q3p8n3",
     "shader_6Yr9zn",
     "image_banner",
     "rich_text",
