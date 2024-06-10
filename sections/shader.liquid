@@ -48,7 +48,7 @@
   ],
   "presets": [
     {
-      "name": "Shader Doodle",
+      "name": "Shader Doodle Section",
       "category": "Custom"
     }
   ]
@@ -116,5 +116,8 @@ shader-doodle {
 
     shaderScript.textContent = fragmentShader;
     shaderDoodle.innerHTML = shaderScript.outerHTML;
+
+    // Reinitialize shader-doodle
+    shaderDoodle.setAttribute('data-shader', shaderScript.textContent);
   });
 </script>
