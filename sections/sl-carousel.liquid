@@ -12,9 +12,9 @@
       "step": 10
     },
     {
-          "type": "image_picker",
-          "id": "image_url",
-          "label": "Image"
+      "type": "image_picker",
+      "id": "image_url",
+      "label": "Image"
     }
   ],
   "blocks": [
@@ -65,8 +65,22 @@
 .sl-carousel-wrapper {
   margin: 0 auto;
 }
+
+/* Additional styling for carousel items */
+sl-carousel {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
+sl-carousel-item {
+  flex: 0 0 auto;
+  width: 100%;
+}
 </style>
 
 <script type="module">
-  import { SlCarousel } from 'https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace/dist/shoelace.js';
+  document.addEventListener('DOMContentLoaded', () => {
+    import { SlCarousel } from 'https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace/dist/shoelace.js';
+  });
 </script>
