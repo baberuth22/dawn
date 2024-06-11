@@ -1,5 +1,23 @@
 {
   "sections": {
+    "sa_qr_code_TJUazP": {
+      "type": "sa-qr-code",
+      "settings": {
+        "qr_contents": "https:\/\/bitjson.com\/",
+        "module_color": "#1c7d43",
+        "position_ring_color": "#13532d",
+        "position_center_color": "#70c559",
+        "mask_x_to_y_ratio": "1.2",
+        "icon_image": "shopify:\/\/shop_images\/2021-fantasy-football_375.jpg",
+        "qr_width": "200",
+        "qr_height": "200",
+        "background_color": "#fff",
+        "margin_top": "2",
+        "margin_right": "auto",
+        "margin_bottom": "2",
+        "margin_left": "auto"
+      }
+    },
     "deepchat_q3p8n3": {
       "type": "deepchat",
       "settings": {
@@ -1148,6 +1166,7 @@
     }
   },
   "order": [
+    "sa_qr_code_TJUazP",
     "deepchat_q3p8n3",
     "shader_6Yr9zn",
     "image_banner",
