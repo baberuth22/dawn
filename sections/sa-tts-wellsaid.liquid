@@ -1,0 +1,106 @@
+
+									{% schema %}
+{
+  "name": "WellSaid TTS Integration",
+  "settings": [
+    {
+      "type": "text",
+      "id": "api_key",
+      "label": "API Key",
+      "info": "Enter the API key obtained from WellSaid Labs. Refer to the <a href='/path/to/tts-api-instructions.html' target='_blank'>instructions</a> for obtaining the API key."
+    },
+    {
+      "type": "textarea",
+      "id": "text_to_convert",
+      "label": "Text to Convert",
+      "default": "Enter the text you want to convert to speech here."
+    },
+    {
+      "type": "select",
+      "id": "play_position",
+      "label": "Play Voiceover At",
+      "options": [
+        { "value": "top", "label": "Top of the Page" },
+        { "value": "bottom", "label": "Bottom of the Page" },
+        { "value": "element_id", "label": "Specific Element" }
+      ],
+      "default": "top"
+    },
+    {
+      "type": "text",
+      "id": "element_id",
+      "label": "Element ID",
+      "info": "Enter the ID of the element where the voiceover should be triggered, if 'Specific Element' is selected."
+    }
+  ],
+  "presets": [
+    {
+      "name": "WellSaid TTS Integration",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}
+
+<div>
+  <h2>WellSaid Labs TTS Integration</h2>
+  <p>Enter your API key and the text you want to convert to speech.</p>
+  <button id="play-voiceover">Play Voiceover</button>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const apiKey = "{{ section.settings.api_key }}";
+    const textToConvert = "{{ section.settings.text_to_convert }}";
+    const playPosition = "{{ section.settings.play_position }}";
+    const elementId = "{{ section.settings.element_id }}";
+
+    function playVoiceover(apiKey, textToConvert) {
+      const apiUrl = 'https://api.wellsaidlabs.com/v1/tts/stream';
+      const payload = { text: textToConvert };
+      const headers = {
+        'Authorization': `Bearer ${apiKey}`,
+        'Accept': '*/*',
+        'Content-Type': 'application/json'
+      };
+
+      fetch(apiUrl, {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify(payload)
+      })
+      .then(response => response.json())
+      .then(data => {
+        const audio = new Audio(data.audioUrl);
+        audio.play();
+      })
+      .catch(error => console.error('Error:', error));
+    }
+
+    const playButton = document.getElementById('play-voiceover');
+
+    if (playPosition === 'top') {
+      playButton.addEventListener('click', () => playVoiceover(apiKey, textToConvert));
+    } else if (playPosition === 'bottom') {
+      window.addEventListener('scroll', () => {
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+          playVoiceover(apiKey, textToConvert);
+        }
+      });
+    } else if (playPosition === 'element_id' && elementId) {
+      const targetElement = document.getElementById(elementId);
+      if (targetElement) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              playVoiceover(apiKey, textToConvert);
+            }
+          });
+        });
+        observer.observe(targetElement);
+      }
+    }
+  });
+</script>
+	
+							
