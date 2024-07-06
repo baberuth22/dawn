@@ -89,41 +89,6 @@
         "show_text_below": true
       }
     },
-    "rich_text": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text",
-        "button"
-      ],
-      "settings": {
-        "color_scheme": "background-1",
-        "full_width": true
-      }
-    },
     "featured_products": {
       "type": "featured-collection",
       "settings": {
@@ -1184,6 +1149,15 @@
         "play_position": "top",
         "element_id": "something-unique"
       }
+    },
+    "sa_tts_wellsaid_CTDjkg": {
+      "type": "sa-tts-wellsaid",
+      "settings": {
+        "api_key": "528124c4-583d-4ef8-a173-d809e0be1461",
+        "text_to_convert": "Enter the text you want to convert to speech here.",
+        "play_position": "top",
+        "element_id": ""
+      }
     }
   },
   "order": [
@@ -1191,7 +1165,6 @@
     "deepchat_q3p8n3",
     "shader_6Yr9zn",
     "image_banner",
-    "rich_text",
     "featured_products",
     "collage",
     "video",
@@ -1211,6 +1184,7 @@
     "ss_featured_review_slider_QBbydA",
     "ss_text_block_eqC99H",
     "ss_counter_CDN9tD",
-    "sa_voiceover_BHm3nH"
+    "sa_voiceover_BHm3nH",
+    "sa_tts_wellsaid_CTDjkg"
   ]
 }
