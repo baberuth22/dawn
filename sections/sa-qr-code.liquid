@@ -102,19 +102,32 @@
 }
 {% endschema %}
 
-
-  
+<div class="qr-code-section">
+  <qr-code
+    id="qr1"
+    contents="{{ section.settings.qr_contents }}"
+    module-color="{{ section.settings.module_color }}"
+    position-ring-color="{{ section.settings.position_ring_color }}"
+    position-center-color="{{ section.settings.position_center_color }}"
+    mask-x-to-y-ratio="{{ section.settings.mask_x_to_y_ratio }}"
+    style="
+      width: {{ section.settings.qr_width }}px;
+      height: {{ section.settings.qr_height }}px;
+      margin: {{ section.settings.margin_top }}em {{ section.settings.margin_right }}em {{ section.settings.margin_bottom }}em {{ section.settings.margin_left }}em;
+      background-color: {{ section.settings.background_color }};
+    "
+  >
     {% if section.settings.icon_image %}
-    
+    <img style="width: {{ section.settings.icon_width }}px; height: {{ section.settings.icon_height }}px;" src="{{ section.settings.icon_image | image_url }}" slot="icon" />
     {% endif %}
-  
+  </qr-code>
+</div>
 
-
-
+<script>
   document.getElementById('qr1').addEventListener('codeRendered', () => {
     document.getElementById('qr1').animateQRCode('MaterializeIn');
   });
+</script>
 
-
-	
+<script src="https://unpkg.com/@bitjson/qr-code@1.0.2/dist/qr-code.js"></script>	
 							
