@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "sa_qr_code_TJUazP": {
@@ -1165,6 +1174,16 @@
         "content_width": 120,
         "border_thickness": 0
       }
+    },
+    "sa_voiceover_BHm3nH": {
+      "type": "sa-voiceover",
+      "settings": {
+        "tts_api_choice": "wellsaid",
+        "api_key": "528124c4-583d-4ef8-a173-d809e0be1461",
+        "text_to_convert": "Enter the text you want to convert to speech here.",
+        "play_position": "top",
+        "element_id": "something-unique"
+      }
     }
   },
   "order": [
@@ -1191,6 +1210,7 @@
     "ss_parallax_banner_FmXmCh",
     "ss_featured_review_slider_QBbydA",
     "ss_text_block_eqC99H",
-    "ss_counter_CDN9tD"
+    "ss_counter_CDN9tD",
+    "sa_voiceover_BHm3nH"
   ]
 }
