@@ -60,13 +60,13 @@
 }
 {% endschema %}
 
+<div>
+  <h2>Text-to-Speech API Integration</h2>
+  <p>Choose a TTS API and provide your API key to convert text to speech.</p>
+  <button id="play-voiceover">Play Voiceover</button>
+</div>
 
-  Text-to-Speech API Integration
-  Choose a TTS API and provide your API key to convert text to speech.
-  Play Voiceover
-
-
-
+<script>
   document.addEventListener('DOMContentLoaded', function() {
     const apiChoice = "{{ section.settings.tts_api_choice }}";
     const apiKey = "{{ section.settings.api_key }}";
@@ -156,6 +156,6 @@
       }
     }
   });
-
+</script>
 	
 							
