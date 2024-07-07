@@ -79,8 +79,11 @@
 
     const playButton = document.getElementById('play-voiceover');
 
+    // click button to test
+    playButton.addEventListener('click', () => playVoiceover(apiKey, textToConvert));
+
     if (playPosition === 'top') {
-      playButton.addEventListener('click', () => playVoiceover(apiKey, textToConvert));
+      // add top code here
     } else if (playPosition === 'bottom') {
       window.addEventListener('scroll', () => {
         if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
