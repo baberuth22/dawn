@@ -56,7 +56,7 @@
 
     function playVoiceover(textToConvert) {
       const proxyUrl = '/apps/sa/'; // Update with your actual proxy URL
-      const payload = { text: textToConvert, shop: '{{ request.host }}'};
+      const payload = { text: textToConvert, shop: '{{ request.host }}', speaker_id: '3'};
 
       fetch(proxyUrl, {
         method: 'POST',
