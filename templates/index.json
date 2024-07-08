@@ -12,60 +12,13 @@
     "sa_tts_wellsaid_CTDjkg": {
       "type": "sa-tts-wellsaid",
       "settings": {
-        "api_key": "528124c4-583d-4ef8-a173-d809e0be1461",
-        "text_to_convert": "Enter the text you want to convert to speech here.",
+        "text_to_convert": "This is soooo sick!",
         "play_position": "top",
         "element_id": ""
-      }
-    },
-    "sa_qr_code_TJUazP": {
-      "type": "sa-qr-code",
-      "settings": {
-        "qr_contents": "https:\/\/bitjson.com\/",
-        "module_color": "#a912a7",
-        "position_ring_color": "#c71e97",
-        "position_center_color": "#531341",
-        "mask_x_to_y_ratio": "1",
-        "icon_image": "shopify:\/\/shop_images\/bb13_647.jpg",
-        "icon_width": "34",
-        "icon_height": "30",
-        "qr_width": "200",
-        "qr_height": "200",
-        "background_color": "#fff",
-        "margin_top": "2",
-        "margin_right": "auto",
-        "margin_bottom": "2",
-        "margin_left": "auto"
-      }
-    },
-    "deepchat_q3p8n3": {
-      "type": "deepchat",
-      "settings": {
-        "section_title": "Deep Chat",
-        "intro_message": "Welcome to my site chat.",
-        "initial_user_message": "Do you have any questions?",
-        "initial_ai_message": "As well as AI can do... :)",
-        "initial_placeholder": "ask a quesiton here...",
-        "api_key": "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",
-        "chat_box_width": "400",
-        "chat_box_height": "250"
-      }
-    },
-    "shader_6Yr9zn": {
-      "type": "shader",
-      "settings": {
-        "section_title": "Shader Dood",
-        "color1": "#0f160d",
-        "color2": "#ff0000",
-        "speed": 1.7,
-        "animation_type": "circle_pattern"
       }
     }
   },
   "order": [
-    "sa_tts_wellsaid_CTDjkg",
-    "sa_qr_code_TJUazP",
-    "deepchat_q3p8n3",
-    "shader_6Yr9zn"
+    "sa_tts_wellsaid_CTDjkg"
   ]
 }
