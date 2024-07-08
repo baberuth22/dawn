@@ -12,7 +12,7 @@
     "sa_tts_wellsaid_CTDjkg": {
       "type": "sa-tts-wellsaid",
       "settings": {
-        "text_to_convert": "This is soooo sick!",
+        "text_to_convert": "This is so sick!",
         "speaker_id": "5",
         "play_position": "top",
         "element_id": ""
