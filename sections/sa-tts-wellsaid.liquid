@@ -1,5 +1,4 @@
-
-									{% schema %}
+{% schema %}
 {
   "name": "WellSaid TTS Integration",
   "settings": [
@@ -55,18 +54,15 @@
     const playPosition = "{{ section.settings.play_position }}";
     const elementId = "{{ section.settings.element_id }}";
 
-    function playVoiceover(apiKey, textToConvert) {
-      const apiUrl = 'https://api.wellsaidlabs.com/v1/tts/stream';
+    function playVoiceover(textToConvert) {
+      const proxyUrl = '/apps/proxy/'; // Update with your actual proxy URL
       const payload = { text: textToConvert };
-      const headers = {
-        'Authorization': `Bearer ${apiKey}`,
-        'Accept': '*/*',
-        'Content-Type': 'application/json'
-      };
 
-      fetch(apiUrl, {
+      fetch(proxyUrl, {
         method: 'POST',
-        headers: headers,
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify(payload)
       })
       .then(response => response.json())
@@ -79,15 +75,12 @@
 
     const playButton = document.getElementById('play-voiceover');
 
-    // click button to test
-    playButton.addEventListener('click', () => playVoiceover(apiKey, textToConvert));
-
     if (playPosition === 'top') {
-      // add top code here
+      playButton.addEventListener('click', () => playVoiceover(textToConvert));
     } else if (playPosition === 'bottom') {
       window.addEventListener('scroll', () => {
         if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-          playVoiceover(apiKey, textToConvert);
+          playVoiceover(textToConvert);
         }
       });
     } else if (playPosition === 'element_id' && elementId) {
@@ -96,7 +89,7 @@
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
-              playVoiceover(apiKey, textToConvert);
+              playVoiceover(textToConvert);
             }
           });
         });
@@ -105,5 +98,3 @@
     }
   });
 </script>
-	
-							
