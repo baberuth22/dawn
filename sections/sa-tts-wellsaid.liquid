@@ -71,15 +71,10 @@
         },
         body: JSON.stringify(payload)
       })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data)
-        if (data.status === 'error') {
-          console.error('Error:', data.message);
-          alert('Error: ' + data.message);
-          return;
-        }
-        const audio = new Audio(data.audioUrl);
+      .then(response => response.blob())
+      .then(blob => {
+        const audioUrl = URL.createObjectURL(blob);
+        const audio = new Audio(audioUrl);
         audio.play();
       })
       .catch(error => console.error('Error:', error));
