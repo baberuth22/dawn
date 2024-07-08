@@ -3,16 +3,22 @@
   "name": "WellSaid TTS Integration",
   "settings": [
     {
-      "type": "text",
-      "id": "api_key",
-      "label": "API Key",
-      "info": "Enter the API key obtained from WellSaid Labs. Refer to the <a href='/path/to/tts-api-instructions.html' target='_blank'>instructions</a> for obtaining the API key."
-    },
-    {
       "type": "textarea",
       "id": "text_to_convert",
       "label": "Text to Convert",
       "default": "Enter the text you want to convert to speech here."
+    },
+    {
+      "type": "select",
+      "id": "speaker_id",
+      "label": "Speaker ID",
+      "options": [
+        { "value": "1", "label": "Speaker 1" },
+        { "value": "2", "label": "Speaker 2" },
+        { "value": "3", "label": "Speaker 3" }
+        // Add more options based on the fetched speaker IDs
+      ],
+      "default": "3"
     },
     {
       "type": "select",
@@ -43,20 +49,20 @@
 
 <div>
   <h2>WellSaid Labs TTS Integration</h2>
-  <p>Enter your API key and the text you want to convert to speech.</p>
+  <p>Enter the text you want to convert to speech and select a speaker.</p>
   <button id="play-voiceover">Play Voiceover</button>
 </div>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const apiKey = "{{ section.settings.api_key }}";
     const textToConvert = "{{ section.settings.text_to_convert }}";
+    const speakerId = "{{ section.settings.speaker_id }}";
     const playPosition = "{{ section.settings.play_position }}";
     const elementId = "{{ section.settings.element_id }}";
 
-    function playVoiceover(textToConvert) {
+    function playVoiceover(textToConvert, speakerId) {
       const proxyUrl = '/apps/sa/'; // Update with your actual proxy URL
-      const payload = { text: textToConvert, shop: '{{ request.host }}', speaker_id: '3'};
+      const payload = { text: textToConvert, shop: '{{ shop.domain }}', speaker_id: speakerId };
 
       fetch(proxyUrl, {
         method: 'POST',
@@ -67,6 +73,12 @@
       })
       .then(response => response.json())
       .then(data => {
+        console.log(data)
+        if (data.status === 'error') {
+          console.error('Error:', data.message);
+          alert('Error: ' + data.message);
+          return;
+        }
         const audio = new Audio(data.audioUrl);
         audio.play();
       })
@@ -76,11 +88,11 @@
     const playButton = document.getElementById('play-voiceover');
 
     if (playPosition === 'top') {
-      playButton.addEventListener('click', () => playVoiceover(textToConvert));
+      playButton.addEventListener('click', () => playVoiceover(textToConvert, speakerId));
     } else if (playPosition === 'bottom') {
       window.addEventListener('scroll', () => {
         if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-          playVoiceover(textToConvert);
+          playVoiceover(textToConvert, speakerId);
         }
       });
     } else if (playPosition === 'element_id' && elementId) {
@@ -89,7 +101,7 @@
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
-              playVoiceover(textToConvert);
+              playVoiceover(textToConvert, speakerId);
             }
           });
         });
