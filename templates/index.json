@@ -13,7 +13,7 @@
       "type": "sa-tts-wellsaid",
       "settings": {
         "text_to_convert": "This is soooo sick!",
-        "speaker_id": "2",
+        "speaker_id": "3",
         "play_position": "top",
         "element_id": ""
       }
