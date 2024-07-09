@@ -229,7 +229,9 @@
     if (playPosition === 'top') {
       if (window.scrollY === 0) {
         console.log('Scroll Position Top:', window.scrollY);
-        playVoiceover(textToConvert, speakerId);
+        setTimeout(() => {
+          playVoiceover(textToConvert, speakerId);
+        }, 1000);
       }
     } else if (playPosition === 'bottom') {
       window.addEventListener('scroll', () => {
