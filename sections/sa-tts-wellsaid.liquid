@@ -224,10 +224,8 @@
     });
 
     function handleScrollTop() {
-      if (!soundPlayed) {
-        playVoiceover(textToConvert, speakerId);
-        window.removeEventListener('scroll', handleScrollTop);
-      }
+      playVoiceover(textToConvert, speakerId);
+      window.removeEventListener('scroll', handleScrollTop);
     }
     
 
