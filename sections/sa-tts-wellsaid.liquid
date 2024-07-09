@@ -225,7 +225,6 @@
 
     function handleScrollTop() {
       if (!soundPlayed) {
-        soundPlayed = true;
         playVoiceover(textToConvert, speakerId);
         window.removeEventListener('scroll', handleScrollTop);
       }
