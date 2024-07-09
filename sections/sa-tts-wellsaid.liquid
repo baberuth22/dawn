@@ -223,6 +223,15 @@
         playVoiceover(textToConvert, speakerId);
     });
 
+    function handleScrollTop() {
+      if (!soundPlayed) {
+        soundPlayed = true;
+        playVoiceover(textToConvert, speakerId);
+        window.removeEventListener('scroll', handleScrollTop);
+      }
+    }
+    
+
     console.log('Scroll Position:', window.scrollY)
     console.log('Play Position:', playPosition)
 
@@ -230,7 +239,7 @@
       if (window.scrollY === 0) {
         console.log('Scroll Position Top:', window.scrollY);
         setTimeout(() => {
-          playVoiceover(textToConvert, speakerId);
+          window.addEventListener('scroll', handleScrollTop);
         }, 1000);
       }
     } else if (playPosition === 'bottom') {
