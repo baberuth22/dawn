@@ -223,6 +223,9 @@
         playVoiceover(textToConvert, speakerId);
     });
 
+    console.log('Scroll Position:', window.scrollY)
+    console.log('Play Position:', playPosition)
+
     if (playPosition === 'top') {
       if (window.scrollY === 0) {
         console.log('Scroll Position Top:', window.scrollY);
