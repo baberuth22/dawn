@@ -17,9 +17,56 @@
         "play_position": "top",
         "element_id": ""
       }
+    },
+    "image_banner_H6wJ6U": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_XhgaNx": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image banner",
+            "heading_size": "medium"
+          }
+        },
+        "text_xqWcGT": {
+          "type": "text",
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template."
+          }
+        },
+        "buttons_W6eC6N": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_XhgaNx",
+        "text_xqWcGT",
+        "buttons_W6eC6N"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/bb9_865.jpg",
+        "image_2": "shopify:\/\/shop_images\/bb20_719.jpg",
+        "image_height": "medium",
+        "adapt_height_first_image": false,
+        "desktop_text_box_position": "center",
+        "show_text_box": true,
+        "image_overlay_opacity": 0,
+        "color_scheme": "background-1",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
     }
   },
   "order": [
-    "sa_tts_wellsaid_CTDjkg"
+    "sa_tts_wellsaid_CTDjkg",
+    "image_banner_H6wJ6U"
   ]
 }
