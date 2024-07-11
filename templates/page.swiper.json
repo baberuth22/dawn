@@ -111,7 +111,11 @@
       "settings": {
         "section_title": "My Swiper Slider",
         "swiper_width": "60%",
-        "swiper_height": "600px"
+        "swiper_height": "600px",
+        "overlay_opacity": 0.1,
+        "font_size": "22px",
+        "font_family": "Arial, sans-serif",
+        "font_color": "#3edc6b"
       }
     }
   },
