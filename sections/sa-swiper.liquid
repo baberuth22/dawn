@@ -19,6 +19,59 @@
       "id": "swiper_height",
       "label": "Swiper Height (px)",
       "default": "400px"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay Opacity",
+      "default": 0.5,
+      "min": 0,
+      "max": 1,
+      "step": 0.1
+    },
+    {
+      "type": "text",
+      "id": "font_size",
+      "label": "Font Size (px)",
+      "default": "16px"
+    },
+    {
+      "type": "select",
+      "id": "font_family",
+      "label": "Font Family",
+      "options": [
+        {
+          "value": "Arial, sans-serif",
+          "label": "Arial"
+        },
+        {
+          "value": "'Courier New', Courier, monospace",
+          "label": "Courier New"
+        },
+        {
+          "value": "'Georgia', serif",
+          "label": "Georgia"
+        },
+        {
+          "value": "'Times New Roman', Times, serif",
+          "label": "Times New Roman"
+        },
+        {
+          "value": "'Trebuchet MS', Helvetica, sans-serif",
+          "label": "Trebuchet MS"
+        },
+        {
+          "value": "'Verdana', Geneva, sans-serif",
+          "label": "Verdana"
+        }
+      ],
+      "default": "Arial, sans-serif"
+    },
+    {
+      "type": "color",
+      "id": "font_color",
+      "label": "Font Color",
+      "default": "#ffffff"
     }
   ],
   "blocks": [
@@ -56,7 +109,12 @@
       {% for block in section.blocks %}
       <div class="swiper-slide">
         <img src="{{ block.settings.slide_image | img_url: 'master' }}" alt="Slide Image">
-        <div class="slide-overlay">{{ block.settings.slide_text | raw }}</div>
+        <div class="slide-overlay" style="
+          background: rgba(0, 0, 0, {{ section.settings.overlay_opacity }});
+          font-size: {{ section.settings.font_size }};
+          font-family: {{ section.settings.font_family }};
+          color: {{ section.settings.font_color }};
+        ">{{ block.settings.slide_text | raw }}</div>
       </div>
       {% endfor %}
     </div>
@@ -94,9 +152,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
   text-align: center;
-  background: rgba(0, 0, 0, 0.5);
   padding: 10px;
   width: 80%;
   max-width: 600px;
