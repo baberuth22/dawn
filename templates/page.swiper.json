@@ -110,7 +110,7 @@
       ],
       "settings": {
         "section_title": "My Swiper Slider",
-        "swiper_width": "100%",
+        "swiper_width": "60%",
         "swiper_height": "600px"
       }
     }
