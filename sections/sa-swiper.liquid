@@ -7,24 +7,25 @@
       "id": "section_title",
       "label": "Section Title",
       "default": "My Swiper Slider"
-    },
+    }
+  ],
+  "blocks": [
     {
-      "type": "textarea",
-      "id": "slide1_content",
-      "label": "Slide 1 Content",
-      "default": "<h3>Slide 1</h3><p>This is the first slide content.</p>"
-    },
-    {
-      "type": "textarea",
-      "id": "slide2_content",
-      "label": "Slide 2 Content",
-      "default": "<h3>Slide 2</h3><p>This is the second slide content.</p>"
-    },
-    {
-      "type": "textarea",
-      "id": "slide3_content",
-      "label": "Slide 3 Content",
-      "default": "<h3>Slide 3</h3><p>This is the third slide content.</p>"
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "slide_image",
+          "label": "Slide Image"
+        },
+        {
+          "type": "textarea",
+          "id": "slide_text",
+          "label": "Slide Text Overlay",
+          "default": "<h3>Slide Title</h3><p>This is the slide content.</p>"
+        }
+      ]
     }
   ],
   "presets": [
@@ -40,9 +41,12 @@
   <h2>{{ section.settings.section_title }}</h2>
   <div class="swiper-container">
     <div class="swiper-wrapper">
-      <div class="swiper-slide">{{ section.settings.slide1_content | escape }}</div>
-      <div class="swiper-slide">{{ section.settings.slide2_content | escape }}</div>
-      <div class="swiper-slide">{{ section.settings.slide3_content | escape }}</div>
+      {% for block in section.blocks %}
+      <div class="swiper-slide">
+        <img src="{{ block.settings.slide_image | img_url: 'master' }}" alt="Slide Image">
+        <div class="slide-overlay">{{ block.settings.slide_text | escape }}</div>
+      </div>
+      {% endfor %}
     </div>
     <!-- Add Pagination -->
     <div class="swiper-pagination"></div>
@@ -60,6 +64,23 @@
 .swiper-container {
   width: 100%;
   height: 100%;
+}
+.swiper-slide {
+  position: relative;
+}
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+}
+.slide-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
 }
 </style>
 
