@@ -57,7 +57,7 @@
     "sa_tts_wellsaid_JMAde3": {
       "type": "sa-tts-wellsaid",
       "settings": {
-        "text_to_convert": "Here is an example of me reading the signup instructions: \n\nInstructions to Sign Up and Obtain a WellSaid API Key\nVisit the WellSaid Labs Website:\nGo to WellSaid Labs.\nSign Up for an Account:\nClick on the \"Sign Up\" or \"Get Started\" button.\nFill out the registration form with your details and submit it.\nVerify your email address if required.\nNavigate to the API Section:\nOnce logged in, navigate to the developer or API section of your account dashboard.\nGenerate an API Key:\nFollow the instructions to generate a new API key.\nCopy the generated API key.",
+        "text_to_convert": "Here is an example of me reading the signup instructions.\n\nInstructions to Sign Up and Obtain a WellSaid API Key\nVisit the WellSaid Labs Website:\nGo to WellSaid Labs.\nSign Up for an Account:\nClick on the \"Sign Up\" or \"Get Started\" button.\nFill out the registration form with your details and submit it.\nVerify your email address if required.\nNavigate to the API Section:\nOnce logged in, navigate to the developer or API section of your account dashboard.\nGenerate an API Key:\nFollow the instructions to generate a new API key.\nCopy the generated API key.",
         "speaker_id": "15",
         "play_position": "element_id",
         "element_id": "myreader"
