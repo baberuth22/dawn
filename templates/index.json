@@ -12,8 +12,8 @@
     "sa_tts_wellsaid_CTDjkg": {
       "type": "sa-tts-wellsaid",
       "settings": {
-        "text_to_convert": "This is so sick!",
-        "speaker_id": "22",
+        "text_to_convert": "This is so what voiceover can do for your site!",
+        "speaker_id": "114",
         "play_position": "top",
         "element_id": ""
       }
@@ -63,10 +63,20 @@
         "stack_images_on_mobile": true,
         "show_text_below": true
       }
+    },
+    "sa_tts_wellsaid_gBQHPA": {
+      "type": "sa-tts-wellsaid",
+      "settings": {
+        "text_to_convert": "Enter the text you want to convert to speech here.",
+        "speaker_id": "3",
+        "play_position": "top",
+        "element_id": ""
+      }
     }
   },
   "order": [
     "sa_tts_wellsaid_CTDjkg",
-    "image_banner_H6wJ6U"
+    "image_banner_H6wJ6U",
+    "sa_tts_wellsaid_gBQHPA"
   ]
 }
