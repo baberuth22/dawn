@@ -1,0 +1,72 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "collage_4CJ9CQ": {
+      "type": "collage",
+      "blocks": {
+        "video_aX3B7P": {
+          "type": "video",
+          "settings": {
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "description": "Describe the video",
+            "image_padding": false
+          }
+        },
+        "product_CFqH7h": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "second_image": false,
+            "image_padding": false,
+            "secondary_background": false
+          }
+        },
+        "collection_Nkj4wD": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image_padding": false,
+            "color_scheme": "background-1"
+          }
+        }
+      },
+      "block_order": [
+        "video_aX3B7P",
+        "product_CFqH7h",
+        "collection_Nkj4wD"
+      ],
+      "settings": {
+        "heading": "Multimedia collage",
+        "desktop_layout": "left",
+        "mobile_layout": "collage"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+      }
+    },
+    "sa_tts_wellsaid_JMAde3": {
+      "type": "sa-tts-wellsaid",
+      "settings": {
+        "text_to_convert": "Create a New Record for the API Key:\nClick on the button to add a new record.\nIn the label field, enter wellsaid.\nIn the value field, paste the API key you copied from the WellSaid Labs dashboard.\nSave the record.",
+        "speaker_id": "15",
+        "play_position": "element_id",
+        "element_id": "myreader"
+      }
+    }
+  },
+  "order": [
+    "collage_4CJ9CQ",
+    "main",
+    "sa_tts_wellsaid_JMAde3"
+  ]
+}
