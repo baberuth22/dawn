@@ -110,12 +110,15 @@
       ],
       "settings": {
         "section_title": "My Swiper Slider",
-        "swiper_width": "60%",
+        "swiper_width": "100%",
         "swiper_height": "600px",
         "overlay_opacity": 0.1,
         "font_size": "22px",
         "font_family": "Arial, sans-serif",
-        "font_color": "#3edc6b"
+        "font_color": "#3edc6b",
+        "slides_per_view": 1,
+        "space_between": 10,
+        "loop": true
       }
     }
   },
