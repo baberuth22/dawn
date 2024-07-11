@@ -190,7 +190,7 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const textToConvert = "{{ section.settings.text_to_convert | escape | replace: '\n', '\\n' | replace: '\r', '\\r' | replace: '"', '\\"'  }}";
+    const textToConvert = `{{ section.settings.text_to_convert | escape | replace: '\n', '\\n' | replace: '\r', '\\r' | replace: '"', '\\"'  }}`;
     const speakerId = "{{ section.settings.speaker_id }}";
     const playPosition = "{{ section.settings.play_position }}";
     const elementId = "{{ section.settings.element_id }}";
