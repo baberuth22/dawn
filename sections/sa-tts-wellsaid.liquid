@@ -196,8 +196,8 @@
     const elementId = "{{ section.settings.element_id }}";
 
     function playVoiceover(textToConvert, speakerId) {
-      const proxyUrl = '/apps/sa/'; // Update with your actual proxy URL
-      const payload = { text: textToConvert, shop: '{{ shop.domain }}', speaker_id: speakerId, api_key_label: 'wellsaid'};
+      const proxyUrl = '/apps/sa/wellsaid/'; // Update with your actual proxy URL
+      const payload = { text: textToConvert, shop: '{{ shop.domain }}', speaker_id: speakerId};
 
       fetch(proxyUrl, {
         method: 'POST',
