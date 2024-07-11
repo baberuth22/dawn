@@ -57,19 +57,61 @@
     "sa_swiper_ER4a9N": {
       "type": "sa-swiper",
       "blocks": {
+        "slide_fVzhdF": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/model-in-neutral-colors-by-window.jpg",
+            "slide_text": "<h3>Slide Title<\/h3><p>This is the slide content.<\/p>"
+          }
+        },
+        "slide_U9UE7m": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/woman-poses-in-dark-room.jpg",
+            "slide_text": "<h3>Slide Title<\/h3><p>This is the slide content.<\/p>"
+          }
+        },
+        "slide_Pw7Qfi": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/welcome-to-my-business.jpg",
+            "slide_text": "<h3>Slide Title<\/h3><p>This is the slide content.<\/p>"
+          }
+        },
+        "slide_tNYdhC": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/bb3_590.jpg",
+            "slide_text": "<h3>Slide Title<\/h3><p>This is the slide content.<\/p>"
+          }
+        },
         "slide_BWTbUR": {
           "type": "slide",
           "settings": {
             "slide_image": "shopify:\/\/shop_images\/bb3_590.jpg",
             "slide_text": "<h3>Slide Title<\/h3><p>This is the slide content.<\/p>"
           }
+        },
+        "slide_DA4YB4": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/bb9_865.jpg",
+            "slide_text": "<h3>Slide Title<\/h3><p>This is the slide content.<\/p>"
+          }
         }
       },
       "block_order": [
-        "slide_BWTbUR"
+        "slide_fVzhdF",
+        "slide_U9UE7m",
+        "slide_Pw7Qfi",
+        "slide_tNYdhC",
+        "slide_BWTbUR",
+        "slide_DA4YB4"
       ],
       "settings": {
-        "section_title": "My Swiper Slider"
+        "section_title": "My Swiper Slider",
+        "swiper_width": "100%",
+        "swiper_height": "600px"
       }
     }
   },
