@@ -65,12 +65,12 @@
         "icon_image": "shopify:\/\/shop_images\/2021-fantasy-football_375.jpg",
         "icon_width": "45",
         "icon_height": "30",
-        "qr_width": "200",
-        "qr_height": "200",
+        "qr_width": "600",
+        "qr_height": "600",
         "background_color": "#fff",
-        "margin_top": "2",
+        "margin_top": "6",
         "margin_right": "auto",
-        "margin_bottom": "2",
+        "margin_bottom": "6",
         "margin_left": "auto"
       }
     }
