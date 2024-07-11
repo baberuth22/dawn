@@ -1,0 +1,86 @@
+{% schema %}
+{
+  "name": "Swiper Slider Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "My Swiper Slider"
+    },
+    {
+      "type": "textarea",
+      "id": "slide1_content",
+      "label": "Slide 1 Content",
+      "default": "<h3>Slide 1</h3><p>This is the first slide content.</p>"
+    },
+    {
+      "type": "textarea",
+      "id": "slide2_content",
+      "label": "Slide 2 Content",
+      "default": "<h3>Slide 2</h3><p>This is the second slide content.</p>"
+    },
+    {
+      "type": "textarea",
+      "id": "slide3_content",
+      "label": "Slide 3 Content",
+      "default": "<h3>Slide 3</h3><p>This is the third slide content.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Swiper Slider Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="swiper-slider-section">
+  <h2>{{ section.settings.section_title }}</h2>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">{{ section.settings.slide1_content | escape }}</div>
+      <div class="swiper-slide">{{ section.settings.slide2_content | escape }}</div>
+      <div class="swiper-slide">{{ section.settings.slide3_content | escape }}</div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Navigation -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</div>
+
+<style>
+.swiper-slider-section {
+  text-align: center;
+  padding: 20px;
+}
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+</style>
+
+<!-- Include SwiperJS CDN -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+});
+</script>
