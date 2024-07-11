@@ -30,7 +30,7 @@
       "type": "text",
       "id": "initial_placeholder",
       "label": "Initial Placeholder Message",
-      "default": "I am doing very well!"
+      "default": "Type your message here..."
     },
     {
       "type": "text",
@@ -57,7 +57,11 @@
 <div class="deep-chat-section">
   <h2>{{ section.settings.section_title }}</h2>
   <deep-chat
-    directConnection='{"custom":{"url": "https://app.sectionsanywhere.com/store/proxy/deepchat"}}'
+    request='{
+      "url": "https://app.sectionsanywhere.com/store/proxy/deepchat",
+      "method": "POST",
+      "headers": {"Content-Type": "application/json"}
+    }'
     id="chat-element"
     textInput='{"placeholder":{"text": "{{ section.settings.initial_placeholder }}"}}'
     style="width: {{ section.settings.chat_box_width }}px; height: {{ section.settings.chat_box_height }}px;"
