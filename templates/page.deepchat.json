@@ -54,19 +54,22 @@
       "settings": {
       }
     },
-    "sa_tts_wellsaid_JMAde3": {
-      "type": "sa-tts-wellsaid",
+    "sa_deepchat_RdGMNT": {
+      "type": "sa-deepchat",
       "settings": {
-        "text_to_convert": "Create a New Record for the API Key:\nClick on the button to add a new record.\nIn the label field, enter wellsaid.\nIn the value field, paste the API key you copied from the WellSaid Labs dashboard.\nSave the record.",
-        "speaker_id": "15",
-        "play_position": "element_id",
-        "element_id": "myreader"
+        "section_title": "Deep Chat",
+        "intro_message": "JavaScript demo for the Deep Chat component.",
+        "initial_user_message": "Hey, how are you today?",
+        "initial_ai_message": "I am doing very well!",
+        "initial_placeholder": "I am doing very well!",
+        "chat_box_width": "600",
+        "chat_box_height": "400"
       }
     }
   },
   "order": [
     "collage_4CJ9CQ",
     "main",
-    "sa_tts_wellsaid_JMAde3"
+    "sa_deepchat_RdGMNT"
   ]
 }
