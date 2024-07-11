@@ -34,12 +34,6 @@
     },
     {
       "type": "text",
-      "id": "api_key",
-      "label": "Open AI API Key",
-      "default": "your-open-ai-api-keyhere"
-    },
-    {
-      "type": "text",
       "id": "chat_box_width",
       "label": "Chat Box Width (px)",
       "default": "600"
@@ -63,7 +57,7 @@
 <div class="deep-chat-section">
   <h2>{{ section.settings.section_title }}</h2>
   <deep-chat
-    directConnection='{"openAI":{"key": "{{ section.settings.api_key }}"}}'
+    directConnection='{"custom":{"url": "https://your-openai-proxy-url-here"}}'
     id="chat-element"
     demo="true"
     textInput='{"placeholder":{"text": "{{ section.settings.initial_placeholder }}"}}'
@@ -84,17 +78,17 @@
   document.addEventListener('DOMContentLoaded', () => {
     const elementRef = document.getElementById("chat-element");
 
-    // Setting value via a property
-    elementRef.initialMessages = [
-      { role: "user", text: "{{ section.settings.initial_user_message }}" },
-      { role: "ai", text: "{{ section.settings.initial_ai_message }}" },
+    // Ensure initial messages are properly set
+    const initialMessages = [
+      { role: "user", text: "{{ section.settings.initial_user_message | escape }}" },
+      { role: "ai", text: "{{ section.settings.initial_ai_message | escape }}" }
     ];
+    elementRef.initialMessages = initialMessages;
 
-    elementRef.setAttribute(
-      "introMessage",
-      JSON.stringify({
-        text: "{{ section.settings.intro_message }}",
-      })
-    );
+    // Ensure the intro message is properly set
+    const introMessage = {
+      text: "{{ section.settings.intro_message | escape }}"
+    };
+    elementRef.setAttribute("introMessage", JSON.stringify(introMessage));
   });
 </script>
