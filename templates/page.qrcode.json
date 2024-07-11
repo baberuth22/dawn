@@ -54,19 +54,30 @@
       "settings": {
       }
     },
-    "sa_tts_wellsaid_JMAde3": {
-      "type": "sa-tts-wellsaid",
+    "sa_qr_code_beUKpw": {
+      "type": "sa-qr-code",
       "settings": {
-        "text_to_convert": "Create a New Record for the API Key:\nClick on the button to add a new record.\nIn the label field, enter wellsaid.\nIn the value field, paste the API key you copied from the WellSaid Labs dashboard.\nSave the record.",
-        "speaker_id": "15",
-        "play_position": "element_id",
-        "element_id": "myreader"
+        "qr_contents": "https:\/\/bitjson.com\/",
+        "module_color": "#1c7d43",
+        "position_ring_color": "#13532d",
+        "position_center_color": "#70c559",
+        "mask_x_to_y_ratio": "1.2",
+        "icon_image": "shopify:\/\/shop_images\/2021-fantasy-football_375.jpg",
+        "icon_width": "45",
+        "icon_height": "30",
+        "qr_width": "200",
+        "qr_height": "200",
+        "background_color": "#fff",
+        "margin_top": "2",
+        "margin_right": "auto",
+        "margin_bottom": "2",
+        "margin_left": "auto"
       }
     }
   },
   "order": [
     "collage_4CJ9CQ",
     "main",
-    "sa_tts_wellsaid_JMAde3"
+    "sa_qr_code_beUKpw"
   ]
 }
