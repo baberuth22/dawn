@@ -65,11 +65,21 @@
         "chat_box_width": "1000",
         "chat_box_height": "650"
       }
+    },
+    "sa_swiper_qbzKQr": {
+      "type": "sa-swiper",
+      "settings": {
+        "section_title": "My Swiper Slider",
+        "slide1_content": "<h3>Slide 1<\/h3><p>This is the first slide content.<\/p>",
+        "slide2_content": "<h3>Slide 2<\/h3><p>This is the second slide content.<\/p>",
+        "slide3_content": "<h3>Slide 3<\/h3><p>This is the third slide content.<\/p>"
+      }
     }
   },
   "order": [
     "collage_4CJ9CQ",
     "main",
-    "sa_deepchat_RdGMNT"
+    "sa_deepchat_RdGMNT",
+    "sa_swiper_qbzKQr"
   ]
 }
