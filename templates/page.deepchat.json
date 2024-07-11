@@ -62,8 +62,8 @@
         "initial_user_message": "Hey, how are you today?",
         "initial_ai_message": "I am doing very well!",
         "initial_placeholder": "I am doing very well!",
-        "chat_box_width": "600",
-        "chat_box_height": "400"
+        "chat_box_width": "1000",
+        "chat_box_height": "650"
       }
     }
   },
