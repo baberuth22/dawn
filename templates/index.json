@@ -106,7 +106,7 @@
     "sa_tts_wellsaid_CTDjkg": {
       "type": "sa-tts-wellsaid",
       "settings": {
-        "text_to_convert": "This is what voiceover can do for your site!",
+        "text_to_convert": "Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.",
         "speaker_id": "155",
         "play_position": "element_id",
         "element_id": "play-me"
