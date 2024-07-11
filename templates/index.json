@@ -13,7 +13,7 @@
       "type": "sa-tts-wellsaid",
       "settings": {
         "text_to_convert": "This is what voiceover can do for your site!",
-        "speaker_id": "114",
+        "speaker_id": "155",
         "play_position": "top",
         "element_id": ""
       }
