@@ -9,15 +9,6 @@
 */
 {
   "sections": {
-    "sa_tts_wellsaid_CTDjkg": {
-      "type": "sa-tts-wellsaid",
-      "settings": {
-        "text_to_convert": "This is what voiceover can do for your site!",
-        "speaker_id": "155",
-        "play_position": "element_id",
-        "element_id": "play-me"
-      }
-    },
     "image_banner_H6wJ6U": {
       "type": "image-banner",
       "blocks": {
@@ -63,10 +54,69 @@
         "stack_images_on_mobile": true,
         "show_text_below": true
       }
+    },
+    "rich_text_8LR6Yq": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_k7bJPV": {
+          "type": "heading",
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": "h1"
+          }
+        },
+        "text_j6BfY7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+          }
+        },
+        "button_FxYc46": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_k7bJPV",
+        "text_j6BfY7",
+        "button_FxYc46"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true
+      }
+    },
+    "sa_deepchat_UbzTrw": {
+      "type": "sa-deepchat",
+      "settings": {
+        "section_title": "Deep Chat",
+        "intro_message": "JavaScript demo for the Deep Chat component.",
+        "initial_user_message": "Hey, how are you today?",
+        "initial_ai_message": "I am doing very well!",
+        "initial_placeholder": "I am doing very well!",
+        "api_key": "your-open-ai-api-keyhere",
+        "chat_box_width": "600",
+        "chat_box_height": "400"
+      }
+    },
+    "sa_tts_wellsaid_CTDjkg": {
+      "type": "sa-tts-wellsaid",
+      "settings": {
+        "text_to_convert": "This is what voiceover can do for your site!",
+        "speaker_id": "155",
+        "play_position": "element_id",
+        "element_id": "play-me"
+      }
     }
   },
   "order": [
-    "sa_tts_wellsaid_CTDjkg",
-    "image_banner_H6wJ6U"
+    "image_banner_H6wJ6U",
+    "rich_text_8LR6Yq",
+    "sa_deepchat_UbzTrw",
+    "sa_tts_wellsaid_CTDjkg"
   ]
 }
