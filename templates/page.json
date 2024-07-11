@@ -9,11 +9,6 @@
 */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
-      "settings": {
-      }
-    },
     "collage_4CJ9CQ": {
       "type": "collage",
       "blocks": {
@@ -54,6 +49,11 @@
         "mobile_layout": "collage"
       }
     },
+    "main": {
+      "type": "main-page",
+      "settings": {
+      }
+    },
     "sa_tts_wellsaid_JMAde3": {
       "type": "sa-tts-wellsaid",
       "settings": {
@@ -65,8 +65,8 @@
     }
   },
   "order": [
-    "main",
     "collage_4CJ9CQ",
+    "main",
     "sa_tts_wellsaid_JMAde3"
   ]
 }
