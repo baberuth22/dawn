@@ -54,19 +54,28 @@
       "settings": {
       }
     },
-    "sa_swiper_RVdjFp": {
+    "sa_swiper_ER4a9N": {
       "type": "sa-swiper",
+      "blocks": {
+        "slide_BWTbUR": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/bb3_590.jpg",
+            "slide_text": "<h3>Slide Title<\/h3><p>This is the slide content.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "slide_BWTbUR"
+      ],
       "settings": {
-        "section_title": "My Swiper Slider is here",
-        "slide1_content": "<h3>Slide 1<\/h3><p>This is the first slide content.<\/p>",
-        "slide2_content": "<h3>Slide 2<\/h3><p>This is the second slide content.<\/p>",
-        "slide3_content": "<h3>Slide 3<\/h3><p>This is the third slide content.<\/p>"
+        "section_title": "My Swiper Slider"
       }
     }
   },
   "order": [
     "collage_4CJ9CQ",
     "main",
-    "sa_swiper_RVdjFp"
+    "sa_swiper_ER4a9N"
   ]
 }
