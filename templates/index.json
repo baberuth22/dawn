@@ -14,8 +14,8 @@
       "settings": {
         "text_to_convert": "This is what voiceover can do for your site!",
         "speaker_id": "155",
-        "play_position": "top",
-        "element_id": ""
+        "play_position": "element_id",
+        "element_id": "play-me"
       }
     },
     "image_banner_H6wJ6U": {
