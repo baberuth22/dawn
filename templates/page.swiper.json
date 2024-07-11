@@ -96,7 +96,7 @@
           "type": "slide",
           "settings": {
             "slide_image": "shopify:\/\/shop_images\/bb9_865.jpg",
-            "slide_text": "<p>This is the slide content.<\/p>"
+            "slide_text": "<p>This is the slide content here.<\/p>"
           }
         }
       },
