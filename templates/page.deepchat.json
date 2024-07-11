@@ -58,7 +58,7 @@
       "type": "sa-deepchat",
       "settings": {
         "section_title": "Deep Chat",
-        "intro_message": "JavaScript demo for the Deep Chat component.",
+        "intro_message": "Welcome to our store.",
         "initial_user_message": "Hey, how are you today?",
         "initial_ai_message": "I am doing very well!",
         "initial_placeholder": "I am doing very well!",
