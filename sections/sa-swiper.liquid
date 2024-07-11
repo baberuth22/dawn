@@ -108,13 +108,15 @@
     <div class="swiper-wrapper">
       {% for block in section.blocks %}
       <div class="swiper-slide">
-        <img src="{{ block.settings.slide_image | img_url: 'master' }}" alt="Slide Image">
-        <div class="slide-overlay" style="
-          background: rgba(0, 0, 0, {{ section.settings.overlay_opacity }});
-          font-size: {{ section.settings.font_size }};
-          font-family: {{ section.settings.font_family }};
-          color: {{ section.settings.font_color }};
-        ">{{ block.settings.slide_text | raw }}</div>
+        <div class="image-wrapper" style="width: 100%; height: 100%;">
+          <img src="{{ block.settings.slide_image | img_url: 'master' }}" alt="Slide Image" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+          <div class="slide-overlay" style="
+            background: rgba(0, 0, 0, {{ section.settings.overlay_opacity }});
+            font-size: {{ section.settings.font_size }};
+            font-family: {{ section.settings.font_family }};
+            color: {{ section.settings.font_color }};
+          ">{{ block.settings.slide_text | raw }}</div>
+        </div>
       </div>
       {% endfor %}
     </div>
@@ -142,10 +144,19 @@
   align-items: center;
   overflow: hidden;
 }
-.swiper-slide img {
+.image-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.image-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 .slide-overlay {
   position: absolute;
