@@ -96,6 +96,12 @@
       "id": "loop",
       "label": "Loop Slides",
       "default": true
+    },
+    {
+      "type": "text",
+      "id": "thumbnail_height",
+      "label": "Thumbnail Height (px)",
+      "default": "100px"
     }
   ],
   "blocks": [
@@ -174,12 +180,12 @@
     <div class="swiper-button-prev swiper-button-prev-{{ section.id }}"></div>
   </div>
   <!-- Add Thumbnail Pagination -->
-  <div class="swiper-container mySwiper" id="swiper-thumbs-{{ section.id }}" style="width: {{ section.settings.swiper_width }}; height: 20%;">
+  <div class="swiper-container mySwiper" id="swiper-thumbs-{{ section.id }}" style="width: {{ section.settings.swiper_width }}; height: {{ section.settings.thumbnail_height }};">
     <div class="swiper-wrapper">
       {% for block in section.blocks %}
-      <div class="swiper-slide">
+      <div class="swiper-slide" style="height: {{ section.settings.thumbnail_height }};">
         <div class="image-wrapper" style="width: 100%; height: 100%;">
-          {{ block.settings.slide_image | image_url: width: 150 | image_tag }}
+          {{ block.settings.slide_image | image_url: width: 150, height: section.settings.thumbnail_height | image_tag }}
         </div>
       </div>
       {% endfor %}
@@ -272,13 +278,11 @@
   width: 100%;
 }
 .mySwiper {
-  height: 20%;
   box-sizing: border-box;
   padding: 10px 0;
 }
 .mySwiper .swiper-slide {
   width: 25%;
-  height: 100%;
   opacity: 0.4;
 }
 .mySwiper .swiper-slide-thumb-active {
