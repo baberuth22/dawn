@@ -117,7 +117,9 @@
         "hide_on_mobile": false,
         "border_thickness": 1,
         "arrow_thickness": 1,
-        "custom_svg": "custom1",
+        "initial_opacity": 50,
+        "increase_opacity": false,
+        "custom_svg": "default",
         "custom_svg_code": "<svg><\/svg>",
         "scroll_behavior": "smooth"
       }
