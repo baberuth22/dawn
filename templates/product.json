@@ -97,9 +97,9 @@
     "sa_element_animations_W4hz7P": {
       "type": "sa-element-animations",
       "settings": {
-        "shake_type": "color-change",
+        "shake_type": "fade",
         "query_selector": ".product__title",
-        "animation_delay": 5
+        "animation_delay": 1
       }
     }
   },
