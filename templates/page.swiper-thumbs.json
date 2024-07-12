@@ -61,7 +61,7 @@
           "type": "slide",
           "settings": {
             "slide_image": "shopify:\/\/shop_images\/person-stands-on-rocks-poking-out-of-the-ocean-shoreline.jpg",
-            "slide_text": "<h3>Slide Title<\/h3><p>This is the slide content.<\/p>",
+            "slide_text": "",
             "overlay_position": "middle"
           }
         },
