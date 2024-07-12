@@ -24,11 +24,6 @@
     }
   </style>
   
-  <span class="debug">
-    section.settings.initial_opacity:  {{ section.settings.initial_opacity }}
-    section.settings.initial_opacity div 100:  {{ section.settings.initial_opacity | divided_by: 100.0 }}
-    </span>
-  
   <!-- Button Element -->
   <button
     class="
@@ -52,7 +47,7 @@
       --border-color: {{ section.settings.border_color }};
       --border-thickness: {{ section.settings.border_thickness }}px;
       --bg-color: {{ section.settings.bg_color }};
-      opacity: {{ section.settings.initial_opacity }};
+      opacity: {{ section.settings.initial_opacity | divided_by: 100.0 }};
       width: {{ section.settings.button_size }}px;
       height: {{ section.settings.button_size }}px;
     "
@@ -117,11 +112,11 @@
             var scrollPercent = window.scrollY / scrollHeight;
             backToTopArrow.style.opacity = Math.min(scrollPercent * 2, 1).toString();
           } else {
-            backToTopArrow.style.opacity = {{ section.settings.initial_opacity | divided_by: 100 }};
+            backToTopArrow.style.opacity = {{ section.settings.initial_opacity | divided_by: 100.0 }};
           }
         } else {
           backToTopArrow.style.display = 'none';
-          backToTopArrow.style.opacity = {{ section.settings.initial_opacity | divided_by: 100 }};
+          backToTopArrow.style.opacity = {{ section.settings.initial_opacity | divided_by: 100.0 }};
         }
       });
     });
