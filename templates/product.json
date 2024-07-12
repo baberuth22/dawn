@@ -105,7 +105,7 @@
     "sa_back_to_top_ULHgXn": {
       "type": "sa-back-to-top",
       "settings": {
-        "hide_on_mobile": true,
+        "hide_on_mobile": false,
         "show_when_precent_of_page": 81,
         "pos": "left",
         "bg_color": "#f4f2f2",
