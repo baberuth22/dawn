@@ -160,28 +160,32 @@
           "type": "slide",
           "settings": {
             "slide_image": "shopify:\/\/shop_images\/person-stands-on-rocks-poking-out-of-the-ocean-shoreline.jpg",
-            "slide_title": "Slide Title"
+            "slide_text": "<h3>Slide Title<\/h3><p>This is the slide content.<\/p>",
+            "overlay_position": "middle"
           }
         },
         "slide_bQQcnR": {
           "type": "slide",
           "settings": {
             "slide_image": "shopify:\/\/shop_images\/two-people-surfing-in-blue-choppy-water.jpg",
-            "slide_title": "Slide Title"
+            "slide_text": "<h3>Slide Title<\/h3><p>This is the slide content.<\/p>",
+            "overlay_position": "middle"
           }
         },
         "slide_yzJLce": {
           "type": "slide",
           "settings": {
             "slide_image": "shopify:\/\/shop_images\/green-and-white-marbled-coloring.jpg",
-            "slide_title": "Slide Title"
+            "slide_text": "<h3>Slide Title<\/h3><p>This is the slide content.<\/p>",
+            "overlay_position": "middle"
           }
         },
         "slide_bLriTg": {
           "type": "slide",
           "settings": {
             "slide_image": "shopify:\/\/shop_images\/person-carries-a-wooden-box-full-of-dough-balls.jpg",
-            "slide_title": "Slide Title"
+            "slide_text": "<h3>Slide Title<\/h3><p>This is the slide content.<\/p>",
+            "overlay_position": "middle"
           }
         }
       },
@@ -192,7 +196,17 @@
         "slide_bLriTg"
       ],
       "settings": {
-        "title": "Shaders Slider"
+        "section_title": "My Swiper Slider",
+        "swiper_width": "100%",
+        "swiper_height": "400px",
+        "overlay_opacity": 0.5,
+        "font_size": "16px",
+        "font_family": "Arial, sans-serif",
+        "font_color": "#ffffff",
+        "slides_per_view": 1,
+        "space_between": 10,
+        "loop": true,
+        "shader_type": "dots"
       }
     }
   },
