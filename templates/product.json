@@ -119,8 +119,8 @@
         "arrow_thickness": 9,
         "initial_opacity": 77,
         "increase_opacity": true,
-        "custom_svg": "pointer",
-        "custom_svg_code": "<svg><\/svg>",
+        "custom_svg": "slim",
+        "custom_svg_path": "<path>><\/path>",
         "scroll_behavior": "smooth"
       }
     }
