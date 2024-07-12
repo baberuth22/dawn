@@ -118,7 +118,7 @@
         "border_thickness": 1,
         "arrow_thickness": 1,
         "initial_opacity": 50,
-        "increase_opacity": false,
+        "increase_opacity": true,
         "custom_svg": "default",
         "custom_svg_code": "<svg><\/svg>",
         "scroll_behavior": "smooth"
