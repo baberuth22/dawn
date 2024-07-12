@@ -94,16 +94,18 @@
         "show_rating": false
       }
     },
-    "ss_atc_button_3_FcEeTp": {
-      "type": "ss-atc-button-3",
+    "sa_element_animations_W4hz7P": {
+      "type": "sa-element-animations",
       "settings": {
-        "shake_type": "jiggle"
+        "shake_type": "bounce",
+        "query_selector": ".product-form__submit, .add-to-cart, .product-form__cart-submit, .button--addToCart",
+        "animation_delay": 2
       }
     }
   },
   "order": [
     "main",
     "product-recommendations",
-    "ss_atc_button_3_FcEeTp"
+    "sa_element_animations_W4hz7P"
   ]
 }
