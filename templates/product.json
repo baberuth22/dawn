@@ -106,7 +106,7 @@
       "type": "ss-back-to-top-button",
       "settings": {
         "hide_on_mobile": false,
-        "show_when_precent_of_page": 30,
+        "show_when_precent_of_page": 19,
         "pos": "right",
         "bg_color": "#d91b1b",
         "border_color": "#334fb4",
