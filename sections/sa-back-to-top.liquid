@@ -163,6 +163,16 @@
         "info": "0% means it will never show, 100% means it will always show"
       }, 
       {
+        "type": "range",
+        "id": "initial_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "label": "Opacity",
+        "default": 100
+      },
+      {
         "type": "select",
         "id": "pos",
         "label": "Position",
@@ -241,12 +251,6 @@
         "default": 30
       },
       {
-        "type": "checkbox",
-        "id": "hide_on_mobile",
-        "label": "Hide on mobile?",
-        "default": false
-      },
-      {
         "type": "range",
         "id": "border_thickness",
         "min": 0,
@@ -257,14 +261,10 @@
         "default": 1
       },
       {
-        "type": "range",
-        "id": "initial_opacity",
-        "min": 0,
-        "max": 100,
-        "step": 1,
-        "unit": "%",
-        "label": "Opacity",
-        "default": 50
+        "type": "checkbox",
+        "id": "hide_on_mobile",
+        "label": "Hide on mobile?",
+        "default": false
       },
       {
         "type": "checkbox",
