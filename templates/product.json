@@ -115,8 +115,7 @@
         "arrow_size": 30,
         "horizontal_dst_to_edge": 20,
         "vertical_dst_to_edge": 20,
-        "scroll_behavior": "auto",
-        "custom_svg": "shopify:\/\/shop_images\/bb3_590.jpg"
+        "scroll_behavior": "auto"
       }
     }
   },
