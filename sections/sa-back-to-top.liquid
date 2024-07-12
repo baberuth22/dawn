@@ -12,7 +12,7 @@
       cursor: pointer;
       z-index: 999;
       display: none;
-      opacity: 0;
+      opacity: var(--initial-opacity, 0);
     }
     .sa-back-to-top-arrow-{{ section.id }}:hover {
       transform: scale(1.1);
@@ -23,6 +23,7 @@
       }
     }
   </style>
+  
   
   <!-- Button Element -->
   <button
@@ -47,6 +48,7 @@
       --border-color: {{ section.settings.border_color }};
       --border-thickness: {{ section.settings.border_thickness }}px;
       --bg-color: {{ section.settings.bg_color }};
+      --initial-opacity: ({{ section.settings.initial_opacity }} / 100);
       width: {{ section.settings.button_size }}px;
       height: {{ section.settings.button_size }}px;
     "
@@ -64,11 +66,10 @@
           color: {{ section.settings.arrow_color }};
           width: {{ section.settings.arrow_size }}px;
           height: {{ section.settings.arrow_size }}px;
-          stroke-width: {{ section.settings.arrow_thickness }};
         "
         stroke="currentColor"
         fill="currentColor"
-        stroke-width="0"
+        stroke-width="{{ section.settings.arrow_thickness }}"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 512 512"
       >
@@ -90,7 +91,7 @@
   </button>
   
   
-  <!-- JavaScript -->
+  
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var backToTopArrow = document.getElementById('sa-back-to-top-arrow-{{ section.id }}');
@@ -104,19 +105,26 @@
       });
       
       // Show/hide button based on scroll position
+      // Subtract from 1.01 to prevent 100% being zero and the button never showing
+      // it still seems to never show at 0% correctly, even though it should be at .01.
       const precentOfPage = 1.01 - ( {{ section.settings.show_when_precent_of_page }} / 100);
       window.addEventListener('scroll', function () {
         if (window.scrollY > precentOfPage * (document.body.scrollHeight - window.innerHeight)) {
           backToTopArrow.style.display = 'block';
-          backToTopArrow.style.opacity = '1';
+          if ({{ section.settings.increase_opacity }}) {
+            var scrollHeight = document.body.scrollHeight - window.innerHeight;
+            var scrollPercent = window.scrollY / scrollHeight;
+            backToTopArrow.style.opacity = Math.min(scrollPercent * 2, 1).toString();
+          } else {
+            backToTopArrow.style.opacity = '1';
+          }
         } else {
           backToTopArrow.style.display = 'none';
-          backToTopArrow.style.opacity = '0';
+          backToTopArrow.style.opacity = '({{ section.settings.initial_opacity }} / 100)';
         }
       });
     });
   </script>
-  
   
   <!-- Schema -->
   {% schema %}
@@ -238,6 +246,22 @@
         "unit": "px",
         "label": "Arrow thickness",
         "default": 1
+      },
+      {
+        "type": "range",
+        "id": "initial_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "label": "Initial opacity",
+        "default": 50
+      },
+      {
+        "type": "checkbox",
+        "id": "increase_opacity",
+        "label": "Increase opacity as scrolling down?",
+        "default": false
       },
       {
         "type": "select",
