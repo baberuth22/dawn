@@ -101,34 +101,11 @@
         "query_selector": ".product__title",
         "animation_delay": 1
       }
-    },
-    "sa_back_to_top_ULHgXn": {
-      "type": "sa-back-to-top",
-      "settings": {
-        "pos": "right",
-        "side_dst_to_edge": 45,
-        "bottom_dst_to_edge": 44,
-        "bg_color": "#f4f2f2",
-        "border_color": "#8c8686",
-        "arrow_color": "#333333",
-        "button_size": 24,
-        "arrow_size": 16,
-        "show_when_precent_of_page": 43,
-        "hide_on_mobile": false,
-        "border_thickness": 1,
-        "arrow_thickness": 10,
-        "initial_opacity": 26,
-        "increase_opacity": true,
-        "custom_svg": "default",
-        "custom_svg_path": "<path>><\/path>",
-        "scroll_behavior": "smooth"
-      }
     }
   },
   "order": [
     "main",
     "product-recommendations",
-    "sa_element_animations_W4hz7P",
-    "sa_back_to_top_ULHgXn"
+    "sa_element_animations_W4hz7P"
   ]
 }
