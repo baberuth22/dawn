@@ -179,21 +179,56 @@
           "settings": {
             "article": ""
           }
+        },
+        "article_MYRaxU": {
+          "type": "Article",
+          "settings": {
+            "article": ""
+          }
+        },
+        "article_43RgeU": {
+          "type": "Article",
+          "settings": {
+            "article": ""
+          }
+        },
+        "article_gcwGRV": {
+          "type": "Article",
+          "settings": {
+            "article": ""
+          }
+        },
+        "article_eVFzkP": {
+          "type": "Article",
+          "settings": {
+            "article": ""
+          }
+        },
+        "article_FAN8BC": {
+          "type": "Article",
+          "settings": {
+            "article": ""
+          }
         }
       },
       "block_order": [
         "article_EbkFAF",
         "article_JYbEQk",
         "article_HbbkLa",
-        "article_84xJTc"
+        "article_84xJTc",
+        "article_MYRaxU",
+        "article_43RgeU",
+        "article_gcwGRV",
+        "article_eVFzkP",
+        "article_FAN8BC"
       ],
       "settings": {
         "button_text": "Read more",
         "make_more_readable": false,
         "remove_description_text": false,
-        "section_bg_color": "#fff",
-        "button_color": "#FF7A15",
-        "description_maintext_color": "#FFFFFF",
+        "section_bg_color": "#ffffff",
+        "button_color": "#ff7a15",
+        "description_maintext_color": "#ffffff",
         "title_font": "assistant_n4",
         "description_font": "assistant_n4"
       }
