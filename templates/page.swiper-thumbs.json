@@ -104,7 +104,7 @@
         "font_size": "16px",
         "font_family": "Arial, sans-serif",
         "font_color": "#ffffff",
-        "slides_per_view": 1,
+        "slides_per_view": 4,
         "space_between": 10,
         "loop": true
       }
