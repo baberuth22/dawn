@@ -152,6 +152,51 @@
       "settings": {
         "include_padding": true
       }
+    },
+    "sa_blog_swiper_XrW7n3": {
+      "type": "sa-blog-swiper",
+      "blocks": {
+        "article_EbkFAF": {
+          "type": "Article",
+          "settings": {
+            "article": ""
+          }
+        },
+        "article_JYbEQk": {
+          "type": "Article",
+          "settings": {
+            "article": ""
+          }
+        },
+        "article_HbbkLa": {
+          "type": "Article",
+          "settings": {
+            "article": ""
+          }
+        },
+        "article_84xJTc": {
+          "type": "Article",
+          "settings": {
+            "article": ""
+          }
+        }
+      },
+      "block_order": [
+        "article_EbkFAF",
+        "article_JYbEQk",
+        "article_HbbkLa",
+        "article_84xJTc"
+      ],
+      "settings": {
+        "button_text": "Read more",
+        "make_more_readable": false,
+        "remove_description_text": false,
+        "section_bg_color": "#fff",
+        "button_color": "#FF7A15",
+        "description_maintext_color": "#FFFFFF",
+        "title_font": "assistant_n4",
+        "description_font": "assistant_n4"
+      }
     }
   },
   "order": [
@@ -159,6 +204,7 @@
     "product-recommendations",
     "sa_element_animations_W4hz7P",
     "sa_back_to_top_THRBHx",
-    "sa_app_wrapper_Uwm7d9"
+    "sa_app_wrapper_Uwm7d9",
+    "sa_blog_swiper_XrW7n3"
   ]
 }
