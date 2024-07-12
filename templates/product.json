@@ -109,7 +109,7 @@
         "show_when_precent_of_page": 98,
         "initial_opacity": 40,
         "increase_opacity": false,
-        "pos": "right",
+        "pos": "left",
         "side_dst_to_edge": 20,
         "bottom_dst_to_edge": 10,
         "bg_color": "#f4f2f2",
