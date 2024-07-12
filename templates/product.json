@@ -106,7 +106,7 @@
       "type": "sa-back-to-top",
       "settings": {
         "custom_svg": "custom",
-        "custom_svg_path": "<path d=\"M12 19V5M5 12l7-7 7 7\" stroke=\"black\" stroke-width=\"2\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>",
+        "custom_svg_path": "<path d=\"M12 2L6 8h4v10h4V8h4L12 2z\"><\/path>",
         "show_when_precent_of_page": 99,
         "initial_opacity": 55,
         "increase_opacity": false,
