@@ -106,7 +106,7 @@
       "type": "sa-back-to-top",
       "settings": {
         "hide_on_mobile": true,
-        "show_when_precent_of_page": 30,
+        "show_when_precent_of_page": 6,
         "pos": "right",
         "bg_color": "#F4F2F2",
         "border_color": "#CEC5C5",
