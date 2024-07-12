@@ -137,31 +137,8 @@
             "padding_top": 15,
             "padding_bottom": 15
           }
-        }
-      },
-      "block_order": [
-        "puco_sections_blocks_app_block_KXb49L"
-      ],
-      "settings": {
-        "include_padding": true
-      }
-    },
-    "172081307817fe03a0": {
-      "type": "apps",
-      "blocks": {
-        "puco_sections_blocks_app_block_HcwbxC": {
-          "type": "shopify:\/\/apps\/puco-sections-blocks\/blocks\/app-block\/f1ea0cb9-0193-44b7-bab7-d0fd6bec6cbf",
-          "settings": {
-            "block_id": "2",
-            "heading_content": "",
-            "heading_tag": "h3",
-            "heading_color": "#000000",
-            "heading_margin_bottom": 15,
-            "padding_top": 15,
-            "padding_bottom": 15
-          }
         },
-        "essential_ai_section_builder_magic_block_Gcqpxt": {
+        "essential_ai_section_builder_magic_block_YpkbK4": {
           "type": "shopify:\/\/apps\/essential-ai-section-builder\/blocks\/magic-block\/c35653a8-4f0b-4bf8-a93d-51f0f5c6932c",
           "settings": {
             "widget_key": "e5611949-5605-4da9-844a-a991b4c23820"
@@ -169,11 +146,11 @@
         }
       },
       "block_order": [
-        "puco_sections_blocks_app_block_HcwbxC",
-        "essential_ai_section_builder_magic_block_Gcqpxt"
+        "puco_sections_blocks_app_block_KXb49L",
+        "essential_ai_section_builder_magic_block_YpkbK4"
       ],
       "settings": {
-        "include_margins": true
+        "include_padding": true
       }
     }
   },
@@ -182,7 +159,6 @@
     "product-recommendations",
     "sa_element_animations_W4hz7P",
     "sa_back_to_top_THRBHx",
-    "sa_app_wrapper_Uwm7d9",
-    "172081307817fe03a0"
+    "sa_app_wrapper_Uwm7d9"
   ]
 }
