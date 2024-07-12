@@ -106,7 +106,7 @@
       "type": "sa-back-to-top",
       "settings": {
         "custom_svg": "custom",
-        "custom_svg_path": "<path d=\"M256 64c0 0-128 128-128 192s128 192 128 192 128-128 128-192S256 64  \"><\/path>",
+        "custom_svg_path": "<path d=\"M256 64c0 0-128 128-128 192s128 192 128 192 128-128\"><\/path>",
         "show_when_precent_of_page": 98,
         "initial_opacity": 100,
         "increase_opacity": true,
