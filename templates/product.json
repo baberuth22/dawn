@@ -97,7 +97,7 @@
     "sa_element_animations_W4hz7P": {
       "type": "sa-element-animations",
       "settings": {
-        "shake_type": "fade",
+        "shake_type": "explode",
         "query_selector": ".product__title",
         "animation_delay": 1
       }
