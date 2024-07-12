@@ -78,13 +78,6 @@
             "slide_text": "<h3>Slide Title<\/h3><p>This is the slide content.<\/p>"
           }
         },
-        "slide_tNYdhC": {
-          "type": "slide",
-          "settings": {
-            "slide_image": "shopify:\/\/shop_images\/bb3_590.jpg",
-            "slide_text": "<h3>Slide Title<\/h3><p>This is the slide content.<\/p>"
-          }
-        },
         "slide_BWTbUR": {
           "type": "slide",
           "settings": {
@@ -104,7 +97,6 @@
         "slide_fVzhdF",
         "slide_U9UE7m",
         "slide_Pw7Qfi",
-        "slide_tNYdhC",
         "slide_BWTbUR",
         "slide_DA4YB4"
       ],
