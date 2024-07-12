@@ -116,7 +116,7 @@
         "horizontal_dst_to_edge": 20,
         "vertical_dst_to_edge": 20,
         "scroll_behavior": "auto",
-        "icon": "caret-up"
+        "icon": "arrow-up"
       }
     }
   },
