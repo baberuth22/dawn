@@ -105,18 +105,18 @@
     "sa_back_to_top_ULHgXn": {
       "type": "sa-back-to-top",
       "settings": {
-        "custom_svg": "<path d=\"M256 217.9L383 345c9.4 9.4 24.6 9.4 33.9 0 9.4-9.4 9.3-24.6 0-34L273 167c-9.1-9.1-23.7-9.3-33.1-.7L95 310.9c-4.7 4.7-7 10.9-7 17s2.3 12.3 7 17c9.4 9.4 24.6 9.4 33.9 0l127.1-127z\"><\/path>",
-        "scroll_behavior": "auto",
-        "vertical_dst_to_edge": 20,
-        "horizontal_dst_to_edge": 20,
-        "arrow_size": 30,
-        "button_size": 54,
-        "arrow_color": "#333333",
-        "border_color": "#cec5c5",
-        "bg_color": "#f4f2f2",
-        "pos": "left",
+        "hide_on_mobile": true,
         "show_when_precent_of_page": 81,
-        "hide_on_mobile": true
+        "pos": "left",
+        "bg_color": "#f4f2f2",
+        "border_color": "#cec5c5",
+        "arrow_color": "#333333",
+        "button_size": 54,
+        "arrow_size": 30,
+        "horizontal_dst_to_edge": 20,
+        "vertical_dst_to_edge": 20,
+        "scroll_behavior": "auto",
+        "custom_svg": "shopify:\/\/shop_images\/bb3_590.jpg"
       }
     }
   },
