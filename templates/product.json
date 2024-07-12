@@ -105,7 +105,7 @@
     "sa_back_to_top_THRBHx": {
       "type": "sa-back-to-top",
       "settings": {
-        "custom_svg": "custom",
+        "custom_svg": "slim",
         "show_when_precent_of_page": 99,
         "initial_opacity": 55,
         "pos": "right",
