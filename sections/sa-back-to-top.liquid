@@ -69,8 +69,11 @@
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"
   >
-    <!-- Default icon (Arrow Up) -->
-    <path d="M256 217.9L383 345c9.4 9.4 24.6 9.4 33.9 0 9.4-9.4 9.3-24.6 0-34L273 167c-9.1-9.1-23.7-9.3-33.1-.7L95 310.9c-4.7 4.7-7 10.9-7 17s2.3 12.3 7 17c9.4 9.4 24.6 9.4 33.9 0l127.1-127z"></path>
+    {% if section.settings.custom_svg %}
+      {{ section.settings.custom_svg }}
+    {% else %}
+      <path d="M256 217.9L383 345c9.4 9.4 24.6 9.4 33.9 0 9.4-9.4 9.3-24.6 0-34L273 167c-9.1-9.1-23.7-9.3-33.1-.7L95 310.9c-4.7 4.7-7 10.9-7 17s2.3 12.3 7 17c9.4 9.4 24.6 9.4 33.9 0l127.1-127z"></path>
+    {% endif %}
   </svg>
 </button>
 
@@ -78,23 +81,7 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     var backToTopArrow = document.getElementById('sa-back-to-top-arrow-{{ section.id }}');
-    var backToTopIcon = document.getElementById('sa-back-to-top-icon-{{ section.id }}');
     
-    // Icon selection
-    var iconPath = '';
-    switch ('{{ section.settings.icon }}') {
-      case 'chevron-up':
-        iconPath = 'M256 64C150 64 64 150 64 256s86 192 192 192 192-86 192-192S362 64 256 64zm0 324l-96-96h192l-96 96z';
-        break;
-      case 'caret-up':
-        iconPath = 'M256 448c-106 0-192-86-192-192S150 64 256 64s192 86 192 192-86 192-192 192zm-16-256l-112 112h224L240 192z';
-        break;
-      case 'arrow-up':
-      default:
-        iconPath = 'M256 217.9L383 345c9.4 9.4 24.6 9.4 33.9 0 9.4-9.4 9.3-24.6 0-34L273 167c-9.1-9.1-23.7-9.3-33.1-.7L95 310.9c-4.7 4.7-7 10.9-7 17s2.3 12.3 7 17c9.4 9.4 24.6 9.4 33.9 0l127.1-127z';
-    }
-    backToTopIcon.innerHTML = '<path d="' + iconPath + '"></path>';
-
     // Scroll to top function
     backToTopArrow.addEventListener('click', function () {
       window.scrollTo({
@@ -123,21 +110,85 @@
   "name": "SA - Back to Top",
   "settings": [
     {
-      "type": "checkbox",
-      "id": "hide_on_mobile",
-      "label": "Hide on mobile?",
-      "default": false
+      "type": "textarea",
+      "id": "custom_svg",
+      "label": "Custom SVG",
+      "default": "<path d='M256 217.9L383 345c9.4 9.4 24.6 9.4 33.9 0 9.4-9.4 9.3-24.6 0-34L273 167c-9.1-9.1-23.7-9.3-33.1-.7L95 310.9c-4.7 4.7-7 10.9-7 17s2.3 12.3 7 17c9.4 9.4 24.6 9.4 33.9 0l127.1-127z'></path>",
+      "info": "Paste your custom SVG code here. Leave empty to use the default arrow icon."
+    },
+    {
+      "type": "select",
+      "id": "scroll_behavior",
+      "label": "Scroll Behavior",
+      "options": [
+        {
+          "value": "auto",
+          "label": "Auto"
+        },
+        {
+          "value": "smooth",
+          "label": "Smooth"
+        }
+      ],
+      "default": "smooth"
     },
     {
       "type": "range",
-      "id": "show_when_precent_of_page",
+      "id": "vertical_dst_to_edge",
       "min": 0,
       "max": 100,
       "step": 1,
-      "unit": "%",
-      "label": "Show when the view is X% from bottom of the page",
-      "default": 30,
-      "info": "0% means it will never show, 100% means it will always show"
+      "unit": "px",
+      "label": "Vertical padding",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "horizontal_dst_to_edge",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Horizontal padding",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "arrow_size",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Arrow size",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "button_size",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Button size",
+      "default": 54
+    },
+    {
+      "type": "color",
+      "id": "arrow_color",
+      "label": "Arrow color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#CEC5C5"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default":"#F4F2F2"
     },
     {
       "type": "select",
@@ -160,98 +211,21 @@
       "default": "right"
     },
     {
-      "type": "color",
-      "id": "bg_color",
-      "label": "Background color",
-      "default":"#F4F2F2"
-    },
-    {
-      "type": "color",
-      "id": "border_color",
-      "label": "Border color",
-      "default": "#CEC5C5"
-    },
-    {
-      "type": "color",
-      "id": "arrow_color",
-      "label": "Arrow color",
-      "default": "#333333"
-    },
-    {
       "type": "range",
-      "id": "button_size",
-      "min": 0,
-      "max": 200,
-      "step": 2,
-      "unit": "px",
-      "label": "Button size",
-      "default": 54
-    },
-    {
-      "type": "range",
-      "id": "arrow_size",
-      "min": 0,
-      "max": 200,
-      "step": 2,
-      "unit": "px",
-      "label": "Arrow size",
-      "default": 30
-    },
-    {
-      "type": "range",
-      "id": "horizontal_dst_to_edge",
+      "id": "show_when_precent_of_page",
       "min": 0,
       "max": 100,
       "step": 1,
-      "unit": "px",
-      "label": "Horizontal padding",
-      "default": 20
+      "unit": "%",
+      "label": "Show when the view is X% from bottom of the page",
+      "default": 30,
+      "info": "0% means it will never show, 100% means it will always show"
     },
     {
-      "type": "range",
-      "id": "vertical_dst_to_edge",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "label": "Vertical padding",
-      "default": 20
-    },
-    {
-      "type": "select",
-      "id": "scroll_behavior",
-      "label": "Scroll Behavior",
-      "options": [
-        {
-          "value": "auto",
-          "label": "Auto"
-        },
-        {
-          "value": "smooth",
-          "label": "Smooth"
-        }
-      ],
-      "default": "smooth"
-    },
-    {
-      "type": "select",
-      "id": "icon",
-      "label": "Icon",
-      "options": [
-        {
-          "value": "arrow-up",
-          "label": "Arrow Up"
-        },
-        {
-          "value": "chevron-up",
-          "label": "Chevron Up"
-        },
-        {
-          "value": "caret-up",
-          "label": "Caret Up"
-        }
-      ],
-      "default": "arrow-up"
+      "type": "checkbox",
+      "id": "hide_on_mobile",
+      "label": "Hide on mobile?",
+      "default": false
     }
   ],
   "presets": [
