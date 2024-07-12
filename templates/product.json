@@ -105,17 +105,17 @@
     "sa_back_to_top_ULHgXn": {
       "type": "sa-back-to-top",
       "settings": {
-        "hide_on_mobile": false,
-        "show_when_precent_of_page": 2,
         "pos": "left",
+        "side_dst_to_edge": 20,
+        "bottom_dst_to_edge": 20,
         "bg_color": "#f4f2f2",
-        "border_color": "#cec5c5",
+        "border_color": "#f70b0b",
         "arrow_color": "#333333",
         "button_size": 54,
         "arrow_size": 30,
-        "horizontal_dst_to_edge": 20,
-        "vertical_dst_to_edge": 20,
-        "scroll_behavior": "auto"
+        "show_when_precent_of_page": 43,
+        "hide_on_mobile": false,
+        "scroll_behavior": "smooth"
       }
     }
   },
