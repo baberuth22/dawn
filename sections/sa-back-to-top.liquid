@@ -34,7 +34,7 @@
   "
   id="sa-back-to-top-arrow-{{ section.id }}"
   style="
-    --x-dst-to-edge: {{ section.settings.horizontal_dst_to_edge }}px;
+    --x-dst-to-edge: {{ section.settings.side_dst_to_edge }}px;
     {% if section.settings.pos == 'left' %}
       left: var(--x-dst-to-edge);
     {% elsif section.settings.pos == 'center' %}
@@ -43,7 +43,7 @@
     {% elsif section.settings.pos == 'right' %}
       right: var(--x-dst-to-edge);
     {% endif %}
-    --y-dst-to-edge: {{ section.settings.vertical_dst_to_edge }}px;
+    --y-dst-to-edge: {{ section.settings.bottom_dst_to_edge }}px;
     --border-color: {{ section.settings.border_color }};
     --bg-color: {{ section.settings.bg_color }};
     width: {{ section.settings.button_size }}px;
@@ -176,7 +176,7 @@
     },
     {
       "type": "range",
-      "id": "horizontal_dst_to_edge",
+      "id": "side_dst_to_edge",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -186,7 +186,7 @@
     },
     {
       "type": "range",
-      "id": "vertical_dst_to_edge",
+      "id": "bottom_dst_to_edge",
       "min": 0,
       "max": 100,
       "step": 1,
