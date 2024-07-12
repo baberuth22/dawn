@@ -159,7 +159,7 @@
         "article_EbkFAF": {
           "type": "Article",
           "settings": {
-            "article": ""
+            "article": "news\/about-to-get-real"
           }
         },
         "article_JYbEQk": {
@@ -229,8 +229,8 @@
         "section_bg_color": "#ffffff",
         "button_color": "#ff7a15",
         "description_maintext_color": "#ffffff",
-        "title_font": "assistant_n4",
-        "description_font": "assistant_n4"
+        "title_font": "serif",
+        "description_font": "agmena_n4"
       }
     }
   },
