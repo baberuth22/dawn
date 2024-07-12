@@ -110,7 +110,7 @@
           if ({{ section.settings.increase_opacity }}) {
             var scrollHeight = document.body.scrollHeight - window.innerHeight;
             var scrollPercent = window.scrollY / scrollHeight;
-            backToTopArrow.style.opacity = Math.min(scrollPercent * 2, 1).toString();
+            backToTopArrow.style.opacity = Math.min(scrollPercent * {{ section.settings.initial_opacity | divided_by: 100.0 }}, 1);
           } else {
             backToTopArrow.style.opacity = {{ section.settings.initial_opacity | divided_by: 100.0 }};
           }
