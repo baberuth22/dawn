@@ -117,7 +117,7 @@
         "arrow_size": 200,
         "hide_on_mobile": false,
         "border_thickness": 3,
-        "initial_opacity": 35,
+        "initial_opacity": 1,
         "increase_opacity": false,
         "scroll_behavior": "smooth",
         "custom_svg_path": "<path><\/path>"
