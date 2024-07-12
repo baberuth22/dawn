@@ -97,8 +97,8 @@
     "sa_element_animations_W4hz7P": {
       "type": "sa-element-animations",
       "settings": {
-        "shake_type": "horizontal",
-        "query_selector": ".product-form__submit, .add-to-cart, .product-form__cart-submit, .button--addToCart",
+        "shake_type": "zoom",
+        "query_selector": ".product__title",
         "animation_delay": 1
       }
     }
