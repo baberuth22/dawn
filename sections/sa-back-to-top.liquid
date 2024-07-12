@@ -87,7 +87,7 @@
     });
     
     // Show/hide button based on scroll position
-    const precentOfPage = {{ section.settings.show_when_precent_of_page }} / 100;
+    const precentOfPage = 1 - ( {{ section.settings.show_when_precent_of_page }} / 100);
     window.addEventListener('scroll', function () {
       if (window.scrollY > precentOfPage * (document.body.scrollHeight - window.innerHeight)) {
         backToTopArrow.style.display = 'block';
