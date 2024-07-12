@@ -119,7 +119,7 @@
         "button_size": 110,
         "arrow_size": 98,
         "border_thickness": 5,
-        "scroll_behavior": "smooth",
+        "scroll_behavior": "auto",
         "hide_on_mobile": false
       }
     },
