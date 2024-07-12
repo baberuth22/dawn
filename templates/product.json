@@ -107,6 +107,7 @@
       "settings": {
         "custom_svg": "slim",
         "show_when_precent_of_page": 94,
+        "initial_opacity": 55,
         "pos": "right",
         "side_dst_to_edge": 20,
         "bottom_dst_to_edge": 20,
@@ -115,10 +116,9 @@
         "arrow_color": "#333333",
         "button_size": 200,
         "arrow_size": 200,
-        "hide_on_mobile": false,
         "border_thickness": 3,
-        "initial_opacity": 55,
-        "increase_opacity": false,
+        "hide_on_mobile": false,
+        "increase_opacity": true,
         "scroll_behavior": "smooth",
         "custom_svg_path": "<path><\/path>"
       }
