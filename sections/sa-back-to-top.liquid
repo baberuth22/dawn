@@ -48,7 +48,7 @@
       --border-color: {{ section.settings.border_color }};
       --border-thickness: {{ section.settings.border_thickness }}px;
       --bg-color: {{ section.settings.bg_color }};
-      --initial-opacity: ({{ section.settings.initial_opacity }} / 100);
+      opacity: ({{ section.settings.initial_opacity }} / 100);
       width: {{ section.settings.button_size }}px;
       height: {{ section.settings.button_size }}px;
     "
@@ -264,7 +264,7 @@
         "max": 100,
         "step": 1,
         "unit": "%",
-        "label": "Initial opacity",
+        "label": "Opacity",
         "default": 50
       },
       {
