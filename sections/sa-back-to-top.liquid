@@ -2,226 +2,312 @@
 
 <!-- CSS -->
 <style>
-  .sa-back-to-top-arrow-{{ section.id }} {
-    position: fixed;
-    bottom: var(--y-dst-to-edge);
-    background-color: var(--bg-color, #fff);
-    border-radius: 50%;
-    border: 1px solid var(--border-color, #000);
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-    z-index: 999;
-    display: none;
-    opacity: 0;
-  }
-  .sa-back-to-top-arrow-{{ section.id }}:hover {
-    transform: scale(1.1);
-  }
-  @media screen and (max-width: 749.9px) {
-    .sa-back-to-top-arrow-{{ section.id }}-hide-on-mobile {
+    .sa-back-to-top-arrow-{{ section.id }} {
+      position: fixed;
+      bottom: var(--y-dst-to-edge);
+      background-color: var(--bg-color, #fff);
+      border-radius: 50%;
+      border: var(--border-thickness, 1px) solid var(--border-color, #000);
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+      z-index: 999;
       display: none;
+      opacity: 0;
     }
-  }
-</style>
-
-<!-- Button Element -->
-<button
-  class="
-    sa-back-to-top-arrow-{{ section.id }}
-    {% if section.settings.hide_on_mobile %}
-      sa-back-to-top-arrow-{{ section.id }}-hide-on-mobile
-    {% endif %}
-  "
-  id="sa-back-to-top-arrow-{{ section.id }}"
-  style="
-    --x-dst-to-edge: {{ section.settings.side_dst_to_edge }}px;
-    {% if section.settings.pos == 'left' %}
-      left: var(--x-dst-to-edge);
-    {% elsif section.settings.pos == 'center' %}
-      left: 50%;
-      transform: translateX(-50%);
-    {% elsif section.settings.pos == 'right' %}
-      right: var(--x-dst-to-edge);
-    {% endif %}
-    --y-dst-to-edge: {{ section.settings.bottom_dst_to_edge }}px;
-    --border-color: {{ section.settings.border_color }};
-    --bg-color: {{ section.settings.bg_color }};
-    width: {{ section.settings.button_size }}px;
-    height: {{ section.settings.button_size }}px;
-  "
-  aria-label="Back to top"
-  type="button"
->
-  <svg
-    id="sa-back-to-top-icon-{{ section.id }}"
-    style="
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: {{ section.settings.arrow_color }};
-      width: {{ section.settings.arrow_size }}px;
-      height: {{ section.settings.arrow_size }}px;
+    .sa-back-to-top-arrow-{{ section.id }}:hover {
+      transform: scale(1.1);
+    }
+    @media screen and (max-width: 749.9px) {
+      .sa-back-to-top-arrow-{{ section.id }}-hide-on-mobile {
+        display: none;
+      }
+    }
+  </style>
+  
+  <!-- Button Element -->
+  <button
+    class="
+      sa-back-to-top-arrow-{{ section.id }}
+      {% if section.settings.hide_on_mobile %}
+        sa-back-to-top-arrow-{{ section.id }}-hide-on-mobile
+      {% endif %}
     "
-    stroke="currentColor"
-    fill="currentColor"
-    stroke-width="0"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 512 512"
+    id="sa-back-to-top-arrow-{{ section.id }}"
+    style="
+      --x-dst-to-edge: {{ section.settings.side_dst_to_edge }}px;
+      {% if section.settings.pos == 'left' %}
+        left: var(--x-dst-to-edge);
+      {% elsif section.settings.pos == 'center' %}
+        left: 50%;
+        transform: translateX(-50%);
+      {% elsif section.settings.pos == 'right' %}
+        right: var(--x-dst-to-edge);
+      {% endif %}
+      --y-dst-to-edge: {{ section.settings.bottom_dst_to_edge }}px;
+      --border-color: {{ section.settings.border_color }};
+      --border-thickness: {{ section.settings.border_thickness }}px;
+      --bg-color: {{ section.settings.bg_color }};
+      width: {{ section.settings.button_size }}px;
+      height: {{ section.settings.button_size }}px;
+    "
+    aria-label="Back to top"
+    type="button"
   >
-    <path d="M256 217.9L383 345c9.4 9.4 24.6 9.4 33.9 0 9.4-9.4 9.3-24.6 0-34L273 167c-9.1-9.1-23.7-9.3-33.1-.7L95 310.9c-4.7 4.7-7 10.9-7 17s2.3 12.3 7 17c9.4 9.4 24.6 9.4 33.9 0l127.1-127z"></path>
-  </svg>
-</button>
-
-<!-- JavaScript -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var backToTopArrow = document.getElementById('sa-back-to-top-arrow-{{ section.id }}');
-    
-    // Scroll to top function
-    backToTopArrow.addEventListener('click', function () {
-      window.scrollTo({
-        top: 0,
-        behavior: '{{ section.settings.scroll_behavior }}', // smooth or auto
+    {% if section.settings.custom_svg == 'default' %}
+      <svg
+        id="sa-back-to-top-icon-{{ section.id }}"
+        style="
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: {{ section.settings.arrow_color }};
+          width: {{ section.settings.arrow_size }}px;
+          height: {{ section.settings.arrow_size }}px;
+          stroke-width: {{ section.settings.arrow_thickness }};
+        "
+        stroke="currentColor"
+        fill="currentColor"
+        stroke-width="0"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 512 512"
+      >
+        <path d="M256 217.9L383 345c9.4 9.4 24.6 9.4 33.9 0 9.4-9.4 9.3-24.6 0-34L273 167c-9.1-9.1-23.7-9.3-33.1-.7L95 310.9c-4.7 4.7-7 10.9-7 17s2.3 12.3 7 17c9.4 9.4 24.6 9.4 33.9 0l127.1-127z"></path>
+      </svg>
+    {% elsif section.settings.custom_svg == 'custom1' %}
+      <!-- Add custom SVG 1 here -->
+      <svg>
+        <!-- Custom SVG 1 code -->
+      </svg>
+    {% elsif section.settings.custom_svg == 'custom2' %}
+      <!-- Add custom SVG 2 here -->
+      <svg>
+        <!-- Custom SVG 2 code -->
+      </svg>
+    {% else %}
+      {{ section.settings.custom_svg_code | escape }}
+    {% endif %}
+  </button>
+  
+  
+  <!-- JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var backToTopArrow = document.getElementById('sa-back-to-top-arrow-{{ section.id }}');
+      
+      // Scroll to top function
+      backToTopArrow.addEventListener('click', function () {
+        window.scrollTo({
+          top: 0,
+          behavior: '{{ section.settings.scroll_behavior }}' // smooth, auto, ease, linear, ease-in, ease-out, ease-in-out
+        });
+      });
+      
+      // Show/hide button based on scroll position
+      const precentOfPage = 1.01 - ( {{ section.settings.show_when_precent_of_page }} / 100);
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > precentOfPage * (document.body.scrollHeight - window.innerHeight)) {
+          backToTopArrow.style.display = 'block';
+          backToTopArrow.style.opacity = '1';
+        } else {
+          backToTopArrow.style.display = 'none';
+          backToTopArrow.style.opacity = '0';
+        }
       });
     });
-    
-    // Show/hide button based on scroll position
-    const precentOfPage = 1.01 - ( {{ section.settings.show_when_precent_of_page }} / 100);
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > precentOfPage * (document.body.scrollHeight - window.innerHeight)) {
-        backToTopArrow.style.display = 'block';
-        backToTopArrow.style.opacity = '1';
-      } else {
-        backToTopArrow.style.display = 'none';
-        backToTopArrow.style.opacity = '0';
+  </script>
+  
+  
+  <!-- Schema -->
+  {% schema %}
+  {
+    "name": "SA - Back to Top",
+    "settings": [
+      
+      {
+        "type": "select",
+        "id": "pos",
+        "label": "Position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "right"
+      },
+      {
+        "type": "range",
+        "id": "side_dst_to_edge",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Distance top side",
+        "default": 20
+      },
+      {
+        "type": "range",
+        "id": "bottom_dst_to_edge",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Distance from bottom",
+        "default": 20
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background color",
+        "default":"#F4F2F2"
+      },
+      {
+        "type": "color",
+        "id": "border_color",
+        "label": "Border color",
+        "default": "#CEC5C5"
+      },
+      {
+        "type": "color",
+        "id": "arrow_color",
+        "label": "Arrow color",
+        "default": "#333333"
+      },
+      {
+        "type": "range",
+        "id": "button_size",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "unit": "px",
+        "label": "Button size",
+        "default": 54
+      },
+      {
+        "type": "range",
+        "id": "arrow_size",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "unit": "px",
+        "label": "Arrow size",
+        "default": 30
+      },
+      {
+        "type": "range",
+        "id": "show_when_precent_of_page",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "label": "Show when the view is in the bottom X% of the page",
+        "default": 30,
+        "info": "0% means it will never show, 100% means it will always show"
+      },
+      {
+        "type": "checkbox",
+        "id": "hide_on_mobile",
+        "label": "Hide on mobile?",
+        "default": false
+      },
+      {
+        "type": "range",
+        "id": "border_thickness",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "px",
+        "label": "Border thickness",
+        "default": 1
+      },
+      {
+        "type": "range",
+        "id": "arrow_thickness",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "px",
+        "label": "Arrow thickness",
+        "default": 1
+      },
+      {
+        "type": "select",
+        "id": "custom_svg",
+        "label": "Custom SVG",
+        "options": [
+          {
+            "value": "default",
+            "label": "Default"
+          },
+          {
+            "value": "custom1",
+            "label": "Custom SVG 1"
+          },
+          {
+            "value": "custom2",
+            "label": "Custom SVG 2"
+          }
+        ],
+        "default": "default"
+      },
+      {
+        "type": "textarea",
+        "id": "custom_svg_code",
+        "label": "Custom SVG Code",
+        "default": "<svg></svg>",
+        "info": "Insert your custom SVG code here."
+      },
+      {
+        "type": "select",
+        "id": "scroll_behavior",
+        "label": "Scroll Behavior",
+        "options": [
+          {
+            "value": "auto",
+            "label": "Auto"
+          },
+          {
+            "value": "smooth",
+            "label": "Smooth"
+          },
+          {
+            "value": "ease",
+            "label": "Ease"
+          },
+          {
+            "value": "linear",
+            "label": "Linear"
+          },
+          {
+            "value": "ease-in",
+            "label": "Ease-In"
+          },
+          {
+            "value": "ease-out",
+            "label": "Ease-Out"
+          },
+          {
+            "value": "ease-in-out",
+            "label": "Ease-In-Out"
+          }
+        ],
+        "default": "smooth"
       }
-    });
-  });
-</script>
-
-<!-- Schema -->
-{% schema %}
-{
-  "name": "SA - Back to Top",
-  "settings": [
-    
-    {
-      "type": "select",
-      "id": "pos",
-      "label": "Position",
-      "options": [
-        {
-          "value": "left",
-          "label": "Left"
-        },
-        {
-          "value": "center",
-          "label": "Center"
-        },
-        {
-          "value": "right",
-          "label": "Right"
-        }
-      ],
-      "default": "right"
-    },
-    {
-      "type": "range",
-      "id": "side_dst_to_edge",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "label": "Distance top side",
-      "default": 20
-    },
-    {
-      "type": "range",
-      "id": "bottom_dst_to_edge",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "label": "Distance from bottom",
-      "default": 20
-    },
-    {
-      "type": "color",
-      "id": "bg_color",
-      "label": "Background color",
-      "default":"#F4F2F2"
-    },
-    {
-      "type": "color",
-      "id": "border_color",
-      "label": "Border color",
-      "default": "#CEC5C5"
-    },
-    {
-      "type": "color",
-      "id": "arrow_color",
-      "label": "Arrow color",
-      "default": "#333333"
-    },
-    {
-      "type": "range",
-      "id": "button_size",
-      "min": 0,
-      "max": 200,
-      "step": 2,
-      "unit": "px",
-      "label": "Button size",
-      "default": 54
-    },
-    {
-      "type": "range",
-      "id": "arrow_size",
-      "min": 0,
-      "max": 200,
-      "step": 2,
-      "unit": "px",
-      "label": "Arrow size",
-      "default": 30
-    },
-    {
-      "type": "range",
-      "id": "show_when_precent_of_page",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "%",
-      "label": "Show when the view is in the bottom X% of the page",
-      "default": 30,
-      "info": "0% means it will never show, 100% means it will always show"
-    },
-    {
-      "type": "checkbox",
-      "id": "hide_on_mobile",
-      "label": "Hide on mobile?",
-      "default": false
-    },
-    {
-      "type": "select",
-      "id": "scroll_behavior",
-      "label": "Scroll Behavior",
-      "options": [
-        {
-          "value": "auto",
-          "label": "Auto"
-        },
-        {
-          "value": "smooth",
-          "label": "Smooth"
-        }
-      ],
-      "default": "smooth"
-    }
-  ],
-  "presets": [
-    {
-      "name": "SA - Back to Top button"
-    }
-  ]
-}
-{% endschema %}
+    ],
+    "presets": [
+      {
+        "name": "SA - Back to Top button"
+      }
+    ]
+  }
+  {% endschema %}
+  
