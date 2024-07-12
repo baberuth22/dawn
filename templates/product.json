@@ -111,8 +111,8 @@
         "bg_color": "#f4f2f2",
         "border_color": "#f70b0b",
         "arrow_color": "#333333",
-        "button_size": 54,
-        "arrow_size": 30,
+        "button_size": 118,
+        "arrow_size": 94,
         "show_when_precent_of_page": 43,
         "hide_on_mobile": false,
         "scroll_behavior": "smooth"
