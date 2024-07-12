@@ -52,40 +52,25 @@
   aria-label="Back to top"
   type="button"
 >
-  {% if section.settings.custom_svg %}
-    <img
-      src="{{ section.settings.custom_svg }}"
-      alt="Back to top icon"
-      style="
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: {{ section.settings.arrow_size }}px;
-        height: {{ section.settings.arrow_size }}px;
-      "
-    />
-  {% else %}
-    <svg
-      id="sa-back-to-top-icon-{{ section.id }}"
-      style="
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: {{ section.settings.arrow_color }};
-        width: {{ section.settings.arrow_size }}px;
-        height: {{ section.settings.arrow_size }}px;
-      "
-      stroke="currentColor"
-      fill="currentColor"
-      stroke-width="0"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 512 512"
-    >
-      <path d="M256 217.9L383 345c9.4 9.4 24.6 9.4 33.9 0 9.4-9.4 9.3-24.6 0-34L273 167c-9.1-9.1-23.7-9.3-33.1-.7L95 310.9c-4.7 4.7-7 10.9-7 17s2.3 12.3 7 17c9.4 9.4 24.6 9.4 33.9 0l127.1-127z"></path>
-    </svg>
-  {% endif %}
+  <svg
+    id="sa-back-to-top-icon-{{ section.id }}"
+    style="
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: {{ section.settings.arrow_color }};
+      width: {{ section.settings.arrow_size }}px;
+      height: {{ section.settings.arrow_size }}px;
+    "
+    stroke="currentColor"
+    fill="currentColor"
+    stroke-width="0"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 512 512"
+  >
+    <path d="M256 217.9L383 345c9.4 9.4 24.6 9.4 33.9 0 9.4-9.4 9.3-24.6 0-34L273 167c-9.1-9.1-23.7-9.3-33.1-.7L95 310.9c-4.7 4.7-7 10.9-7 17s2.3 12.3 7 17c9.4 9.4 24.6 9.4 33.9 0l127.1-127z"></path>
+  </svg>
 </button>
 
 <!-- JavaScript -->
@@ -230,12 +215,6 @@
         }
       ],
       "default": "smooth"
-    },
-    {
-      "type": "image_picker",
-      "id": "custom_svg",
-      "label": "Upload Custom SVG",
-      "info": "Upload your custom SVG file here. Leave empty to use the default arrow icon."
     }
   ],
   "presets": [
