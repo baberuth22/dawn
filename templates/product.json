@@ -115,8 +115,8 @@
         "arrow_size": 94,
         "show_when_precent_of_page": 43,
         "hide_on_mobile": false,
-        "border_thickness": 1,
-        "arrow_thickness": 4,
+        "border_thickness": 7,
+        "arrow_thickness": 0,
         "custom_svg": "default",
         "custom_svg_code": "<svg><\/svg>",
         "scroll_behavior": "smooth"
