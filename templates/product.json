@@ -129,7 +129,7 @@
         "puco_sections_blocks_app_block_KXb49L": {
           "type": "shopify:\/\/apps\/puco-sections-blocks\/blocks\/app-block\/f1ea0cb9-0193-44b7-bab7-d0fd6bec6cbf",
           "settings": {
-            "block_id": "",
+            "block_id": "2",
             "heading_content": "Puco App Block",
             "heading_tag": "h3",
             "heading_color": "#000",
