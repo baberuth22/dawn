@@ -117,11 +117,58 @@
         "space_between": 10,
         "loop": true
       }
+    },
+    "sa_swiper_kEnUXz": {
+      "type": "sa-swiper",
+      "blocks": {
+        "slide_dyQrRM": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/fashionable-man-in-hat.jpg",
+            "slide_text": "<h3>Slide Title<\/h3><p>This is the slide content.<\/p>",
+            "overlay_position": "middle"
+          }
+        },
+        "slide_7CWbEp": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/mens-fashion-man-in-shirt-and-jeans-leaning-on-bicycle.jpg",
+            "slide_text": "<h3>Slide Title<\/h3><p>This is the slide content.<\/p>",
+            "overlay_position": "middle"
+          }
+        },
+        "slide_cCXg39": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/man-sitting-in-city.jpg",
+            "slide_text": "<h3>Slide Title<\/h3><p>This is the slide content.<\/p>",
+            "overlay_position": "middle"
+          }
+        }
+      },
+      "block_order": [
+        "slide_dyQrRM",
+        "slide_7CWbEp",
+        "slide_cCXg39"
+      ],
+      "settings": {
+        "section_title": "My Swiper Slider",
+        "swiper_width": "100%",
+        "swiper_height": "400px",
+        "overlay_opacity": 0.5,
+        "font_size": "16px",
+        "font_family": "Arial, sans-serif",
+        "font_color": "#ffffff",
+        "slides_per_view": 1,
+        "space_between": 10,
+        "loop": true
+      }
     }
   },
   "order": [
     "collage_4CJ9CQ",
     "main",
-    "sa_swiper_ER4a9N"
+    "sa_swiper_ER4a9N",
+    "sa_swiper_kEnUXz"
   ]
 }
