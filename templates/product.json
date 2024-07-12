@@ -116,7 +116,7 @@
         "show_when_precent_of_page": 43,
         "hide_on_mobile": false,
         "border_thickness": 1,
-        "arrow_thickness": 9,
+        "arrow_thickness": 4,
         "initial_opacity": 26,
         "increase_opacity": true,
         "custom_svg": "slim",
