@@ -112,7 +112,7 @@
         "overlay_opacity": 0.1,
         "font_size": "22px",
         "font_family": "Arial, sans-serif",
-        "font_color": "#3edc6b",
+        "font_color": "#d4eadb",
         "slides_per_view": 2,
         "space_between": 10,
         "loop": true
