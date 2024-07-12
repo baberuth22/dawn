@@ -156,81 +156,43 @@
     "sa_blog_swiper_XrW7n3": {
       "type": "sa-blog-swiper",
       "blocks": {
-        "article_EbkFAF": {
-          "type": "Article",
+        "slide_8KrqAF": {
+          "type": "slide",
           "settings": {
-            "article": "news\/about-to-get-real"
+            "slide_image": "shopify:\/\/shop_images\/person-stands-on-rocks-poking-out-of-the-ocean-shoreline.jpg",
+            "slide_title": "Slide Title"
           }
         },
-        "article_JYbEQk": {
-          "type": "Article",
+        "slide_bQQcnR": {
+          "type": "slide",
           "settings": {
-            "article": ""
+            "slide_image": "shopify:\/\/shop_images\/two-people-surfing-in-blue-choppy-water.jpg",
+            "slide_title": "Slide Title"
           }
         },
-        "article_HbbkLa": {
-          "type": "Article",
+        "slide_yzJLce": {
+          "type": "slide",
           "settings": {
-            "article": ""
+            "slide_image": "shopify:\/\/shop_images\/green-and-white-marbled-coloring.jpg",
+            "slide_title": "Slide Title"
           }
         },
-        "article_84xJTc": {
-          "type": "Article",
+        "slide_bLriTg": {
+          "type": "slide",
           "settings": {
-            "article": ""
-          }
-        },
-        "article_MYRaxU": {
-          "type": "Article",
-          "settings": {
-            "article": ""
-          }
-        },
-        "article_43RgeU": {
-          "type": "Article",
-          "settings": {
-            "article": ""
-          }
-        },
-        "article_gcwGRV": {
-          "type": "Article",
-          "settings": {
-            "article": ""
-          }
-        },
-        "article_eVFzkP": {
-          "type": "Article",
-          "settings": {
-            "article": ""
-          }
-        },
-        "article_FAN8BC": {
-          "type": "Article",
-          "settings": {
-            "article": ""
+            "slide_image": "shopify:\/\/shop_images\/person-carries-a-wooden-box-full-of-dough-balls.jpg",
+            "slide_title": "Slide Title"
           }
         }
       },
       "block_order": [
-        "article_EbkFAF",
-        "article_JYbEQk",
-        "article_HbbkLa",
-        "article_84xJTc",
-        "article_MYRaxU",
-        "article_43RgeU",
-        "article_gcwGRV",
-        "article_eVFzkP",
-        "article_FAN8BC"
+        "slide_8KrqAF",
+        "slide_bQQcnR",
+        "slide_yzJLce",
+        "slide_bLriTg"
       ],
       "settings": {
-        "button_text": "Read more",
-        "make_more_readable": false,
-        "remove_description_text": false,
-        "section_bg_color": "#ffffff",
-        "button_color": "#ff7a15",
-        "description_maintext_color": "#ffffff",
-        "title_font": "serif",
-        "description_font": "agmena_n4"
+        "title": "Shaders Slider"
       }
     }
   },
