@@ -106,7 +106,7 @@
       "type": "sa-back-to-top",
       "settings": {
         "custom_svg": "custom",
-        "custom_svg_path": "<path d=\"M12 2L12 22\" stroke=\"black\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>",
+        "custom_svg_path": "<path d=\"M12 2L12 22\" stroke=\"black\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n  <path d=\"M5 9L12 2L19 9\" stroke=\"black\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>",
         "show_when_precent_of_page": 99,
         "initial_opacity": 55,
         "increase_opacity": false,
