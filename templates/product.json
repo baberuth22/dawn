@@ -116,7 +116,7 @@
         "show_when_precent_of_page": 43,
         "hide_on_mobile": false,
         "border_thickness": 7,
-        "arrow_thickness": 0,
+        "arrow_thickness": 10,
         "custom_svg": "default",
         "custom_svg_code": "<svg><\/svg>",
         "scroll_behavior": "smooth"
