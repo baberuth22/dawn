@@ -111,8 +111,8 @@
         "bg_color": "#d91b1b",
         "border_color": "#334fb4",
         "arrow_color": "#ffffff",
-        "button_size": 12,
-        "arrow_size": 30,
+        "button_size": 200,
+        "arrow_size": 132,
         "horizontal_dst_to_edge": 20,
         "vertical_dst_to_edge": 20
       }
