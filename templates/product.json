@@ -106,7 +106,7 @@
       "type": "sa-back-to-top",
       "settings": {
         "custom_svg": "slim",
-        "show_when_precent_of_page": 38,
+        "show_when_precent_of_page": 99,
         "initial_opacity": 55,
         "pos": "right",
         "side_dst_to_edge": 20,
