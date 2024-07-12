@@ -46,7 +46,7 @@
         },
         {
           "value": "'Courier New', Courier, monospace",
-          "label": "'Courier New', Courier, monospace"
+          "label": "Courier New"
         },
         {
           "value": "'Georgia', serif",
@@ -148,7 +148,7 @@
 
 <div class="swiper-slider-section page-width">
   <h2>{{ section.settings.section_title }}</h2>
-  <div class="swiper-container" style="width: {{ section.settings.swiper_width }}; height: {{ section.settings.swiper_height }};">
+  <div id="swiper-container-{{ section.id }}" class="swiper-container" style="width: {{ section.settings.swiper_width }}; height: {{ section.settings.swiper_height }};">
     <div class="swiper-wrapper">
       {% for block in section.blocks %}
       <div class="swiper-slide">
@@ -170,11 +170,11 @@
       {% endfor %}
     </div>
     <!-- Add Navigation -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next swiper-button-next-{{ section.id }}"></div>
+    <div class="swiper-button-prev swiper-button-prev-{{ section.id }}"></div>
   </div>
   <!-- Add Pagination -->
-  <div class="swiper-pagination" style="margin-top: 20px;"></div>
+  <div id="swiper-pagination-{{ section.id }}" class="swiper-pagination" style="margin-top: 20px;"></div>
 </div>
 
 <style>
@@ -243,17 +243,17 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  var swiper = new Swiper('.swiper-container', {
+  var swiper = new Swiper('#swiper-container-{{ section.id }}', {
     slidesPerView: {{ section.settings.slides_per_view }},
     spaceBetween: {{ section.settings.space_between }},
     loop: {{ section.settings.loop }},
     pagination: {
-      el: '.swiper-pagination',
+      el: '#swiper-pagination-{{ section.id }}',
       clickable: true,
     },
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: '.swiper-button-next-{{ section.id }}',
+      prevEl: '.swiper-button-prev-{{ section.id }}',
     },
   });
 });
