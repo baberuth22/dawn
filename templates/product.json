@@ -105,9 +105,9 @@
     "sa_back_to_top_ULHgXn": {
       "type": "sa-back-to-top",
       "settings": {
-        "pos": "left",
-        "side_dst_to_edge": 20,
-        "bottom_dst_to_edge": 20,
+        "pos": "right",
+        "side_dst_to_edge": 45,
+        "bottom_dst_to_edge": 44,
         "bg_color": "#f4f2f2",
         "border_color": "#8c8686",
         "arrow_color": "#333333",
