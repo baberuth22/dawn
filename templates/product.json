@@ -145,6 +145,29 @@
       "settings": {
         "include_padding": true
       }
+    },
+    "172081307817fe03a0": {
+      "type": "apps",
+      "blocks": {
+        "puco_sections_blocks_app_block_HcwbxC": {
+          "type": "shopify:\/\/apps\/puco-sections-blocks\/blocks\/app-block\/f1ea0cb9-0193-44b7-bab7-d0fd6bec6cbf",
+          "settings": {
+            "block_id": "2",
+            "heading_content": "",
+            "heading_tag": "h3",
+            "heading_color": "#000",
+            "heading_margin_bottom": 15,
+            "padding_top": 15,
+            "padding_bottom": 15
+          }
+        }
+      },
+      "block_order": [
+        "puco_sections_blocks_app_block_HcwbxC"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
@@ -152,6 +175,7 @@
     "product-recommendations",
     "sa_element_animations_W4hz7P",
     "sa_back_to_top_THRBHx",
-    "sa_app_wrapper_Uwm7d9"
+    "sa_app_wrapper_Uwm7d9",
+    "172081307817fe03a0"
   ]
 }
