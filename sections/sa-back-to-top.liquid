@@ -68,16 +68,11 @@
         "
         stroke="currentColor"
         fill="currentColor"
-        stroke-width="{{ section.settings.arrow_thickness }}"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 512 512"
       >
     {% if section.settings.custom_svg == 'default' %}
-        <path d="M256 217.9L383 345c9.4 9.4 24.6 9.4 33.9 0 9.4-9.4 9.3-24.6 0-34L273 167c-9.1-9.1-23.7-9.3-33.1-.7L95 310.9c-4.7 4.7-7 10.9-7 17s2.3 12.3 7 17c9.4 9.4 24.6 9.4 33.9 0l127.1-127z"
-            fill="currentColor" 
-            stroke="currentColor" 
-            stroke-width="{{ section.settings.arrow_thickness }}">
-        ></path>
+        <path d="M256 217.9L383 345c9.4 9.4 24.6 9.4 33.9 0 9.4-9.4 9.3-24.6 0-34L273 167c-9.1-9.1-23.7-9.3-33.1-.7L95 310.9c-4.7 4.7-7 10.9-7 17s2.3 12.3 7 17c9.4 9.4 24.6 9.4 33.9 0l127.1-127z" ></path>
     {% elsif section.settings.custom_svg == 'pointer' %}
     <path d="M509.862,481.179L275.195,11.845c-7.862-15.724-30.3-15.724-38.162,0L2.366,481.179
         c-9.676,19.353,12.28,39.155,30.534,27.539l223.213-142.045l223.213,142.045C497.581,520.334,519.538,500.531,509.862,481.179z
@@ -133,6 +128,37 @@
   {
     "name": "SA - Back to Top",
     "settings": [
+    {
+        "type": "select",
+        "id": "custom_svg",
+        "label": "Custom SVG",
+        "options": [
+          {
+            "value": "default",
+            "label": "Default"
+          },
+          {
+            "value": "pointer",
+            "label": "Pointer"
+          },
+          {
+            "value": "slim",
+            "label": "Slim"
+          },
+          {
+            "value": "custom",
+            "label": "Custom Path"
+          }
+        ],
+        "default": "default"
+      },
+      {
+        "type": "textarea",
+        "id": "custom_svg_path",
+        "label": "Custom SVG Path",
+        "default": "<path></>",
+        "info": "Insert your custom SVG path here."
+      },
       
       {
         "type": "select",
@@ -241,16 +267,6 @@
       },
       {
         "type": "range",
-        "id": "arrow_thickness",
-        "min": 0,
-        "max": 10,
-        "step": 1,
-        "unit": "px",
-        "label": "Arrow thickness",
-        "default": 1
-      },
-      {
-        "type": "range",
         "id": "initial_opacity",
         "min": 0,
         "max": 100,
@@ -264,37 +280,6 @@
         "id": "increase_opacity",
         "label": "Increase opacity as scrolling down?",
         "default": false
-      },
-      {
-        "type": "select",
-        "id": "custom_svg",
-        "label": "Custom SVG",
-        "options": [
-          {
-            "value": "default",
-            "label": "Default"
-          },
-          {
-            "value": "pointer",
-            "label": "Pointer"
-          },
-          {
-            "value": "slim",
-            "label": "Slim"
-          },
-          {
-            "value": "custom",
-            "label": "Custom Path"
-          }
-        ],
-        "default": "default"
-      },
-      {
-        "type": "textarea",
-        "id": "custom_svg_path",
-        "label": "Custom SVG Path",
-        "default": "<path></>",
-        "info": "Insert your custom SVG path here."
       },
       {
         "type": "select",
