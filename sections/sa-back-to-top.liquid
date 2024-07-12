@@ -106,43 +106,6 @@
   "name": "SA - Back to Top",
   "settings": [
     {
-      "type": "checkbox",
-      "id": "hide_on_mobile",
-      "label": "Hide on mobile?",
-      "default": false
-    },
-    {
-      "type": "range",
-      "id": "show_when_precent_of_page",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "%",
-      "label": "Show when the view is X% from bottom of the page",
-      "default": 30,
-      "info": "0% means it will never show, 100% means it will always show"
-    },
-    {
-      "type": "select",
-      "id": "pos",
-      "label": "Position",
-      "options": [
-        {
-          "value": "left",
-          "label": "Left"
-        },
-        {
-          "value": "center",
-          "label": "Center"
-        },
-        {
-          "value": "right",
-          "label": "Right"
-        }
-      ],
-      "default": "right"
-    },
-    {
       "type": "color",
       "id": "bg_color",
       "label": "Background color",
@@ -215,7 +178,45 @@
         }
       ],
       "default": "smooth"
-    }
+    },
+    {
+      "type": "select",
+      "id": "pos",
+      "label": "Position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "range",
+      "id": "show_when_precent_of_page",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Show when the view is X% from bottom of the page",
+      "default": 30,
+      "info": "0% means it will never show, 100% means it will always show"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_on_mobile",
+      "label": "Hide on mobile?",
+      "default": false
+    },
+    
   ],
   "presets": [
     {
