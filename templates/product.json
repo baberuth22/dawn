@@ -107,7 +107,7 @@
       "settings": {
         "hide_on_mobile": true,
         "show_when_precent_of_page": 81,
-        "pos": "right",
+        "pos": "left",
         "bg_color": "#f4f2f2",
         "border_color": "#cec5c5",
         "arrow_color": "#333333",
