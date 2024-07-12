@@ -107,7 +107,7 @@
       "settings": {
         "custom_svg": "default",
         "show_when_precent_of_page": 98,
-        "initial_opacity": 100,
+        "initial_opacity": 40,
         "increase_opacity": false,
         "pos": "right",
         "side_dst_to_edge": 20,
