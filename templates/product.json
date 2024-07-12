@@ -112,14 +112,14 @@
         "border_color": "#8c8686",
         "arrow_color": "#333333",
         "button_size": 78,
-        "arrow_size": 52,
+        "arrow_size": 32,
         "show_when_precent_of_page": 43,
         "hide_on_mobile": false,
         "border_thickness": 1,
         "arrow_thickness": 1,
         "initial_opacity": 77,
         "increase_opacity": true,
-        "custom_svg": "default",
+        "custom_svg": "pointer",
         "custom_svg_code": "<svg><\/svg>",
         "scroll_behavior": "smooth"
       }
