@@ -105,7 +105,7 @@
     "sa_back_to_top_THRBHx": {
       "type": "sa-back-to-top",
       "settings": {
-        "custom_svg": "simple",
+        "custom_svg": "chevron",
         "custom_svg_path": "<path d=\"M256 64l-128 128h256L256 64zM256 192l-128 128h256L256 192z\"><\/path>",
         "show_when_precent_of_page": 98,
         "initial_opacity": 100,
