@@ -107,7 +107,7 @@
       "settings": {
         "custom_svg": "outline",
         "custom_svg_path": "<path d=\"M256 64l-128 128h256L256 64zM256 192l-128 128h256L256 192z\"><\/path>",
-        "show_when_precent_of_page": 28,
+        "show_when_precent_of_page": 10,
         "initial_opacity": 59,
         "increase_opacity": true,
         "pos": "right",
