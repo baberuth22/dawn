@@ -206,7 +206,7 @@
         "slides_per_view": 1,
         "space_between": 10,
         "loop": true,
-        "shader_type": "dots"
+        "shader_type": "morph-y"
       }
     }
   },
