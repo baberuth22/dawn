@@ -54,19 +54,65 @@
       "settings": {
       }
     },
-    "sa_tts_wellsaid_JMAde3": {
-      "type": "sa-tts-wellsaid",
+    "sa_swiper_thumbs_7mwbfY": {
+      "type": "sa-swiper-thumbs",
+      "blocks": {
+        "slide_ar4K8z": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/person-stands-on-rocks-poking-out-of-the-ocean-shoreline.jpg",
+            "slide_text": "<h3>Slide Title<\/h3><p>This is the slide content.<\/p>",
+            "overlay_position": "middle"
+          }
+        },
+        "slide_CdddFR": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/person-fishing-on-the-beach-is-silhouetted-at-sunset.jpg",
+            "slide_text": "<h3>Slide Title<\/h3><p>This is the slide content.<\/p>",
+            "overlay_position": "middle"
+          }
+        },
+        "slide_kzc4Yk": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/a-bridge-sitting-in-thick-pink-and-purple-fog.jpg",
+            "slide_text": "<h3>Slide Title<\/h3><p>This is the slide content.<\/p>",
+            "overlay_position": "middle"
+          }
+        },
+        "slide_HKFTWx": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/flatlay-of-jade-face-roller-laying-on-a-grey-stone.jpg",
+            "slide_text": "<h3>Slide Title<\/h3><p>This is the slide content.<\/p>",
+            "overlay_position": "middle"
+          }
+        }
+      },
+      "block_order": [
+        "slide_ar4K8z",
+        "slide_CdddFR",
+        "slide_kzc4Yk",
+        "slide_HKFTWx"
+      ],
       "settings": {
-        "text_to_convert": "Create a New Record for the API Key:\nClick on the button to add a new record.\nIn the label field, enter wellsaid.\nIn the value field, paste the API key you copied from the WellSaid Labs dashboard.\nSave the record.",
-        "speaker_id": "15",
-        "play_position": "element_id",
-        "element_id": "myreader"
+        "section_title": "My Swiper Slider",
+        "swiper_width": "100%",
+        "swiper_height": "400px",
+        "overlay_opacity": 0.5,
+        "font_size": "16px",
+        "font_family": "Arial, sans-serif",
+        "font_color": "#ffffff",
+        "slides_per_view": 1,
+        "space_between": 10,
+        "loop": true
       }
     }
   },
   "order": [
     "collage_4CJ9CQ",
     "main",
-    "sa_tts_wellsaid_JMAde3"
+    "sa_swiper_thumbs_7mwbfY"
   ]
 }
