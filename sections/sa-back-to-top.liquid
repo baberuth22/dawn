@@ -48,7 +48,7 @@
       --border-color: {{ section.settings.border_color }};
       --border-thickness: {{ section.settings.border_thickness }}px;
       --bg-color: {{ section.settings.bg_color }};
-      opacity: ({{ section.settings.initial_opacity }} / 100);
+      opacity: {{ section.settings.initial_opacity | divided_by: 100 }};
       width: {{ section.settings.button_size }}px;
       height: {{ section.settings.button_size }}px;
     "
@@ -113,11 +113,11 @@
             var scrollPercent = window.scrollY / scrollHeight;
             backToTopArrow.style.opacity = Math.min(scrollPercent * 2, 1).toString();
           } else {
-            backToTopArrow.style.opacity = '1';
+            backToTopArrow.style.opacity = {{ section.settings.initial_opacity | divided_by: 100 }};
           }
         } else {
           backToTopArrow.style.display = 'none';
-          backToTopArrow.style.opacity = '({{ section.settings.initial_opacity }} / 100)';
+          backToTopArrow.style.opacity = {{ section.settings.initial_opacity | divided_by: 100 }};
         }
       });
     });
