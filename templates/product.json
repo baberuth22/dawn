@@ -106,6 +106,7 @@
       "type": "sa-back-to-top",
       "settings": {
         "custom_svg": "slim",
+        "custom_svg_path": "<path><\/path>",
         "show_when_precent_of_page": 99,
         "initial_opacity": 55,
         "pos": "right",
@@ -115,12 +116,11 @@
         "border_color": "#cec5c5",
         "arrow_color": "#333333",
         "button_size": 200,
-        "arrow_size": 200,
-        "border_thickness": 3,
+        "arrow_size": 126,
+        "border_thickness": 5,
         "hide_on_mobile": false,
         "increase_opacity": false,
-        "scroll_behavior": "smooth",
-        "custom_svg_path": "<path><\/path>"
+        "scroll_behavior": "smooth"
       }
     },
     "sa_app_wrapper_Uwm7d9": {
