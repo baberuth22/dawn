@@ -102,19 +102,21 @@
         "animation_delay": 1
       }
     },
-    "ss_back_to_top_button_diXytB": {
-      "type": "ss-back-to-top-button",
+    "sa_back_to_top_ULHgXn": {
+      "type": "sa-back-to-top",
       "settings": {
-        "hide_on_mobile": false,
-        "show_when_precent_of_page": 19,
+        "hide_on_mobile": true,
+        "show_when_precent_of_page": 30,
         "pos": "right",
-        "bg_color": "#d91b1b",
-        "border_color": "#334fb4",
-        "arrow_color": "#ffffff",
-        "button_size": 200,
-        "arrow_size": 132,
+        "bg_color": "#F4F2F2",
+        "border_color": "#CEC5C5",
+        "arrow_color": "#333333",
+        "button_size": 54,
+        "arrow_size": 30,
         "horizontal_dst_to_edge": 20,
-        "vertical_dst_to_edge": 20
+        "vertical_dst_to_edge": 20,
+        "scroll_behavior": "smooth",
+        "icon": "arrow-up"
       }
     }
   },
@@ -122,6 +124,6 @@
     "main",
     "product-recommendations",
     "sa_element_animations_W4hz7P",
-    "ss_back_to_top_button_diXytB"
+    "sa_back_to_top_ULHgXn"
   ]
 }
