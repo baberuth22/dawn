@@ -118,7 +118,7 @@
         "button_size": 110,
         "arrow_size": 98,
         "border_thickness": 0,
-        "scroll_behavior": "auto",
+        "scroll_behavior": "smooth",
         "hide_on_mobile": false,
         "custom_svg_path": "<path d=\"M256 64c0 0-128 128-128 192s128 192 128 192 128-128\"><\/path>"
       }
