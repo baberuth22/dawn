@@ -1,5 +1,8 @@
+<!-- SA - Back to Top Section -->
+
+<!-- CSS -->
 <style>
-  .ss-back-to-top-arrow-{{ section.id }} {
+  .sa-back-to-top-arrow-{{ section.id }} {
     position: fixed;
     bottom: var(--y-dst-to-edge);
     background-color: var(--bg-color, #fff);
@@ -11,24 +14,25 @@
     display: none;
     opacity: 0;
   }
-  .ss-back-to-top-arrow-{{ section.id }}:hover {
+  .sa-back-to-top-arrow-{{ section.id }}:hover {
     transform: scale(1.1);
   }
   @media screen and (max-width: 749.9px) {
-    .ss-back-to-top-arrow-{{ section.id }}-hide-on-mobile {
+    .sa-back-to-top-arrow-{{ section.id }}-hide-on-mobile {
       display: none;
     }
   }
 </style>
 
+<!-- Button Element -->
 <button
   class="
-    ss-back-to-top-arrow-{{ section.id }}
+    sa-back-to-top-arrow-{{ section.id }}
     {% if section.settings.hide_on_mobile %}
-      ss-back-to-top-arrow-{{ section.id }}-hide-on-mobile
+      sa-back-to-top-arrow-{{ section.id }}-hide-on-mobile
     {% endif %}
   "
-  id="ss-back-to-top-arrow-{{ section.id }}"
+  id="sa-back-to-top-arrow-{{ section.id }}"
   style="
     --x-dst-to-edge: {{ section.settings.horizontal_dst_to_edge }}px;
     {% if section.settings.pos == 'left' %}
@@ -49,6 +53,7 @@
   type="button"
 >
   <svg
+    id="sa-back-to-top-icon-{{ section.id }}"
     style="
       position: absolute;
       top: 50%;
@@ -61,20 +66,34 @@
     stroke="currentColor"
     fill="currentColor"
     stroke-width="0"
-    viewBox="0 0 512 512"
-    height="1em"
-    width="1em"
     xmlns="http://www.w3.org/2000/svg"
   >
+    <!-- Default icon (Arrow Up) -->
     <path d="M256 217.9L383 345c9.4 9.4 24.6 9.4 33.9 0 9.4-9.4 9.3-24.6 0-34L273 167c-9.1-9.1-23.7-9.3-33.1-.7L95 310.9c-4.7 4.7-7 10.9-7 17s2.3 12.3 7 17c9.4 9.4 24.6 9.4 33.9 0l127.1-127z"></path>
   </svg>
 </button>
 
-
+<!-- JavaScript -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    var backToTopArrow = document.getElementById('ss-back-to-top-arrow-{{ section.id }}');
+    var backToTopArrow = document.getElementById('sa-back-to-top-arrow-{{ section.id }}');
+    var backToTopIcon = document.getElementById('sa-back-to-top-icon-{{ section.id }}');
     
+    // Icon selection
+    var iconPath = '';
+    switch ('{{ section.settings.icon }}') {
+      case 'chevron-up':
+        iconPath = 'M256 373.4L137.4 254.6C126.3 243.5 107.1 243.5 96 254.6C84.9 265.7 84.9 284.9 96 296L256 456L416 296C427.1 284.9 427.1 265.7 416 254.6C404.9 243.5 385.7 243.5 374.6 254.6L256 373.4Z';
+        break;
+      case 'caret-up':
+        iconPath = 'M256 160L96 320L416 320L256 160Z';
+        break;
+      case 'arrow-up':
+      default:
+        iconPath = 'M256 217.9L383 345c9.4 9.4 24.6 9.4 33.9 0 9.4-9.4 9.3-24.6 0-34L273 167c-9.1-9.1-23.7-9.3-33.1-.7L95 310.9c-4.7 4.7-7 10.9-7 17s2.3 12.3 7 17c9.4 9.4 24.6 9.4 33.9 0l127.1-127z';
+    }
+    backToTopIcon.innerHTML = '<path d="' + iconPath + '"></path>';
+
     // Scroll to top function
     backToTopArrow.addEventListener('click', function () {
       window.scrollTo({
@@ -84,7 +103,7 @@
     });
     
     // Show/hide button based on scroll position
-    const precentOfPage = 1 - {{ section.settings.show_when_precent_of_page }} / 100;
+    const precentOfPage = {{ section.settings.show_when_precent_of_page }} / 100;
     window.addEventListener('scroll', function () {
       if (window.scrollY > precentOfPage * (document.body.scrollHeight - window.innerHeight)) {
         backToTopArrow.style.display = 'block';
@@ -97,6 +116,7 @@
   });
 </script>
 
+<!-- Schema -->
 {% schema %}
 {
   "name": "SA - Back to Top",
@@ -116,7 +136,7 @@
       "unit": "%",
       "label": "Show when the view is X% from bottom of the page",
       "default": 30,
-      "info": "0% means it will always show, 100% means it will never show"
+      "info": "0% means it will never show, 100% means it will always show"
     },
     {
       "type": "select",
