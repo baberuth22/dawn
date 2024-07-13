@@ -1,6 +1,6 @@
 {% schema %}
 {
-  "name": "SA - Tinder Blog",
+  "name": "SA - Tinder Slider",
   "settings": [
     {
       "type": "range",
@@ -117,7 +117,7 @@
   ],
   "presets": [
     {
-      "name": "SA - Tinder Blog",
+      "name": "SA - Tinder Slider",
       "category": "Custom",
       "blocks": [
         {
@@ -150,23 +150,25 @@
           {% else %}
             <div style="height: 100%; width: 100%; background-color: #e8e8e8;"></div>
           {% endif %}
-          <div class="demo-slide-name {{ block.settings.text_position }}" style="font-family: {{ section.settings.overlay_font }}; color: {{ section.settings.overlay_font_color }}; font-size: {{ section.settings.overlay_font_size }}px; background-color: {{ section.settings.overlay_color }}; opacity: {{ section.settings.overlay_opacity }};">
-            <span class="featured_article3">Featured Article</span>
-            <h3 class="featured_title3">
-              {% if block.settings.article.title %}
-                {{ block.settings.article.title }}
-              {% else %}
-                Featured Blog Title
-              {% endif %}
-            </h3>
-            <div class="featured_description3">
-              {% unless section.settings.remove_description_text %}
-                {% if block.settings.article.content %}
-                  {{ block.settings.article.content | truncate: 200 }}
+          <div class="demo-slide-content" style="height: 100%; display: flex; flex-direction: column; justify-content: space-between; padding: 10px;">
+            <div>
+              <span class="featured_article3">Featured Article</span>
+              <h3 class="featured_title3">
+                {% if block.settings.article.title %}
+                  {{ block.settings.article.title }}
                 {% else %}
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias iste corporis cumque perspiciatis tenetur reprehenderit nam, ipsum consequatur laudantium optio.
+                  Featured Blog Title
                 {% endif %}
-              {% endunless %}
+              </h3>
+              <div class="featured_description3">
+                {% unless section.settings.remove_description_text %}
+                  {% if block.settings.article.content %}
+                    {{ block.settings.article.content | truncate: 200 }}
+                  {% else %}
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias iste corporis cumque perspiciatis tenetur reprehenderit nam, ipsum consequatur laudantium optio.
+                  {% endif %}
+                {% endunless %}
+              </div>
             </div>
             <a href="{{ block.settings.article.url }}" class="featured_link3">{{ section.settings.button_text }}</a>
           </div>
@@ -329,7 +331,6 @@
 }
 
 @media (max-width: 767px) {
-
 .featured_blocks3 {
     flex-direction:column;
 }
