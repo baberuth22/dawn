@@ -128,11 +128,11 @@
       ],
       "settings": {
         "image_height": 500,
-        "overlay_font": "Arial",
-        "overlay_font_color": "#FFFFFF",
+        "overlay_font": "Courier New",
+        "overlay_font_color": "#e97a7a",
         "overlay_font_size": 16,
-        "overlay_opacity": 0.5,
-        "overlay_color": "#000000"
+        "overlay_opacity": 0.3,
+        "overlay_color": "#334fb4"
       }
     }
   },
