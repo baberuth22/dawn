@@ -1,7 +1,17 @@
 {% schema %}
 {
   "name": "SA - Tinder Slider",
-  "settings": [],
+  "settings": [
+    {
+      "type": "range",
+      "id": "image_height",
+      "label": "Image Height (px)",
+      "min": 100,
+      "max": 1000,
+      "step": 10,
+      "default": 500
+    }
+  ],
   "blocks": [
     {
       "type": "slide",
@@ -14,9 +24,36 @@
         },
         {
           "type": "text",
-          "id": "name",
-          "label": "Name",
-          "default": "Name, Age"
+          "id": "text",
+          "label": "Overlay Text"
+        },
+        {
+          "type": "select",
+          "id": "text_position",
+          "label": "Text Position",
+          "options": [
+            {
+              "value": "top-left",
+              "label": "Top Left"
+            },
+            {
+              "value": "top-right",
+              "label": "Top Right"
+            },
+            {
+              "value": "bottom-left",
+              "label": "Bottom Left"
+            },
+            {
+              "value": "bottom-right",
+              "label": "Bottom Right"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            }
+          ],
+          "default": "bottom-left"
         }
       ]
     }
@@ -36,8 +73,14 @@
     <div class="swiper-wrapper" style="cursor: grab; transition-duration: 300ms">
       {% for block in section.blocks %}
       <div class="swiper-slide" style="width: 348px; z-index: {{ forloop.index }}; transform: translate3d(348px, -{{ forloop.index }}*10px, 0px) rotateZ(45deg); opacity: {{ forloop.index }}*0.2; transform-origin: center bottom; transition-duration: 300ms;">
-        <img src="{{ block.settings.image | img_url: 'master' }}" alt="" />
-        <div class="demo-slide-name"><b>{{ block.settings.name }}</b></div>
+        <div style="position: relative; height: {{ section.settings.image_height }}px;">
+          <img src="{{ block.settings.image | img_url: 'master' }}" alt="" style="height: 100%; width: 100%; object-fit: cover;" />
+          {% if block.settings.text != blank %}
+          <div class="demo-slide-name {{ block.settings.text_position }}">
+            <b>{{ block.settings.text }}</b>
+          </div>
+          {% endif %}
+        </div>
       </div>
       {% endfor %}
     </div>
@@ -46,7 +89,4 @@
 
 <!-- Include the necessary scripts and styles for the slider -->
 <link rel="stylesheet" href="https://tinder-slider.uiinitiative.com/assets/effect-tinder.aef0cf08.css" />
-<script type="module" crossorigin="" src="https://tinder-slider.uiinitiative.com/assets/tinder.49154e1a.js"></script>
-<link rel="modulepreload" href="https://tinder-slider.uiinitiative.com/assets/modulepreload-polyfill.b7f2da20.js" />
-<link rel="modulepreload" href="https://tinder-slider.uiinitiative.com/assets/vendor.602a9696.js" />
-<link rel="modulepreload" href="https://tinder-slider.uiinitiative.com/assets/effect-tinder.f396dd4b.js" />
+<script type="module" crossorigin="" src="https://tinder-slider.uiinit
