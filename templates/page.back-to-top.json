@@ -54,19 +54,31 @@
       "settings": {
       }
     },
-    "sa_tts_wellsaid_JMAde3": {
-      "type": "sa-tts-wellsaid",
+    "sa_back_to_top_E8dnt6": {
+      "type": "sa-back-to-top",
       "settings": {
-        "text_to_convert": "Create a New Record for the API Key:\nClick on the button to add a new record.\nIn the label field, enter wellsaid.\nIn the value field, paste the API key you copied from the WellSaid Labs dashboard.\nSave the record.",
-        "speaker_id": "15",
-        "play_position": "element_id",
-        "element_id": "myreader"
+        "custom_svg": "default",
+        "show_when_precent_of_page": 30,
+        "initial_opacity": 100,
+        "increase_opacity": false,
+        "pos": "right",
+        "side_dst_to_edge": 20,
+        "bottom_dst_to_edge": 20,
+        "bg_color": "#F4F2F2",
+        "border_color": "#CEC5C5",
+        "arrow_color": "#333333",
+        "button_size": 54,
+        "arrow_size": 30,
+        "border_thickness": 1,
+        "scroll_behavior": "smooth",
+        "hide_on_mobile": false,
+        "custom_svg_path": "<path><\/path>"
       }
     }
   },
   "order": [
     "collage_4CJ9CQ",
     "main",
-    "sa_tts_wellsaid_JMAde3"
+    "sa_back_to_top_E8dnt6"
   ]
 }
