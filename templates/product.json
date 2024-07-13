@@ -108,8 +108,9 @@
         "slide_ja6iUM": {
           "type": "slide",
           "settings": {
-            "text": "",
-            "text_position": "bottom-left"
+            "image": "shopify:\/\/shop_images\/self-serve-coffee-shop.jpg",
+            "text": "Shop here!",
+            "text_position": "center"
           }
         },
         "slide_8Ebgyg": {
