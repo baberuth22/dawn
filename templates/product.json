@@ -94,121 +94,6 @@
         "show_rating": false
       }
     },
-    "sa_element_animations_W4hz7P": {
-      "type": "sa-element-animations",
-      "settings": {
-        "shake_type": "horizontal",
-        "query_selector": ".product__title",
-        "animation_delay": 1
-      }
-    },
-    "sa_back_to_top_THRBHx": {
-      "type": "sa-back-to-top",
-      "settings": {
-        "custom_svg": "default",
-        "show_when_precent_of_page": 98,
-        "initial_opacity": 40,
-        "increase_opacity": false,
-        "pos": "left",
-        "side_dst_to_edge": 20,
-        "bottom_dst_to_edge": 10,
-        "bg_color": "#f4f2f2",
-        "border_color": "#cec5c5",
-        "arrow_color": "#333333",
-        "button_size": 110,
-        "arrow_size": 98,
-        "border_thickness": 0,
-        "scroll_behavior": "auto",
-        "hide_on_mobile": false,
-        "custom_svg_path": "<path d=\"M256 64c0 0-128 128-128 192s128 192 128 192 128-128\"><\/path>"
-      }
-    },
-    "sa_app_wrapper_Uwm7d9": {
-      "type": "sa-app-wrapper",
-      "blocks": {
-        "puco_sections_blocks_app_block_KXb49L": {
-          "type": "shopify:\/\/apps\/puco-sections-blocks\/blocks\/app-block\/f1ea0cb9-0193-44b7-bab7-d0fd6bec6cbf",
-          "settings": {
-            "block_id": "2",
-            "heading_content": "Puco App Block Here",
-            "heading_tag": "h3",
-            "heading_color": "#000000",
-            "heading_margin_bottom": 15,
-            "padding_top": 15,
-            "padding_bottom": 15
-          }
-        },
-        "essential_ai_section_builder_magic_block_YpkbK4": {
-          "type": "shopify:\/\/apps\/essential-ai-section-builder\/blocks\/magic-block\/c35653a8-4f0b-4bf8-a93d-51f0f5c6932c",
-          "settings": {
-            "widget_key": "e5611949-5605-4da9-844a-a991b4c23820"
-          }
-        }
-      },
-      "block_order": [
-        "puco_sections_blocks_app_block_KXb49L",
-        "essential_ai_section_builder_magic_block_YpkbK4"
-      ],
-      "settings": {
-        "include_padding": true
-      }
-    },
-    "sa_blog_swiper_XrW7n3": {
-      "type": "sa-blog-swiper",
-      "blocks": {
-        "slide_8KrqAF": {
-          "type": "slide",
-          "settings": {
-            "slide_image": "shopify:\/\/shop_images\/person-stands-on-rocks-poking-out-of-the-ocean-shoreline.jpg",
-            "slide_text": "<h3>Slide Title<\/h3><p>This is the slide content.<\/p>",
-            "overlay_position": "middle"
-          }
-        },
-        "slide_bQQcnR": {
-          "type": "slide",
-          "settings": {
-            "slide_image": "shopify:\/\/shop_images\/two-people-surfing-in-blue-choppy-water.jpg",
-            "slide_text": "<h3>Slide Title<\/h3><p>This is the slide content.<\/p>",
-            "overlay_position": "middle"
-          }
-        },
-        "slide_yzJLce": {
-          "type": "slide",
-          "settings": {
-            "slide_image": "shopify:\/\/shop_images\/green-and-white-marbled-coloring.jpg",
-            "slide_text": "<h3>Slide Title<\/h3><p>This is the slide content.<\/p>",
-            "overlay_position": "middle"
-          }
-        },
-        "slide_bLriTg": {
-          "type": "slide",
-          "settings": {
-            "slide_image": "shopify:\/\/shop_images\/person-carries-a-wooden-box-full-of-dough-balls.jpg",
-            "slide_text": "<h3>Slide Title<\/h3><p>This is the slide content.<\/p>",
-            "overlay_position": "middle"
-          }
-        }
-      },
-      "block_order": [
-        "slide_8KrqAF",
-        "slide_bQQcnR",
-        "slide_yzJLce",
-        "slide_bLriTg"
-      ],
-      "settings": {
-        "section_title": "My Swiper Slider",
-        "swiper_width": "100%",
-        "swiper_height": "400px",
-        "overlay_opacity": 0.5,
-        "font_size": "16px",
-        "font_family": "Arial, sans-serif",
-        "font_color": "#ffffff",
-        "slides_per_view": 1,
-        "space_between": 10,
-        "loop": true,
-        "shader_type": "morph-y"
-      }
-    },
     "sa_tinder_slider_4wUCTr": {
       "type": "sa-tinder-slider",
       "blocks": {
@@ -242,17 +127,18 @@
         "slide_8Ebgyg"
       ],
       "settings": {
-        "image_height": 500
+        "image_height": 500,
+        "overlay_font": "Arial",
+        "overlay_font_color": "#FFFFFF",
+        "overlay_font_size": 16,
+        "overlay_opacity": 0.5,
+        "overlay_color": "#000000"
       }
     }
   },
   "order": [
     "main",
     "product-recommendations",
-    "sa_element_animations_W4hz7P",
-    "sa_back_to_top_THRBHx",
-    "sa_app_wrapper_Uwm7d9",
-    "sa_blog_swiper_XrW7n3",
     "sa_tinder_slider_4wUCTr"
   ]
 }
