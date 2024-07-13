@@ -216,22 +216,33 @@
           "type": "slide",
           "settings": {
             "image": "shopify:\/\/shop_images\/person-dressed-in-black-holds-two-weights-in-each-hand.jpg",
-            "name": "Name, Age"
+            "text": "Here we go",
+            "text_position": "center"
+          }
+        },
+        "slide_ja6iUM": {
+          "type": "slide",
+          "settings": {
+            "text": "",
+            "text_position": "bottom-left"
           }
         },
         "slide_8Ebgyg": {
           "type": "slide",
           "settings": {
             "image": "shopify:\/\/shop_images\/silver-lamp-on-a-white-table-next-to-books.jpg",
-            "name": "Name, Age"
+            "text": "",
+            "text_position": "bottom-left"
           }
         }
       },
       "block_order": [
         "slide_nziqfW",
+        "slide_ja6iUM",
         "slide_8Ebgyg"
       ],
       "settings": {
+        "image_height": 500
       }
     }
   },
