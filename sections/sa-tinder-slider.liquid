@@ -10,6 +10,54 @@
       "max": 1000,
       "step": 10,
       "default": 500
+    },
+    {
+      "type": "select",
+      "id": "overlay_font",
+      "label": "Overlay Font",
+      "options": [
+        { "value": "Arial", "label": "Arial" },
+        { "value": "Helvetica", "label": "Helvetica" },
+        { "value": "Times New Roman", "label": "Times New Roman" },
+        { "value": "Courier New", "label": "Courier New" },
+        { "value": "Verdana", "label": "Verdana" },
+        { "value": "Georgia", "label": "Georgia" },
+        { "value": "Palatino", "label": "Palatino" },
+        { "value": "Garamond", "label": "Garamond" },
+        { "value": "Bookman", "label": "Bookman" },
+        { "value": "Trebuchet MS", "label": "Trebuchet MS" }
+      ],
+      "default": "Arial"
+    },
+    {
+      "type": "color",
+      "id": "overlay_font_color",
+      "label": "Overlay Font Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "overlay_font_size",
+      "label": "Overlay Font Size (px)",
+      "min": 10,
+      "max": 50,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay Opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.5
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay Background Color",
+      "default": "#000000"
     }
   ],
   "blocks": [
@@ -75,8 +123,8 @@
       <div class="swiper-slide" style="width: 348px; z-index: {{ forloop.index }}; transform: translate3d(348px, -{{ forloop.index }}*10px, 0px) rotateZ(45deg); opacity: {{ forloop.index }}*0.2; transform-origin: center bottom; transition-duration: 300ms;">
         <div style="position: relative; height: {{ section.settings.image_height }}px;">
           <img src="{{ block.settings.image | img_url: 'master' }}" alt="" style="height: 100%; width: 100%; object-fit: cover;" />
-          {% if block.settings.text != blank %}
-          <div class="demo-slide-name {{ block.settings.text_position }}">
+          {% if block.settings.text != "" %}
+          <div class="demo-slide-name {{ block.settings.text_position }}" style="font-family: {{ section.settings.overlay_font }}; color: {{ section.settings.overlay_font_color }}; font-size: {{ section.settings.overlay_font_size }}px; background-color: {{ section.settings.overlay_color }}; opacity: {{ section.settings.overlay_opacity }};">
             <b>{{ block.settings.text }}</b>
           </div>
           {% endif %}
@@ -97,8 +145,6 @@
 <style>
 .demo-slide-name {
   position: absolute;
-  color: white;
-  background: rgba(0, 0, 0, 0.5);
   padding: 5px;
 }
 .demo-slide-name.top-left {
