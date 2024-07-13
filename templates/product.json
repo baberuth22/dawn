@@ -131,8 +131,8 @@
         "image_height": 500,
         "overlay_font": "Courier New",
         "overlay_font_color": "#e97a7a",
-        "overlay_font_size": 16,
-        "overlay_opacity": 0.3,
+        "overlay_font_size": 32,
+        "overlay_opacity": 0.8,
         "overlay_color": "#334fb4"
       }
     }
