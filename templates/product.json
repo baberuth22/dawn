@@ -208,6 +208,31 @@
         "loop": true,
         "shader_type": "morph-y"
       }
+    },
+    "sa_tinder_slider_4wUCTr": {
+      "type": "sa-tinder-slider",
+      "blocks": {
+        "slide_nziqfW": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/person-dressed-in-black-holds-two-weights-in-each-hand.jpg",
+            "name": "Name, Age"
+          }
+        },
+        "slide_8Ebgyg": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/silver-lamp-on-a-white-table-next-to-books.jpg",
+            "name": "Name, Age"
+          }
+        }
+      },
+      "block_order": [
+        "slide_nziqfW",
+        "slide_8Ebgyg"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
@@ -216,6 +241,7 @@
     "sa_element_animations_W4hz7P",
     "sa_back_to_top_THRBHx",
     "sa_app_wrapper_Uwm7d9",
-    "sa_blog_swiper_XrW7n3"
+    "sa_blog_swiper_XrW7n3",
+    "sa_tinder_slider_4wUCTr"
   ]
 }
