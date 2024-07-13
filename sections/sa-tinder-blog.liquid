@@ -1,6 +1,362 @@
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "SA - Tinder Slider",
+  "settings": [
+    {
+      "type": "range",
+      "id": "image_height",
+      "label": "Image Height (px)",
+      "min": 100,
+      "max": 1000,
+      "step": 10,
+      "default": 500
+    },
+    {
+      "type": "select",
+      "id": "overlay_font",
+      "label": "Overlay Font",
+      "options": [
+        { "value": "Arial", "label": "Arial" },
+        { "value": "Helvetica", "label": "Helvetica" },
+        { "value": "Times New Roman", "label": "Times New Roman" },
+        { "value": "Courier New", "label": "Courier New" },
+        { "value": "Verdana", "label": "Verdana" },
+        { "value": "Georgia", "label": "Georgia" },
+        { "value": "Palatino", "label": "Palatino" },
+        { "value": "Garamond", "label": "Garamond" },
+        { "value": "Bookman", "label": "Bookman" },
+        { "value": "Trebuchet MS", "label": "Trebuchet MS" }
+      ],
+      "default": "Arial"
+    },
+    {
+      "type": "color",
+      "id": "overlay_font_color",
+      "label": "Overlay Font Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "overlay_font_size",
+      "label": "Overlay Font Size (px)",
+      "min": 10,
+      "max": 50,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay Opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.5
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Read more"
+    },
+    {
+      "type": "checkbox",
+      "id": "remove_description_text",
+      "default": false,
+      "label": "Remove description text"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section Background Color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Color",
+      "default": "#FF7A15"
+    },
+    {
+      "type": "color",
+      "id": "description_maintext_color",
+      "label": "Description Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "font_picker",
+      "id": "title_font",
+      "default": "assistant_n4",
+      "label": "Title Font"
+    },
+    {
+      "type": "font_picker",
+      "id": "description_font",
+      "default": "assistant_n4",
+      "label": "Description Font"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "article",
+          "id": "article",
+          "label": "Choose Article"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SA - Tinder Slider",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}
+
+<div id="app" style="background-color: {{ section.settings.section_bg_color }};">
+  <!-- Tinder slider -->
+  <div class="swiper swiper-tinder swiper-3d swiper-initialized swiper-horizontal swiper-watch-progress">
+    <div class="swiper-wrapper" style="cursor: grab; transition-duration: 300ms">
+      {% for block in section.blocks %}
+      <div class="swiper-slide" style="width: 348px; z-index: {{ forloop.index }}; transform: translate3d(348px, -{{ forloop.index }}*10px, 0px) rotateZ(45deg); opacity: {{ forloop.index }}*0.2; transform-origin: center bottom; transition-duration: 300ms;">
+        <div style="position: relative; height: {{ section.settings.image_height }}px;">
+          {% if block.settings.article.image %}
+            <img src="{{ block.settings.article.image | img_url: 'master' }}" alt="" style="height: 100%; width: 100%; object-fit: cover;" />
+          {% else %}
+            <div style="height: 100%; width: 100%; background-color: #e8e8e8;"></div>
+          {% endif %}
+          <div class="demo-slide-name {{ block.settings.text_position }}" style="font-family: {{ section.settings.overlay_font }}; color: {{ section.settings.overlay_font_color }}; font-size: {{ section.settings.overlay_font_size }}px; background-color: {{ section.settings.overlay_color }}; opacity: {{ section.settings.overlay_opacity }};">
+            <span class="featured_article3">Featured Article</span>
+            <h3 class="featured_title3">
+              {% if block.settings.article.title %}
+                {{ block.settings.article.title }}
+              {% else %}
+                Featured Blog Title
+              {% endif %}
+            </h3>
+            <div class="featured_description3">
+              {% unless section.settings.remove_description_text %}
+                {% if block.settings.article.content %}
+                  {{ block.settings.article.content | truncate: 200 }}
+                {% else %}
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias iste corporis cumque perspiciatis tenetur reprehenderit nam, ipsum consequatur laudantium optio.
+                {% endif %}
+              {% endunless %}
+            </div>
+            <a href="{{ block.settings.article.url }}" class="featured_link3">{{ section.settings.button_text }}</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<!-- Include the necessary scripts and styles for the slider -->
+<link rel="stylesheet" href="https://tinder-slider.uiinitiative.com/assets/effect-tinder.aef0cf08.css" />
+<script type="module" crossorigin="" src="https://tinder-slider.uiinitiative.com/assets/tinder.49154e1a.js"></script>
+<link rel="modulepreload" href="https://tinder-slider.uiinitiative.com/assets/modulepreload-polyfill.b7f2da20.js" />
+<link rel="modulepreload" href="https://tinder-slider.uiinitiative.com/assets/vendor.602a9696.js" />
+<link rel="modulepreload" href="https://tinder-slider.uiinitiative.com/assets/effect-tinder.f396dd4b.js" />
+
+<style>
+.demo-slide-name {
+  position: absolute;
+  padding: 5px;
+  color: {{ section.settings.overlay_font_color }};
+  background-color: {{ section.settings.overlay_color }};
+  opacity: {{ section.settings.overlay_opacity }};
+  font-family: {{ section.settings.overlay_font }};
+  font-size: {{ section.settings.overlay_font_size }}px;
+}
+.demo-slide-name.top-left {
+  top: 0;
+  left: 0;
+}
+.demo-slide-name.top-right {
+  top: 0;
+  right: 0;
+}
+.demo-slide-name.bottom-left {
+  bottom: 0;
+  left: 0;
+}
+.demo-slide-name.bottom-right {
+  bottom: 0;
+  right: 0;
+}
+.demo-slide-name.center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.featured_item3 svg {
+  max-height: 200px;
+  display: block;
+  margin: auto;
+}
+.featured_container3 {
+  max-width: 140rem;
+  margin: 0 auto;
+  padding: 50px 5rem;
+}
+.featured_wrapper3 {}
+
+.featured_main3 {
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.featured_blocks3 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.featured_item3 {
+  flex: 0 1 32%;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(164, 162, 163, .3);
+  box-shadow: 0 2px 6px #0000000d;
+}
+
+.featured_item-info3 {
+  text-align: center;
+}
+.featured_item-info3 h4 {
+  font-size: 16px;
+  padding: 10px;
+  color: #000;
+  text-transform: uppercase;
+  margin: 0;
+  margin-bottom:5px;
+  font-weight: 600;
+}
+.featured_item-info3 a:hover {
+  color:white;
+}
+.featured_item-info3 p {
+  padding-bottom: 10px;
+  line-height: 1.2;
+  max-width: 80%;
+  margin: 0 auto!important;
+}
+.featured_item-info3 a {
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 25px;
+  padding: 2px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 120px;
+  margin: 0 auto;
+  width: 100%;
+  transition: all .3s;
+}
+.featured_item3 img {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  object-position: center;
+}
+.featured_article3 {
+  font-size: 16px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.featured_title3 {
+  color: #fff;
+  font-weight:600;
+  text-transform: uppercase;
+  font-size: 30px;
+  margin: 0;
+  padding: 10px 0;
+}
+.featured_description3 {
+  font-size: 16px;
+  line-height: 1.2;
+  max-width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+.featured_link3 {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  border-radius: 25px;
+  padding: 5px 0;
+  margin-top: 20px;
+  text-align: center;
+  max-width: 200px;
+  width: 100%;
+  transition: all .3s;
+  border: 2px solid transparent;
+  font-weight:600;
+}
+
+@media (max-width: 767px) {
+
+.featured_blocks3 {
+    flex-direction:column;
+}
+  .featured_container3 {
+    padding: 0 20px;
+  }
+  .featured_main3 {
+    min-height: 500px;
+  }
+  .featured_wrapper3 {
+    flex-direction: column;
+  }
+  .featured_item3 {
+    margin-top: 0px;
+  }
+  .featured_article3 {
+    font-size: 16px;
+  }
+  .featured_title3 {
+    font-size: 24px;
+  }
+  .featured_description3 {
+    font-size: 16px;
+    max-width: 90%;
+  }
+  .featured_item-info3 a {
+    font-size: 16px;
+  }
+}
+</style>
