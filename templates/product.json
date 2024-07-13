@@ -135,11 +135,62 @@
         "overlay_opacity": 0.8,
         "overlay_color": "#334fb4"
       }
+    },
+    "sa_tinder_blog_7BNCfx": {
+      "type": "sa-tinder-blog",
+      "blocks": {
+        "slide_iHJy99": {
+          "type": "slide",
+          "settings": {
+            "article": "news\/its-on"
+          }
+        },
+        "slide_MzkzFE": {
+          "type": "slide",
+          "settings": {
+            "article": "news\/about-to-get-real"
+          }
+        },
+        "slide_34ayDr": {
+          "type": "slide",
+          "settings": {
+            "article": "news\/demo"
+          }
+        },
+        "slide_ikEpTF": {
+          "type": "slide",
+          "settings": {
+            "article": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_iHJy99",
+        "slide_MzkzFE",
+        "slide_34ayDr",
+        "slide_ikEpTF"
+      ],
+      "settings": {
+        "image_height": 500,
+        "overlay_font": "Arial",
+        "overlay_font_color": "#FFFFFF",
+        "overlay_font_size": 16,
+        "overlay_opacity": 0.5,
+        "overlay_color": "#000000",
+        "button_text": "Read more",
+        "remove_description_text": false,
+        "section_bg_color": "#fff",
+        "button_color": "#FF7A15",
+        "description_maintext_color": "#FFFFFF",
+        "title_font": "assistant_n4",
+        "description_font": "assistant_n4"
+      }
     }
   },
   "order": [
     "main",
     "product-recommendations",
-    "sa_tinder_slider_4wUCTr"
+    "sa_tinder_slider_4wUCTr",
+    "sa_tinder_blog_7BNCfx"
   ]
 }
