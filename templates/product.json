@@ -179,9 +179,9 @@
         "overlay_color": "#000000",
         "button_text": "Read more",
         "remove_description_text": false,
-        "section_bg_color": "#fff",
+        "section_bg_color": "#000000",
         "button_color": "#FF7A15",
-        "description_maintext_color": "#FFFFFF",
+        "description_maintext_color": "#121212",
         "title_font": "assistant_n4",
         "description_font": "assistant_n4"
       }
