@@ -109,33 +109,11 @@
         "loop": true,
         "thumbnail_height": "100px"
       }
-    },
-    "sa_back_to_top_rBUHKP": {
-      "type": "sa-back-to-top",
-      "settings": {
-        "custom_svg": "double",
-        "show_when_precent_of_page": 69,
-        "initial_opacity": 50,
-        "increase_opacity": false,
-        "pos": "right",
-        "side_dst_to_edge": 35,
-        "bottom_dst_to_edge": 34,
-        "bg_color": "#ffffff",
-        "border_color": "#CEC5C5",
-        "arrow_color": "#661717",
-        "button_size": 114,
-        "arrow_size": 82,
-        "border_thickness": 1,
-        "scroll_behavior": "smooth",
-        "hide_on_mobile": false,
-        "custom_svg_path": "<path><\/path>"
-      }
     }
   },
   "order": [
     "collage_4CJ9CQ",
     "main",
-    "sa_swiper_thumbs_7mwbfY",
-    "sa_back_to_top_rBUHKP"
+    "sa_swiper_thumbs_7mwbfY"
   ]
 }
