@@ -1,6 +1,52 @@
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "SA - Tinder Slider",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Name, Age"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SA - Tinder Slider",
+      "category": "Custom"
+    }
+  ]
+}
 {% endschema %}
+
+<div id="app">
+  <!-- Tinder slider -->
+  <div class="swiper swiper-tinder swiper-3d swiper-initialized swiper-horizontal swiper-watch-progress">
+    <div class="swiper-wrapper" style="cursor: grab; transition-duration: 300ms">
+      {% for block in section.blocks %}
+      <div class="swiper-slide" style="width: 348px; z-index: {{ forloop.index }}; transform: translate3d(348px, -{{ forloop.index }}*10px, 0px) rotateZ(45deg); opacity: {{ forloop.index }}*0.2; transform-origin: center bottom; transition-duration: 300ms;">
+        <img src="{{ block.settings.image | img_url: 'master' }}" alt="" />
+        <div class="demo-slide-name"><b>{{ block.settings.name }}</b></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<!-- Include the necessary scripts and styles for the slider -->
+<link rel="stylesheet" href="https://tinder-slider.uiinitiative.com/assets/effect-tinder.aef0cf08.css" />
+<script type="module" crossorigin="" src="https://tinder-slider.uiinitiative.com/assets/tinder.49154e1a.js"></script>
+<link rel="modulepreload" href="https://tinder-slider.uiinitiative.com/assets/modulepreload-polyfill.b7f2da20.js" />
+<link rel="modulepreload" href="https://tinder-slider.uiinitiative.com/assets/vendor.602a9696.js" />
+<link rel="modulepreload" href="https://tinder-slider.uiinitiative.com/assets/effect-tinder.f396dd4b.js" />
