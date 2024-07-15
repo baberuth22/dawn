@@ -1,6 +1,92 @@
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "SA - Shaders Swiper",
+  "settings": [
+    {
+      "type": "select",
+      "id": "shader_type",
+      "label": "Shader Type",
+      "options": [
+        { "value": "random", "label": "Random" },
+        { "value": "dots", "label": "Dots" },
+        { "value": "flyeye", "label": "Flyeye" },
+        { "value": "morph-x", "label": "Morph-X" },
+        { "value": "morph-y", "label": "Morph-Y" },
+        { "value": "page-curl", "label": "Page Curl" },
+        { "value": "peel-x", "label": "Peel-X" },
+        { "value": "peel-y", "label": "Peel-Y" },
+        { "value": "polygons-fall", "label": "Polygons Fall" },
+        { "value": "polygons-morph", "label": "Polygons Morph" },
+        { "value": "polygons-wind", "label": "Polygons Wind" },
+        { "value": "pixelize", "label": "Pixelize" },
+        { "value": "ripple", "label": "Ripple" },
+        { "value": "shutters", "label": "Shutters" },
+        { "value": "slices", "label": "Slices" },
+        { "value": "squares", "label": "Squares" },
+        { "value": "stretch", "label": "Stretch" },
+        { "value": "wave-x", "label": "Wave-X" },
+        { "value": "wind", "label": "Wind" }
+      ],
+      "default": "random"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Slide Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Slide Title",
+          "default": "Slide Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SA - Shaders Swiper",
+      "category": "Custom"
+    }
+  ]
+}
 {% endschema %}
+<script type="module" crossorigin="" src="https://app.sectionsanywhere.com/store/sections/sa-shader-swiper/extras/index.js"></script>
+<link rel="modulepreload" href="https://app.sectionsanywhere.com/store/sections/sa-shader-swiper/extras/vendor.js">
+<link rel="stylesheet" href="https://app.sectionsanywhere.com/store/sections/sa-shader-swiper/extras/index.css">
+
+<div class="swiper swiper-gl swiper-initialized swiper-horizontal swiper-watch-progress">
+  <canvas width="4732" height="1828" style="width: 2366px; height: 914px;"></canvas>
+  <div class="swiper-wrapper" style="transform: translate3d(-2366px, 0px, 0px); transition-duration: 0ms; transition-delay: 0ms;">
+    {% for block in section.blocks %}
+    <div class="swiper-slide" data-swiper-slide-index="{{ forloop.index0 }}" style="width: 2366px;">
+      <img class="swiper-gl-image" src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.title }}">
+      <div class="swiper-slide-content">
+        <div class="swiper-slide-title">{{ block.settings.title }}</div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var swiper = new Swiper('.swiper', {
+      // Add your Swiper settings here
+      effect: '{{ section.settings.shader_type }}',
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      }
+    });
+  });
+</script>
+
