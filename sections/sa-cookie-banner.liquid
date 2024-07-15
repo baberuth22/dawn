@@ -8,7 +8,7 @@
 
   .popup-{{ section.id }} {
     @media (min-width: 750px) {
-      max-width: {{ section.settings.max_width }}px;
+      max-width: {{ section.settings.width }}px;
     }
   }
 
@@ -169,8 +169,8 @@
     },
     {
       "type": "range",
-      "id": "max_width",
-      "label": "Max width",
+      "id": "width",
+      "label": "width",
       "default": 400,
       "min": 0,
       "max": 1000,
