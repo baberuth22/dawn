@@ -53,20 +53,10 @@
       "type": "main-page",
       "settings": {
       }
-    },
-    "sa_tts_wellsaid_JMAde3": {
-      "type": "sa-tts-wellsaid",
-      "settings": {
-        "text_to_convert": "Create a New Record for the API Key:\nClick on the button to add a new record.\nIn the label field, enter wellsaid.\nIn the value field, paste the API key you copied from the WellSaid Labs dashboard.\nSave the record.",
-        "speaker_id": "15",
-        "play_position": "element_id",
-        "element_id": "myreader"
-      }
     }
   },
   "order": [
     "collage_4CJ9CQ",
-    "main",
-    "sa_tts_wellsaid_JMAde3"
+    "main"
   ]
 }
