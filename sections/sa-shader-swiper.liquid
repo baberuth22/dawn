@@ -57,13 +57,11 @@
   ]
 }
 {% endschema %}
-<script type="module" crossorigin="" src="https://app.sectionsanywhere.com/store/sections/sa-shader-swiper/extras/index.js"></script>
-<link rel="modulepreload" crossorigin="" href="https://app.sectionsanywhere.com/store/sections/sa-shader-swiper/extras/vendor.js">
+
 <link rel="stylesheet" href="https://app.sectionsanywhere.com/store/sections/sa-shader-swiper/extras/index.css">
 <script type="module">
     import "https://app.sectionsanywhere.com/store/sections/sa-shader-swiper/extras/index.js";
     import{c as s,G as r,T as a,R as l,C as c,a as m,P as h,V as p,M as g,b as x,S as d,N as u}from "./vendor.js" "https://app.sectionsanywhere.com/store/sections/sa-shader-swiper/extras/vendor.js";
-    import { E as e } from "https://app.sectionsanywhere.com/store/sections/sa-tinder-swiper/extras/effect-tinder.js";
 
     const o = new r(".swiper", { modules: [e], effect: "{{ section.settings.shader_type }}", grabCursor: !0 });
     window.swiper = o;
