@@ -53,10 +53,57 @@
       "type": "main-page",
       "settings": {
       }
+    },
+    "sa_blog_FF6eLb": {
+      "type": "sa-blog",
+      "blocks": {
+        "article_mNpPDY": {
+          "type": "Article",
+          "settings": {
+            "article": "news\/its-on"
+          }
+        },
+        "article_E3d8PY": {
+          "type": "Article",
+          "settings": {
+            "article": "news\/about-to-get-real"
+          }
+        },
+        "article_GYwqyz": {
+          "type": "Article",
+          "settings": {
+            "article": "news\/its-on"
+          }
+        },
+        "article_ijg3Bb": {
+          "type": "Article",
+          "settings": {
+            "article": "news\/demo"
+          }
+        }
+      },
+      "block_order": [
+        "article_mNpPDY",
+        "article_E3d8PY",
+        "article_GYwqyz",
+        "article_ijg3Bb"
+      ],
+      "settings": {
+        "button_text": "Learn more",
+        "make_more_readable": false,
+        "remove_description_text": false,
+        "reverse_layout": false,
+        "section_bg_color": "#ffffff",
+        "button_color": "#FF7A15",
+        "description_maintext_color": "#FFFFFF",
+        "title_font": "assistant_n4",
+        "description_font": "assistant_n4"
+      }
     }
   },
   "order": [
     "collage_4CJ9CQ",
-    "main"
+    "main",
+    "sa_blog_FF6eLb"
   ]
 }
