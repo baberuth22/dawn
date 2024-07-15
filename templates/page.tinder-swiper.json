@@ -53,10 +53,53 @@
       "type": "main-page",
       "settings": {
       }
+    },
+    "sa_tinder_slider_FNgjBz": {
+      "type": "sa-tinder-slider",
+      "blocks": {
+        "slide_NDa7kr": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/pet-and-owner-on-fall-walk.jpg",
+            "text": "",
+            "text_position": "bottom-left"
+          }
+        },
+        "slide_bb9Qt4": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/autumn-walk-hand-in-hand.jpg",
+            "text": "",
+            "text_position": "bottom-left"
+          }
+        },
+        "slide_eKBATd": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/hiker-running-up-beaten-track-between-the-trees.jpg",
+            "text": "Beautiful",
+            "text_position": "bottom-left"
+          }
+        }
+      },
+      "block_order": [
+        "slide_NDa7kr",
+        "slide_bb9Qt4",
+        "slide_eKBATd"
+      ],
+      "settings": {
+        "image_height": 500,
+        "overlay_font": "Arial",
+        "overlay_font_color": "#FFFFFF",
+        "overlay_font_size": 16,
+        "overlay_opacity": 0.5,
+        "overlay_color": "#000000"
+      }
     }
   },
   "order": [
     "collage_4CJ9CQ",
-    "main"
+    "main",
+    "sa_tinder_slider_FNgjBz"
   ]
 }
