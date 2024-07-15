@@ -84,17 +84,6 @@
     "sa_cookie_banner_mJfWKx": {
       "type": "sa-cookie-banner",
       "blocks": {
-        "accept_button_rLAXeM": {
-          "type": "accept_button",
-          "settings": {
-            "button_text": "Accept",
-            "button_color": "#d99d42",
-            "button_text_color": "#ffffff",
-            "button_border_color": "#000000",
-            "button_border_width": 0,
-            "button_border_radius": 24
-          }
-        },
         "decline_button_Gqzndr": {
           "type": "decline_button",
           "settings": {
@@ -106,11 +95,22 @@
             "button_border_width": 1,
             "button_border_radius": 24
           }
+        },
+        "accept_button_n8FL7V": {
+          "type": "accept_button",
+          "settings": {
+            "button_text": "Accept",
+            "button_color": "#128f14",
+            "button_text_color": "#ffffff",
+            "button_border_color": "#000000",
+            "button_border_width": 0,
+            "button_border_radius": 24
+          }
         }
       },
       "block_order": [
-        "accept_button_rLAXeM",
-        "decline_button_Gqzndr"
+        "decline_button_Gqzndr",
+        "accept_button_n8FL7V"
       ],
       "settings": {
         "text": "<p>🍪 We use cookies to ensure the best possible user experience. Please agree to our cookies policy by clicking 'Accept'.<\/p>",
