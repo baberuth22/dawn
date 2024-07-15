@@ -56,6 +56,34 @@
     },
     "sa_shader_swiper_4cX3GX": {
       "type": "sa-shader-swiper",
+      "blocks": {
+        "slide_9wdKcD": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/busy-hands-playing-with-white-dough.jpg",
+            "title": "Slide Title"
+          }
+        },
+        "slide_igxgrt": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/aerial-photo-of-paved-road-through-the-desert.jpg",
+            "title": "Slide Title"
+          }
+        },
+        "slide_AyhyrV": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/people-looking-at-light-beams-from-the-walls.jpg",
+            "title": "Slide Title"
+          }
+        }
+      },
+      "block_order": [
+        "slide_9wdKcD",
+        "slide_igxgrt",
+        "slide_AyhyrV"
+      ],
       "settings": {
         "shader_type": "random"
       }
