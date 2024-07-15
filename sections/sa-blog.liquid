@@ -24,7 +24,7 @@
             endunless
            -%}
           </div>
-          <a href="{{block.settings.article.url}}" class="fc-link">{{section.settings.button_text}}</a>
+          <a href="{{block.settings.article.url}}" class="fc-link">{{block.settings.button_text}}</a>
         </div>
       {%- endfor -%}
         <div class="fc-blocks">
@@ -45,6 +45,7 @@
                    endif
                   -%}
                 </h4>
+                {%- if block.settings.show_excerpt -%}
                 <p>
                    {%-liquid
                     unless section.settings.remove_description_text
@@ -56,7 +57,8 @@
                     endunless
                    -%}
                 </p>
-                <a href="{{block.settings.article.url}}">{{section.settings.button_text}}</a>
+                {%- endif -%}
+                <a href="{{block.settings.article.url}}">{{block.settings.button_text}}</a>
               </div>
             </div>
           {%- endfor -%}
@@ -144,6 +146,18 @@
           "type": "article",
           "id": "article",
           "label": "Select Article"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Read More"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_excerpt",
+          "label": "Show Excerpt",
+          "default": true
         }
       ]
     }
@@ -153,16 +167,32 @@
       "name": "SA - Featured Blog",
       "blocks": [
         {
-          "type": "Article"
+          "type": "Article",
+          "settings": {
+            "button_text": "Read More",
+            "show_excerpt": true
+          }
         },
         {
-          "type": "Article"
+          "type": "Article",
+          "settings": {
+            "button_text": "Continue Reading",
+            "show_excerpt": true
+          }
         },
         {
-          "type": "Article"
+          "type": "Article",
+          "settings": {
+            "button_text": "Discover More",
+            "show_excerpt": true
+          }
         },
         {
-          "type": "Article"
+          "type": "Article",
+          "settings": {
+            "button_text": "Explore Article",
+            "show_excerpt": true
+          }
         }
       ]
     }
