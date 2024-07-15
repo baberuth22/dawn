@@ -70,9 +70,59 @@
       "type": "sa-swiper",
       "settings": {
         "section_title": "My Swiper Slider",
-        "slide1_content": "<h3>Slide 1<\/h3><p>This is the first slide content.<\/p>",
-        "slide2_content": "<h3>Slide 2<\/h3><p>This is the second slide content.<\/p>",
-        "slide3_content": "<h3>Slide 3<\/h3><p>This is the third slide content.<\/p>"
+        "swiper_width": "100%",
+        "swiper_height": "400px",
+        "overlay_opacity": 0.5,
+        "font_size": "16px",
+        "font_family": "Arial, sans-serif",
+        "font_color": "#ffffff",
+        "slides_per_view": 1,
+        "space_between": 10,
+        "loop": true
+      }
+    },
+    "sa_cookie_banner_mJfWKx": {
+      "type": "sa-cookie-banner",
+      "blocks": {
+        "accept_button_rLAXeM": {
+          "type": "accept_button",
+          "settings": {
+            "button_text": "Accept",
+            "button_color": "#d99d42",
+            "button_text_color": "#ffffff",
+            "button_border_color": "#000000",
+            "button_border_width": 0,
+            "button_border_radius": 24
+          }
+        },
+        "decline_button_Gqzndr": {
+          "type": "decline_button",
+          "settings": {
+            "redirect_url": "",
+            "button_text": "Decline",
+            "button_color": "#ffffff",
+            "button_text_color": "#000000",
+            "button_border_color": "#000000",
+            "button_border_width": 1,
+            "button_border_radius": 24
+          }
+        }
+      },
+      "block_order": [
+        "accept_button_rLAXeM",
+        "decline_button_Gqzndr"
+      ],
+      "settings": {
+        "text_color": "#000000",
+        "text_size": 16,
+        "text": "<p>🍪 We use cookies to ensure the best possible user experience. Please agree to our cookies policy by clicking 'Accept'.<\/p>",
+        "max_width": 400,
+        "background_color": "#ffffff",
+        "border_radius": 24,
+        "vertical_padding": 20,
+        "horizontal_padding": 20,
+        "placement": "bottom-left",
+        "enable_shadow": true
       }
     }
   },
@@ -80,6 +130,7 @@
     "collage_4CJ9CQ",
     "main",
     "sa_deepchat_RdGMNT",
-    "sa_swiper_qbzKQr"
+    "sa_swiper_qbzKQr",
+    "sa_cookie_banner_mJfWKx"
   ]
 }
