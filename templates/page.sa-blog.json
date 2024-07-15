@@ -76,7 +76,7 @@
         "article_GYwqyz": {
           "type": "Article",
           "settings": {
-            "article": "news\/its-on",
+            "article": "news\/our-lastest-news",
             "button_text": "Read More",
             "show_excerpt": true
           }
@@ -84,7 +84,7 @@
         "article_ijg3Bb": {
           "type": "Article",
           "settings": {
-            "article": "news\/demo",
+            "article": "news\/great-products",
             "button_text": "Read More",
             "show_excerpt": true
           }
