@@ -60,25 +60,33 @@
         "article_mNpPDY": {
           "type": "Article",
           "settings": {
-            "article": "news\/its-on"
+            "article": "news\/its-on",
+            "button_text": "Learn",
+            "show_excerpt": true
           }
         },
         "article_E3d8PY": {
           "type": "Article",
           "settings": {
-            "article": "news\/about-to-get-real"
+            "article": "news\/about-to-get-real",
+            "button_text": "Read More",
+            "show_excerpt": true
           }
         },
         "article_GYwqyz": {
           "type": "Article",
           "settings": {
-            "article": "news\/its-on"
+            "article": "news\/its-on",
+            "button_text": "Read More",
+            "show_excerpt": true
           }
         },
         "article_ijg3Bb": {
           "type": "Article",
           "settings": {
-            "article": "news\/demo"
+            "article": "news\/demo",
+            "button_text": "Read More",
+            "show_excerpt": true
           }
         }
       },
@@ -95,7 +103,7 @@
         "reverse_layout": true,
         "section_bg_color": "#ffffff",
         "button_color": "#dc2c2c",
-        "description_maintext_color": "#FFFFFF",
+        "description_maintext_color": "#ffffff",
         "title_font": "assistant_n4",
         "description_font": "assistant_n4"
       }
