@@ -36,10 +36,8 @@
   class="popup-{{ section.id }}"
   style="
     background-color: {{ section.settings.background_color }};
-
     border-radius: {{ section.settings.border_radius }}px;
     padding: {{ section.settings.vertical_padding }}px {{ section.settings.horizontal_padding }}px;
-
     {% if section.settings.placement == 'bottom-left' %}
       bottom: 20px;
       left: 20px;
@@ -47,7 +45,6 @@
       bottom: 20px;
       right: 20px;
     {% endif %}
-
     {% if section.settings.enable_shadow %}
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     {% endif %}
@@ -61,42 +58,43 @@
       {{ section.settings.text }}
     </div>
   {% endif %}
+  {% if section.settings.link_text != blank %}
+    <a
+      href="{{ section.settings.link_url }}"
+      style="color: {{ section.settings.link_color }}; font-size: {{ section.settings.link_size }}px;"
+    >
+      {{ section.settings.link_text }}
+    </a>
+  {% endif %}
   <div class="btn-wrapper-{{ section.id }}">
-    {% for block in section.blocks %}
-      {% if block.type == 'accept_button' or block.type == 'decline_button' %}
-      {% endif %}
-      {% if block.settings.redirect_url != blank %}
-        <a
-          class="btn-{{ section.id }}"
-          href="{{ block.settings.redirect_url }}"
-          style="
-            background-color: {{ block.settings.button_color }};
-            color: {{ block.settings.button_text_color }};
-            border-color: {{ block.settings.button_border_color }};
-            border-width: {{ block.settings.button_border_width }}px;
-            border-style: solid;
-            border-radius: {{ block.settings.button_border_radius }}px;
-          "
-        >
-          {{ block.settings.button_text }}
-        </a>
-      {% else %}
-        <div
-          class="btn-{{ section.id }}"
-          data-button-type="{{ block.type }}"
-          style="
-            background-color: {{ block.settings.button_color }};
-            color: {{ block.settings.button_text_color }};
-            border-color: {{ block.settings.button_border_color }};
-            border-width: {{ block.settings.button_border_width }}px;
-            border-style: solid;
-            border-radius: {{ block.settings.button_border_radius }}px;
-          "
-        >
-          {{ block.settings.button_text }}
-        </div>
-      {% endif %}
-    {% endfor %}
+    <div
+      class="btn-{{ section.id }}"
+      data-button-type="accept_button"
+      style="
+        background-color: {{ section.settings.accept_button_color }};
+        color: {{ section.settings.accept_button_text_color }};
+        border-color: {{ section.settings.accept_button_border_color }};
+        border-width: {{ section.settings.accept_button_border_width }}px;
+        border-style: solid;
+        border-radius: {{ section.settings.accept_button_border_radius }}px;
+      "
+    >
+      {{ section.settings.accept_button_text }}
+    </div>
+    <div
+      class="btn-{{ section.id }}"
+      data-button-type="decline_button"
+      style="
+        background-color: {{ section.settings.decline_button_color }};
+        color: {{ section.settings.decline_button_text_color }};
+        border-color: {{ section.settings.decline_button_border_color }};
+        border-width: {{ section.settings.decline_button_border_width }}px;
+        border-style: solid;
+        border-radius: {{ section.settings.decline_button_border_radius }}px;
+      "
+    >
+      {{ section.settings.decline_button_text }}
+    </div>
   </div>
 </div>
 
@@ -134,7 +132,7 @@
 
 {% schema %}
 {
-  "name": "SA - Cookie Banner",
+  "name": "SS - Cookie Banner",
   "settings": [
     {
       "type":"header",
@@ -152,16 +150,42 @@
       "default": "<p>We use cookies to enhance your browsing experience. By clicking 'Accept,' you agree to our cookies policy.</p>"
     },
     {
+      "type": "url",
+      "id": "link_url",
+      "label": "Link URL"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link Text"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link Color",
+      "default": "#0000EE"
+    },
+    {
+      "type": "range",
+      "id": "link_size",
+      "label": "Link Font Size",
+      "default": 16,
+      "min": 10,
+      "max": 50,
+      "step": 1,
+      "unit": "px"
+    },
+    {
       "type": "range",
       "id": "width",
-      "label": "width",
+      "label": "Width",
       "default": 400,
       "min": 0,
       "max": 1000,
       "step": 20,
       "unit": "px"
     },
-        {
+    {
       "type": "color",
       "id": "text_color",
       "label": "Text Color",
@@ -234,127 +258,94 @@
       "id": "enable_shadow",
       "label": "Enable shadow",
       "default": true
-    }
-  ],
-  "presets": [
-    {
-      "name": "SA - Cookie Banner",
-      "blocks": [
-        {
-          "type": "accept_button"
-        },
-        {
-          "type": "decline_button"
-        }
-      ]
-    }
-  ],
-  "max_blocks": 2,
-  "blocks": [
-    {
-      "type": "accept_button",
-      "name": "Accept button",
-      "settings": [
-        {
-          "type": "text",
-          "id": "button_text",
-          "label": "Button Text",
-          "default": "Accept"
-        },
-        {
-          "type": "color",
-          "id": "button_color",
-          "label": "Button Color",
-          "default": "#d99d42"
-        },
-        {
-          "type": "color",
-          "id": "button_text_color",
-          "label": "Button Text Color",
-          "default": "#ffffff"
-        },
-        {
-          "type": "color",
-          "id": "button_border_color",
-          "label": "Button Border Color",
-          "default": "#000000"
-        },
-        {
-          "type": "range",
-          "id": "button_border_width",
-          "label": "Button Border Width",
-          "min": 0,
-          "max": 10,
-          "unit": "px",
-          "step": 1,
-          "default": 0
-        },
-        {
-          "type": "range",
-          "id": "button_border_radius",
-          "label": "Button Border Radius",
-          "min": 0,
-          "max": 100,
-          "unit": "px",
-          "step": 1,
-          "default": 24
-        }
-      ]
     },
     {
-      "type": "decline_button",
-      "name": "Decline button",
-      "settings": [
-        {
-          "type": "url",
-          "id": "redirect_url",
-          "label": "Decline Redirect URL"
-        },
-        {
-          "type": "text",
-          "id": "button_text",
-          "label": "Button Text",
-          "default": "Decline"
-        },
-        {
-          "type": "color",
-          "id": "button_color",
-          "label": "Button Color",
-          "default": "#ffffff"
-        },
-        {
-          "type": "color",
-          "id": "button_text_color",
-          "label": "Button Text Color",
-          "default": "#000000"
-        },
-        {
-          "type": "color",
-          "id": "button_border_color",
-          "label": "Button Border Color",
-          "default": "#000000"
-        },
-        {
-          "type": "range",
-          "id": "button_border_width",
-          "label": "Button Border Width",
-          "min": 0,
-          "max": 10,
-          "unit": "px",
-          "step": 1,
-          "default": 1
-        },
-        {
-          "type": "range",
-          "id": "button_border_radius",
-          "label": "Button Border Radius",
-          "min": 0,
-          "max": 100,
-          "unit": "px",
-          "step": 1,
-          "default": 24
-        }
-      ]
+      "type": "text",
+      "id": "accept_button_text",
+      "label": "Accept Button Text",
+      "default": "Accept"
+    },
+    {
+      "type": "color",
+      "id": "accept_button_color",
+      "label": "Accept Button Color",
+      "default": "#d99d42"
+    },
+    {
+      "type": "color",
+      "id": "accept_button_text_color",
+      "label": "Accept Button Text Color",
+      "default": "#128F14"
+    },
+    {
+      "type": "color",
+      "id": "accept_button_border_color",
+      "label": "Accept Button Border Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "accept_button_border_width",
+      "label": "Accept Button Border Width",
+      "min": 0,
+      "max": 10,
+      "unit": "px",
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "accept_button_border_radius",
+      "label": "Accept Button Border Radius",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "step": 1,
+      "default": 24
+    },
+    {
+      "type": "text",
+      "id": "decline_button_text",
+      "label": "Decline Button Text",
+      "default": "Decline"
+    },
+    {
+      "type": "color",
+      "id": "decline_button_color",
+      "label": "Decline Button Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "decline_button_text_color",
+      "label": "Decline Button Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "decline_button_border_color",
+      "label": "Decline Button Border Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "decline_button_border_width",
+      "label": "Decline Button Border Width",
+      "min": 0,
+      "max": 10,
+      "unit": "px",
+      "step": 1,
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "decline_button_border_radius",
+      "label": "Decline Button Border Radius",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "step": 1,
+      "default": 24
     }
   ]
 }
