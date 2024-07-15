@@ -135,12 +135,22 @@
   </div>
 </div>
 
-<!-- Include the necessary scripts and styles for the slider -->
-<link rel="stylesheet" href="https://tinder-slider.uiinitiative.com/assets/effect-tinder.aef0cf08.css" />
-<script type="module" crossorigin="" src="https://tinder-slider.uiinitiative.com/assets/tinder.49154e1a.js"></script>
-<link rel="modulepreload" href="https://tinder-slider.uiinitiative.com/assets/modulepreload-polyfill.b7f2da20.js" />
-<link rel="modulepreload" href="https://tinder-slider.uiinitiative.com/assets/vendor.602a9696.js" />
-<link rel="modulepreload" href="https://tinder-slider.uiinitiative.com/assets/effect-tinder.f396dd4b.js" />
+<!-- Include the necessary scripts and styles for the slider
+
+import"./modulepreload-polyfill.b7f2da20.js";
+import{S as r}from"./vendor.602a9696.js";
+import{E as e}from"./effect-tinder.f396dd4b.js";
+const o=new r(".swiper",{modules:[e],effect:"tinder",grabCursor:!0});window.swiper=o;
+-->
+<script type="module">
+    import "https://app.sectionsanywhere.com/store/sections/sa-tinder-swiper/extras/modulepreload-polyfill.b7f2da20.js";
+    import { S as r } from "https://app.sectionsanywhere.com/store/sections/sa-tinder-swiper/extras/vendor.602a9696.js";
+    import { E as e } from "https://app.sectionsanywhere.com/store/sections/sa-tinder-swiper/extras/effect-tinder.f396dd4b.js";
+
+    const o = new r(".swiper", { modules: [e], effect: "tinder", grabCursor: !0 });
+    window.swiper = o;
+</script>
+<link rel="stylesheet" href="https://app.sectionsanywhere.com/store/sections/sa-tinder-swiper/extras/effect-tinder.css" />
 
 <style>
 .demo-slide-name {
