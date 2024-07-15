@@ -67,48 +67,48 @@
 
 {% schema %}
 {
-  "name": "SA -  Blog #2",
+  "name": "SS - Featured Blog",
   "tag": "section",
   "class": "custom-blog",
   "max_blocks": 4,
   "settings": [
     {
       "type": "header",
-      "content": "Content Settings"
+      "content": "Customize Content"
     },
     {
       "type": "text",
       "id": "button_text",
-      "label": "Button Text",
-      "default": "Read more"
+      "label": "Read Button Text",
+      "default": "Learn more"
     },
     {
       "type": "checkbox",
       "id": "make_more_readable",
       "default": false,
-      "label": "Make featured article more readable"
+      "label": "Enhance Readability"
     },
     {
       "type": "checkbox",
       "id": "remove_description_text",
       "default": false,
-      "label": "Remove description text"
+      "label": "Hide Description Text"
     },
     {
       "type": "checkbox",
       "id": "reverse_layout",
       "default": false,
-      "label": "Reverse Layout"
+      "label": "Flip Layout"
     },
     {
       "type": "header",
-      "content": "Color & Fonts Settings"
+      "content": "Style Settings"
     },
     {
       "type": "color",
       "id": "section_bg_color",
-      "label": "Section Background Color",
-      "default": "#fff"
+      "label": "Background Color",
+      "default": "#ffffff"
     },
     {
       "type": "color",
@@ -119,38 +119,38 @@
     {
       "type": "color",
       "id": "description_maintext_color",
-      "label": "Description Color",
+      "label": "Text Color",
       "default": "#FFFFFF"
     },
     {
       "type": "font_picker",
       "id": "title_font",
       "default": "assistant_n4",
-      "label": "Title Font"
+      "label": "Heading Font"
     },
     {
       "type": "font_picker",
       "id": "description_font",
       "default": "assistant_n4",
-      "label": "Description Font"
+      "label": "Body Font"
     }
   ],
   "blocks": [
     {
       "type": "Article",
-      "name": "Articles",
+      "name": "Featured Articles",
       "settings": [
         {
           "type": "article",
           "id": "article",
-          "label": "Choose Article"
+          "label": "Select Article"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "SA - Blog #2",
+      "name": "SS - Featured Blog",
       "blocks": [
         {
           "type": "Article"
