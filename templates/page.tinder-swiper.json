@@ -88,10 +88,10 @@
         "slide_eKBATd"
       ],
       "settings": {
-        "image_height": 500,
+        "image_height": 750,
         "overlay_font": "Arial",
         "overlay_font_color": "#FFFFFF",
-        "overlay_font_size": 16,
+        "overlay_font_size": 25,
         "overlay_opacity": 0.5,
         "overlay_color": "#000000"
       }
