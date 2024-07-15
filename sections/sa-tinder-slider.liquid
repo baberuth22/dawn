@@ -114,7 +114,22 @@
   ]
 }
 {% endschema %}
+<!-- Include the necessary scripts and styles for the slider
 
+import"./modulepreload-polyfill.b7f2da20.js";
+import{S as r}from"./vendor.602a9696.js";
+import{E as e}from"./effect-tinder.f396dd4b.js";
+const o=new r(".swiper",{modules:[e],effect:"tinder",grabCursor:!0});window.swiper=o;
+-->
+<script type="module">
+    import "https://app.sectionsanywhere.com/store/sections/sa-tinder-swiper/extras/modulepreload-polyfill.js";
+    import { S as r } from "https://app.sectionsanywhere.com/store/sections/sa-tinder-swiper/extras/vendor.js";
+    import { E as e } from "https://app.sectionsanywhere.com/store/sections/sa-tinder-swiper/extras/effect-tinder.js";
+
+    const o = new r(".swiper", { modules: [e], effect: "tinder", grabCursor: !0 });
+    window.swiper = o;
+</script>
+<link rel="stylesheet" href="https://app.sectionsanywhere.com/store/sections/sa-tinder-swiper/extras/effect-tinder.css" />
 <div id="app">
   <!-- Tinder slider -->
   <div class="swiper swiper-tinder swiper-3d swiper-initialized swiper-horizontal swiper-watch-progress">
@@ -135,22 +150,7 @@
   </div>
 </div>
 
-<!-- Include the necessary scripts and styles for the slider
 
-import"./modulepreload-polyfill.b7f2da20.js";
-import{S as r}from"./vendor.602a9696.js";
-import{E as e}from"./effect-tinder.f396dd4b.js";
-const o=new r(".swiper",{modules:[e],effect:"tinder",grabCursor:!0});window.swiper=o;
--->
-<script type="module">
-    import "https://app.sectionsanywhere.com/store/sections/sa-tinder-swiper/extras/modulepreload-polyfill.js";
-    import { S as r } from "https://app.sectionsanywhere.com/store/sections/sa-tinder-swiper/extras/vendor.js";
-    import { E as e } from "https://app.sectionsanywhere.com/store/sections/sa-tinder-swiper/extras/effect-tinder.js";
-
-    const o = new r(".swiper", { modules: [e], effect: "tinder", grabCursor: !0 });
-    window.swiper = o;
-</script>
-<link rel="stylesheet" href="https://app.sectionsanywhere.com/store/sections/sa-tinder-swiper/extras/effect-tinder.css" />
 
 <style>
 .demo-slide-name {
