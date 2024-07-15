@@ -92,9 +92,9 @@
         "button_text": "Learn more",
         "make_more_readable": false,
         "remove_description_text": false,
-        "reverse_layout": false,
+        "reverse_layout": true,
         "section_bg_color": "#ffffff",
-        "button_color": "#FF7A15",
+        "button_color": "#dc2c2c",
         "description_maintext_color": "#FFFFFF",
         "title_font": "assistant_n4",
         "description_font": "assistant_n4"
