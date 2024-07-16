@@ -1,0 +1,395 @@
+
+									<div class="fc">
+  <div class="fc-cont">
+    <div class="fc-wrap">
+      {%- for block in section.blocks limit: 1 -%}
+        <div class="fc-main" {% if block.settings.article.image %}style="background: url({{ block.settings.article.image | image_url: width: block.settings.article.image.width }}) no-repeat;background-size: cover;"{%else%}style="background: #e8e8e8"{%endif%}>
+          <span class="fc-article">Featured Article</span>
+          <h3 class="fc-title">
+            {%-liquid
+              if block.settings.article.title
+                echo block.settings.article.title
+              else
+                echo 'Featured Blog Title'
+              endif
+             -%}
+          </h3>
+          <div class="fc-desc">
+           {%-liquid
+            unless section.settings.remove_description_text
+              if block.settings.article.content
+               echo block.settings.article.content | truncate: 200
+              else
+                echo 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias iste corporis cumque perspiciatis tenetur reprehenderit nam, ipsum consequatur laudantium optio.'
+              endif
+            endunless
+           -%}
+          </div>
+          <a href="{{block.settings.article.url}}" class="fc-link">{{block.settings.button_text}}</a>
+        </div>
+      {%- endfor -%}
+        <div class="fc-blocks">
+          {%- for block in section.blocks offset: 1 -%}
+            <div class="fc-block fc-item">
+              {%- if block.settings.article.image -%}
+                {{ block.settings.article.image | image_url: width: block.settings.article.image.width | image_tag:  alt: block.settings.article.title }}
+              {%- else -%}
+                  {{ 'image' | placeholder_svg_tag }}
+              {%- endif -%}
+              <div class="fc-item-info">
+                <h4>
+                  {%-liquid
+                   if block.settings.article.title
+                    echo block.settings.article.title
+                   else
+                     echo 'Article title'
+                   endif
+                  -%}
+                </h4>
+                {%- if block.settings.show_excerpt -%}
+                <p>
+                   {%-liquid
+                    unless section.settings.remove_description_text
+                      if block.settings.article.excerpt
+                        echo block.settings.article.excerpt
+                      else
+                        echo 'Intro to article'
+                      endif
+                    endunless
+                   -%}
+                </p>
+                {%- endif -%}
+                <a href="{{block.settings.article.url}}">{{block.settings.button_text}}</a>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "SA - Featured Blog",
+  "tag": "section",
+  "class": "custom-blog",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Customize Content"
+    },
+    {
+      "type": "header",
+      "content": "Style Settings"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Color",
+      "default": "#DC2C2C"
+    },
+    {
+      "type": "color",
+      "id": "description_maintext_color",
+      "label": "Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "font_picker",
+      "id": "title_font",
+      "default": "assistant_n4",
+      "label": "Heading Font"
+    },
+    {
+      "type": "font_picker",
+      "id": "description_font",
+      "default": "assistant_n4",
+      "label": "Body Font"
+    },
+    {
+      "type": "checkbox",
+      "id": "make_more_readable",
+      "default": false,
+      "label": "Enhance Readability"
+    },
+    {
+      "type": "checkbox",
+      "id": "remove_description_text",
+      "default": false,
+      "label": "Hide Description Text"
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse_layout",
+      "default": false,
+      "label": "Flip Layout"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "Article",
+      "name": "Featured Articles",
+      "settings": [
+        {
+          "type": "article",
+          "id": "article",
+          "label": "Select Article"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Read More"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_excerpt",
+          "label": "Show Excerpt",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SA - Featured Blog",
+      "blocks": [
+        {
+          "type": "Article",
+          "settings": {
+            "button_text": "Read More",
+            "show_excerpt": true
+          }
+        },
+        {
+          "type": "Article",
+          "settings": {
+            "button_text": "Continue Reading",
+            "show_excerpt": true
+          }
+        },
+        {
+          "type": "Article",
+          "settings": {
+            "button_text": "Discover More",
+            "show_excerpt": true
+          }
+        },
+        {
+          "type": "Article",
+          "settings": {
+            "button_text": "Explore Article",
+            "show_excerpt": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  {{ section.settings.title_font | font_face: font_display: 'swap' }}
+  {{ section.settings.description_font | font_face: font_display: 'swap' }}
+
+  .custom-blog {
+    background-color: {{ section.settings.section_bg_color }};
+  }
+  {%- if section.settings.make_more_readable -%}
+  .fc-main {box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);}
+  {%- endif -%}
+  {%- if section.settings.reverse_layout -%}
+  .fc-wrap {flex-direction: row-reverse;}
+  {%- endif -%}
+  .fc-item-info a {
+    color: {{ section.settings.button_color }};
+    background-color: transparent;
+    border: 2px solid {{ section.settings.button_color }};
+  }
+  .fc-item-info a:hover {
+    background-color: {{ section.settings.button_color }};
+  }
+  .fc-link {
+    background-color: {{ section.settings.button_color }};
+  }
+  .fc-link:hover {
+    background-color: transparent;
+    border: 2px solid {{ section.settings.button_color }};
+  }
+  .fc-desc {
+    color: {{section.settings.description_maintext_color}};
+  }
+  .fc-item-info p {
+    color: {{section.settings.description_maintext_color}};
+  }
+  .fc-article {
+    color: {{section.settings.description_maintext_color}};
+  }
+  .fc-title,
+  .fc-item-info h4 {
+    font-family: {{section.settings.title_font.family}};
+    font-weight: {{section.settings.title_font.weight}};
+  }
+  .fc-desc,
+  .fc-item-info p {
+    font-family: {{section.settings.description_font.family}};
+    font-weight: {{section.settings.description_font.weight}};
+  }
+</style>
+
+{% style %}
+
+.fc-item svg {
+  max-height: 200px;
+  display: block;
+  margin: auto;
+}
+.fc-cont {
+  max-width: 140rem;
+  margin: 0 auto;
+  padding: 50px 5rem;
+}
+.fc-wrap {
+}
+.fc-main {
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.fc-blocks {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.fc-item {
+  flex: 0 1 32%;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(164, 162, 163, .3);
+  box-shadow: 0 2px 6px #0000000d;
+}
+.fc-item-info {
+  text-align: center;
+}
+.fc-item-info h4 {
+  font-size: 16px;
+  padding: 10px;
+  color: #000;
+  text-transform: uppercase;
+  margin: 0;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+.fc-item-info a:hover {
+  color: white;
+}
+.fc-item-info p {
+  padding-bottom: 10px;
+  line-height: 1.2;
+  max-width: 80%;
+  margin: 0 auto!important;
+}
+.fc-item-info a {
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 25px;
+  padding: 2px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 120px;
+  margin: 0 auto;
+  width: 100%;
+  transition: all .3s;
+}
+.fc-item img {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  object-position: center;
+}
+.fc-article {
+  font-size: 16px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.fc-title {
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 30px;
+  margin: 0;
+  padding: 10px 0;
+}
+.fc-desc {
+  font-size: 16px;
+  line-height: 1.2;
+  max-width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+.fc-link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  border-radius: 25px;
+  padding: 5px 0;
+  margin-top: 20px;
+  text-align: center;
+  max-width: 200px;
+  width: 100%;
+  transition: all .3s;
+  border: 2px solid transparent;
+  font-weight: 600;
+}
+
+@media (max-width: 767px) {
+  .fc-blocks {
+    flex-direction: column;
+  }
+  .fc-cont {
+    padding: 0 20px;
+  }
+  .fc-main {
+    min-height: 500px;
+  }
+  .fc-wrap {
+    flex-direction: column;
+  }
+  .fc-item {
+    margin-top: 0px;
+  }
+  .fc-article {
+    font-size: 16px;
+  }
+  .fc-title {
+    font-size: 24px;
+  }
+  .fc-desc {
+    font-size: 16px;
+    max-width: 90%;
+  }
+  .fc-item-info a {
+    font-size: 16px;
+  }
+}
+{% endstyle %}
+
+{% javascript %}
+{% endjavascript %}
+ 	
+							
