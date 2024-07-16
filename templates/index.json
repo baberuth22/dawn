@@ -23,9 +23,64 @@
         "stack_images_on_mobile": true,
         "show_text_below": true
       }
+    },
+    "sa_blog_7BmwwV": {
+      "type": "sa-blog",
+      "blocks": {
+        "article_RWUti7": {
+          "type": "Article",
+          "settings": {
+            "article": "",
+            "button_text": "Read More",
+            "show_excerpt": true
+          }
+        },
+        "article_6LL8At": {
+          "type": "Article",
+          "settings": {
+            "article": "",
+            "button_text": "Continue Reading",
+            "show_excerpt": true
+          }
+        },
+        "article_r9ti8H": {
+          "type": "Article",
+          "settings": {
+            "article": "",
+            "button_text": "Discover More",
+            "show_excerpt": true
+          }
+        },
+        "article_eGRcrB": {
+          "type": "Article",
+          "settings": {
+            "article": "",
+            "button_text": "Explore Article",
+            "show_excerpt": true
+          }
+        }
+      },
+      "block_order": [
+        "article_RWUti7",
+        "article_6LL8At",
+        "article_r9ti8H",
+        "article_eGRcrB"
+      ],
+      "settings": {
+        "button_text": "Learn more",
+        "section_bg_color": "#ffffff",
+        "button_color": "#DC2C2C",
+        "description_maintext_color": "#FFFFFF",
+        "title_font": "assistant_n4",
+        "description_font": "assistant_n4",
+        "make_more_readable": false,
+        "remove_description_text": false,
+        "reverse_layout": false
+      }
     }
   },
   "order": [
-    "image_banner_H6wJ6U"
+    "image_banner_H6wJ6U",
+    "sa_blog_7BmwwV"
   ]
 }
