@@ -58,9 +58,9 @@
       "type": "sa-back-to-top",
       "settings": {
         "custom_svg": "default",
-        "show_when_precent_of_page": 30,
-        "initial_opacity": 100,
-        "increase_opacity": false,
+        "show_when_precent_of_page": 85,
+        "initial_opacity": 50,
+        "increase_opacity": true,
         "pos": "right",
         "side_dst_to_edge": 20,
         "bottom_dst_to_edge": 20,
