@@ -30,7 +30,7 @@
         "article_RWUti7": {
           "type": "Article",
           "settings": {
-            "article": "",
+            "article": "news\/great-products",
             "button_text": "Read More",
             "show_excerpt": true
           }
@@ -38,7 +38,7 @@
         "article_6LL8At": {
           "type": "Article",
           "settings": {
-            "article": "",
+            "article": "news\/our-lastest-news",
             "button_text": "Continue Reading",
             "show_excerpt": true
           }
@@ -46,7 +46,7 @@
         "article_r9ti8H": {
           "type": "Article",
           "settings": {
-            "article": "",
+            "article": "news\/its-on",
             "button_text": "Discover More",
             "show_excerpt": true
           }
@@ -54,7 +54,7 @@
         "article_eGRcrB": {
           "type": "Article",
           "settings": {
-            "article": "",
+            "article": "news\/about-to-get-real",
             "button_text": "Explore Article",
             "show_excerpt": true
           }
