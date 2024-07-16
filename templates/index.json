@@ -31,7 +31,7 @@
           "type": "Article",
           "settings": {
             "article": "news\/great-products",
-            "button_text": "Read More",
+            "button_text": "Find out how",
             "show_excerpt": true
           }
         },
@@ -67,13 +67,13 @@
         "article_eGRcrB"
       ],
       "settings": {
-        "section_bg_color": "#e0eff7",
+        "section_bg_color": "#ffffff",
         "button_color": "#2c66dc",
         "description_maintext_color": "#d7f7ed",
         "title_font": "assistant_n4",
         "description_font": "assistant_n4",
         "make_more_readable": true,
-        "remove_description_text": true,
+        "remove_description_text": false,
         "reverse_layout": false
       }
     }
