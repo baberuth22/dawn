@@ -80,12 +80,45 @@
         "space_between": 10,
         "loop": true
       }
+    },
+    "sa_cookie_banner_VhnYQJ": {
+      "type": "sa-cookie-banner",
+      "settings": {
+        "text": "<p>We use cookies to enhance your browsing experience. By clicking 'Accept,' you agree to our cookies policy.<\/p>",
+        "consent_duration": 100,
+        "link_url": "",
+        "link_text": "",
+        "link_color": "#0000EE",
+        "link_size": 16,
+        "width": 400,
+        "text_color": "#000000",
+        "text_size": 16,
+        "background_color": "#ffffff",
+        "border_radius": 24,
+        "vertical_padding": 20,
+        "horizontal_padding": 20,
+        "placement": "bottom-left",
+        "enable_shadow": true,
+        "accept_button_text": "Accept",
+        "accept_button_color": "#128F14",
+        "accept_button_text_color": "#FFFFFF",
+        "accept_button_border_color": "#000000",
+        "accept_button_border_width": 0,
+        "accept_button_border_radius": 24,
+        "decline_button_text": "Decline",
+        "decline_button_color": "#ffffff",
+        "decline_button_text_color": "#000000",
+        "decline_button_border_color": "#000000",
+        "decline_button_border_width": 1,
+        "decline_button_border_radius": 24
+      }
     }
   },
   "order": [
     "collage_4CJ9CQ",
     "main",
     "sa_deepchat_RdGMNT",
-    "sa_swiper_qbzKQr"
+    "sa_swiper_qbzKQr",
+    "sa_cookie_banner_VhnYQJ"
   ]
 }
