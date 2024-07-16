@@ -117,7 +117,7 @@
         if (buttonType == 'accept_button') {
           // expire in 30 days:
           const date = new Date();
-          date.setTime(date.getTime() + 30 * 24 * 60 * 60 * 1000);
+          date.setTime(date.getTime() + {{ section.settings.consent_duration }} * 24 * 60 * 60 * 1000);
           document.cookie = `cookie_consent=1; expires=${date.toUTCString()}; path=/`;
         } else if (buttonType == 'decline_button') {
           document.cookie = 'cookie_consent=0; path=/';
@@ -132,7 +132,7 @@
 
 {% schema %}
 {
-  "name": "SA - Cookie Banner",
+  "name": "SA - Cookie Popup",
   "settings": [
     {
       "type":"header",
@@ -148,6 +148,16 @@
       "id": "text",
       "label": "Text",
       "default": "<p>We use cookies to enhance your browsing experience. By clicking 'Accept,' you agree to our cookies policy.</p>"
+    },
+    {
+      "type": "range",
+      "id": "consent_duration",
+      "label": "Consent duration in days",
+      "default": 30,
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "unit": "d"
     },
     {
       "type": "url",
@@ -350,7 +360,7 @@
   ],
   "presets": [
     {
-      "name": "SA - Cookie Banner",
+      "name": "SA - Cookie Popup",
       "category": "Custom"
     }
   ]
