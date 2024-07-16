@@ -1,0 +1,371 @@
+
+									<style>
+  .popup-{{ section.id }} {
+    position: fixed;
+    z-index: 9999;
+    overflow: hidden;
+    max-width: 340px;
+  }
+
+  .popup-{{ section.id }} {
+    @media (min-width: 750px) {
+      max-width: {{ section.settings.width }}px;
+    }
+  }
+
+  .popup-{{ section.id }} .popup-text,
+  .popup-{{ section.id }} .popup-text p {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .btn-{{ section.id }} {
+    padding: 10px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    width: fit-content;
+  }
+  .btn-wrapper-{{ section.id }} {
+    display: flex;
+    gap: 12px;
+  }
+</style>
+
+<div
+  class="popup-{{ section.id }}"
+  style="
+    background-color: {{ section.settings.background_color }};
+    border-radius: {{ section.settings.border_radius }}px;
+    padding: {{ section.settings.vertical_padding }}px {{ section.settings.horizontal_padding }}px;
+    {% if section.settings.placement == 'bottom-left' %}
+      bottom: 20px;
+      left: 20px;
+    {% elsif section.settings.placement == 'bottom-right' %}
+      bottom: 20px;
+      right: 20px;
+    {% endif %}
+    {% if section.settings.enable_shadow %}
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    {% endif %}
+  "
+>
+  {% if section.settings.text != blank %}
+    <div
+      class="popup-text"
+      style="color: {{ section.settings.text_color }};font-size: {{ section.settings.text_size }}px;"
+    >
+      {{ section.settings.text }}
+    </div>
+  {% endif %}
+  {% if section.settings.link_text != blank %}
+    <a
+      href="{{ section.settings.link_url }}"
+      style="color: {{ section.settings.link_color }}; font-size: {{ section.settings.link_size }}px;"
+    >
+      {{ section.settings.link_text }}
+    </a>
+  {% endif %}
+  <div class="btn-wrapper-{{ section.id }}">
+    <div
+      class="btn-{{ section.id }}"
+      data-button-type="accept_button"
+      style="
+        background-color: {{ section.settings.accept_button_color }};
+        color: {{ section.settings.accept_button_text_color }};
+        border-color: {{ section.settings.accept_button_border_color }};
+        border-width: {{ section.settings.accept_button_border_width }}px;
+        border-style: solid;
+        border-radius: {{ section.settings.accept_button_border_radius }}px;
+      "
+    >
+      {{ section.settings.accept_button_text }}
+    </div>
+    <div
+      class="btn-{{ section.id }}"
+      data-button-type="decline_button"
+      style="
+        background-color: {{ section.settings.decline_button_color }};
+        color: {{ section.settings.decline_button_text_color }};
+        border-color: {{ section.settings.decline_button_border_color }};
+        border-width: {{ section.settings.decline_button_border_width }}px;
+        border-style: solid;
+        border-radius: {{ section.settings.decline_button_border_radius }}px;
+      "
+    >
+      {{ section.settings.decline_button_text }}
+    </div>
+  </div>
+</div>
+
+<script>
+  // handle accept or decline button click:
+  (function () {
+    // check if cookie_consent cookie is set:
+    const cookieConsent = document.cookie
+      .split('; ')
+      .find((row) => row.startsWith('cookie_consent='));
+    if (cookieConsent && cookieConsent.split('=')[1] == '1') {
+      // cookie_consent cookie is set, hide popup:
+      document.querySelector('.popup-{{ section.id }}').style.display = 'none';
+      return;
+    }
+    const allButtons = document.querySelectorAll('.btn-{{ section.id }}');
+    allButtons.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        const buttonType = event.target.dataset.buttonType;
+        if (buttonType == 'accept_button') {
+          // expire in 30 days:
+          const date = new Date();
+          date.setTime(date.getTime() + {{ section.settings.consent_duration }} * 24 * 60 * 60 * 1000);
+          document.cookie = `cookie_consent=1; expires=${date.toUTCString()}; path=/`;
+        } else if (buttonType == 'decline_button') {
+          document.cookie = 'cookie_consent=0; path=/';
+        }
+        // hide popup:
+        document.querySelector('.popup-{{ section.id }}').style.display =
+          'none';
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "SA - Cookie Popup",
+  "settings": [
+    {
+      "type":"header",
+      "content":"Cookie acceptance last 30 days.",
+      "info":"Hide an unhide section to display again."
+    },
+    {
+      "type":"header",
+      "content":"Settings"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>We use cookies to enhance your browsing experience. By clicking 'Accept,' you agree to our cookies policy.</p>"
+    },
+    {
+      "type": "range",
+      "id": "consent_duration",
+      "label": "Consent duration in days",
+      "default": 30,
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "unit": "d"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Link URL"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link Text"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link Color",
+      "default": "#0000EE"
+    },
+    {
+      "type": "range",
+      "id": "link_size",
+      "label": "Link Font Size",
+      "default": 16,
+      "min": 10,
+      "max": 50,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "width",
+      "label": "Width",
+      "default": 400,
+      "min": 0,
+      "max": 1000,
+      "step": 20,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Font size",
+      "default": 16,
+      "min": 10,
+      "max": 50,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "default": 24,
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "vertical_padding",
+      "label": "Vertical padding",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "horizontal_padding",
+      "label": "Horizontal padding",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "placement",
+      "label": "Placement",
+      "default": "bottom-left",
+      "options": [
+        {
+          "value": "bottom-left",
+          "label": "Bottom Left"
+        },
+        {
+          "value": "bottom-right",
+          "label": "Bottom Right"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_shadow",
+      "label": "Enable shadow",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "accept_button_text",
+      "label": "Accept Button Text",
+      "default": "Accept"
+    },
+    {
+      "type": "color",
+      "id": "accept_button_color",
+      "label": "Accept Button Color",
+      "default": "#128F14"
+    },
+    {
+      "type": "color",
+      "id": "accept_button_text_color",
+      "label": "Accept Button Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "accept_button_border_color",
+      "label": "Accept Button Border Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "accept_button_border_width",
+      "label": "Accept Button Border Width",
+      "min": 0,
+      "max": 10,
+      "unit": "px",
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "accept_button_border_radius",
+      "label": "Accept Button Border Radius",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "step": 1,
+      "default": 24
+    },
+    {
+      "type": "text",
+      "id": "decline_button_text",
+      "label": "Decline Button Text",
+      "default": "Decline"
+    },
+    {
+      "type": "color",
+      "id": "decline_button_color",
+      "label": "Decline Button Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "decline_button_text_color",
+      "label": "Decline Button Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "decline_button_border_color",
+      "label": "Decline Button Border Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "decline_button_border_width",
+      "label": "Decline Button Border Width",
+      "min": 0,
+      "max": 10,
+      "unit": "px",
+      "step": 1,
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "decline_button_border_radius",
+      "label": "Decline Button Border Radius",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "step": 1,
+      "default": 24
+    }
+  ],
+  "presets": [
+    {
+      "name": "SA - Cookie Popup",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+	
+							
