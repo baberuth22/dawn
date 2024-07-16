@@ -67,14 +67,13 @@
         "article_eGRcrB"
       ],
       "settings": {
-        "button_text": "Learn more",
-        "section_bg_color": "#ffffff",
-        "button_color": "#DC2C2C",
-        "description_maintext_color": "#FFFFFF",
+        "section_bg_color": "#e0eff7",
+        "button_color": "#2c66dc",
+        "description_maintext_color": "#d7f7ed",
         "title_font": "assistant_n4",
         "description_font": "assistant_n4",
-        "make_more_readable": false,
-        "remove_description_text": false,
+        "make_more_readable": true,
+        "remove_description_text": true,
         "reverse_layout": false
       }
     }
