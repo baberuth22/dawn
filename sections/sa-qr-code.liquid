@@ -1,0 +1,133 @@
+
+									{% schema %}
+{
+  "name": "QR Code Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "qr_contents",
+      "label": "QR Code Contents",
+      "default": "https://bitjson.com/"
+    },
+    {
+      "type": "color",
+      "id": "module_color",
+      "label": "Module Color",
+      "default": "#1c7d43"
+    },
+    {
+      "type": "color",
+      "id": "position_ring_color",
+      "label": "Position Ring Color",
+      "default": "#13532d"
+    },
+    {
+      "type": "color",
+      "id": "position_center_color",
+      "label": "Position Center Color",
+      "default": "#70c559"
+    },
+    {
+      "type": "text",
+      "id": "mask_x_to_y_ratio",
+      "label": "Mask X to Y Ratio",
+      "default": "1.2"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_image",
+      "label": "Icon Image"
+    },
+    {
+      "type": "text",
+      "id": "icon_width",
+      "label": "Icon Width (px)",
+      "default": "45"
+    },
+    {
+      "type": "text",
+      "id": "icon_height",
+      "label": "Icon Height (px)",
+      "default": "30"
+    },
+    {
+      "type": "text",
+      "id": "qr_width",
+      "label": "QR Code Width (px)",
+      "default": "200"
+    },
+    {
+      "type": "text",
+      "id": "qr_height",
+      "label": "QR Code Height (px)",
+      "default": "200"
+    },
+    {
+      "type": "text",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#fff"
+    },
+    {
+      "type": "text",
+      "id": "margin_top",
+      "label": "Margin Top (em)",
+      "default": "2"
+    },
+    {
+      "type": "text",
+      "id": "margin_right",
+      "label": "Margin Right (em)",
+      "default": "auto"
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom",
+      "label": "Margin Bottom (em)",
+      "default": "2"
+    },
+    {
+      "type": "text",
+      "id": "margin_left",
+      "label": "Margin Left (em)",
+      "default": "auto"
+    }
+  ],
+  "presets": [
+    {
+      "name": "QR Code Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="qr-code-section">
+  <qr-code
+    id="qr1"
+    contents="{{ section.settings.qr_contents }}"
+    module-color="{{ section.settings.module_color }}"
+    position-ring-color="{{ section.settings.position_ring_color }}"
+    position-center-color="{{ section.settings.position_center_color }}"
+    mask-x-to-y-ratio="{{ section.settings.mask_x_to_y_ratio }}"
+    style="
+      width: {{ section.settings.qr_width }}px;
+      height: {{ section.settings.qr_height }}px;
+      margin: {{ section.settings.margin_top }}em {{ section.settings.margin_right }}em {{ section.settings.margin_bottom }}em {{ section.settings.margin_left }}em;
+      background-color: {{ section.settings.background_color }};
+    "
+  >
+    {% if section.settings.icon_image %}
+    <img style="width: {{ section.settings.icon_width }}px; height: {{ section.settings.icon_height }}px;" src="{{ section.settings.icon_image | image_url }}" slot="icon" />
+    {% endif %}
+  </qr-code>
+</div>
+
+<script>
+  document.getElementById('qr1').addEventListener('codeRendered', () => {
+    document.getElementById('qr1').animateQRCode('MaterializeIn');
+  });
+</script>
+
+<script src="https://unpkg.com/@bitjson/qr-code@1.0.2/dist/qr-code.js"></script>	
+							
