@@ -27,19 +27,19 @@
     "sa_blog_7BmwwV": {
       "type": "sa-blog",
       "blocks": {
+        "article_6LL8At": {
+          "type": "Article",
+          "settings": {
+            "article": "news\/our-lastest-news",
+            "button_text": "Continue Browsing",
+            "show_excerpt": true
+          }
+        },
         "article_RWUti7": {
           "type": "Article",
           "settings": {
             "article": "news\/great-products",
             "button_text": "Find out how",
-            "show_excerpt": true
-          }
-        },
-        "article_6LL8At": {
-          "type": "Article",
-          "settings": {
-            "article": "news\/our-lastest-news",
-            "button_text": "Continue Reading",
             "show_excerpt": true
           }
         },
@@ -61,19 +61,19 @@
         }
       },
       "block_order": [
-        "article_RWUti7",
         "article_6LL8At",
+        "article_RWUti7",
         "article_r9ti8H",
         "article_eGRcrB"
       ],
       "settings": {
-        "section_bg_color": "#ffffff",
-        "button_color": "#2c66dc",
+        "section_bg_color": "#ced7ce",
+        "button_color": "#2cdc4e",
         "description_maintext_color": "#d7f7ed",
         "title_font": "assistant_n4",
         "description_font": "assistant_n4",
         "make_more_readable": true,
-        "remove_description_text": false,
+        "remove_description_text": true,
         "reverse_layout": false
       }
     }
