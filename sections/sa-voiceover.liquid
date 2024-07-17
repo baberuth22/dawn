@@ -1,36 +1,161 @@
-
-									{% schema %}
+{% schema %}
 {
-  "name": "SA - Voiceover",
+  "name": "WellSaid TTS Integration",
   "settings": [
-    {
-      "type": "select",
-      "id": "tts_api_choice",
-      "label": "Choose TTS API",
-      "options": [
-        { "value": "wellsaid", "label": "WellSaid" },
-        { "value": "synthesia", "label": "Synthesia.io" },
-        { "value": "playht", "label": "Play.ht" },
-        { "value": "listnr", "label": "Listnr.tech" },
-        { "value": "descript", "label": "Descript.com" },
-        { "value": "google", "label": "Google Cloud" },
-        { "value": "amazon", "label": "Amazon Polly" },
-        { "value": "microsoft", "label": "Microsoft Azure" },
-        { "value": "speechify", "label": "Speechify.com" }
-      ],
-       "info": "Refer to the <a href='https://app.sectionsanywhere.com/store/sections/sa-voiceover/intstructions.html' target='_blank'>instructions</a> for obtaining the API key."
-    },
-    {
-      "type": "text",
-      "id": "api_key",
-      "label": "API Key",
-      "info": "Enter the API key obtained from the selected TTS API provider."
-    },
     {
       "type": "textarea",
       "id": "text_to_convert",
       "label": "Text to Convert",
       "default": "Enter the text you want to convert to speech here."
+    },
+    {
+      "type": "select",
+      "id": "speaker_id",
+      "label": "Speaker ID",
+      "options": [
+        { "value": "3", "label": "Alana B. (Narration)" },
+        { "value": "4", "label": "Ramona J. (Narration)" },
+        { "value": "5", "label": "Ramona J. (Promo)" },
+        { "value": "8", "label": "Sofia H. (Narration)" },
+        { "value": "10", "label": "Vanessa N. (Narration)" },
+        { "value": "11", "label": "Isabel V. (Narration)" },
+        { "value": "13", "label": "Jeremy G. (Narration)" },
+        { "value": "14", "label": "Nicole L. (Narration)" },
+        { "value": "15", "label": "Paige L. (Narration)" },
+        { "value": "16", "label": "Tobin A. (Narration)" },
+        { "value": "18", "label": "Tristan F. (Narration)" },
+        { "value": "19", "label": "Patrick K. (Narration)" },
+        { "value": "20", "label": "Sofia H. (Promo)" },
+        { "value": "21", "label": "Damian P. (Promo)" },
+        { "value": "22", "label": "Jodi P. (Promo)" },
+        { "value": "23", "label": "Lee M. (Promo)" },
+        { "value": "24", "label": "Selene R. (Promo)" },
+        { "value": "26", "label": "Wade C. (Promo)" },
+        { "value": "27", "label": "Joe F. (Narration)" },
+        { "value": "28", "label": "Joe F. (Promo)" },
+        { "value": "29", "label": "Garry J. (Character)" },
+        { "value": "30", "label": "Wade C. (Narration)" },
+        { "value": "31", "label": "Ava M. (Narration)" },
+        { "value": "32", "label": "Kai M. (Narration)" },
+        { "value": "33", "label": "Jude D. (Narration)" },
+        { "value": "34", "label": "Eric S. (Promo)" },
+        { "value": "35", "label": "Chase J. (Narration)" },
+        { "value": "37", "label": "Steve B. (Promo)" },
+        { "value": "38", "label": "Bella B. (Promo)" },
+        { "value": "39", "label": "Tilda C. (Promo)" },
+        { "value": "40", "label": "Charlie Z. (Promo)" },
+        { "value": "41", "label": "Paul B. (Promo)" },
+        { "value": "42", "label": "Sofia H. (Conversational)" },
+        { "value": "43", "label": "Ava M. (Conversational)" },
+        { "value": "44", "label": "Kai M. (Conversational)" },
+        { "value": "45", "label": "Nicole L. (Conversational)" },
+        { "value": "46", "label": "Wade C. (Conversational)" },
+        { "value": "47", "label": "Patrick K. (Conversational)" },
+        { "value": "48", "label": "Vanessa N. (Conversational)" },
+        { "value": "49", "label": "Gia V. (Narration)" },
+        { "value": "50", "label": "Antony A. (Narration)" },
+        { "value": "51", "label": "Jodi P. (Narration)" },
+        { "value": "52", "label": "Raine B. (Narration)" },
+        { "value": "53", "label": "Owen C. (Narration)" },
+        { "value": "54", "label": "Zach E. (Promo)" },
+        { "value": "55", "label": "Genevieve M. (Narration)" },
+        { "value": "56", "label": "Jarvis H. (Narration)" },
+        { "value": "57", "label": "Theo K. (Narration)" },
+        { "value": "58", "label": "James B. (Narration)" },
+        { "value": "59", "label": "Terra G. (Narration)" },
+        { "value": "60", "label": "Philip J. (Narration)" },
+        { "value": "61", "label": "Marcus G. (Narration)" },
+        { "value": "62", "label": "Jordan T. (Narration)" },
+        { "value": "63", "label": "Fiona H. (Narration, UK)" },
+        { "value": "65", "label": "Donna W. (Narration)" },
+        { "value": "66", "label": "Greg G. (Narration)" },
+        { "value": "67", "label": "Zoey O. (Narration)" },
+        { "value": "68", "label": "Kari N. (Narration)" },
+        { "value": "69", "label": "Diarmid C. (Narration)" },
+        { "value": "71", "label": "Alan T. (Narration)" },
+        { "value": "72", "label": "Ava M. (Promo)" },
+        { "value": "73", "label": "Tobin A. (Promo)" },
+        { "value": "75", "label": "Ben D. (Narration)" },
+        { "value": "76", "label": "Michael V. (Narration)" },
+        { "value": "77", "label": "Cameron S. (Narration)" },
+        { "value": "78", "label": "Paula R. (Narration)" },
+        { "value": "79", "label": "Bella B. (Narration)" },
+        { "value": "80", "label": "Marcus G. (Conversational)" },
+        { "value": "81", "label": "Jordan T (Conversational)" },
+        { "value": "82", "label": "Jodi P. (Conversational)" },
+        { "value": "83", "label": "Diarmid C. (Promo)" },
+        { "value": "84", "label": "Jarvis H. (Conversational)" },
+        { "value": "85", "label": "Jarvis H. (Promo)" },
+        { "value": "86", "label": "Gia V. (Conversational)" },
+        { "value": "87", "label": "Gia V. (Promo)" },
+        { "value": "88", "label": "Owen C. (Conversational)" },
+        { "value": "89", "label": "Owen C. (Promo)" },
+        { "value": "90", "label": "Philip J (Conversational)" },
+        { "value": "91", "label": "Genevieve M. (Conversational)" },
+        { "value": "92", "label": "Antony A. (Conversational)" },
+        { "value": "93", "label": "Bella B. (Conversational)" },
+        { "value": "94", "label": "Eric S. (Narration)" },
+        { "value": "95", "label": "Greg G. (Conversational)" },
+        { "value": "96", "label": "Jensen X. (Narration)" },
+        { "value": "97", "label": "Jack C. (Narration)" },
+        { "value": "98", "label": "Oliver S. (Narration)" },
+        { "value": "99", "label": "Hannah A (Narration)" },
+        { "value": "100", "label": "Lorenzo D. (Narration)" },
+        { "value": "101", "label": "Lulu G. (Narration)" },
+        { "value": "102", "label": "Abbi D. (Narration)" },
+        { "value": "103", "label": "Fiona H. (Narration, IE)" },
+        { "value": "104", "label": "Shelby D. (Narration)" },
+        { "value": "105", "label": "Se'von M. (Narration)" },
+        { "value": "106", "label": "Jimmy J. (Narration)" },
+        { "value": "107", "label": "Jay S. (Narration)" },
+        { "value": "108", "label": "Selene R. (Narration)" },
+        { "value": "109", "label": "Issa B. (Narration)" },
+        { "value": "110", "label": "Lyric K. (Narration)" },
+        { "value": "111", "label": "Ali P. (Narration)" },
+        { "value": "112", "label": "Aaron G. (Narration)" },
+        { "value": "113", "label": "Jordan T. (Promo)" },
+        { "value": "114", "label": "Greg G. (Promo)" },
+        { "value": "115", "label": "Genevieve M. (Promo)" },
+        { "value": "116", "label": "Marcus G. (Promo)" },
+        { "value": "117", "label": "Nicole L. (Promo)" },
+        { "value": "118", "label": "Philip J. (Promo)" },
+        { "value": "119", "label": "Vanessa N. (Promo)" },
+        { "value": "120", "label": "Diarmid C. (Conversational)" },
+        { "value": "121", "label": "James B. (Conversational)" },
+        { "value": "122", "label": "Lee M. (Conversational)" },
+        { "value": "123", "label": "Tilda C. (Conversational)" },
+        { "value": "124", "label": "Kari N. (Character)" },
+        { "value": "125", "label": "Damian P. (Narration)" },
+        { "value": "126", "label": "Charlie Z. (Narration)" },
+        { "value": "127", "label": "Tilda C. (Narration)" },
+        { "value": "128", "label": "Zach E. (Narration)" },
+        { "value": "129", "label": "Paula R. (Promo)" },
+        { "value": "130", "label": "Alana B. (Conversational)" },
+        { "value": "131", "label": "Paige L. (Conversational)" },
+        { "value": "132", "label": "Fiona H. (Conversational)" },
+        { "value": "133", "label": "Ramona J. (Conversational)" },
+        { "value": "135", "label": "Donna W. (Conversational)" },
+        { "value": "136", "label": "Terra G. (Conversational)" },
+        { "value": "137", "label": "Ben D. (Conversational)" },
+        { "value": "138", "label": "Jeremy G. (Conversational)" },
+        { "value": "139", "label": "Joe F. (Conversational)" },
+        { "value": "140", "label": "Jude D. (Conversational)" },
+        { "value": "141", "label": "Abbi_D (Conversational)" },
+        { "value": "142", "label": "Antony_A (Promotional)" },
+        { "value": "143", "label": "Fiona_H (Promotional)" },
+        { "value": "144", "label": "Hannah_A (Conversational)" },
+        { "value": "145", "label": "Issa_B (Conversational)" },
+        { "value": "146", "label": "Jack_C (Conversational)" },
+        { "value": "147", "label": "Jay_S (Conversational)" },
+        { "value": "148", "label": "Jay_S (Promotional)" },
+        { "value": "149", "label": "Jimmy_J (Conversational)" },
+        { "value": "150", "label": "Lorenzo_D (Conversational)" },
+        { "value": "151", "label": "Lulu_G (Conversational)" },
+        { "value": "152", "label": "Oliver_S (Conversational)" },
+        { "value": "153", "label": "Shelby_D (Conversational)" },
+        { "value": "154", "label": "Shelby_D (Promotional)" },
+        { "value": "155", "label": "Terra_G (Promotional)" }
+      ]
     },
     {
       "type": "select",
@@ -47,99 +172,76 @@
       "type": "text",
       "id": "element_id",
       "label": "Element ID",
-      "default": "something-unique",
       "info": "Enter the ID of the element where the voiceover should be triggered, if 'Specific Element' is selected."
     }
   ],
   "presets": [
     {
-      "name": "SA - Voiceover",
-      "category": "Custom Sections"
+      "name": "WellSaid TTS Integration",
+      "category": "Sections Anywhere"
     }
   ]
 }
 {% endschema %}
 
-<div>
-  <h2>Text-to-Speech API Integration</h2>
-  <p>Choose a TTS API and provide your API key to convert text to speech.</p>
-  <button id="play-voiceover">Play Voiceover</button>
+<div id="{{ section.settings.element_id }}">
+  <button style="display:none" id="play-voiceover">Play Voiceover</button>
 </div>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const apiChoice = "{{ section.settings.tts_api_choice }}";
-    const apiKey = "{{ section.settings.api_key }}";
-    const textToConvert = "{{ section.settings.text_to_convert }}";
+    const textToConvert = `{{ section.settings.text_to_convert | escape | replace: '\n', '\\n' | replace: '\r', '\\r' | replace: '"', '\\"'  }}`;
+    const speakerId = "{{ section.settings.speaker_id }}";
     const playPosition = "{{ section.settings.play_position }}";
     const elementId = "{{ section.settings.element_id }}";
 
-    function playVoiceover(apiChoice, apiKey, textToConvert) {
-      let apiUrl = '';
-      let payload = {};
-      let headers = { 'Authorization': `Bearer ${apiKey}` };
+    function playVoiceover(textToConvert, speakerId) {
+      const proxyUrl = '/apps/sa/wellsaid/'; // Update with your actual proxy URL
+      const payload = { text: textToConvert, shop: '{{ shop.domain }}', speaker_id: speakerId};
 
-      switch (apiChoice) {
-        case 'wellsaid':
-          apiUrl = 'https://api.wellsaidlabs.com/v1/tts';
-          payload = { text: textToConvert };
-          break;
-        case 'synthesia':
-          apiUrl = 'https://api.synthesia.io/v1/videos';
-          payload = { script: textToConvert };
-          break;
-        case 'playht':
-          apiUrl = 'https://play.ht/api/v1/convert';
-          payload = { text: textToConvert };
-          break;
-        case 'listnr':
-          apiUrl = 'https://api.listnr.tech/v1/convert';
-          payload = { article: textToConvert };
-          break;
-        case 'descript':
-          apiUrl = 'https://api.descript.com/v1/tts';
-          payload = { text: textToConvert };
-          break;
-        case 'google':
-          apiUrl = 'https://texttospeech.googleapis.com/v1/text:synthesize';
-          payload = { input: { text: textToConvert }, voice: { languageCode: 'en-US', ssmlGender: 'NEUTRAL' }, audioConfig: { audioEncoding: 'MP3' } };
-          break;
-        case 'amazon':
-          apiUrl = 'https://polly.amazonaws.com/v1/speech';
-          payload = { Text: textToConvert, OutputFormat: 'mp3', VoiceId: 'Joanna' };
-          headers = { 'Authorization': `AWS4-HMAC-SHA256 Credential=${apiKey}` };
-          break;
-        case 'microsoft':
-          apiUrl = 'https://westus.tts.speech.microsoft.com/cognitiveservices/v1';
-          payload = { text: textToConvert };
-          break;
-        case 'speechify':
-          apiUrl = 'https://api.speechify.com/v1/convert';
-          payload = { text: textToConvert };
-          break;
-      }
-
-      fetch(apiUrl, {
+      fetch(proxyUrl, {
         method: 'POST',
-        headers: headers,
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify(payload)
       })
-      .then(response => response.json())
-      .then(data => {
-        const audio = new Audio(data.audioUrl || data.url);
+      .then(response => response.blob())
+      .then(blob => {
+        const audioUrl = URL.createObjectURL(blob);
+        const audio = new Audio(audioUrl);
         audio.play();
       })
       .catch(error => console.error('Error:', error));
     }
 
     const playButton = document.getElementById('play-voiceover');
+    playButton.addEventListener('click', () => {
+        console.log('Scroll Position Click:', window.scrollY);
+        playVoiceover(textToConvert, speakerId);
+    });
+
+    function handleScrollTop() {
+      playVoiceover(textToConvert, speakerId);
+      window.removeEventListener('scroll', handleScrollTop);
+    }
+    
+
+    console.log('Scroll Position:', window.scrollY)
+    console.log('Play Position:', playPosition)
 
     if (playPosition === 'top') {
-      playButton.addEventListener('click', () => playVoiceover(apiChoice, apiKey, textToConvert));
+      if (window.scrollY === 0) {
+        console.log('Scroll Position Top:', window.scrollY);
+        setTimeout(() => {
+          window.addEventListener('scroll', handleScrollTop);
+        }, 1000);
+      }
     } else if (playPosition === 'bottom') {
       window.addEventListener('scroll', () => {
+        console.log('Scroll Position Bottom:', window.scrollY);
         if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-          playVoiceover(apiChoice, apiKey, textToConvert);
+          playVoiceover(textToConvert, speakerId);
         }
       });
     } else if (playPosition === 'element_id' && elementId) {
@@ -147,8 +249,9 @@
       if (targetElement) {
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
+            console.log('Scroll Position Element:', window.scrollY);
             if (entry.isIntersecting) {
-              playVoiceover(apiChoice, apiKey, textToConvert);
+              playVoiceover(textToConvert, speakerId);
             }
           });
         });
@@ -157,5 +260,3 @@
     }
   });
 </script>
-	
-							
