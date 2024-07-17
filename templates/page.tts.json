@@ -53,10 +53,21 @@
       "type": "main-page",
       "settings": {
       }
+    },
+    "sa_voiceover_wmxRKy": {
+      "type": "sa-voiceover",
+      "settings": {
+        "tts_api_choice": "wellsaid",
+        "api_key": "x528124c4-583d-4ef8-a173-d809e0be1461",
+        "text_to_convert": "Enter the text you want to convert to speech here.",
+        "play_position": "top",
+        "element_id": "something-unique"
+      }
     }
   },
   "order": [
     "collage_4CJ9CQ",
-    "main"
+    "main",
+    "sa_voiceover_wmxRKy"
   ]
 }
