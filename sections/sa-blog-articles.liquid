@@ -90,8 +90,10 @@
 <section class="sa-blog-articles">
   <div class="featured-article">
     {% assign featured_blog = settings.featured_blog %}
+    {{ featured_blog | json }}
     {% if featured_blog %}
       {% assign article = articles[featured_blog] %}
+      {{ article | json }}
       <img src="{{ article.image | img_url: 'master' }}" alt="{{ article.title }}">
       <h2>{{ article.title }}</h2>
       {% if article.excerpt %}
