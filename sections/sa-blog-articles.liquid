@@ -89,7 +89,7 @@
 
 <section class="sa-blog-articles">
   <div class="featured-article">
-    {% assign featured_blog = settings.featured_blog %}
+    {% assign featured_blog = section.settings.featured_blog %}
     featured_blog:{{ featured_blog | json }}
     {% if featured_blog %}
       {% assign article = articles[featured_blog] %}
