@@ -1,6 +1,111 @@
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "SA - Blog Articles",
+  "settings": [
+    {
+      "type": "article",
+      "id": "featured_blog",
+      "label": "Featured Blog Article"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Articles Layout",
+      "options": [
+        {
+          "value": "2",
+          "label": "2 Articles per Row"
+        },
+        {
+          "value": "3",
+          "label": "3 Articles per Row"
+        },
+        {
+          "value": "4",
+          "label": "4 Articles per Row"
+        }
+      ],
+      "default": "3"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "article",
+      "name": "Blog Article",
+      "settings": [
+        {
+          "type": "article",
+          "id": "article",
+          "label": "Article"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SA - Blog Articles",
+      "category": "Blog"
+    }
+  ]
+}
 {% endschema %}
+
+{% stylesheet %}
+<style>
+  .sa-blog-articles .featured-article {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+  .sa-blog-articles .featured-article img {
+    width: 100%;
+    height: auto;
+  }
+  .sa-blog-articles .featured-article h2 {
+    margin: 1rem 0;
+  }
+  .sa-blog-articles .articles-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+  .sa-blog-articles .articles-grid.two-columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .sa-blog-articles .articles-grid.three-columns {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .sa-blog-articles .articles-grid.four-columns {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .sa-blog-articles .article-card img {
+    width: 100%;
+    height: auto;
+  }
+  .sa-blog-articles .article-card h3 {
+    margin: 0.5rem 0;
+  }
+</style>
+{% endstylesheet %}
+
+<section class="sa-blog-articles">
+  <div class="featured-article">
+    {% assign featured_blog = settings.featured_blog %}
+    {% if featured_blog %}
+      {% assign article = articles[featured_blog] %}
+      <img src="{{ article.image | img_url: 'master' }}" alt="{{ article.title }}">
+      <h2>{{ article.title }}</h2>
+      {% if article.excerpt %}
+        <p>{{ article.excerpt }}</p>
+      {% endif %}
+    {% endif %}
+  </div>
+  <div class="articles-grid {% if settings.layout == '2' %}two-columns{% elsif settings.layout == '3' %}three-columns{% else %}four-columns{% endif %}">
+    {% for block in section.blocks %}
+      {% assign article = articles[block.settings.article] %}
+      <div class="article-card">
+        <img src="{{ article.image | img_url: 'master' }}" alt="{{ article.title }}">
+        <h3>{{ article.title }}</h3>
+      </div>
+    {% endfor %}
+  </div>
+</section>
