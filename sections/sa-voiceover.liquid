@@ -208,6 +208,7 @@
       })
       .then(response => response.blob())
       .then(blob => {
+        console.log('Wellsaid Blob:', response);
         const audioUrl = URL.createObjectURL(blob);
         const audio = new Audio(audioUrl);
         audio.play();
