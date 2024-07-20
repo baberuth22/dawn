@@ -26,8 +26,25 @@
     },
     "sa_reveal_blogs_eXHqdg": {
       "type": "sa-reveal-blogs",
+      "blocks": {
+        "blog_VUH8x8": {
+          "type": "blog",
+          "settings": {
+            "blog_handle": "news"
+          }
+        },
+        "blog_rEYK84": {
+          "type": "blog",
+          "settings": {
+            "blog_handle": "news"
+          }
+        }
+      },
+      "block_order": [
+        "blog_VUH8x8",
+        "blog_rEYK84"
+      ],
       "settings": {
-        "number_of_blogs": 3
       }
     }
   },
