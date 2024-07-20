@@ -1,9 +1,9 @@
 <!-- sa-blog-carousel.liquid -->
 <div class="reveal">
   <div class="slides">
-    {% assign blog_limit = section.settings.number_of_blogs %}
-    {% for blog in blogs %}
-      {% if forloop.index <= blog_limit %}
+    {% for block in section.blocks %}
+      {% assign blog = blogs[block.settings.blog_handle] %}
+      {% if blog %}
         <section>
           <h2>{{ blog.title }}</h2>
           <div class="reveal vertical-reveal">
@@ -73,20 +73,28 @@
 {% schema %}
 {
   "name": "SA - Blog Carousel",
-  "settings": [
+  "blocks": [
     {
-      "type": "range",
-      "id": "number_of_blogs",
-      "label": "Number of Blogs",
-      "default": 5,
-      "min": 1,
-      "max": 10
+      "type": "blog",
+      "name": "Blog",
+      "settings": [
+        {
+          "type": "blog",
+          "id": "blog_handle",
+          "label": "Select Blog"
+        }
+      ]
     }
   ],
   "presets": [
     {
       "name": "SA - Blog Carousel",
-      "category": "Custom"
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "blog"
+        }
+      ]
     }
   ]
 }
