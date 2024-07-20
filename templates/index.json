@@ -46,10 +46,16 @@
       ],
       "settings": {
       }
+    },
+    "sa_facebook_posts_gXqRYP": {
+      "type": "sa-facebook-posts",
+      "settings": {
+      }
     }
   },
   "order": [
     "image_banner_H6wJ6U",
-    "sa_reveal_blogs_eXHqdg"
+    "sa_reveal_blogs_eXHqdg",
+    "sa_facebook_posts_gXqRYP"
   ]
 }
