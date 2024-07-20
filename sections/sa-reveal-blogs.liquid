@@ -1,6 +1,93 @@
-{% schema %}
-  {
-    "name": "Section name",
-    "settings": []
+<!-- sa-blog-carousel.liquid -->
+<div class="reveal">
+  <div class="slides">
+    {% assign blog_limit = section.settings.number_of_blogs %}
+    {% for blog in blogs %}
+      {% if forloop.index <= blog_limit %}
+        <section>
+          <h2>{{ blog.title }}</h2>
+          <div class="reveal vertical-reveal">
+            <div class="slides">
+              {% for article in blog.articles %}
+                <section>
+                  <h3>{{ article.title }}</h3>
+                  <p>{{ article.excerpt | strip_html | truncate: 200 }}</p>
+                  <a href="{{ article.url }}" class="Polaris-Button" target="_blank">
+                    <span class="Polaris-Button__Content">
+                      <span class="Polaris-Button__Text">Read More</span>
+                    </span>
+                  </a>
+                </section>
+              {% endfor %}
+            </div>
+          </div>
+        </section>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Reveal.js
+    Reveal.initialize({
+      hash: true,
+      embedded: true,
+      width: "100%",
+      height: "100%",
+      transition: 'slide',
+      parallaxBackgroundImage: '', // Add a background image if needed
+      parallaxBackgroundSize: '', // Size of the background image
+    });
+
+    // Initialize vertical slides for each blog
+    document.querySelectorAll('.vertical-reveal').forEach(function(container) {
+      Reveal.initialize({
+        container: container,
+        embedded: true,
+        direction: 'vertical',
+        transition: 'slide'
+      });
+    });
+  });
+</script>
+
+<style>
+  .reveal .slides section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
+
+  .reveal .slides section h2,
+  .reveal .slides section h3 {
+    margin: 20px 0;
+  }
+
+  .Polaris-Button {
+    margin-top: 20px;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "SA - Blog Carousel",
+  "settings": [
+    {
+      "type": "range",
+      "id": "number_of_blogs",
+      "label": "Number of Blogs",
+      "default": 5,
+      "min": 1,
+      "max": 10
+    }
+  ],
+  "presets": [
+    {
+      "name": "SA - Blog Carousel",
+      "category": "Custom"
+    }
+  ]
+}
 {% endschema %}
