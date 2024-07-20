@@ -24,62 +24,15 @@
         "show_text_below": true
       }
     },
-    "sa_blog_7BmwwV": {
-      "type": "sa-blog",
-      "blocks": {
-        "article_6LL8At": {
-          "type": "Article",
-          "settings": {
-            "article": "news\/our-lastest-news",
-            "button_text": "Continue Browsing",
-            "show_excerpt": true
-          }
-        },
-        "article_RWUti7": {
-          "type": "Article",
-          "settings": {
-            "article": "news\/great-products",
-            "button_text": "Find out how",
-            "show_excerpt": true
-          }
-        },
-        "article_r9ti8H": {
-          "type": "Article",
-          "settings": {
-            "article": "news\/its-on",
-            "button_text": "Discover More",
-            "show_excerpt": true
-          }
-        },
-        "article_eGRcrB": {
-          "type": "Article",
-          "settings": {
-            "article": "news\/about-to-get-real",
-            "button_text": "Explore Article",
-            "show_excerpt": true
-          }
-        }
-      },
-      "block_order": [
-        "article_6LL8At",
-        "article_RWUti7",
-        "article_r9ti8H",
-        "article_eGRcrB"
-      ],
+    "sa_reveal_blogs_eXHqdg": {
+      "type": "sa-reveal-blogs",
       "settings": {
-        "section_bg_color": "#ced7ce",
-        "button_color": "#2cdc4e",
-        "description_maintext_color": "#d7f7ed",
-        "title_font": "assistant_n4",
-        "description_font": "assistant_n4",
-        "make_more_readable": true,
-        "remove_description_text": true,
-        "reverse_layout": false
+        "number_of_blogs": 3
       }
     }
   },
   "order": [
     "image_banner_H6wJ6U",
-    "sa_blog_7BmwwV"
+    "sa_reveal_blogs_eXHqdg"
   ]
 }
