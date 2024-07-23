@@ -41,7 +41,7 @@
     {
       "type": "checkbox",
       "id": "show_popup",
-      "label": "Show popup to ask for audio permission",
+      "label": "Show toast to ask for audio permission",
       "default": true
     }
   ],
@@ -57,6 +57,12 @@
 <!-- sa-play-sound.liquid -->
 <div id="{{ section.id }}">
   <button style="display:none" id="play-sound">Play Sound</button>
+</div>
+
+<div id="audio-toast" class="audio-toast" style="display: none;">
+  <p>Do you want to play audio?</p>
+  <button id="audio-yes">Yes</button>
+  <button id="audio-no">No</button>
 </div>
 
 <script>
@@ -82,10 +88,18 @@
 
     function showPopupAndPlay(mp3File) {
       if (showPopup) {
-        if (confirm('Do you want to play audio?')) {
+        const toast = document.getElementById('audio-toast');
+        toast.style.display = 'block';
+
+        document.getElementById('audio-yes').addEventListener('click', function() {
           userInteracted = true;
+          toast.style.display = 'none';
           playSound(mp3File);
-        }
+        });
+
+        document.getElementById('audio-no').addEventListener('click', function() {
+          toast.style.display = 'none';
+        });
       } else {
         playSound(mp3File);
       }
@@ -97,8 +111,8 @@
 
     const playButton = document.getElementById('play-sound');
     playButton.addEventListener('click', () => {
-        console.log('Scroll Position Click:', window.scrollY);
-        playSound(mp3File);
+      console.log('Scroll Position Click:', window.scrollY);
+      playSound(mp3File);
     });
 
     console.log('Play Position:', playPosition);
@@ -173,5 +187,25 @@
   .sa-audio-picker audio {
     width: 100%;
     max-width: 600px;
+  }
+  .audio-toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1000;
+  }
+  .audio-toast button {
+    margin-left: 10px;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
   }
 </style>
