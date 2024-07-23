@@ -1,0 +1,119 @@
+{% schema %}
+{
+  "name": "SA - Play Audio",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Instructions"
+    },
+    {
+      "type": "paragraph",
+      "content": "To use this section, first upload your MP3 audio files to the files section of your Shopify store. Then, copy the URL of the uploaded file and paste it into the text field below."
+    },
+    {
+      "type": "header",
+      "content": "Sound Settings"
+    },
+    {
+      "type": "text",
+      "id": "audio_url",
+      "label": "MP3 File URL"
+    },
+    {
+      "type": "select",
+      "id": "play_position",
+      "label": "Play Sound At",
+      "options": [
+        { "value": "top", "label": "Top of the Page" },
+        { "value": "bottom", "label": "Bottom of the Page" },
+        { "value": "element_id", "label": "Specific Element" }
+      ],
+      "default": "top"
+    },
+    {
+      "type": "text",
+      "id": "element_id",
+      "label": "Element ID",
+      "info": "Enter the ID of the element where the sound should be triggered, if 'Specific Element' is selected."
+    }
+  ],
+  "presets": [
+    {
+      "name": "SA - Play Audio",
+      "category": "Sections Anywhere"
+    }
+  ]
+}
+{% endschema %}
+
+<!-- sa-play-sound.liquid -->
+<div id="{{ section.settings.element_id }}">
+  <button style="display:none" id="play-sound">Play Sound</button>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const mp3File = "{{ section.settings.audio_url }}";
+    const playPosition = "{{ section.settings.play_position }}";
+    const elementId = "{{ section.settings.element_id }}";
+
+    function playSound(mp3File) {
+      const audio = new Audio(mp3File);
+      audio.play();
+    }
+
+    const playButton = document.getElementById('play-sound');
+    playButton.addEventListener('click', () => {
+        console.log('Scroll Position Click:', window.scrollY);
+        playSound(mp3File);
+    });
+
+    function handleScrollTop() {
+      playSound(mp3File);
+      window.removeEventListener('scroll', handleScrollTop);
+    }
+
+    console.log('Scroll Position:', window.scrollY)
+    console.log('Play Position:', playPosition)
+
+    if (playPosition === 'top') {
+      if (window.scrollY === 0) {
+        console.log('Scroll Position Top:', window.scrollY);
+        setTimeout(() => {
+          window.addEventListener('scroll', handleScrollTop);
+        }, 1000);
+      }
+    } else if (playPosition === 'bottom') {
+      window.addEventListener('scroll', () => {
+        console.log('Scroll Position Bottom:', window.scrollY);
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+          playSound(mp3File);
+        }
+      });
+    } else if (playPosition === 'element_id' && elementId) {
+      const targetElement = document.getElementById(elementId);
+      if (targetElement) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            console.log('Scroll Position Element:', window.scrollY);
+            if (entry.isIntersecting) {
+              playSound(mp3File);
+            }
+          });
+        });
+        observer.observe(targetElement);
+      }
+    }
+  });
+</script>
+
+<style>
+  .sa-audio-picker {
+    text-align: center;
+    margin: 20px;
+  }
+  .sa-audio-picker audio {
+    width: 100%;
+    max-width: 600px;
+  }
+</style>
