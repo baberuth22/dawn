@@ -1,6 +1,49 @@
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "SA - Facebook Widget",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Instructions"
+    },
+    {
+      "type": "paragraph",
+      "content": "Enter the SociableKit widget data-embed-id below. To get your data-embed-id, go to the [SociableKit website](https://www.sociablekit.com/)."
+    },
+    {
+      "type": "text",
+      "id": "data_embed_id",
+      "label": "Data Embed ID"
+    },
+    {
+      "type": "text",
+      "id": "widget_height",
+      "label": "Widget Height (e.g., 600px or 100%)",
+      "default": "600px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "SA - Facebook Widget",
+      "category": "Custom"
+    }
+  ]
+}
 {% endschema %}
+
+<!-- sa-facebook-widget.liquid -->
+<div id="{{ section.id }}" class="sa-facebook-widget">
+  {% if section.settings.data_embed_id != blank %}
+    <div class='sk-ww-facebook-page-posts' data-embed-id='{{ section.settings.data_embed_id }}' style="height: {{ section.settings.widget_height }};"></div>
+    <script src='https://widgets.sociablekit.com/facebook-page-posts/widget.js' async defer></script>
+  {% else %}
+    <p>Please add the SociableKit widget data-embed-id in the section settings.</p>
+  {% endif %}
+</div>
+
+<style>
+  .sa-facebook-widget {
+    text-align: center;
+    margin: 20px auto;
+  }
+</style>
