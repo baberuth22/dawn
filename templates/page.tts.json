@@ -54,15 +54,6 @@
       "settings": {
       }
     },
-    "sa_tts_wellsaid_kV67Wg": {
-      "type": "sa-tts-wellsaid",
-      "settings": {
-        "text_to_convert": "Enter the text you want to convert to speech here.",
-        "speaker_id": "3",
-        "play_position": "top",
-        "element_id": ""
-      }
-    },
     "sa_play_audio_LbR4e7": {
       "type": "sa-play-audio",
       "settings": {
@@ -75,7 +66,6 @@
   "order": [
     "collage_4CJ9CQ",
     "main",
-    "sa_tts_wellsaid_kV67Wg",
     "sa_play_audio_LbR4e7"
   ]
 }
