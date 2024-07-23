@@ -1,5 +1,4 @@
-
-									{% schema %}
+{% schema %}
 {
   "name": "SA - WellSaid Speech",
   "settings": [
@@ -175,6 +174,7 @@
       "id": "play_position",
       "label": "Play Voiceover At",
       "options": [
+        { "value": "self", "label": "This Section" },
         { "value": "top", "label": "Top of the Page" },
         { "value": "bottom", "label": "Bottom of the Page" },
         { "value": "element_id", "label": "Specific Element" }
@@ -186,6 +186,18 @@
       "id": "element_id",
       "label": "Element ID",
       "info": "Enter the ID of the element where the voiceover should be triggered, if 'Specific Element' is selected."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_popup",
+      "label": "Show toast to ask for audio permission",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "play_once",
+      "label": "Play audio only once",
+      "default": false
     }
   ],
   "presets": [
@@ -197,8 +209,14 @@
 }
 {% endschema %}
 
-<div id="{{ section.settings.element_id }}">
+<div id="{{ section.id }}">
   <button style="display:none" id="play-voiceover">Play Voiceover</button>
+</div>
+
+<div id="audio-toast" class="audio-toast" style="display: none;">
+  <p>Do you want to play audio?</p>
+  <button id="audio-yes">Yes</button>
+  <button id="audio-no">No</button>
 </div>
 
 <script>
@@ -207,8 +225,15 @@
     const speakerId = "{{ section.settings.speaker_id }}";
     const playPosition = "{{ section.settings.play_position }}";
     const elementId = "{{ section.settings.element_id }}";
+    const showPopup = {{ section.settings.show_popup | json }};
+    const playOnce = {{ section.settings.play_once | json }};
+    let audioPlaying = false;
+    let userInteracted = false;
+    let audioPlayed = false;
 
     function playVoiceover(textToConvert, speakerId) {
+      if (audioPlaying || (playOnce && audioPlayed)) return;
+
       const proxyUrl = '/apps/sa/wellsaid/'; // Update with your actual proxy URL
       const payload = { text: textToConvert, shop: '{{ shop.domain }}', speaker_id: speakerId};
 
@@ -225,39 +250,88 @@
         const audioUrl = URL.createObjectURL(blob);
         const audio = new Audio(audioUrl);
         audio.play();
+        audioPlaying = true;
+        audioPlayed = true;
+
+        audio.addEventListener('ended', function() {
+          audioPlaying = false;
+        });
       })
       .catch(error => console.error('Error:', error));
     }
 
-    const playButton = document.getElementById('play-voiceover');
-    playButton.addEventListener('click', () => {
-        console.log('Scroll Position Click:', window.scrollY);
+    function showPopupAndPlay(textToConvert, speakerId) {
+      if (showPopup) {
+        const toast = document.getElementById('audio-toast');
+        toast.style.display = 'block';
+
+        document.getElementById('audio-yes').addEventListener('click', function() {
+          userInteracted = true;
+          toast.style.display = 'none';
+          playVoiceover(textToConvert, speakerId);
+        });
+
+        document.getElementById('audio-no').addEventListener('click', function() {
+          toast.style.display = 'none';
+        });
+      } else {
         playVoiceover(textToConvert, speakerId);
+      }
+    }
+
+    document.body.addEventListener('click', function() {
+      userInteracted = true;
     });
 
-    function handleScrollTop() {
+    const playButton = document.getElementById('play-voiceover');
+    playButton.addEventListener('click', () => {
+      console.log('Scroll Position Click:', window.scrollY);
       playVoiceover(textToConvert, speakerId);
-      window.removeEventListener('scroll', handleScrollTop);
-    }
-    
+    });
 
-    console.log('Scroll Position:', window.scrollY)
-    console.log('Play Position:', playPosition)
+    console.log('Play Position:', playPosition);
 
     if (playPosition === 'top') {
       if (window.scrollY === 0) {
         console.log('Scroll Position Top:', window.scrollY);
         setTimeout(() => {
-          window.addEventListener('scroll', handleScrollTop);
+          if (userInteracted) {
+            playVoiceover(textToConvert, speakerId);
+          } else {
+            showPopupAndPlay(textToConvert, speakerId);
+          }
         }, 1000);
       }
     } else if (playPosition === 'bottom') {
       window.addEventListener('scroll', () => {
         console.log('Scroll Position Bottom:', window.scrollY);
         if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-          playVoiceover(textToConvert, speakerId);
+          if (userInteracted) {
+            playVoiceover(textToConvert, speakerId);
+          } else {
+            showPopupAndPlay(textToConvert, speakerId);
+          }
         }
       });
+    } else if (playPosition === 'self') {
+      const targetElement = document.getElementById("{{ section.id }}");
+      console.log('Target Element:', targetElement);
+      console.log('Scroll Position Self:', window.scrollY);
+      if (targetElement) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            console.log('Scroll Position Self:', window.scrollY);
+            if (entry.isIntersecting) {
+              if (userInteracted) {
+                playVoiceover(textToConvert, speakerId);
+              } else {
+                showPopupAndPlay(textToConvert, speakerId);
+              }
+            }
+          });
+        });
+        observer.observe(targetElement);
+      }
     } else if (playPosition === 'element_id' && elementId) {
       const targetElement = document.getElementById(elementId);
       if (targetElement) {
@@ -265,7 +339,11 @@
           entries.forEach(entry => {
             console.log('Scroll Position Element:', window.scrollY);
             if (entry.isIntersecting) {
-              playVoiceover(textToConvert, speakerId);
+              if (userInteracted) {
+                playVoiceover(textToConvert, speakerId);
+              } else {
+                showPopupAndPlay(textToConvert, speakerId);
+              }
             }
           });
         });
@@ -274,5 +352,34 @@
     }
   });
 </script>
-	
-							
+
+<style>
+  .sa-audio-picker {
+    text-align: center;
+    margin: 20px;
+  }
+  .sa-audio-picker audio {
+    width: 100%;
+    max-width: 600px;
+  }
+  .audio-toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1000;
+  }
+  .audio-toast button {
+    margin-left: 10px;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+</style>
