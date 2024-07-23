@@ -53,21 +53,10 @@
       "type": "main-page",
       "settings": {
       }
-    },
-    "sa_play_audio_LbR4e7": {
-      "type": "sa-play-audio",
-      "settings": {
-        "audio_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0268\/1005\/6873\/files\/Demo_Audio_File_for_Your_Page.mp3?v=1721760123",
-        "play_position": "top",
-        "element_id": "",
-        "show_popup": true,
-        "play_once": true
-      }
     }
   },
   "order": [
     "collage_4CJ9CQ",
-    "main",
-    "sa_play_audio_LbR4e7"
+    "main"
   ]
 }
