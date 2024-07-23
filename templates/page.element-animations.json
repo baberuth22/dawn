@@ -61,11 +61,19 @@
         "query_selector": ".main-page-title",
         "animation_delay": 0
       }
+    },
+    "sa_facebook_widget_DLYGzJ": {
+      "type": "sa-facebook-widget",
+      "settings": {
+        "data_embed_id": "25439532",
+        "widget_height": "600px"
+      }
     }
   },
   "order": [
     "collage_4CJ9CQ",
     "main",
-    "sa_element_animations_nFKBUT"
+    "sa_element_animations_nFKBUT",
+    "sa_facebook_widget_DLYGzJ"
   ]
 }
