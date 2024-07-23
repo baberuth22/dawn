@@ -89,6 +89,8 @@
       });
     } else if (playPosition === 'self') {
       const targetElement = document.getElementById({{ section.id }});
+      console.log('Target Element:', targetElement);
+      console.log('Scroll Position Self:', window.scrollY);
       if (targetElement) {
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
