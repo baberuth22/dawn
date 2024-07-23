@@ -57,7 +57,7 @@
     "sa_element_animations_nFKBUT": {
       "type": "sa-element-animations",
       "settings": {
-        "shake_type": "shake",
+        "shake_type": "bounce",
         "query_selector": ".main-page-title",
         "animation_delay": 0
       }
