@@ -53,10 +53,18 @@
       "type": "main-page",
       "settings": {
       }
+    },
+    "sa_facebook_widget_6metV3": {
+      "type": "sa-facebook-widget",
+      "settings": {
+        "data_embed_id": "25439532",
+        "side_padding": 60
+      }
     }
   },
   "order": [
     "collage_4CJ9CQ",
-    "main"
+    "main",
+    "sa_facebook_widget_6metV3"
   ]
 }
