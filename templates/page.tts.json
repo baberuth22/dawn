@@ -62,44 +62,11 @@
         "play_position": "top",
         "element_id": "something-unique"
       }
-    },
-    "sa_blog_articles_kWVLih": {
-      "type": "sa-blog-articles",
-      "blocks": {
-        "article_RdbFYR": {
-          "type": "article",
-          "settings": {
-            "article": "news\/our-lastest-news"
-          }
-        },
-        "article_fLwfMB": {
-          "type": "article",
-          "settings": {
-            "article": "news\/its-on"
-          }
-        },
-        "article_Gdg433": {
-          "type": "article",
-          "settings": {
-            "article": "news\/about-to-get-real"
-          }
-        }
-      },
-      "block_order": [
-        "article_RdbFYR",
-        "article_fLwfMB",
-        "article_Gdg433"
-      ],
-      "settings": {
-        "featured_blog": "news\/great-products",
-        "layout": "3"
-      }
     }
   },
   "order": [
     "collage_4CJ9CQ",
     "main",
-    "sa_voiceover_wmxRKy",
-    "sa_blog_articles_kWVLih"
+    "sa_voiceover_wmxRKy"
   ]
 }
