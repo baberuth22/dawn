@@ -65,6 +65,7 @@
     const playPosition = "{{ section.settings.play_position }}";
     const elementId = "{{ section.settings.element_id }}";
     const showPopup = {{ section.settings.show_popup | json }};
+    console.log('showPopup:', showPopup)
     let audioPlaying = false;
 
     function playSound(mp3File) {
@@ -150,9 +151,6 @@
     // Check if the user has interacted with the page
     if (!showPopup && !document.body.classList.contains('user-interacted')) {
       document.body.addEventListener('click', function() {
-        document.body.classList.add('user-interacted');
-      });
-      window.addEventListener('scroll', function() {
         document.body.classList.add('user-interacted');
       });
     }
