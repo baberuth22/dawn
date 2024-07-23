@@ -99,7 +99,7 @@
       "settings": {
         "shake_type": "shake",
         "query_selector": ".product-form__submit, .add-to-cart, .product-form__cart-submit, .button--addToCart",
-        "animation_delay": 1
+        "animation_delay": 0
       }
     }
   },
