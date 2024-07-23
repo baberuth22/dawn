@@ -65,8 +65,8 @@
     const playPosition = "{{ section.settings.play_position }}";
     const elementId = "{{ section.settings.element_id }}";
     const showPopup = {{ section.settings.show_popup | json }};
-    console.log('showPopup:', showPopup)
     let audioPlaying = false;
+    let userInteracted = false;
 
     function playSound(mp3File) {
       if (audioPlaying) return;
@@ -83,6 +83,7 @@
     function showPopupAndPlay(mp3File) {
       if (showPopup) {
         if (confirm('Do you want to play audio?')) {
+          userInteracted = true;
           playSound(mp3File);
         }
       } else {
@@ -90,32 +91,38 @@
       }
     }
 
+    document.body.addEventListener('click', function() {
+      userInteracted = true;
+    });
+
     const playButton = document.getElementById('play-sound');
     playButton.addEventListener('click', () => {
         console.log('Scroll Position Click:', window.scrollY);
         playSound(mp3File);
     });
 
-    function handleScrollTop() {
-      playSound(mp3File);
-      window.removeEventListener('scroll', handleScrollTop);
-    }
-
-    console.log('Scroll Position:', window.scrollY)
-    console.log('Play Position:', playPosition)
+    console.log('Play Position:', playPosition);
 
     if (playPosition === 'top') {
       if (window.scrollY === 0) {
         console.log('Scroll Position Top:', window.scrollY);
         setTimeout(() => {
-          window.addEventListener('scroll', handleScrollTop);
+          if (userInteracted) {
+            playSound(mp3File);
+          } else {
+            showPopupAndPlay(mp3File);
+          }
         }, 1000);
       }
     } else if (playPosition === 'bottom') {
       window.addEventListener('scroll', () => {
         console.log('Scroll Position Bottom:', window.scrollY);
         if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-          playSound(mp3File);
+          if (userInteracted) {
+            playSound(mp3File);
+          } else {
+            showPopupAndPlay(mp3File);
+          }
         }
       });
     } else if (playPosition === 'self') {
@@ -127,7 +134,11 @@
           entries.forEach(entry => {
             console.log('Scroll Position Self:', window.scrollY);
             if (entry.isIntersecting) {
-              playSound(mp3File);
+              if (userInteracted) {
+                playSound(mp3File);
+              } else {
+                showPopupAndPlay(mp3File);
+              }
             }
           });
         });
@@ -140,19 +151,16 @@
           entries.forEach(entry => {
             console.log('Scroll Position Element:', window.scrollY);
             if (entry.isIntersecting) {
-              playSound(mp3File);
+              if (userInteracted) {
+                playSound(mp3File);
+              } else {
+                showPopupAndPlay(mp3File);
+              }
             }
           });
         });
         observer.observe(targetElement);
       }
-    }
-
-    // Check if the user has interacted with the page
-    if (!showPopup && !document.body.classList.contains('user-interacted')) {
-      document.body.addEventListener('click', function() {
-        document.body.classList.add('user-interacted');
-      });
     }
   });
 </script>
