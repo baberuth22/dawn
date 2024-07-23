@@ -48,7 +48,7 @@
 {% endschema %}
 
 <!-- sa-play-sound.liquid -->
-<div id="{{ section.id }}">
+<div id="{{ section.settings.id }}">
   <button style="display:none" id="play-sound">Play Sound</button>
 </div>
 
@@ -88,7 +88,7 @@
         }
       });
     } else if (playPosition === 'self') {
-      const targetElement = document.getElementById({{ section.id }});
+      const targetElement = document.getElementById("{{ section.setttings.id }}"");
       console.log('Target Element:', targetElement);
       console.log('Scroll Position Self:', window.scrollY);
       if (targetElement) {
