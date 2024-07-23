@@ -63,11 +63,11 @@
         "element_id": ""
       }
     },
-    "sa_play_sound_xhGRaT": {
-      "type": "sa-play-sound",
+    "sa_play_audio_LbR4e7": {
+      "type": "sa-play-audio",
       "settings": {
         "audio_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0268\/1005\/6873\/files\/KungFu-flurry4.mp3?v=1721254041",
-        "play_position": "top",
+        "play_position": "bottom",
         "element_id": ""
       }
     }
@@ -76,6 +76,6 @@
     "collage_4CJ9CQ",
     "main",
     "sa_tts_wellsaid_kV67Wg",
-    "sa_play_sound_xhGRaT"
+    "sa_play_audio_LbR4e7"
   ]
 }
