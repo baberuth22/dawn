@@ -43,6 +43,12 @@
       "id": "show_popup",
       "label": "Show toast to ask for audio permission",
       "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "play_once",
+      "label": "Play audio only once",
+      "default": false
     }
   ],
   "presets": [
@@ -71,15 +77,18 @@
     const playPosition = "{{ section.settings.play_position }}";
     const elementId = "{{ section.settings.element_id }}";
     const showPopup = {{ section.settings.show_popup | json }};
+    const playOnce = {{ section.settings.play_once | json }};
     let audioPlaying = false;
     let userInteracted = false;
+    let audioPlayed = false;
 
     function playSound(mp3File) {
-      if (audioPlaying) return;
+      if (audioPlaying || (playOnce && audioPlayed)) return;
 
       const audio = new Audio(mp3File);
       audio.play();
       audioPlaying = true;
+      audioPlayed = true;
 
       audio.addEventListener('ended', function() {
         audioPlaying = false;
