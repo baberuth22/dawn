@@ -67,7 +67,7 @@
       "type": "sa-play-audio",
       "settings": {
         "audio_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0268\/1005\/6873\/files\/KungFu-flurry4.mp3?v=1721254041",
-        "play_position": "top",
+        "play_position": "self",
         "element_id": ""
       }
     }
