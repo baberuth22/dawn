@@ -24,6 +24,7 @@
       "id": "play_position",
       "label": "Play Sound At",
       "options": [
+        { "value": "self", "label": "This Section" },
         { "value": "top", "label": "Top of the Page" },
         { "value": "bottom", "label": "Bottom of the Page" },
         { "value": "element_id", "label": "Specific Element" }
@@ -47,7 +48,7 @@
 {% endschema %}
 
 <!-- sa-play-sound.liquid -->
-<div id="{{ section.settings.element_id }}">
+<div id="{{ section.id }}">
   <button style="display:none" id="play-sound">Play Sound</button>
 </div>
 
@@ -68,21 +69,17 @@
         playSound(mp3File);
     });
 
-    function handleScrollTop() {
-      playSound(mp3File);
-      window.removeEventListener('scroll', handleScrollTop);
-    }
-
-    console.log('Scroll Position:', window.scrollY)
     console.log('Play Position:', playPosition)
 
     if (playPosition === 'top') {
-      if (window.scrollY === 0) {
-        console.log('Scroll Position Top:', window.scrollY);
-        setTimeout(() => {
-          window.addEventListener('scroll', handleScrollTop);
-        }, 1000);
-      }
+      window.addEventListener('scroll', () => {
+        console.log('Scroll Top Position:', window.scrollY)
+        if (window.scrollY === 0) {
+          setTimeout(() => {
+            playSound(mp3File);
+          }, 1000);
+        }
+      });
     } else if (playPosition === 'bottom') {
       window.addEventListener('scroll', () => {
         console.log('Scroll Position Bottom:', window.scrollY);
@@ -90,7 +87,20 @@
           playSound(mp3File);
         }
       });
-    } else if (playPosition === 'element_id' && elementId) {
+    } else if (playPosition === 'self') {
+      const targetElement = document.getElementById({{ section.id }});
+      if (targetElement) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            console.log('Scroll Position Self:', window.scrollY);
+            if (entry.isIntersecting) {
+              playSound(mp3File);
+            }
+          });
+        });
+        observer.observe(targetElement);
+      }
+    }  else if (playPosition === 'element_id' && elementId) {
       const targetElement = document.getElementById(elementId);
       if (targetElement) {
         const observer = new IntersectionObserver((entries) => {
