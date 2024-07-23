@@ -94,103 +94,18 @@
         "show_rating": false
       }
     },
-    "sa_tinder_slider_4wUCTr": {
-      "type": "sa-tinder-slider",
-      "blocks": {
-        "slide_nziqfW": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/person-dressed-in-black-holds-two-weights-in-each-hand.jpg",
-            "text": "Here we go",
-            "text_position": "bottom-right"
-          }
-        },
-        "slide_ja6iUM": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/self-serve-coffee-shop.jpg",
-            "text": "Shop here!",
-            "text_position": "center"
-          }
-        },
-        "slide_8Ebgyg": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/silver-lamp-on-a-white-table-next-to-books.jpg",
-            "text": "",
-            "text_position": "bottom-left"
-          }
-        }
-      },
-      "block_order": [
-        "slide_nziqfW",
-        "slide_ja6iUM",
-        "slide_8Ebgyg"
-      ],
+    "sa_element_animations_7hn9Ji": {
+      "type": "sa-element-animations",
       "settings": {
-        "image_height": 500,
-        "overlay_font": "Courier New",
-        "overlay_font_color": "#e97a7a",
-        "overlay_font_size": 32,
-        "overlay_opacity": 0.8,
-        "overlay_color": "#334fb4"
-      }
-    },
-    "sa_tinder_blog_7BNCfx": {
-      "type": "sa-tinder-blog",
-      "blocks": {
-        "slide_iHJy99": {
-          "type": "slide",
-          "settings": {
-            "article": "news\/its-on"
-          }
-        },
-        "slide_MzkzFE": {
-          "type": "slide",
-          "settings": {
-            "article": "news\/about-to-get-real"
-          }
-        },
-        "slide_34ayDr": {
-          "type": "slide",
-          "settings": {
-            "article": "news\/demo"
-          }
-        },
-        "slide_ikEpTF": {
-          "type": "slide",
-          "settings": {
-            "article": "news\/about-to-get-real"
-          }
-        }
-      },
-      "block_order": [
-        "slide_iHJy99",
-        "slide_MzkzFE",
-        "slide_34ayDr",
-        "slide_ikEpTF"
-      ],
-      "settings": {
-        "image_height": 500,
-        "overlay_font": "Arial",
-        "overlay_font_color": "#FFFFFF",
-        "overlay_font_size": 16,
-        "overlay_opacity": 0.5,
-        "overlay_color": "#000000",
-        "button_text": "Read more",
-        "remove_description_text": false,
-        "section_bg_color": "#000000",
-        "button_color": "#FF7A15",
-        "description_maintext_color": "#121212",
-        "title_font": "assistant_n4",
-        "description_font": "assistant_n4"
+        "shake_type": "shake",
+        "query_selector": ".product-form__submit, .add-to-cart, .product-form__cart-submit, .button--addToCart",
+        "animation_delay": 1
       }
     }
   },
   "order": [
     "main",
     "product-recommendations",
-    "sa_tinder_slider_4wUCTr",
-    "sa_tinder_blog_7BNCfx"
+    "sa_element_animations_7hn9Ji"
   ]
 }
