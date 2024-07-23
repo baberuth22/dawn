@@ -17,7 +17,8 @@
     {
       "type": "text",
       "id": "audio_url",
-      "label": "MP3 File URL"
+      "label": "MP3 File URL",
+      "default": "https://example.com/your-audio-file.mp3"
     },
     {
       "type": "select",
@@ -36,6 +37,12 @@
       "id": "element_id",
       "label": "Element ID",
       "info": "Enter the ID of the element where the sound should be triggered, if 'Specific Element' is selected."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_popup",
+      "label": "Show popup to ask for audio permission",
+      "default": true
     }
   ],
   "presets": [
@@ -57,10 +64,29 @@
     const mp3File = "{{ section.settings.audio_url }}";
     const playPosition = "{{ section.settings.play_position }}";
     const elementId = "{{ section.settings.element_id }}";
+    const showPopup = {{ section.settings.show_popup | json }};
+    let audioPlaying = false;
 
     function playSound(mp3File) {
+      if (audioPlaying) return;
+
       const audio = new Audio(mp3File);
       audio.play();
+      audioPlaying = true;
+
+      audio.addEventListener('ended', function() {
+        audioPlaying = false;
+      });
+    }
+
+    function showPopupAndPlay(mp3File) {
+      if (showPopup) {
+        if (confirm('Do you want to play audio?')) {
+          playSound(mp3File);
+        }
+      } else {
+        playSound(mp3File);
+      }
     }
 
     const playButton = document.getElementById('play-sound');
@@ -69,17 +95,21 @@
         playSound(mp3File);
     });
 
+    function handleScrollTop() {
+      playSound(mp3File);
+      window.removeEventListener('scroll', handleScrollTop);
+    }
+
+    console.log('Scroll Position:', window.scrollY)
     console.log('Play Position:', playPosition)
 
     if (playPosition === 'top') {
-      window.addEventListener('scroll', () => {
-        console.log('Scroll Top Position:', window.scrollY)
-        if (window.scrollY === 0) {
-          setTimeout(() => {
-            playSound(mp3File);
-          }, 1000);
-        }
-      });
+      if (window.scrollY === 0) {
+        console.log('Scroll Position Top:', window.scrollY);
+        setTimeout(() => {
+          window.addEventListener('scroll', handleScrollTop);
+        }, 1000);
+      }
     } else if (playPosition === 'bottom') {
       window.addEventListener('scroll', () => {
         console.log('Scroll Position Bottom:', window.scrollY);
@@ -102,7 +132,7 @@
         });
         observer.observe(targetElement);
       }
-    }  else if (playPosition === 'element_id' && elementId) {
+    } else if (playPosition === 'element_id' && elementId) {
       const targetElement = document.getElementById(elementId);
       if (targetElement) {
         const observer = new IntersectionObserver((entries) => {
@@ -115,6 +145,16 @@
         });
         observer.observe(targetElement);
       }
+    }
+
+    // Check if the user has interacted with the page
+    if (!showPopup && !document.body.classList.contains('user-interacted')) {
+      document.body.addEventListener('click', function() {
+        document.body.classList.add('user-interacted');
+      });
+      window.addEventListener('scroll', function() {
+        document.body.classList.add('user-interacted');
+      });
     }
   });
 </script>
