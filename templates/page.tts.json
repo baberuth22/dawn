@@ -54,21 +54,20 @@
       "settings": {
       }
     },
-    "sa_tts_wellsaid_k7jxwH": {
-      "type": "sa-tts-wellsaid",
+    "sa_play_audio_Km7QgE": {
+      "type": "sa-play-audio",
       "settings": {
-        "text_to_convert": "Enter the text you want to convert to speech here.",
-        "speaker_id": "3",
-        "play_position": "self",
+        "audio_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0268\/1005\/6873\/files\/Demo_Audio_File_for_Your_Page.mp3?v=1721760123",
+        "play_position": "top",
         "element_id": "",
         "show_popup": true,
-        "play_once": true
+        "play_once": false
       }
     }
   },
   "order": [
     "collage_4CJ9CQ",
     "main",
-    "sa_tts_wellsaid_k7jxwH"
+    "sa_play_audio_Km7QgE"
   ]
 }
