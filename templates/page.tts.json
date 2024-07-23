@@ -61,7 +61,7 @@
         "play_position": "top",
         "element_id": "",
         "show_popup": true,
-        "play_once": false
+        "play_once": true
       }
     }
   },
