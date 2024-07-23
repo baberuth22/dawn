@@ -54,19 +54,19 @@
       "settings": {
       }
     },
-    "sa_voiceover_wmxRKy": {
-      "type": "sa-voiceover",
+    "sa_tts_wellsaid_kV67Wg": {
+      "type": "sa-tts-wellsaid",
       "settings": {
         "text_to_convert": "Enter the text you want to convert to speech here.",
         "speaker_id": "3",
         "play_position": "top",
-        "element_id": "something-unique"
+        "element_id": ""
       }
     }
   },
   "order": [
     "collage_4CJ9CQ",
     "main",
-    "sa_voiceover_wmxRKy"
+    "sa_tts_wellsaid_kV67Wg"
   ]
 }
