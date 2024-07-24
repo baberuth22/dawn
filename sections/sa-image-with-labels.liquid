@@ -72,6 +72,17 @@
           "max": 500,
           "step": 5,
           "unit": "px"
+        },
+        {
+          "type": "select",
+          "id": "line_style",
+          "label": "Line Style",
+          "options": [
+            { "value": "arrow", "label": "Arrow" },
+            { "value": "pointer", "label": "Pointer" },
+            { "value": "line", "label": "Straight Line" }
+          ],
+          "default": "line"
         }
       ]
     }
@@ -87,13 +98,13 @@
 
 {% endschema %}
 
-
 <div class="sa-image-with-labels">
   {% if section.settings.main_image %}
     <img src="{{ section.settings.main_image | img_url: 'master' }}" alt="Main Image" class="main-image">
     {% for block in section.blocks %}
       {% assign pointer_length = block.settings.pointer_length %}
       {% assign pointer_direction = block.settings.pointer_direction %}
+      {% assign line_style = block.settings.line_style %}
       {% assign label_left = block.settings.label_left %}
       {% assign label_top = block.settings.label_top %}
       
@@ -113,7 +124,7 @@
       
       <div class="label" style="left: {{ label_left }}%; top: {{ label_top }}%; color: {{ block.settings.label_text_color }}; background-color: {{ block.settings.label_bg_color }};">
         <span class="label-text">{{ block.settings.label_text }}</span>
-        <div class="line" style="height: {{ pointer_length }}px; transform: rotate({% case pointer_direction %}{% when 'up' %}180deg{% when 'down' %}0deg{% when 'left' %}-90deg{% when 'right' %}90deg{% endcase %});"></div>
+        <div class="line {{ line_style }} {{ pointer_direction }}" style="height: {{ pointer_length }}px;"></div>
       </div>
     {% endfor %}
   {% endif %}
@@ -137,11 +148,92 @@
     border-radius: 3px;
   }
   .sa-image-with-labels .label .line {
+    position: absolute;
     width: 2px;
     background: #000;
-    position: absolute;
+  }
+  .sa-image-with-labels .label .line.up {
     bottom: 100%;
     left: 50%;
-    transform-origin: bottom center;
+    transform: translateX(-50%);
+    height: 0;
+    width: 2px;
+  }
+  .sa-image-with-labels .label .line.down {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 0;
+    width: 2px;
+  }
+  .sa-image-with-labels .label .line.left {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 2px;
+    width: 0;
+  }
+  .sa-image-with-labels .label .line.right {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 2px;
+    width: 0;
+  }
+  .sa-image-with-labels .label .line.arrow::after {
+    content: '';
+    position: absolute;
+    border: 5px solid transparent;
+  }
+  .sa-image-with-labels .label .line.arrow.up::after {
+    border-bottom: 5px solid #000;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .sa-image-with-labels .label .line.arrow.down::after {
+    border-top: 5px solid #000;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .sa-image-with-labels .label .line.arrow.left::after {
+    border-right: 5px solid #000;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .sa-image-with-labels .label .line.arrow.right::after {
+    border-left: 5px solid #000;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .sa-image-with-labels .label .line.pointer::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 5px solid #000;
+  }
+  .sa-image-with-labels .label .line.pointer.up::after {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .sa-image-with-labels .label .line.pointer.down::after {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .sa-image-with-labels .label .line.pointer.left::after {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .sa-image-with-labels .label .line.pointer.right::after {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
   }
 </style>
