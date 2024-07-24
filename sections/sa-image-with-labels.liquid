@@ -1,4 +1,5 @@
 {% schema %}
+
 {
   "name": "SA - Image with Labels",
   "settings": [
@@ -19,6 +20,18 @@
           "label": "Label Text"
         },
         {
+          "type": "color",
+          "id": "label_text_color",
+          "label": "Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "label_bg_color",
+          "label": "Background Color",
+          "default": "#ffffff"
+        },
+        {
           "type": "range",
           "id": "label_left",
           "label": "Left Position (%)",
@@ -37,6 +50,28 @@
           "max": 100,
           "step": 1,
           "unit": "%"
+        },
+        {
+          "type": "select",
+          "id": "pointer_direction",
+          "label": "Pointer Direction",
+          "options": [
+            { "value": "up", "label": "Up" },
+            { "value": "down", "label": "Down" },
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "up"
+        },
+        {
+          "type": "range",
+          "id": "pointer_length",
+          "label": "Pointer Length (px)",
+          "default": 50,
+          "min": 0,
+          "max": 500,
+          "step": 5,
+          "unit": "px"
         }
       ]
     }
@@ -49,15 +84,36 @@
   ]
 }
 
+
 {% endschema %}
+
 
 <div class="sa-image-with-labels">
   {% if section.settings.main_image %}
     <img src="{{ section.settings.main_image | img_url: 'master' }}" alt="Main Image" class="main-image">
     {% for block in section.blocks %}
-      <div class="label" style="left: {{ block.settings.label_left }}%; top: {{ block.settings.label_top }}%;">
+      {% assign pointer_length = block.settings.pointer_length %}
+      {% assign pointer_direction = block.settings.pointer_direction %}
+      {% assign label_left = block.settings.label_left %}
+      {% assign label_top = block.settings.label_top %}
+      
+      {% if pointer_direction == 'up' %}
+        {% assign label_left = block.settings.label_left %}
+        {% assign label_top = block.settings.label_top | minus: pointer_length %}
+      {% elsif pointer_direction == 'down' %}
+        {% assign label_left = block.settings.label_left %}
+        {% assign label_top = block.settings.label_top | plus: pointer_length %}
+      {% elsif pointer_direction == 'left' %}
+        {% assign label_left = block.settings.label_left | minus: pointer_length %}
+        {% assign label_top = block.settings.label_top %}
+      {% elsif pointer_direction == 'right' %}
+        {% assign label_left = block.settings.label_left | plus: pointer_length %}
+        {% assign label_top = block.settings.label_top %}
+      {% endif %}
+      
+      <div class="label" style="left: {{ label_left }}%; top: {{ label_top }}%; color: {{ block.settings.label_text_color }}; background-color: {{ block.settings.label_bg_color }};">
         <span class="label-text">{{ block.settings.label_text }}</span>
-        <div class="line"></div>
+        <div class="line" style="height: {{ pointer_length }}px; transform: rotate({% case pointer_direction %}{% when 'up' %}180deg{% when 'down' %}0deg{% when 'left' %}-90deg{% when 'right' %}90deg{% endcase %});"></div>
       </div>
     {% endfor %}
   {% endif %}
@@ -76,18 +132,16 @@
     transform: translate(-50%, -50%);
   }
   .sa-image-with-labels .label .label-text {
-    background: #fff;
     padding: 5px;
     border: 1px solid #000;
     border-radius: 3px;
   }
   .sa-image-with-labels .label .line {
     width: 2px;
-    height: 50px;
     background: #000;
     position: absolute;
-    top: 50%;
+    bottom: 100%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform-origin: bottom center;
   }
 </style>
