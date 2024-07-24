@@ -109,22 +109,18 @@
       {% assign label_top = block.settings.label_top %}
       
       {% if pointer_direction == 'up' %}
-        {% assign label_left = block.settings.label_left %}
         {% assign label_top = block.settings.label_top | minus: pointer_length %}
       {% elsif pointer_direction == 'down' %}
-        {% assign label_left = block.settings.label_left %}
         {% assign label_top = block.settings.label_top | plus: pointer_length %}
       {% elsif pointer_direction == 'left' %}
         {% assign label_left = block.settings.label_left | minus: pointer_length %}
-        {% assign label_top = block.settings.label_top %}
       {% elsif pointer_direction == 'right' %}
         {% assign label_left = block.settings.label_left | plus: pointer_length %}
-        {% assign label_top = block.settings.label_top %}
       {% endif %}
       
       <div class="label" style="left: {{ label_left }}%; top: {{ label_top }}%; color: {{ block.settings.label_text_color }}; background-color: {{ block.settings.label_bg_color }};">
         <span class="label-text">{{ block.settings.label_text }}</span>
-        <div class="line {{ line_style }} {{ pointer_direction }}" style="height: {{ pointer_length }}px;"></div>
+        <div class="line {{ line_style }} {{ pointer_direction }}" style="width: {{ pointer_length }}px;"></div>
       </div>
     {% endfor %}
   {% endif %}
@@ -149,36 +145,35 @@
   }
   .sa-image-with-labels .label .line {
     position: absolute;
-    width: 2px;
     background: #000;
   }
   .sa-image-with-labels .label .line.up {
     bottom: 100%;
     left: 50%;
     transform: translateX(-50%);
-    height: 0;
+    height: {{ pointer_length }}px;
     width: 2px;
   }
   .sa-image-with-labels .label .line.down {
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    height: 0;
+    height: {{ pointer_length }}px;
     width: 2px;
   }
   .sa-image-with-labels .label .line.left {
     right: 100%;
     top: 50%;
     transform: translateY(-50%);
+    width: {{ pointer_length }}px;
     height: 2px;
-    width: 0;
   }
   .sa-image-with-labels .label .line.right {
     left: 100%;
     top: 50%;
     transform: translateY(-50%);
+    width: {{ pointer_length }}px;
     height: 2px;
-    width: 0;
   }
   .sa-image-with-labels .label .line.arrow::after {
     content: '';
