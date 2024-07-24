@@ -114,7 +114,8 @@
             "label_left": 50,
             "label_top": 63,
             "pointer_direction": "up",
-            "pointer_length": 25
+            "pointer_length": 40,
+            "line_style": "line"
           }
         }
       },

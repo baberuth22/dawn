@@ -1,5 +1,6 @@
 {% schema %}
 
+
 {
   "name": "SA - Image with Labels",
   "settings": [
@@ -30,6 +31,33 @@
           "id": "label_bg_color",
           "label": "Background Color",
           "default": "#ffffff"
+        },
+        {
+          "type": "select",
+          "id": "label_bg_opacity",
+          "label": "Background Opacity",
+          "options": [
+            { "value": "1", "label": "Opaque" },
+            { "value": "0.5", "label": "Semi-Transparent" },
+            { "value": "0", "label": "Transparent" }
+          ],
+          "default": "1"
+        },
+        {
+          "type": "color",
+          "id": "label_border_color",
+          "label": "Border Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "label_border_radius",
+          "label": "Border Radius (px)",
+          "default": 3,
+          "min": 0,
+          "max": 20,
+          "step": 1,
+          "unit": "px"
         },
         {
           "type": "range",
@@ -96,31 +124,16 @@
 }
 
 
+
 {% endschema %}
 
 <div class="sa-image-with-labels">
   {% if section.settings.main_image %}
     <img src="{{ section.settings.main_image | img_url: 'master' }}" alt="Main Image" class="main-image">
     {% for block in section.blocks %}
-      {% assign pointer_length = block.settings.pointer_length %}
-      {% assign pointer_direction = block.settings.pointer_direction %}
-      {% assign line_style = block.settings.line_style %}
-      {% assign label_left = block.settings.label_left %}
-      {% assign label_top = block.settings.label_top %}
-      
-      {% if pointer_direction == 'up' %}
-        {% assign label_top = block.settings.label_top | minus: pointer_length %}
-      {% elsif pointer_direction == 'down' %}
-        {% assign label_top = block.settings.label_top | plus: pointer_length %}
-      {% elsif pointer_direction == 'left' %}
-        {% assign label_left = block.settings.label_left | minus: pointer_length %}
-      {% elsif pointer_direction == 'right' %}
-        {% assign label_left = block.settings.label_left | plus: pointer_length %}
-      {% endif %}
-      
-      <div class="label" style="left: {{ label_left }}%; top: {{ label_top }}%; color: {{ block.settings.label_text_color }}; background-color: {{ block.settings.label_bg_color }};">
+      <div class="label" style="left: {{ block.settings.label_left }}%; top: {{ block.settings.label_top }}%; color: {{ block.settings.label_text_color }}; background-color: {{ block.settings.label_bg_color }}; opacity: {{ block.settings.label_bg_opacity }}; border-color: {{ block.settings.label_border_color }}; border-radius: {{ block.settings.label_border_radius }}px;">
         <span class="label-text">{{ block.settings.label_text }}</span>
-        <div class="line {{ line_style }} {{ pointer_direction }}" style="width: {{ pointer_length }}px;"></div>
+        <div class="line {{ block.settings.line_style }} {{ block.settings.pointer_direction }}" style="width: {{ block.settings.pointer_length }}px;"></div>
       </div>
     {% endfor %}
   {% endif %}
@@ -137,42 +150,44 @@
   .sa-image-with-labels .label {
     position: absolute;
     transform: translate(-50%, -50%);
+    padding: 5px;
+    border-width: 1px;
+    border-style: solid;
   }
   .sa-image-with-labels .label .label-text {
-    padding: 5px;
-    border: 1px solid #000;
-    border-radius: 3px;
+    z-index: 10;
   }
   .sa-image-with-labels .label .line {
     position: absolute;
     background: #000;
+    z-index: 5;
   }
   .sa-image-with-labels .label .line.up {
     bottom: 100%;
     left: 50%;
     transform: translateX(-50%);
-    height: {{ pointer_length }}px;
+    height: var(--pointer-length);
     width: 2px;
   }
   .sa-image-with-labels .label .line.down {
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    height: {{ pointer_length }}px;
+    height: var(--pointer-length);
     width: 2px;
   }
   .sa-image-with-labels .label .line.left {
     right: 100%;
     top: 50%;
     transform: translateY(-50%);
-    width: {{ pointer_length }}px;
+    width: var(--pointer-length);
     height: 2px;
   }
   .sa-image-with-labels .label .line.right {
     left: 100%;
     top: 50%;
     transform: translateY(-50%);
-    width: {{ pointer_length }}px;
+    width: var(--pointer-length);
     height: 2px;
   }
   .sa-image-with-labels .label .line.arrow::after {
