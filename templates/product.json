@@ -120,10 +120,27 @@
             "pointer_length": 40,
             "line_style": "line"
           }
+        },
+        "label_XicQFL": {
+          "type": "label",
+          "settings": {
+            "label_text": "Cute one",
+            "label_text_color": "#000000",
+            "label_bg_color": "#ffffff",
+            "label_bg_opacity": "1",
+            "label_border_color": "#000000",
+            "label_border_radius": 5,
+            "label_left": 91,
+            "label_top": 14,
+            "pointer_direction": "up",
+            "pointer_length": 50,
+            "line_style": "line"
+          }
         }
       },
       "block_order": [
-        "label_WyDAJX"
+        "label_WyDAJX",
+        "label_XicQFL"
       ],
       "settings": {
         "main_image": "shopify:\/\/shop_images\/smiling-strong-woman-together.jpg"
