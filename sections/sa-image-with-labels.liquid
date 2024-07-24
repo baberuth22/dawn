@@ -21,6 +21,29 @@
           "label": "Label Text"
         },
         {
+          "type": "select",
+          "id": "font_family",
+          "label": "Font Family",
+          "options": [
+            { "value": "Arial", "label": "Arial" },
+            { "value": "Helvetica", "label": "Helvetica" },
+            { "value": "Times New Roman", "label": "Times New Roman" },
+            { "value": "Courier New", "label": "Courier New" },
+            { "value": "Georgia", "label": "Georgia" }
+          ],
+          "default": "Arial"
+        },
+        {
+          "type": "range",
+          "id": "text_size",
+          "label": "Text Size (px)",
+          "default": 14,
+          "min": 10,
+          "max": 30,
+          "step": 1,
+          "unit": "px"
+        },
+        {
           "type": "color",
           "id": "label_text_color",
           "label": "Text Color",
@@ -87,11 +110,7 @@
             { "value": "up", "label": "Up" },
             { "value": "down", "label": "Down" },
             { "value": "left", "label": "Left" },
-            { "value": "right", "label": "Right" },
-            { "value": "up-right", "label": "Up-Right" },
-            { "value": "up-left", "label": "Up-Left" },
-            { "value": "down-right", "label": "Down-Right" },
-            { "value": "down-left", "label": "Down-Left" }
+            { "value": "right", "label": "Right" }
           ],
           "default": "up"
         },
@@ -129,15 +148,14 @@
 
 
 
-
 {% endschema %}
 
 <div class="sa-image-with-labels">
   {% if section.settings.main_image %}
     <img src="{{ section.settings.main_image | img_url: 'master' }}" alt="Main Image" class="main-image">
     {% for block in section.blocks %}
-      <div class="label" style="left: {{ block.settings.label_left }}%; top: {{ block.settings.label_top }}%; color: {{ block.settings.label_text_color }}; background-color: {{ block.settings.label_bg_color }}; opacity: {{ block.settings.label_bg_opacity }}; border-color: {{ block.settings.label_border_color }}; border-radius: {{ block.settings.label_border_radius }}px;">
-        <span class="label-text">{{ block.settings.label_text }}</span>
+      <div class="label" style="left: {{ block.settings.label_left }}%; top: {{ block.settings.label_top }}%; color: {{ block.settings.label_text_color }}; background-color: {{ block.settings.label_bg_color }}; border-color: {{ block.settings.label_border_color }}; border-radius: {{ block.settings.label_border_radius }}px; font-family: {{ block.settings.font_family }}; font-size: {{ block.settings.text_size }}px;">
+        <span class="label-text" style="background-color: rgba({{ block.settings.label_bg_color | replace: '#', '' | replace: '0x', '' | slice: 0, 2 }},{{ block.settings.label_bg_color | replace: '#', '' | replace: '0x', '' | slice: 2, 2 }},{{ block.settings.label_bg_color | replace: '#', '' | replace: '0x', '' | slice: 4, 2 }}, {{ block.settings.label_bg_opacity }});">{{ block.settings.label_text }}</span>
         {% assign pointer_length = block.settings.pointer_length %}
         {% assign pointer_direction = block.settings.pointer_direction %}
         {% assign line_color = block.settings.label_border_color %}
@@ -159,63 +177,27 @@
             <svg class="line" width="{{ pointer_length }}" height="10" style="fill: {{ line_color }}; left: 100%; top: 50%; transform: translateY(-50%);">
               <polygon points="0,0 {{ pointer_length }},5 0,10" />
             </svg>
-          {% elsif pointer_direction == 'up-right' %}
-            <svg class="line" height="{{ pointer_length }}" width="{{ pointer_length }}" style="fill: {{ line_color }}; bottom: 100%; right: 0; transform: translateX(50%) translateY(50%) rotate(-45deg);">
-              <polygon points="0,{{ pointer_length }} {{ pointer_length }},0 5,5" />
-            </svg>
-          {% elsif pointer_direction == 'up-left' %}
-            <svg class="line" height="{{ pointer_length }}" width="{{ pointer_length }}" style="fill: {{ line_color }}; bottom: 100%; left: 0; transform: translateX(-50%) translateY(50%) rotate(45deg);">
-              <polygon points="0,0 {{ pointer_length }},{{ pointer_length }} 5,5" />
-            </svg>
-          {% elsif pointer_direction == 'down-right' %}
-            <svg class="line" height="{{ pointer_length }}" width="{{ pointer_length }}" style="fill: {{ line_color }}; top: 100%; right: 0; transform: translateX(50%) translateY(-50%) rotate(45deg);">
-              <polygon points="0,{{ pointer_length }} {{ pointer_length }},0 5,5" />
-            </svg>
-          {% elsif pointer_direction == 'down-left' %}
-            <svg class="line" height="{{ pointer_length }}" width="{{ pointer_length }}" style="fill: {{ line_color }}; top: 100%; left: 0; transform: translateX(-50%) translateY(-50%) rotate(-45deg);">
-              <polygon points="0,0 {{ pointer_length }},{{ pointer_length }} 5,5" />
-            </svg>
           {% endif %}
         {% elsif line_style == 'pointer' %}
           {% if pointer_direction == 'up' %}
             <svg class="line" height="{{ pointer_length }}" width="2" style="stroke: {{ line_color }}; stroke-width: 2px; fill: none; bottom: 100%; left: 50%; transform: translateX(-50%);">
               <line x1="1" y1="0" x2="1" y2="{{ pointer_length }}" />
-              <polygon points="-4,{{ pointer_length }} 5,{{ pointer_length | minus: 10 }} 10,{{ pointer_length }}" />
+              <polygon points="0,{{ pointer_length }} 1,-5 2,{{ pointer_length }}" style="fill: {{ line_color }};" />
             </svg>
           {% elsif pointer_direction == 'down' %}
             <svg class="line" height="{{ pointer_length }}" width="2" style="stroke: {{ line_color }}; stroke-width: 2px; fill: none; top: 100%; left: 50%; transform: translateX(-50%);">
               <line x1="1" y1="{{ pointer_length }}" x2="1" y2="0" />
-              <polygon points="-4,0 5,10 10,0" />
+              <polygon points="0,0 1,{{ pointer_length | plus: 5 }} 2,0" style="fill: {{ line_color }};" />
             </svg>
           {% elsif pointer_direction == 'left' %}
             <svg class="line" width="{{ pointer_length }}" height="2" style="stroke: {{ line_color }}; stroke-width: 2px; fill: none; right: 100%; top: 50%; transform: translateY(-50%);">
               <line x1="{{ pointer_length }}" y1="1" x2="0" y2="1" />
-              <polygon points="{{ pointer_length }},-4 {{ pointer_length | minus: 10 }},5 {{ pointer_length }},10" />
+              <polygon points="{{ pointer_length }},0 {{ pointer_length | minus: 5 }},1 {{ pointer_length }},2" style="fill: {{ line_color }};" />
             </svg>
           {% elsif pointer_direction == 'right' %}
             <svg class="line" width="{{ pointer_length }}" height="2" style="stroke: {{ line_color }}; stroke-width: 2px; fill: none; left: 100%; top: 50%; transform: translateY(-50%);">
               <line x1="0" y1="1" x2="{{ pointer_length }}" y2="1" />
-              <polygon points="0,-4 5,5 0,10" />
-            </svg>
-          {% elsif pointer_direction == 'up-right' %}
-            <svg class="line" height="{{ pointer_length }}" width="{{ pointer_length }}" style="stroke: {{ line_color }}; stroke-width: 2px; fill: none; bottom: 100%; right: 0; transform: translateX(50%) translateY(50%) rotate(-45deg);">
-              <line x1="0" y1="{{ pointer_length }}" x2="{{ pointer_length }}" y2="0" />
-              <polygon points="{{ pointer_length }},-4 5,5 0,{{ pointer_length }}" />
-            </svg>
-          {% elsif pointer_direction == 'up-left' %}
-            <svg class="line" height="{{ pointer_length }}" width="{{ pointer_length }}" style="stroke: {{ line_color }}; stroke-width: 2px; fill: none; bottom: 100%; left: 0; transform: translateX(-50%) translateY(50%) rotate(45deg);">
-              <line x1="0" y1="0" x2="{{ pointer_length }}" y2="{{ pointer_length }}" />
-              <polygon points="0,-4 {{ pointer_length }},{{ pointer_length }} 5,{{ pointer_length | minus: 10 }}" />
-            </svg>
-          {% elsif pointer_direction == 'down-right' %}
-            <svg class="line" height="{{ pointer_length }}" width="{{ pointer_length }}" style="stroke: {{ line_color }}; stroke-width: 2px; fill: none; top: 100%; right: 0; transform: translateX(50%) translateY(-50%) rotate(45deg);">
-              <line x1="0" y1="{{ pointer_length }}" x2="{{ pointer_length }}" y2="0" />
-              <polygon points="0,{{ pointer_length }} {{ pointer_length }},-4 5,5" />
-            </svg>
-          {% elsif pointer_direction == 'down-left' %}
-            <svg class="line" height="{{ pointer_length }}" width="{{ pointer_length }}" style="stroke: {{ line_color }}; stroke-width: 2px; fill: none; top: 100%; left: 0; transform: translateX(-50%) translateY(-50%) rotate(-45deg);">
-              <line x1="0" y1="0" x2="{{ pointer_length }}" y2="{{ pointer_length }}" />
-              <polygon points="0,{{ pointer_length }} {{ pointer_length }},-4 5,5" />
+              <polygon points="0,0 5,1 0,2" style="fill: {{ line_color }};" />
             </svg>
           {% endif %}
         {% else %}
@@ -234,22 +216,6 @@
           {% elsif pointer_direction == 'right' %}
             <svg class="line" width="{{ pointer_length }}" height="2" style="stroke: {{ line_color }}; stroke-width: 2px; fill: none; left: 100%; top: 50%; transform: translateY(-50%);">
               <line x1="0" y1="1" x2="{{ pointer_length }}" y2="1" />
-            </svg>
-          {% elsif pointer_direction == 'up-right' %}
-            <svg class="line" height="{{ pointer_length }}" width="{{ pointer_length }}" style="stroke: {{ line_color }}; stroke-width: 2px; fill: none; bottom: 100%; right: 0; transform: translateX(50%) translateY(50%) rotate(-45deg);">
-              <line x1="0" y1="{{ pointer_length }}" x2="{{ pointer_length }}" y2="0" />
-            </svg>
-          {% elsif pointer_direction == 'up-left' %}
-            <svg class="line" height="{{ pointer_length }}" width="{{ pointer_length }}" style="stroke: {{ line_color }}; stroke-width: 2px; fill: none; bottom: 100%; left: 0; transform: translateX(-50%) translateY(50%) rotate(45deg);">
-              <line x1="0" y1="0" x2="{{ pointer_length }}" y2="{{ pointer_length }}" />
-            </svg>
-          {% elsif pointer_direction == 'down-right' %}
-            <svg class="line" height="{{ pointer_length }}" width="{{ pointer_length }}" style="stroke: {{ line_color }}; stroke-width: 2px; fill: none; top: 100%; right: 0; transform: translateX(50%) translateY(-50%) rotate(45deg);">
-              <line x1="0" y1="{{ pointer_length }}" x2="{{ pointer_length }}" y2="0" />
-            </svg>
-          {% elsif pointer_direction == 'down-left' %}
-            <svg class="line" height="{{ pointer_length }}" width="{{ pointer_length }}" style="stroke: {{ line_color }}; stroke-width: 2px; fill: none; top: 100%; left: 0; transform: translateX(-50%) translateY(-50%) rotate(-45deg);">
-              <line x1="0" y1="0" x2="{{ pointer_length }}" y2="{{ pointer_length }}" />
             </svg>
           {% endif %}
         {% endif %}
@@ -275,6 +241,9 @@
   }
   .sa-image-with-labels .label .label-text {
     z-index: 10;
+    display: inline-block;
+    padding: 5px;
+    border-radius: inherit;
   }
   .sa-image-with-labels .label .line {
     position: absolute;
@@ -289,7 +258,7 @@
   /* Media Queries */
   @media (max-width: 1200px) {
     .sa-image-with-labels .label {
-      font-size: 0.9em;
+      font-size: calc({{ block.settings.text_size }}px * 0.9);
       padding: 4px;
     }
     .sa-image-with-labels .label .line svg {
@@ -300,7 +269,7 @@
 
   @media (max-width: 992px) {
     .sa-image-with-labels .label {
-      font-size: 0.8em;
+      font-size: calc({{ block.settings.text_size }}px * 0.8);
       padding: 3px;
     }
     .sa-image-with-labels .label .line svg {
@@ -311,7 +280,7 @@
 
   @media (max-width: 768px) {
     .sa-image-with-labels .label {
-      font-size: 0.7em;
+      font-size: calc({{ block.settings.text_size }}px * 0.7);
       padding: 2px;
     }
     .sa-image-with-labels .label .line svg {
@@ -322,7 +291,7 @@
 
   @media (max-width: 576px) {
     .sa-image-with-labels .label {
-      font-size: 0.6em;
+      font-size: calc({{ block.settings.text_size }}px * 0.6);
       padding: 1px;
     }
     .sa-image-with-labels .label .line svg {
