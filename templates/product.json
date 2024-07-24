@@ -109,8 +109,12 @@
           "type": "label",
           "settings": {
             "label_text": "Leader",
+            "label_text_color": "#000000",
+            "label_bg_color": "#ffffff",
             "label_left": 50,
-            "label_top": 48
+            "label_top": 63,
+            "pointer_direction": "up",
+            "pointer_length": 50
           }
         }
       },
