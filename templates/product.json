@@ -108,14 +108,17 @@
         "label_WyDAJX": {
           "type": "label",
           "settings": {
-            "label_text": "Leader",
+            "label_text": "Leader of the Tribe",
             "label_text_color": "#ffffff",
             "label_bg_color": "#d63b3b",
+            "label_bg_opacity": "1",
+            "label_border_color": "#f90000",
+            "label_border_radius": 7,
             "label_left": 50,
-            "label_top": 63,
-            "pointer_direction": "up",
-            "pointer_length": 40,
-            "line_style": "line"
+            "label_top": 29,
+            "pointer_direction": "left",
+            "pointer_length": 210,
+            "line_style": "pointer"
           }
         }
       },
