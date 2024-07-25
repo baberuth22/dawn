@@ -155,7 +155,15 @@
   {% if section.settings.main_image %}
     <img src="{{ section.settings.main_image | img_url: 'master' }}" alt="Main Image" class="main-image">
     {% for block in section.blocks %}
-      <div class="label" style="left: {{ block.settings.label_left }}%; top: {{ block.settings.label_top }}%; color: {{ block.settings.label_text_color }}; background-color: rgba({{ block.settings.label_bg_color | remove: '#' | slice: 0, 2 | prepend: '0x' }}, {{ block.settings.label_bg_color | remove: '#' | slice: 2, 2 | prepend: '0x' }}, {{ block.settings.label_bg_color | remove: '#' | slice: 4, 2 | prepend: '0x' }}, {{ block.settings.label_bg_opacity }}); border-color: {{ block.settings.label_border_color }}; border-radius: {{ block.settings.label_border_radius }}px; font-family: {{ block.settings.font_family }}; font-size: {{ block.settings.text_size }}px;">
+      {% assign bg_opacity = block.settings.label_bg_opacity %}
+      {% if bg_opacity == '0' %}
+        {% assign bg_rgba = 'rgba(0, 0, 0, 0)' %}
+      {% elsif bg_opacity == '0.5' %}
+        {% assign bg_rgba = 'rgba(' | append: block.settings.label_bg_color | replace: '#', '' | slice: 0, 2 | prepend: '0x' | append: ', ' | append: block.settings.label_bg_color | replace: '#', '' | slice: 2, 2 | prepend: '0x' | append: ', ' | append: block.settings.label_bg_color | replace: '#', '' | slice: 4, 2 | prepend: '0x' | append: ', 0.5)' %}
+      {% else %}
+        {% assign bg_rgba = 'rgba(' | append: block.settings.label_bg_color | replace: '#', '' | slice: 0, 2 | prepend: '0x' | append: ', ' | append: block.settings.label_bg_color | replace: '#', '' | slice: 2, 2 | prepend: '0x' | append: ', ' | append: block.settings.label_bg_color | replace: '#', '' | slice: 4, 2 | prepend: '0x' | append: ', 1)' %}
+      {% endif %}
+      <div class="label" style="left: {{ block.settings.label_left }}%; top: {{ block.settings.label_top }}%; color: {{ block.settings.label_text_color }}; background-color: {{ bg_rgba }}; border-color: {{ block.settings.label_border_color }}; border-radius: {{ block.settings.label_border_radius }}px; font-family: {{ block.settings.font_family }}; font-size: {{ block.settings.text_size }}px;">
         <span class="label-text">{{ block.settings.label_text }}</span>
         {% assign pointer_length = block.settings.pointer_length %}
         {% assign pointer_direction = block.settings.pointer_direction %}
@@ -202,6 +210,7 @@
     {% endfor %}
   {% endif %}
 </div>
+
 
 
 
