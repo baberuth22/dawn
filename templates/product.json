@@ -138,7 +138,7 @@
             "label_top": 0,
             "pointer_direction": "down",
             "pointer_length": 40,
-            "line_style": "pointer"
+            "line_style": "line"
           }
         }
       },
