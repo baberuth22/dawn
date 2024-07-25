@@ -155,8 +155,8 @@
   {% if section.settings.main_image %}
     <img src="{{ section.settings.main_image | img_url: 'master' }}" alt="Main Image" class="main-image">
     {% for block in section.blocks %}
-      <div class="label" style="left: {{ block.settings.label_left }}%; top: {{ block.settings.label_top }}%; color: {{ block.settings.label_text_color }}; background-color: rgba({{ block.settings.label_bg_color | remove: '#' | slice: 0, 2 | prepend: '0x' }}, {{ block.settings.label_bg_color | remove: '#' | slice: 2, 2 | prepend: '0x' }}, {{ block.settings.label_bg_color | remove: '#' | slice: 4, 2 | prepend: '0x' }}, {{ block.settings.label_bg_opacity }}); border-color: {{ block.settings.label_border_color }}; border-radius: {{ block.settings.label_border_radius }}px; font-family: {{ block.settings.font_family }}; font-size: {{ block.settings.text_size }}px;">
-        <span class="label-text">{{ block.settings.label_text }}</span>
+      <div class="label" style="left: {{ block.settings.label_left }}%; top: {{ block.settings.label_top }}%; color: {{ block.settings.label_text_color }}; background-color: {{ block.settings.label_bg_color }}; border-color: {{ block.settings.label_border_color }}; border-radius: {{ block.settings.label_border_radius }}px; font-family: {{ block.settings.font_family }}; font-size: {{ block.settings.text_size }}px;">
+        <span class="label-text" style="background-color: {{ block.settings.label_bg_color }}; display: inline-block;">{{ block.settings.label_text }}</span>
         {% assign pointer_length = block.settings.pointer_length %}
         {% assign pointer_direction = block.settings.pointer_direction %}
         {% assign line_color = block.settings.label_border_color %}
@@ -202,7 +202,6 @@
     {% endfor %}
   {% endif %}
 </div>
-
 
 
 
