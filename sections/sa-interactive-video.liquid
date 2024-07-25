@@ -1,6 +1,267 @@
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "SA - Interactive Video",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Interactive Video"
+    },
+    {
+      "type": "text",
+      "id": "intro_text",
+      "label": "Intro Text",
+      "default": "Watch a cat or a dog video?"
+    },
+    {
+      "type": "text",
+      "id": "closing_text",
+      "label": "Closing Text",
+      "default": "Would you like to choose a different video now?"
+    },
+    {
+      "type": "url",
+      "id": "intro_video",
+      "label": "Intro Video URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video_option",
+      "name": "Video Option",
+      "settings": [
+        {
+          "type": "text",
+          "id": "option_text",
+          "label": "Option Text",
+          "default": "A cat video!"
+        },
+        {
+          "type": "url",
+          "id": "option_video",
+          "label": "Option Video URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Interactive Video",
+      "category": "Custom"
+    }
+  ]
+}
 {% endschema %}
+
+<div class="interactive-video">
+  <h1>{{ section.settings.title }}</h1>
+  <div class="videos">
+    <!-- intro video -->
+    <section class="active initial closing">
+      <video autoplay="autoplay" loop>
+        <source src="{{ section.settings.intro_video }}" type="video/mp4">
+      </video>
+    </section>
+
+    {% for block in section.blocks %}
+      <!-- option video -->
+      <section class="{{ block.id }} hide">
+        <video>
+          <source src="{{ block.settings.option_video }}" type="video/mp4">
+        </video>
+      </section>
+    {% endfor %}
+
+    <!-- play button -->
+    <img class="play" src="https://example.com/path/to/default-play-button.svg" alt="play button">
+
+    <section class="menu hide">
+      <div class="menu-wrapper">
+        <div class="initial hide">
+          <h4>{{ section.settings.intro_text }}</h4>
+        </div>
+        <div class="closing hide">
+          <h4>{{ section.settings.closing_text }}</h4>
+        </div>
+        <div class="options hide">
+          <ul>
+            {% for block in section.blocks %}
+              <li><a id="{{ block.id }}-link">{{ block.settings.option_text }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function() {
+    const videosContainer = document.getElementsByClassName('videos')[0];
+    const menu = document.getElementsByClassName('menu')[0];
+    const menuOptions = menu.getElementsByClassName('options')[0];
+    const playBtn = document.getElementsByClassName('play')[0];
+
+    function initVideo() {
+      playBtn.addEventListener('click', function() {
+        playBtn.style.display = 'none';
+        initMenu();
+      });
+
+      {% for block in section.blocks %}
+        document.getElementById('{{ block.id }}-link').addEventListener('click', function() {
+          showVideos(0, videosContainer.getElementsByClassName('{{ block.id }}'));
+        });
+      {% endfor %}
+
+      function initMenu() {
+        playVideo(videosContainer.getElementsByClassName('initial')[0], true);
+        menu.style.display = 'block';
+        menu.getElementsByClassName('initial')[0].style.display = 'block';
+        menuOptions.style.display = 'block';
+      }
+
+      function endMenu() {
+        playVideo(videosContainer.getElementsByClassName('closing')[0], true);
+        menu.getElementsByClassName('initial')[0].style.display = 'none';
+        menu.style.display = 'block';
+        menu.getElementsByClassName('closing')[0].style.display = 'block';
+        menuOptions.style.display = 'block';
+      }
+
+      function playVideo(videoContainer, loop = false) {
+        const lastVideoContainer = videosContainer.getElementsByClassName('active')[0];
+        lastVideoContainer.classList.remove('active');
+        lastVideoContainer.style.display = 'none';
+
+        videoContainer.style.display = 'block';
+        videoContainer.classList.add('active');
+
+        const video = videoContainer.getElementsByTagName('video')[0];
+        video.preload = 'auto';
+        video.load();
+        video.play();
+        video.loop = loop;
+
+        return video;
+      }
+
+      function showVideos(index, videos) {
+        menu.style.display = 'none';
+        let nextVideo;
+        index < videos.length - 1 ? nextVideo = true : nextVideo = false;
+
+        const video = playVideo(videos[index]);
+        video.addEventListener('timeupdate', function() {
+          const currentTime = this.currentTime / this.duration * 100;
+          if (nextVideo && currentTime > 70) {
+            nextVideo = videos[index + 1];
+            const nextVideoTag = nextVideo.getElementsByTagName('video')[0];
+            nextVideoTag.preload = 'auto';
+          }
+        });
+        video.onended = () => nextVideo ? showVideos(index + 1, videos) : endMenu();
+      }
+    }
+
+    window.onload = initVideo();
+  });
+</script>
+
+<style>
+  body {
+    font-family: Graphik, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+      "Droid Sans", "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 110%;
+    text-align: center;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .initial {
+    display: block;
+  }
+
+  .videos {
+    position: relative;
+    max-width: 700px;
+    height: 400px;
+    margin: 0 auto;
+  }
+
+  .videos video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .play {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 98%;
+    padding: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, .5);
+  }
+
+  .play:hover .fil1 {
+    fill: #fff;
+    width: 50%;
+  }
+
+  .menu {
+    height: 98%;
+    background-color: rgba(0, 0, 0, .5);
+  }
+
+  .menu,
+  .menu-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -51%);
+    width: 100%;
+    padding: 0;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu,
+  .menu a {
+    color: #fff;
+  }
+
+  .menu a:hover {
+    cursor: pointer;
+  }
+
+  .menu ul li {
+    list-style-type: none;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .menu ul li {
+      display: inline-block;
+      margin-right: 30px;
+    }
+  }
+
+  @media only screen and (max-width: 450px) {
+    .show-below-450 {
+      display: block !important;
+      color: red;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+</style>
