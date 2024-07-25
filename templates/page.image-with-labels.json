@@ -71,7 +71,7 @@
             "label_left": 62,
             "label_top": 67,
             "pointer_direction": "left",
-            "pointer_length": 50,
+            "pointer_length": 70,
             "line_style": "line"
           }
         },
@@ -89,14 +89,33 @@
             "label_left": 15,
             "label_top": 25,
             "pointer_direction": "right",
-            "pointer_length": 70,
+            "pointer_length": 125,
+            "line_style": "line"
+          }
+        },
+        "label_V9tUdB": {
+          "type": "label",
+          "settings": {
+            "label_text": "Cute skirt",
+            "font_family": "Arial",
+            "text_size": 14,
+            "label_text_color": "#000000",
+            "label_bg_color": "#ffffff",
+            "label_bg_opacity": "1",
+            "label_border_color": "#000000",
+            "label_border_radius": 3,
+            "label_left": 51,
+            "label_top": 80,
+            "pointer_direction": "down",
+            "pointer_length": 50,
             "line_style": "line"
           }
         }
       },
       "block_order": [
         "label_bL7bQ9",
-        "label_4bWenq"
+        "label_4bWenq",
+        "label_V9tUdB"
       ],
       "settings": {
         "main_image": "shopify:\/\/shop_images\/model-in-sunglasses-and-summer-clothes.jpg"
