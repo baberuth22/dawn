@@ -160,62 +160,34 @@
         {% assign pointer_direction = block.settings.pointer_direction %}
         {% assign line_color = block.settings.label_border_color %}
         {% assign line_style = block.settings.line_style %}
-        {% if line_style == 'arrow' %}
-          {% if pointer_direction == 'up' %}
-            <svg class="line" height="{{ pointer_length }}" width="10" style="fill: {{ line_color }}; bottom: 100%; left: 50%; transform: translateX(-50%);">
-              <polygon points="0,{{ pointer_length }} 5,0 10,{{ pointer_length }}" />
-            </svg>
-          {% elsif pointer_direction == 'down' %}
-            <svg class="line" height="{{ pointer_length }}" width="10" style="fill: {{ line_color }}; top: 100%; left: 50%; transform: translateX(-50%);">
-              <polygon points="0,0 5,{{ pointer_length }} 10,0" />
-            </svg>
-          {% elsif pointer_direction == 'left' %}
-            <svg class="line" width="{{ pointer_length }}" height="10" style="fill: {{ line_color }}; right: 100%; top: 50%; transform: translateY(-50%);">
-              <polygon points="{{ pointer_length }},0 0,5 {{ pointer_length }},10" />
-            </svg>
-          {% elsif pointer_direction == 'right' %}
-            <svg class="line" width="{{ pointer_length }}" height="10" style="fill: {{ line_color }}; left: 100%; top: 50%; transform: translateY(-50%);">
-              <polygon points="0,0 {{ pointer_length }},5 0,10" />
-            </svg>
-          {% endif %}
-        {% elsif line_style == 'pointer' %}
+        {% if line_style == 'pointer' %}
           {% if pointer_direction == 'up' %}
             <svg class="line" height="{{ pointer_length }}" width="2" style="stroke: {{ line_color }}; stroke-width: 2px; fill: none; bottom: 100%; left: 50%; transform: translateX(-50%);">
               <line x1="1" y1="0" x2="1" y2="{{ pointer_length }}" />
-              <polygon points="0,{{ pointer_length }} 1,-5 2,{{ pointer_length }}" style="fill: {{ line_color }};" />
+              <svg width="10" height="10" viewBox="0 0 900 520" fill="{{ line_color }}" style="position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%) translateY(-10px);">
+                <path d="M375.5 72.146c-3.113 1.689-175.447 174.013-177.064 177.054-1.844 3.468-1.845 11.128-.002 14.6.788 1.485 40.726 41.929 88.75 89.876 76.136 76.015 87.832 87.312 91.348 88.23 10.877 2.842 21.722-7.126 19.936-18.325-.606-3.802-5.645-9.082-73.8-77.331L251.518 273l219.491-.006c145.254-.003 220.726-.348 223.141-1.019 16.34-4.539 14.707-27.945-2.163-30.993-3.578-.646-81.563-.905-222.25-.739-119.205.141-216.737-.096-216.737-.527 0-.431 32.403-33.243 72.006-72.916 76.486-76.62 75.175-75.146 73.522-82.674-2.224-10.124-14.59-16.557-23.028-11.98" fill-rule="evenodd"/>
+              </svg>
             </svg>
           {% elsif pointer_direction == 'down' %}
             <svg class="line" height="{{ pointer_length }}" width="2" style="stroke: {{ line_color }}; stroke-width: 2px; fill: none; top: 100%; left: 50%; transform: translateX(-50%);">
               <line x1="1" y1="{{ pointer_length }}" x2="1" y2="0" />
-              <polygon points="0,0 1,{{ pointer_length | plus: 5 }} 2,0" style="fill: {{ line_color }};" />
+              <svg width="10" height="10" viewBox="0 0 900 520" fill="{{ line_color }}" style="position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px) rotate(180deg);">
+                <path d="M375.5 72.146c-3.113 1.689-175.447 174.013-177.064 177.054-1.844 3.468-1.845 11.128-.002 14.6.788 1.485 40.726 41.929 88.75 89.876 76.136 76.015 87.832 87.312 91.348 88.23 10.877 2.842 21.722-7.126 19.936-18.325-.606-3.802-5.645-9.082-73.8-77.331L251.518 273l219.491-.006c145.254-.003 220.726-.348 223.141-1.019 16.34-4.539 14.707-27.945-2.163-30.993-3.578-.646-81.563-.905-222.25-.739-119.205.141-216.737-.096-216.737-.527 0-.431 32.403-33.243 72.006-72.916 76.486-76.62 75.175-75.146 73.522-82.674-2.224-10.124-14.59-16.557-23.028-11.98" fill-rule="evenodd"/>
+              </svg>
             </svg>
           {% elsif pointer_direction == 'left' %}
             <svg class="line" width="{{ pointer_length }}" height="2" style="stroke: {{ line_color }}; stroke-width: 2px; fill: none; right: 100%; top: 50%; transform: translateY(-50%);">
               <line x1="{{ pointer_length }}" y1="1" x2="0" y2="1" />
-              <polygon points="{{ pointer_length }},0 {{ pointer_length | minus: 5 }},1 {{ pointer_length }},2" style="fill: {{ line_color }};" />
+              <svg width="10" height="10" viewBox="0 0 900 520" fill="{{ line_color }}" style="position: absolute; right: 100%; top: 50%; transform: translateY(-50%) translateX(-10px) rotate(270deg);">
+                <path d="M375.5 72.146c-3.113 1.689-175.447 174.013-177.064 177.054-1.844 3.468-1.845 11.128-.002 14.6.788 1.485 40.726 41.929 88.75 89.876 76.136 76.015 87.832 87.312 91.348 88.23 10.877 2.842 21.722-7.126 19.936-18.325-.606-3.802-5.645-9.082-73.8-77.331L251.518 273l219.491-.006c145.254-.003 220.726-.348 223.141-1.019 16.34-4.539 14.707-27.945-2.163-30.993-3.578-.646-81.563-.905-222.25-.739-119.205.141-216.737-.096-216.737-.527 0-.431 32.403-33.243 72.006-72.916 76.486-76.62 75.175-75.146 73.522-82.674-2.224-10.124-14.59-16.557-23.028-11.98" fill-rule="evenodd"/>
+              </svg>
             </svg>
           {% elsif pointer_direction == 'right' %}
             <svg class="line" width="{{ pointer_length }}" height="2" style="stroke: {{ line_color }}; stroke-width: 2px; fill: none; left: 100%; top: 50%; transform: translateY(-50%);">
               <line x1="0" y1="1" x2="{{ pointer_length }}" y2="1" />
-              <polygon points="0,0 5,1 0,2" style="fill: {{ line_color }};" />
-            </svg>
-          {% endif %}
-        {% else %}
-          {% if pointer_direction == 'up' %}
-            <svg class="line" height="{{ pointer_length }}" width="2" style="stroke: {{ line_color }}; stroke-width: 2px; fill: none; bottom: 100%; left: 50%; transform: translateX(-50%);">
-              <line x1="1" y1="0" x2="1" y2="{{ pointer_length }}" />
-            </svg>
-          {% elsif pointer_direction == 'down' %}
-            <svg class="line" height="{{ pointer_length }}" width="2" style="stroke: {{ line_color }}; stroke-width: 2px; fill: none; top: 100%; left: 50%; transform: translateX(-50%);">
-              <line x1="1" y1="{{ pointer_length }}" x2="1" y2="0" />
-            </svg>
-          {% elsif pointer_direction == 'left' %}
-            <svg class="line" width="{{ pointer_length }}" height="2" style="stroke: {{ line_color }}; stroke-width: 2px; fill: none; right: 100%; top: 50%; transform: translateY(-50%);">
-              <line x1="{{ pointer_length }}" y1="1" x2="0" y2="1" />
-            </svg>
-          {% elsif pointer_direction == 'right' %}
-            <svg class="line" width="{{ pointer_length }}" height="2" style="stroke: {{ line_color }}; stroke-width: 2px; fill: none; left: 100%; top: 50%; transform: translateY(-50%);">
-              <line x1="0" y1="1" x2="{{ pointer_length }}" y2="1" />
+              <svg width="10" height="10" viewBox="0 0 900 520" fill="{{ line_color }}" style="position: absolute; left: 100%; top: 50%; transform: translateY(-50%) translateX(10px) rotate(90deg);">
+                <path d="M375.5 72.146c-3.113 1.689-175.447 174.013-177.064 177.054-1.844 3.468-1.845 11.128-.002 14.6.788 1.485 40.726 41.929 88.75 89.876 76.136 76.015 87.832 87.312 91.348 88.23 10.877 2.842 21.722-7.126 19.936-18.325-.606-3.802-5.645-9.082-73.8-77.331L251.518 273l219.491-.006c145.254-.003 220.726-.348 223.141-1.019 16.34-4.539 14.707-27.945-2.163-30.993-3.578-.646-81.563-.905-222.25-.739-119.205.141-216.737-.096-216.737-.527 0-.431 32.403-33.243 72.006-72.916 76.486-76.62 75.175-75.146 73.522-82.674-2.224-10.124-14.59-16.557-23.028-11.98" fill-rule="evenodd"/>
+              </svg>
             </svg>
           {% endif %}
         {% endif %}
