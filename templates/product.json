@@ -101,60 +101,11 @@
         "query_selector": ".product-form__submit, .add-to-cart, .product-form__cart-submit, .button--addToCart",
         "animation_delay": 0
       }
-    },
-    "sa_image_with_labels_wNyM9G": {
-      "type": "sa-image-with-labels",
-      "blocks": {
-        "label_WyDAJX": {
-          "type": "label",
-          "settings": {
-            "label_text": "Leader of the Tribe",
-            "font_family": "Arial",
-            "text_size": 14,
-            "label_text_color": "#ffffff",
-            "label_bg_color": "#d63b3b",
-            "label_bg_opacity": "0.5",
-            "label_border_color": "#ffffff",
-            "label_border_radius": 0,
-            "label_left": 50,
-            "label_top": 31,
-            "pointer_direction": "up",
-            "pointer_length": 20,
-            "line_style": "line"
-          }
-        },
-        "label_XicQFL": {
-          "type": "label",
-          "settings": {
-            "label_text": "Cute one",
-            "font_family": "Arial",
-            "text_size": 22,
-            "label_text_color": "#ffffff",
-            "label_bg_color": "#334fb4",
-            "label_bg_opacity": "1",
-            "label_border_color": "#000000",
-            "label_border_radius": 5,
-            "label_left": 84,
-            "label_top": 0,
-            "pointer_direction": "down",
-            "pointer_length": 40,
-            "line_style": "line"
-          }
-        }
-      },
-      "block_order": [
-        "label_WyDAJX",
-        "label_XicQFL"
-      ],
-      "settings": {
-        "main_image": "shopify:\/\/shop_images\/smiling-strong-woman-together.jpg"
-      }
     }
   },
   "order": [
     "main",
     "product-recommendations",
-    "sa_element_animations_7hn9Ji",
-    "sa_image_with_labels_wNyM9G"
+    "sa_element_animations_7hn9Ji"
   ]
 }
