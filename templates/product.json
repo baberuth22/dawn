@@ -115,12 +115,12 @@
             "label_bg_color": "#d63b3b",
             "label_bg_opacity": "0",
             "label_border_color": "#ffffff",
-            "label_border_radius": 7,
+            "label_border_radius": 0,
             "label_left": 50,
             "label_top": 31,
             "pointer_direction": "up",
             "pointer_length": 20,
-            "line_style": "pointer"
+            "line_style": "arrow"
           }
         },
         "label_XicQFL": {
