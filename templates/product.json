@@ -113,7 +113,7 @@
             "text_size": 14,
             "label_text_color": "#ffffff",
             "label_bg_color": "#d63b3b",
-            "label_bg_opacity": "0",
+            "label_bg_opacity": "0.5",
             "label_border_color": "#ffffff",
             "label_border_radius": 0,
             "label_left": 50,
