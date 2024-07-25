@@ -155,7 +155,7 @@
   {% if section.settings.main_image %}
     <img src="{{ section.settings.main_image | img_url: 'master' }}" alt="Main Image" class="main-image">
     {% for block in section.blocks %}
-      {% assign bg_color_rgb = block.settings.label_bg_color | color_to_rgb %}
+      {% assign bg_color_rgb = block.settings.label_bg_color | color_to_rgb | remove: 'rgb(' | remove: ')' %}
       {% assign bg_opacity = block.settings.label_bg_opacity %}
       {% if bg_opacity == '0' %}
         {% assign bg_rgba = 'rgba(' | append: bg_color_rgb | append: ', 0)' %}
@@ -211,6 +211,7 @@
     {% endfor %}
   {% endif %}
 </div>
+
 
 
 
