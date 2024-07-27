@@ -101,11 +101,21 @@
         "query_selector": ".product-form__submit, .add-to-cart, .product-form__cart-submit, .button--addToCart",
         "animation_delay": 0
       }
+    },
+    "sa_interactive_video_8NyjxX": {
+      "type": "sa-interactive-video",
+      "settings": {
+        "title": "Cooper Flagg",
+        "intro_text": "Is Flagg a better shooter or dribbler?",
+        "closing_text": "Do you still think so?",
+        "intro_video": "shopify:\/\/files\/videos\/dish-to-flag-bring-up.mp4"
+      }
     }
   },
   "order": [
     "main",
     "product-recommendations",
-    "sa_element_animations_7hn9Ji"
+    "sa_element_animations_7hn9Ji",
+    "sa_interactive_video_8NyjxX"
   ]
 }
