@@ -21,9 +21,9 @@
       "default": "Would you like to choose a different video now?"
     },
     {
-      "type": "url",
+      "type": "video",
       "id": "intro_video",
-      "label": "Intro Video URL"
+      "label": "Intro Video"
     }
   ],
   "blocks": [
@@ -38,9 +38,9 @@
           "default": "A cat video!"
         },
         {
-          "type": "url",
+          "type": "video",
           "id": "option_video",
-          "label": "Option Video URL"
+          "label": "Option Video"
         }
       ]
     }
@@ -60,7 +60,7 @@
     <!-- intro video -->
     <section class="active initial closing">
       <video autoplay="autoplay" loop>
-        <source src="{{ section.settings.intro_video }}" type="video/mp4">
+        <source src="{{ section.settings.intro_video | file_url }}" type="video/mp4">
       </video>
     </section>
 
@@ -68,7 +68,7 @@
       <!-- option video -->
       <section class="{{ block.id }} hide">
         <video>
-          <source src="{{ block.settings.option_video }}" type="video/mp4">
+          <source src="{{ block.settings.option_video | file_url }}" type="video/mp4">
         </video>
       </section>
     {% endfor %}
