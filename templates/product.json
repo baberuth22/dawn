@@ -104,6 +104,26 @@
     },
     "sa_interactive_video_8NyjxX": {
       "type": "sa-interactive-video",
+      "blocks": {
+        "video_option_EwkTgz": {
+          "type": "video_option",
+          "settings": {
+            "option_text": "Shooter!",
+            "option_video": "shopify:\/\/files\/videos\/flagg-and-AD.mp4"
+          }
+        },
+        "video_option_xQhHAh": {
+          "type": "video_option",
+          "settings": {
+            "option_text": "Dribbler!",
+            "option_video": "shopify:\/\/files\/videos\/flagg-fadaway.mp4"
+          }
+        }
+      },
+      "block_order": [
+        "video_option_EwkTgz",
+        "video_option_xQhHAh"
+      ],
       "settings": {
         "title": "Cooper Flagg",
         "intro_text": "Is Flagg a better shooter or dribbler?",
