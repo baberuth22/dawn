@@ -84,10 +84,10 @@
       "settings": {
         "button_text": "Read more",
         "make_more_readable": false,
-        "reverse": false,
-        "section_bg_color": "#fff",
-        "button_color": "#FF7A15",
-        "description_maintext_color": "#FFFFFF",
+        "reverse": true,
+        "section_bg_color": "#ffffff",
+        "button_color": "#ff7a15",
+        "description_maintext_color": "#ffffff",
         "title_font": "assistant_n4",
         "description_font": "assistant_n4"
       }
