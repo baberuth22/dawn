@@ -53,10 +53,23 @@
       "type": "main-page",
       "settings": {
       }
+    },
+    "sa_google_reviews_kr4gmV": {
+      "type": "sa-google-reviews",
+      "settings": {
+        "google_place_id": "ChIJpcanZ0L2wokRoWs8p9gEJcM",
+        "api_key": "",
+        "theme": "dark",
+        "num_of_words": 20,
+        "horizontal": true,
+        "auto_scroll": false,
+        "scroll_interval": 8
+      }
     }
   },
   "order": [
     "collage_4CJ9CQ",
-    "main"
+    "main",
+    "sa_google_reviews_kr4gmV"
   ]
 }
