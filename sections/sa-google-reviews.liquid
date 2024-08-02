@@ -461,12 +461,14 @@ div.grw-review-content .rm-link{
 	GRW.init = function(options){
 		var defaults = {
 			target:'',
-			placeid:'',
-			theme:'dark',//light,dark
-			numOfWords:20, //max number of words for each review. default:20
-			horizontal:true, //display reviews horizontally
-			autoScroll:false, //automatically scroll the reivew horizontally; horizontal has to be set to true
-			scrollInterval:8 //an interval on how often to scroll the review horizontally; default: 8s
+
+                placeid: '{{ section.settings.google_place_id }}',
+      theme: '{{ section.settings.theme }}',
+      numOfWords: {{ section.settings.num_of_words }},
+      numOfReviews: {{ section.settings.num_of_reviews }},
+      horizontal: {{ section.settings.horizontal }},
+      autoScroll: {{ section.settings.auto_scroll }},
+      scrollInterval: {{ section.settings.scroll_interval }}
 		};
 		options = GRW.helpers.extendObj({},defaults,options);
 		
