@@ -57,13 +57,17 @@
     "sa_google_reviews_kr4gmV": {
       "type": "sa-google-reviews",
       "settings": {
+        "section_title": "Google Customer Reviews",
+        "title_alignment": "center",
         "google_place_id": "ChIJcxJMdD4S6YARa4FeZG2BUsk",
         "api_key": "AIzaSyDNsuWBgZRUSI6g9V3muAMPbtxFRxNdoOE",
         "theme": "light",
+        "num_of_reviews": 10,
         "num_of_words": 66,
         "horizontal": true,
         "auto_scroll": false,
-        "scroll_interval": 8
+        "scroll_interval": 8,
+        "desktop_margin": 20
       }
     }
   },
