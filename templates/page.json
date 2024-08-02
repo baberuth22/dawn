@@ -59,8 +59,8 @@
       "settings": {
         "google_place_id": "ChIJcxJMdD4S6YARa4FeZG2BUsk",
         "api_key": "AIzaSyDNsuWBgZRUSI6g9V3muAMPbtxFRxNdoOE",
-        "theme": "dark",
-        "num_of_words": 20,
+        "theme": "light",
+        "num_of_words": 66,
         "horizontal": true,
         "auto_scroll": false,
         "scroll_interval": 8
