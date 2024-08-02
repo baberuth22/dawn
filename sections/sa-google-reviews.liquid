@@ -4,6 +4,12 @@
   "name": "SA - Google Review Widget",
   "settings": [
     {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Customer Reviews"
+    },
+    {
       "type": "paragraph",
       "content": "You will need to set the Google place id. [Click here to find your google place id](https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder)."
     },
@@ -71,6 +77,7 @@
 {% endschema %}
 
 <div class="google-review-widget">
+  <h2>{{ section.settings.section_title }}</h2>
   <div id="review_widget"></div>
 </div>
 
