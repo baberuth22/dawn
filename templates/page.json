@@ -58,7 +58,7 @@
       "type": "sa-google-reviews",
       "settings": {
         "google_place_id": "ChIJcxJMdD4S6YARa4FeZG2BUsk",
-        "api_key": "",
+        "api_key": "AIzaSyDNsuWBgZRUSI6g9V3muAMPbtxFRxNdoOE",
         "theme": "dark",
         "num_of_words": 20,
         "horizontal": true,
