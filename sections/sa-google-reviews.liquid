@@ -7,8 +7,19 @@
       "type": "text",
       "id": "section_title",
       "label": "Section Title",
-      "default": "Customer Reviews"
+      "default": "Google Customer Reviews"
     },
+       {
+     "type": "select",
+     "id": "title_alignment",
+     "label": "Title Alignment",
+     "options": [
+       { "value": "left", "label": "Left" },
+       { "value": "center", "label": "Center" },
+       { "value": "right", "label": "Right" }
+     ],
+     "default": "center"
+   },
     {
       "type": "paragraph",
       "content": "You will need to set the Google place id. [Click here to find your google place id](https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder)."
@@ -77,9 +88,25 @@
 {% endschema %}
 
 <div class="google-review-widget">
-  <h2>{{ section.settings.section_title }}</h2>
+  <h2 class="section-title" style="text-align: {{ section.settings.title_alignment }};">
+    {{ section.settings.section_title }}
+  </h2>
   <div id="review_widget"></div>
 </div>
+
+{% if section.settings.title_alignment == "left" %}
+<style>
+  .google-review-widget .section-title {
+    margin-left: 10px;
+  }
+</style>
+{% elsif section.settings.title_alignment == "right" %}
+<style>
+  .google-review-widget .section-title {
+    margin-right: 10px;
+  }
+</style>
+{% endif %}
 
 <!-- Include CSS -->
 <style>
