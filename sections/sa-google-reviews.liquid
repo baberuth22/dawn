@@ -50,6 +50,15 @@
     },
     {
       "type": "range",
+      "id": "num_of_reviews",
+      "label": "Number of Reviews",
+      "default": 5,
+      "min": 1,
+      "max": 10,
+      "step": 1
+    },
+    {
+      "type": "range",
       "id": "num_of_words",
       "label": "Number of Words",
       "default": 20,
@@ -77,7 +86,15 @@
       "min": 1,
       "max": 60,
       "step": 1
-    }
+    },{
+     "type": "range",
+     "id": "desktop_margin",
+     "label": "Desktop Margin (px)",
+     "default": 20,
+     "min": 0,
+     "max": 100,
+     "step": 1
+   }
   ],
   "presets": [
     {
@@ -87,7 +104,7 @@
 }
 {% endschema %}
 
-<div class="google-review-widget">
+<div class="google-review-widget" style="margin: {{ section.settings.desktop_margin }}px;">
   <h2 class="section-title" style="text-align: {{ section.settings.title_alignment }};">
     {{ section.settings.section_title }}
   </h2>
@@ -606,6 +623,7 @@ div.grw-review-content .rm-link{
       placeid: '{{ section.settings.google_place_id }}',
       theme: '{{ section.settings.theme }}',
       numOfWords: {{ section.settings.num_of_words }},
+      numOfReviews: {{ section.settings.num_of_reviews }},
       horizontal: {{ section.settings.horizontal }},
       autoScroll: {{ section.settings.auto_scroll }},
       scrollInterval: {{ section.settings.scroll_interval }}
