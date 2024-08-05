@@ -1,6 +1,565 @@
+{% style %}
+.sa-collapsible-section {
+  width: 100%;
+}
+.sa-collapsible-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(var(--clr-fg), 0.2);
+  padding: 1rem;
+  background: rgba(var(--clr-bg), 0.1);
+}
+.sa-collapsible-header svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+.sa-collapsible-header.open svg {
+  transform: rotate(180deg);
+}
+.sa-collapsible-content {
+  display: none;
+  padding: 1rem;
+  background: rgba(var(--clr-bg), 0.04);
+}
+.sa-collapsible-content p {
+  margin: 0;
+}
+.sa-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  border: 1px solid rgba(var(--clr-fg), 1);
+  background: rgba(var(--clr-fg), 0.1);
+  color: rgba(var(--clr-fg), 1);
+  text-decoration: none;
+  margin-top: 1rem;
+}
+{% endstyle %}
+
+<div class="sa-collapsible-section" id="sa-collapsible-{{ section.id }}">
+  <h2 class="section-heading">{{ section.settings.heading }}</h2>
+  <p class="section-description">{{ section.settings.description }}</p>
+  {% for block in section.blocks %}
+    {% if block.type == 'collapsible_header' %}
+      <div class="sa-collapsible-header" data-target="content-{{ forloop.index }}">
+        {% if block.settings.upload_icon != blank %}
+          <img src="{{ block.settings.upload_icon | image_url }}" alt="{{ block.settings.heading }}" style="width:{{ block.settings.icon_size }}px; height:{{ block.settings.icon_size }}px;" />
+        {% elsif block.settings.icon != 'none' %}
+          <span class="icon-wrapper">{{ block.settings.icon | replace: ' ', '-' }}</span>
+        {% endif %}
+        <span>{{ block.settings.heading }}</span>
+        <svg viewBox="0 0 24 24"><path d="M12 16.5L6 10.5H18L12 16.5Z"/></svg>
+      </div>
+    {% endif %}
+    {% if block.type == 'collapsible_content' %}
+      <div class="sa-collapsible-content" id="content-{{ forloop.index }}">
+        {{ block.settings.content }}
+      </div>
+    {% endif %}
+    {% if block.type == 'button' %}
+      <a href="{{ block.settings.link }}" class="sa-button">{{ block.settings.label }}</a>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<script>
+document.querySelectorAll('.sa-collapsible-header').forEach(header => {
+  header.addEventListener('click', () => {
+    const content = document.getElementById(header.getAttribute('data-target'));
+    content.style.display = content.style.display === 'none' || content.style.display === '' ? 'block' : 'none';
+    header.classList.toggle('open');
+  });
+});
+</script>
+
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "SA - Collapsible Content",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Section Description",
+      "default": "<p>Some description about the section.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collapsible_header",
+      "name": "Collapsible Header",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "award",
+              "label": "Award",
+              "group": "Shopping"
+            },
+            {
+              "value": "bag-handle",
+              "label": "Bag handle",
+              "group": "Shopping"
+            },
+            {
+              "value": "building",
+              "label": "Building",
+              "group": "Shopping"
+            },
+            {
+              "value": "coupon",
+              "label": "Coupon",
+              "group": "Shopping"
+            },
+            {
+              "value": "discount",
+              "label": "Discount",
+              "group": "Shopping"
+            },
+            {
+              "value": "gift",
+              "label": "Gift",
+              "group": "Shopping"
+            },
+            {
+              "value": "information",
+              "label": "Information",
+              "group": "Shopping"
+            },
+            {
+              "value": "love",
+              "label": "Love",
+              "group": "Shopping"
+            },
+            {
+              "value": "star",
+              "label": "Star",
+              "group": "Shopping"
+            },
+            {
+              "value": "tag",
+              "label": "Tag",
+              "group": "Shopping"
+            },
+            {
+              "value": "box",
+              "label": "Box",
+              "group": "Shipping"
+            },
+            {
+              "value": "pin",
+              "label": "Pin",
+              "group": "Shipping"
+            },
+            {
+              "value": "plane",
+              "label": "Plane",
+              "group": "Shipping"
+            },
+            {
+              "value": "return",
+              "label": "Return",
+              "group": "Shipping"
+            },
+            {
+              "value": "route",
+              "label": "Route",
+              "group": "Shipping"
+            },
+            {
+              "value": "truck",
+              "label": "Truck",
+              "group": "Shipping"
+            },
+            {
+              "value": "card",
+              "label": "Card",
+              "group": "Payment & Security"
+            },
+            {
+              "value": "lock",
+              "label": "Lock",
+              "group": "Payment & Security"
+            },
+            {
+              "value": "money",
+              "label": "Money",
+              "group": "Payment & Security"
+            },
+            {
+              "value": "secure-profile",
+              "label": "Secure profile",
+              "group": "Payment & Security"
+            },
+            {
+              "value": "shield",
+              "label": "Shield",
+              "group": "Payment & Security"
+            },
+            {
+              "value": "wallet",
+              "label": "Wallet",
+              "group": "Payment & Security"
+            },
+            {
+              "value": "cream",
+              "label": "Cream",
+              "group": "Beauty"
+            },
+            {
+              "value": "facial-mask",
+              "label": "Facial mask",
+              "group": "Beauty"
+            },
+            {
+              "value": "jewelry",
+              "label": "Jewelry",
+              "group": "Beauty"
+            },
+            {
+              "value": "lipstick",
+              "label": "Lipstick",
+              "group": "Beauty"
+            },
+            {
+              "value": "perfume",
+              "label": "Perfume",
+              "group": "Beauty"
+            },
+            {
+              "value": "spa",
+              "label": "Spa",
+              "group": "Beauty"
+            },
+            {
+              "value": "eco-friendly",
+              "label": "Eco friendly",
+              "group": "Ecology"
+            },
+            {
+              "value": "global",
+              "label": "Global",
+              "group": "Ecology"
+            },
+            {
+              "value": "leaf",
+              "label": "Leaf",
+              "group": "Ecology"
+            },
+            {
+              "value": "recycle",
+              "label": "Recycle",
+              "group": "Ecology"
+            },
+            {
+              "value": "tree",
+              "label": "Tree",
+              "group": "Ecology"
+            },
+            {
+              "value": "at-sign",
+              "label": "At sign",
+              "group": "Technology"
+            },
+            {
+              "value": "bluetooth",
+              "label": "Bluetooth",
+              "group": "Technology"
+            },
+            {
+              "value": "camera",
+              "label": "Camera",
+              "group": "Technology"
+            },
+            {
+              "value": "computer",
+              "label": "Computer",
+              "group": "Technology"
+            },
+            {
+              "value": "game-control",
+              "label": "Game control",
+              "group": "Technology"
+            },
+            {
+              "value": "network",
+              "label": "Network",
+              "group": "Technology"
+            },
+            {
+              "value": "phone",
+              "label": "Phone",
+              "group": "Technology"
+            },
+            {
+              "value": "printer",
+              "label": "Printer",
+              "group": "Technology"
+            },
+            {
+              "value": "smart-watch",
+              "label": "Smart watch",
+              "group": "Technology"
+            },
+            {
+              "value": "wifi",
+              "label": "Wifi",
+              "group": "Technology"
+            },
+            {
+              "value": "avatar",
+              "label": "Avatar",
+              "group": "Communication"
+            },
+            {
+              "value": "calendar",
+              "label": "Calendar",
+              "group": "Communication"
+            },
+            {
+              "value": "chat",
+              "label": "Chat",
+              "group": "Communication"
+            },
+            {
+              "value": "comment",
+              "label": "Comment",
+              "group": "Communication"
+            },
+            {
+              "value": "happy",
+              "label": "Happy",
+              "group": "Communication"
+            },
+            {
+              "value": "mail",
+              "label": "Mail",
+              "group": "Communication"
+            },
+            {
+              "value": "quote",
+              "label": "Quote",
+              "group": "Communication"
+            },
+            {
+              "value": "send",
+              "label": "Send",
+              "group": "Communication"
+            },
+            {
+              "value": "support",
+              "label": "Support",
+              "group": "Communication"
+            },
+            {
+              "value": "question",
+              "label": "Question",
+              "group": "Communication"
+            },
+            {
+              "value": "user",
+              "label": "User",
+              "group": "Communication"
+            },
+            {
+              "value": "beer",
+              "label": "Beer",
+              "group": "Food & Drink"
+            },
+            {
+              "value": "bottle",
+              "label": "Bottle",
+              "group": "Food & Drink"
+            },
+            {
+              "value": "coffee",
+              "label": "Coffee",
+              "group": "Food & Drink"
+            },
+            {
+              "value": "cutlery",
+              "label": "Cutlery",
+              "group": "Food & Drink"
+            },
+            {
+              "value": "dish",
+              "label": "Dish",
+              "group": "Food & Drink"
+            },
+            {
+              "value": "hamburger",
+              "label": "Hamburger",
+              "group": "Food & Drink"
+            },
+            {
+              "value": "pizza",
+              "label": "Pizza",
+              "group": "Food & Drink"
+            },
+            {
+              "value": "baby",
+              "label": "Baby",
+              "group": "Other"
+            },
+            {
+              "value": "check",
+              "label": "Check",
+              "group": "Other"
+            },
+            {
+              "value": "document",
+              "label": "Document",
+              "group": "Other"
+            },
+            {
+              "value": "error",
+              "label": "Error",
+              "group": "Other"
+            },
+            {
+              "value": "file",
+              "label": "File",
+              "group": "Other"
+            },
+            {
+              "value": "pet",
+              "label": "Pet",
+              "group": "Other"
+            },
+            {
+              "value": "target",
+              "label": "Target",
+              "group": "Other"
+            },
+            {
+              "value": "tick",
+              "label": "Tick",
+              "group": "Other"
+            },
+            {
+              "value": "time",
+              "label": "Time",
+              "group": "Other"
+            },
+            {
+              "value": "verify",
+              "label": "Verify",
+              "group": "Other"
+            }
+          ],
+          "default": "none"
+        },
+        {
+          "type": "image_picker",
+          "id": "upload_icon",
+          "label": "Upload custom icon",
+          "info": "128 x 128px .png recommended."
+        },
+        {
+          "type": "range",
+          "id": "icon_size",
+          "min": 16,
+          "max": 150,
+          "step": 2,
+          "label": "Icon size",
+          "default": 24,
+          "unit": "px"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Question"
+        }
+      ]
+    },
+    {
+      "type": "collapsible_content",
+      "name": "Collapsible Content",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>Answer</p>"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Button Label",
+          "default": "Learn More"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Enhanced Collapsible Content",
+      "category": "Content",
+      "blocks": [
+        {
+          "type": "collapsible_header",
+          "settings": {
+            "icon": "none",
+            "icon_size": 24,
+            "heading": "How do I care for my clothing?"
+          }
+        },
+        {
+          "type": "collapsible_content",
+          "settings": {
+            "content": "<p>Instructions for clothing care.</p>"
+          }
+        },
+        {
+          "type": "collapsible_header",
+          "settings": {
+            "icon": "none",
+            "icon_size": 24,
+            "heading": "Do you offer international shipping?"
+          }
+        },
+        {
+          "type": "collapsible_content",
+          "settings": {
+            "content": "<p>Details about international shipping.</p>"
+          }
+        },
+        {
+          "type": "button",
+          "settings": {
+            "label": "View all FAQs",
+            "link": "#"
+          }
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}
