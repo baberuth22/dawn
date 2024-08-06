@@ -106,11 +106,177 @@
         "padding_top": 50,
         "padding_bottom": 50
       }
+    },
+    "smi_collapsible_content_1_3_QWmVjy": {
+      "type": "smi-collapsible-content-1-3",
+      "blocks": {
+        "collapsible_category_YxngGT": {
+          "type": "collapsible_category",
+          "settings": {
+            "icon": "none",
+            "icon_size": 24,
+            "heading": "Orders & Shipping",
+            "heading_size": "smi-h4"
+          }
+        },
+        "collapsible_content_dDBt78": {
+          "type": "collapsible_content",
+          "settings": {
+            "icon": "information",
+            "icon_size": 24,
+            "heading": "How do I care for my clothing?",
+            "heading_size": "smi-h5",
+            "content": "<p>Crop hoodie sweatshirt. Sewn neck with hood with drawstring for adjustment, short sleeves. There is a kangaroo pocket on the front. Discoloration effect fabric, decorated with torn details. It is very easy to coordinate street style clothes, bringing a dynamic and youthful feeling.<\/p>",
+            "collapse_content_page": ""
+          }
+        },
+        "collapsible_content_8CafGK": {
+          "type": "collapsible_content",
+          "settings": {
+            "icon": "discount",
+            "icon_size": 24,
+            "heading": "Do you offer international shipping?",
+            "heading_size": "smi-h5",
+            "content": "<p>Crop hoodie sweatshirt. Sewn neck with hood with drawstring for adjustment, short sleeves. There is a kangaroo pocket on the front. Discoloration effect fabric, decorated with torn details. It is very easy to coordinate street style clothes, bringing a dynamic and youthful feeling.<\/p>",
+            "collapse_content_page": ""
+          }
+        },
+        "collapsible_content_3nWtzp": {
+          "type": "collapsible_content",
+          "settings": {
+            "icon": "tag",
+            "icon_size": 24,
+            "heading": "Can I return or exchange items?",
+            "heading_size": "smi-h5",
+            "content": "<p>Crop hoodie sweatshirt. Sewn neck with hood with drawstring for adjustment, short sleeves. There is a kangaroo pocket on the front. Discoloration effect fabric, decorated with torn details. It is very easy to coordinate street style clothes, bringing a dynamic and youthful feeling.<\/p>",
+            "collapse_content_page": ""
+          }
+        },
+        "collapsible_content_CiLF8b": {
+          "type": "collapsible_content",
+          "settings": {
+            "icon": "box",
+            "icon_size": 24,
+            "heading": "How often do you release new collections?",
+            "heading_size": "smi-h5",
+            "content": "<p>Crop hoodie sweatshirt. Sewn neck with hood with drawstring for adjustment, short sleeves. There is a kangaroo pocket on the front. Discoloration effect fabric, decorated with torn details. It is very easy to coordinate street style clothes, bringing a dynamic and youthful feeling.<\/p>",
+            "collapse_content_page": ""
+          }
+        },
+        "collapsible_category_UKapL7": {
+          "type": "collapsible_category",
+          "settings": {
+            "icon": "none",
+            "icon_size": 24,
+            "heading": "Returns & Refunds",
+            "heading_size": "smi-h4"
+          }
+        },
+        "collapsible_content_ep8FeN": {
+          "type": "collapsible_content",
+          "settings": {
+            "icon": "target",
+            "icon_size": 24,
+            "heading": "What is your return policy?",
+            "heading_size": "smi-h5",
+            "content": "<p>Crop hoodie sweatshirt. Sewn neck with hood with drawstring for adjustment, short sleeves. There is a kangaroo pocket on the front. Discoloration effect fabric, decorated with torn details. It is very easy to coordinate street style clothes, bringing a dynamic and youthful feeling.<\/p>",
+            "collapse_content_page": ""
+          }
+        },
+        "collapsible_content_HzXMQV": {
+          "type": "collapsible_content",
+          "settings": {
+            "icon": "question",
+            "icon_size": 24,
+            "heading": "How can I initiate a return or exchange?",
+            "heading_size": "smi-h5",
+            "content": "<p>Crop hoodie sweatshirt. Sewn neck with hood with drawstring for adjustment, short sleeves. There is a kangaroo pocket on the front. Discoloration effect fabric, decorated with torn details. It is very easy to coordinate street style clothes, bringing a dynamic and youthful feeling.<\/p>",
+            "collapse_content_page": ""
+          }
+        },
+        "collapsible_content_yd6weM": {
+          "type": "collapsible_content",
+          "settings": {
+            "icon": "chat",
+            "icon_size": 24,
+            "heading": "How long does it take to process a refund?",
+            "heading_size": "smi-h5",
+            "content": "<p>Crop hoodie sweatshirt. Sewn neck with hood with drawstring for adjustment, short sleeves. There is a kangaroo pocket on the front. Discoloration effect fabric, decorated with torn details. It is very easy to coordinate street style clothes, bringing a dynamic and youthful feeling.<\/p>",
+            "collapse_content_page": ""
+          }
+        },
+        "collapsible_content_pxTFC8": {
+          "type": "collapsible_content",
+          "settings": {
+            "icon": "send",
+            "icon_size": 24,
+            "heading": "Do I have to pay for return shipping?",
+            "heading_size": "smi-h5",
+            "content": "<p>Crop hoodie sweatshirt. Sewn neck with hood with drawstring for adjustment, short sleeves. There is a kangaroo pocket on the front. Discoloration effect fabric, decorated with torn details. It is very easy to coordinate street style clothes, bringing a dynamic and youthful feeling.<\/p>",
+            "collapse_content_page": ""
+          }
+        },
+        "button_M9BJkW": {
+          "type": "button",
+          "settings": {
+            "first_button_label": "View all faq",
+            "first_button_link": "",
+            "first_button_style": "solid",
+            "second_button_label": "",
+            "second_button_link": "",
+            "second_button_style": "solid",
+            "button_full_width": false
+          }
+        },
+        "color_bgggVr": {
+          "type": "color",
+          "settings": {
+            "background_color": "#fcf8f5",
+            "background_gradient_color": "",
+            "text_color": "#000000",
+            "subtext_color": "#000000",
+            "solid_background_button_color": "#000000",
+            "solid_button_label_color": "#fcf8f5",
+            "outline_button_color": "#000000",
+            "shadow_color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_category_YxngGT",
+        "collapsible_content_dDBt78",
+        "collapsible_content_8CafGK",
+        "collapsible_content_3nWtzp",
+        "collapsible_content_CiLF8b",
+        "collapsible_category_UKapL7",
+        "collapsible_content_ep8FeN",
+        "collapsible_content_HzXMQV",
+        "collapsible_content_yd6weM",
+        "collapsible_content_pxTFC8",
+        "button_M9BJkW",
+        "color_bgggVr"
+      ],
+      "settings": {
+        "sub_heading": "",
+        "heading": "Help & advice",
+        "heading_size": "smi-h2",
+        "description": "",
+        "heading_alignment": "center",
+        "collapsible_type": "2",
+        "content_position": "center",
+        "content_alignment": "left",
+        "content_max_width": 670,
+        "open_first_collapsible_row": false,
+        "color_scheme": "scheme_2",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
     }
   },
   "order": [
     "collage_4CJ9CQ",
     "main",
-    "smi_rich_text_1_1_at8VrL"
+    "smi_rich_text_1_1_at8VrL",
+    "smi_collapsible_content_1_3_QWmVjy"
   ]
 }
