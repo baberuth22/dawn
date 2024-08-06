@@ -54,26 +54,63 @@
       "settings": {
       }
     },
-    "sa_google_reviews_kr4gmV": {
-      "type": "sa-google-reviews",
+    "smi_rich_text_1_1_at8VrL": {
+      "type": "smi-rich-text-1-1",
+      "blocks": {
+        "heading_wdJK6D": {
+          "type": "heading",
+          "settings": {
+            "sub_heading": "EXPLORE FASHION TRENDS",
+            "heading": "Uncover the world of fashion",
+            "heading_size": "smi-h2",
+            "description": "<p>Discover our curated selection of products that embody the essence of elegance, timelessness, and practicality. Our range is thoughtfully designed to complement your lifestyle with enduring style and functionality.<\/p>"
+          }
+        },
+        "button_PB8URp": {
+          "type": "button",
+          "settings": {
+            "first_button_label": "Learn more",
+            "first_button_link": "",
+            "first_button_style": "solid",
+            "second_button_label": "One More Button",
+            "second_button_link": "",
+            "second_button_style": "text_arrow",
+            "button_full_width": false
+          }
+        },
+        "color_LktiUa": {
+          "type": "color",
+          "settings": {
+            "background_color": "#ffffff",
+            "background_gradient_color": "",
+            "text_color": "#000000",
+            "subtext_color": "#000000",
+            "solid_background_button_color": "#000000",
+            "solid_button_label_color": "#ffffff",
+            "outline_button_color": "#000000",
+            "shadow_color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "heading_wdJK6D",
+        "button_PB8URp",
+        "color_LktiUa"
+      ],
       "settings": {
-        "section_title": "Google Customer Reviews",
-        "title_alignment": "center",
-        "google_place_id": "ChIJcxJMdD4S6YARa4FeZG2BUsk",
-        "api_key": "AIzaSyDNsuWBgZRUSI6g9V3muAMPbtxFRxNdoOE",
-        "theme": "light",
-        "num_of_reviews": 20,
-        "num_of_words": 37,
-        "horizontal": true,
-        "auto_scroll": false,
-        "scroll_interval": 8,
-        "desktop_margin": 20
+        "full_width": false,
+        "content_position": "center",
+        "content_alignment": "center",
+        "content_max_width": 570,
+        "color_scheme": "scheme_1",
+        "padding_top": 50,
+        "padding_bottom": 50
       }
     }
   },
   "order": [
     "collage_4CJ9CQ",
     "main",
-    "sa_google_reviews_kr4gmV"
+    "smi_rich_text_1_1_at8VrL"
   ]
 }

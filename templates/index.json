@@ -47,6 +47,57 @@
       "settings": {
       }
     },
+    "sa_collapse_content_GXcLiC": {
+      "type": "sa-collapse-content",
+      "blocks": {
+        "collapsible_header_3dirDr": {
+          "type": "collapsible_header",
+          "settings": {
+            "icon": "bag-handle",
+            "icon_size": 24,
+            "heading": "How do I care for my clothing?"
+          }
+        },
+        "collapsible_content_PAJrgm": {
+          "type": "collapsible_content",
+          "settings": {
+            "content": "<p>Instructions for clothing care.<\/p>"
+          }
+        },
+        "collapsible_header_zTDWVT": {
+          "type": "collapsible_header",
+          "settings": {
+            "icon": "none",
+            "icon_size": 24,
+            "heading": "Do you offer international shipping?"
+          }
+        },
+        "collapsible_content_W4Gchh": {
+          "type": "collapsible_content",
+          "settings": {
+            "content": "<p>Details about international shipping.<\/p>"
+          }
+        },
+        "button_DzqkP8": {
+          "type": "button",
+          "settings": {
+            "label": "View all FAQs",
+            "link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_header_3dirDr",
+        "collapsible_content_PAJrgm",
+        "collapsible_header_zTDWVT",
+        "collapsible_content_W4Gchh",
+        "button_DzqkP8"
+      ],
+      "settings": {
+        "heading": "Questions",
+        "description": "<p>Some description about the section.<\/p>"
+      }
+    },
     "sa_facebook_posts_gXqRYP": {
       "type": "sa-facebook-posts",
       "settings": {
@@ -56,6 +107,7 @@
   "order": [
     "image_banner_H6wJ6U",
     "sa_reveal_blogs_eXHqdg",
+    "sa_collapse_content_GXcLiC",
     "sa_facebook_posts_gXqRYP"
   ]
 }
