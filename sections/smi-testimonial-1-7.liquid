@@ -19,6 +19,7 @@
 {% endstyle %}
 
 
+<script src="{{ 'smi-slider.min.js' | asset_url }}" defer data-id="review"></script>
 {%- liquid
   assign grid_horizontal = settings.smi_spacing_grid_horizontal
   assign blocks = section.blocks | where: 'type', 'testimonial_block'
