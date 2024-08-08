@@ -54,26 +54,88 @@
       "settings": {
       }
     },
-    "sa_google_reviews_kr4gmV": {
-      "type": "sa-google-reviews",
+    "ss_instafeed_ckEwPh": {
+      "type": "ss-instafeed",
+      "blocks": {
+        "image_7e7GPH": {
+          "type": "image",
+          "settings": {
+            "gallery_url": ""
+          }
+        },
+        "image_A9CBTK": {
+          "type": "image",
+          "settings": {
+            "gallery_url": ""
+          }
+        },
+        "image_km6Yc4": {
+          "type": "image",
+          "settings": {
+            "gallery_url": ""
+          }
+        },
+        "image_m6LgAq": {
+          "type": "image",
+          "settings": {
+            "gallery_url": ""
+          }
+        },
+        "image_qWxJpJ": {
+          "type": "image",
+          "settings": {
+            "gallery_url": ""
+          }
+        },
+        "image_Njewpn": {
+          "type": "image",
+          "settings": {
+            "gallery_url": ""
+          }
+        },
+        "image_YN6CGA": {
+          "type": "image",
+          "settings": {
+            "gallery_url": ""
+          }
+        },
+        "image_e7rndV": {
+          "type": "image",
+          "settings": {
+            "gallery_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_7e7GPH",
+        "image_A9CBTK",
+        "image_km6Yc4",
+        "image_m6LgAq",
+        "image_qWxJpJ",
+        "image_Njewpn",
+        "image_YN6CGA",
+        "image_e7rndV"
+      ],
       "settings": {
-        "section_title": "Google Customer Reviews",
-        "title_alignment": "center",
-        "google_place_id": "ChIJcxJMdD4S6YARa4FeZG2BUsk",
-        "api_key": "AIzaSyDNsuWBgZRUSI6g9V3muAMPbtxFRxNdoOE",
-        "theme": "light",
-        "num_of_reviews": 20,
-        "num_of_words": 37,
-        "horizontal": true,
-        "auto_scroll": false,
-        "scroll_interval": 8,
-        "desktop_margin": 20
+        "background-color": "#002F30",
+        "text-color": "#FFFFFF",
+        "hide_image_mobile": 0,
+        "insta_url": "",
+        "instafeed_title": "Join the movement",
+        "hashtag_title": "",
+        "insta_handle": "@bryansaltzman",
+        "header_size": 18,
+        "hashtag_size": 36,
+        "handle_size": 12,
+        "padding_image": 0,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },
   "order": [
     "collage_4CJ9CQ",
     "main",
-    "sa_google_reviews_kr4gmV"
+    "ss_instafeed_ckEwPh"
   ]
 }

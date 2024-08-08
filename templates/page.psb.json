@@ -53,10 +53,132 @@
       "type": "main-page",
       "settings": {
       }
+    },
+    "psb_stats_01_z8eFdU": {
+      "type": "psb-stats-01",
+      "blocks": {
+        "stats_8yPyAp": {
+          "type": "stats",
+          "settings": {
+            "number": "12",
+            "heading": "<p>Years of experience<\/p>",
+            "prefix": "",
+            "suffix": "+"
+          }
+        },
+        "stats_37CP3G": {
+          "type": "stats",
+          "settings": {
+            "number": "48",
+            "heading": "<p>Awards win<\/p>",
+            "prefix": "",
+            "suffix": ""
+          }
+        },
+        "stats_zzEPDf": {
+          "type": "stats",
+          "settings": {
+            "number": "27",
+            "heading": "<p>Happy clients<\/p>",
+            "prefix": "",
+            "suffix": "k"
+          }
+        },
+        "stats_Uwg69n": {
+          "type": "stats",
+          "settings": {
+            "number": "15",
+            "heading": "<p>Perfect products<\/p>",
+            "prefix": "",
+            "suffix": ""
+          }
+        }
+      },
+      "block_order": [
+        "stats_8yPyAp",
+        "stats_37CP3G",
+        "stats_zzEPDf",
+        "stats_Uwg69n"
+      ],
+      "settings": {
+        "container_width": "psb-container",
+        "inherit_fonts": false,
+        "background_color": "#edecff",
+        "number_color": "#554bf2",
+        "heading_color": "#111111",
+        "number_font_size_desktop": 70,
+        "section_padding_top": 100,
+        "section_padding_bottom": 100,
+        "number_font_size_mobile": 58,
+        "section_padding_top_mobile": 100,
+        "section_padding_bottom_mobile": 100
+      }
+    },
+    "psb_stats_stats_01_yFidqJ": {
+      "type": "psb-stats-stats-01",
+      "blocks": {
+        "stats_JJKKKH": {
+          "type": "stats",
+          "settings": {
+            "number": "15",
+            "heading": "<p>Years of experience<\/p>",
+            "prefix": "",
+            "suffix": "+"
+          }
+        },
+        "stats_pJF8mF": {
+          "type": "stats",
+          "settings": {
+            "number": "48",
+            "heading": "<p>Awards win<\/p>",
+            "prefix": "",
+            "suffix": ""
+          }
+        },
+        "stats_r9rgnB": {
+          "type": "stats",
+          "settings": {
+            "number": "27",
+            "heading": "<p>Happy clients<\/p>",
+            "prefix": "",
+            "suffix": "k"
+          }
+        },
+        "stats_dFRckL": {
+          "type": "stats",
+          "settings": {
+            "number": "15",
+            "heading": "<p>Perfect products<\/p>",
+            "prefix": "",
+            "suffix": ""
+          }
+        }
+      },
+      "block_order": [
+        "stats_JJKKKH",
+        "stats_pJF8mF",
+        "stats_r9rgnB",
+        "stats_dFRckL"
+      ],
+      "settings": {
+        "container_width": "psb-container",
+        "inherit_fonts": false,
+        "background_color": "#edecff",
+        "number_color": "#554bf2",
+        "heading_color": "#111111",
+        "number_font_size_desktop": 70,
+        "section_padding_top": 100,
+        "section_padding_bottom": 100,
+        "number_font_size_mobile": 58,
+        "section_padding_top_mobile": 100,
+        "section_padding_bottom_mobile": 100
+      }
     }
   },
   "order": [
     "collage_4CJ9CQ",
-    "main"
+    "main",
+    "psb_stats_01_z8eFdU",
+    "psb_stats_stats_01_yFidqJ"
   ]
 }
