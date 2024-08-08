@@ -207,6 +207,38 @@
         "autoplay_time": "5000"
       }
     },
+    "sa_cookie_popup_nxYWrT": {
+      "type": "sa-cookie-popup",
+      "settings": {
+        "text": "<p>We use cookies to enhance your browsing experience. By clicking 'Accept,' you agree to our cookies policy.<\/p>",
+        "consent_duration": 30,
+        "link_url": "",
+        "link_text": "",
+        "link_color": "#0000EE",
+        "link_size": 16,
+        "width": 400,
+        "text_color": "#000000",
+        "text_size": 16,
+        "background_color": "#ffffff",
+        "border_radius": 24,
+        "vertical_padding": 20,
+        "horizontal_padding": 20,
+        "placement": "bottom-left",
+        "enable_shadow": true,
+        "accept_button_text": "Accept",
+        "accept_button_color": "#128F14",
+        "accept_button_text_color": "#FFFFFF",
+        "accept_button_border_color": "#000000",
+        "accept_button_border_width": 0,
+        "accept_button_border_radius": 24,
+        "decline_button_text": "Decline",
+        "decline_button_color": "#ffffff",
+        "decline_button_text_color": "#000000",
+        "decline_button_border_color": "#000000",
+        "decline_button_border_width": 1,
+        "decline_button_border_radius": 24
+      }
+    },
     "sa_back_to_top_RDhtQa": {
       "type": "sa-back-to-top",
       "settings": {
@@ -217,8 +249,8 @@
         "pos": "right",
         "side_dst_to_edge": 20,
         "bottom_dst_to_edge": 20,
-        "bg_color": "#F4F2F2",
-        "border_color": "#CEC5C5",
+        "bg_color": "#f4f2f2",
+        "border_color": "#cec5c5",
         "arrow_color": "#333333",
         "button_size": 54,
         "arrow_size": 30,
@@ -226,6 +258,109 @@
         "scroll_behavior": "smooth",
         "hide_on_mobile": false,
         "custom_svg_path": "<path><\/path>"
+      }
+    },
+    "sp_masonry_gGJQcE": {
+      "type": "sp-masonry",
+      "blocks": {
+        "image_zz8qdw": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/spinal-twist-yoga-wheel.jpg",
+            "link": ""
+          }
+        },
+        "image_Dgntef": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/cross-fit-rope-workout.jpg",
+            "link": ""
+          }
+        },
+        "video_jVp4Qr": {
+          "type": "video",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/dish-to-flag-bring-up.mp4",
+            "link": "",
+            "video_inline": true,
+            "video_autoplay": true,
+            "video_loop": true,
+            "video_controls": false,
+            "video_muted": true
+          }
+        },
+        "image_KJtBHr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ladies-strong-squat.jpg",
+            "link": ""
+          }
+        },
+        "image_m8khmH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/vrkasana-balance-yoga.jpg",
+            "link": ""
+          }
+        },
+        "image_9BET8H": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/young-woman-doing-yoga-outside.jpg",
+            "link": ""
+          }
+        },
+        "image_JjYJTt": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/running-cloudy-day.jpg",
+            "link": ""
+          }
+        },
+        "video_XwVARb": {
+          "type": "video",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/flagg-fadaway.mp4",
+            "link": "",
+            "video_inline": true,
+            "video_autoplay": true,
+            "video_loop": true,
+            "video_controls": false,
+            "video_muted": true
+          }
+        },
+        "image_xnEii9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/woman-jumping-workout.jpg",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_zz8qdw",
+        "image_Dgntef",
+        "video_jVp4Qr",
+        "image_KJtBHr",
+        "image_m8khmH",
+        "image_9BET8H",
+        "image_JjYJTt",
+        "video_XwVARb",
+        "image_xnEii9"
+      ],
+      "settings": {
+        "background_color": "linear-gradient(164deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1))",
+        "button_background_color": "linear-gradient(164deg, rgba(17, 17, 17, 1), rgba(51, 51, 51, 1) 100%)",
+        "max_width": 1000,
+        "columns": "2",
+        "grid_gap": 10,
+        "padding_top": 25,
+        "padding_bottom": 25,
+        "padding_left": 10,
+        "padding_right": 10,
+        "enable_zoom": true,
+        "media_radius": 5,
+        "media_shadow": true
       }
     }
   },
@@ -235,6 +370,8 @@
     "sp_accordion_3AiMWc",
     "sp_count_up_banner_PeCcFN",
     "sp_hero_slider_jgDp7w",
-    "sa_back_to_top_RDhtQa"
+    "sa_cookie_popup_nxYWrT",
+    "sa_back_to_top_RDhtQa",
+    "sp_masonry_gGJQcE"
   ]
 }
