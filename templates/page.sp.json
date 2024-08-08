@@ -85,7 +85,7 @@
         "image_MnNyTJ"
       ],
       "settings": {
-        "background_color": "linear-gradient(164deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1))",
+        "background_color": "linear-gradient(164deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)",
         "button_background_color": "linear-gradient(164deg, rgba(17, 17, 17, 1), rgba(51, 51, 51, 1) 100%)",
         "max_width": 1000,
         "height": 300,
@@ -97,11 +97,44 @@
         "media_radius": 5,
         "media_shadow": true
       }
+    },
+    "sp_count_up_banner_PeCcFN": {
+      "type": "sp-count-up-banner",
+      "settings": {
+        "text_font": "sans-serif",
+        "text_size": 15,
+        "count_font": "sans-serif",
+        "count_size": 75,
+        "headline_font": "sans-serif",
+        "headline_size": 25,
+        "text_color": "#fff",
+        "headline_color": "#fff",
+        "count_color": "#fff",
+        "background_color": "linear-gradient(177deg, rgba(156, 18, 18, 1), rgba(24, 180, 180, 1) 100%)",
+        "max_width": 1000,
+        "padding_top": 50,
+        "padding_bottom": 59,
+        "padding_left": 25,
+        "padding_right": 25,
+        "element_spacing": 17,
+        "headline": "<strong>HERE ARE THE NUMBERS<\/strong>",
+        "headline_alignment": "center",
+        "content": "A great way to demonstrate the reach of your product or business",
+        "text_alignment": "center",
+        "box_1_number": 24,
+        "box_1_text": "Milestone Reached",
+        "box_2_number": 317,
+        "box_2_text": "Days Since Launch",
+        "box_3_number": 70,
+        "box_3_text": "Valuation $mm",
+        "count_alignment": "center"
+      }
     }
   },
   "order": [
     "collage_4CJ9CQ",
     "main",
-    "sp_accordion_3AiMWc"
+    "sp_accordion_3AiMWc",
+    "sp_count_up_banner_PeCcFN"
   ]
 }
