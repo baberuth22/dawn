@@ -1,0 +1,79 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "collage_4CJ9CQ": {
+      "type": "collage",
+      "blocks": {
+        "video_aX3B7P": {
+          "type": "video",
+          "settings": {
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "description": "Describe the video",
+            "image_padding": false
+          }
+        },
+        "product_CFqH7h": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "second_image": false,
+            "image_padding": false,
+            "secondary_background": false
+          }
+        },
+        "collection_Nkj4wD": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image_padding": false,
+            "color_scheme": "background-1"
+          }
+        }
+      },
+      "block_order": [
+        "video_aX3B7P",
+        "product_CFqH7h",
+        "collection_Nkj4wD"
+      ],
+      "settings": {
+        "heading": "Multimedia collage",
+        "desktop_layout": "left",
+        "mobile_layout": "collage"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+      }
+    },
+    "sa_google_reviews_kr4gmV": {
+      "type": "sa-google-reviews",
+      "settings": {
+        "section_title": "Google Customer Reviews",
+        "title_alignment": "center",
+        "google_place_id": "ChIJcxJMdD4S6YARa4FeZG2BUsk",
+        "api_key": "AIzaSyDNsuWBgZRUSI6g9V3muAMPbtxFRxNdoOE",
+        "theme": "light",
+        "num_of_reviews": 20,
+        "num_of_words": 37,
+        "horizontal": true,
+        "auto_scroll": false,
+        "scroll_interval": 8,
+        "desktop_margin": 20
+      }
+    }
+  },
+  "order": [
+    "collage_4CJ9CQ",
+    "main",
+    "sa_google_reviews_kr4gmV"
+  ]
+}
