@@ -271,12 +271,149 @@
         "padding_top": 50,
         "padding_bottom": 50
       }
+    },
+    "smi_testimonial_1_7_3baw6f": {
+      "type": "smi-testimonial-1-7",
+      "blocks": {
+        "testimonial_block_GUtMNR": {
+          "type": "testimonial_block",
+          "settings": {
+            "heading": "Wow! Impressed",
+            "heading_size": "smi-h5",
+            "description": "<p>I absolutely love the fashion choices on this website. The quality and variety of clothing are top-notch. It's become my go-to place for trendy outfits.<\/p>",
+            "author_name": "Jame Bones",
+            "author_info": "Customers in U.S.A",
+            "author_image": "shopify:\/\/shop_images\/smi-customer-7.jpg",
+            "author_shape": "round",
+            "star": "5"
+          }
+        },
+        "testimonial_block_6tmtCg": {
+          "type": "testimonial_block",
+          "settings": {
+            "heading": "I love this product.",
+            "heading_size": "smi-h5",
+            "description": "<p>Great website for stylish clothing. I've found some fantastic pieces here. The only thing I'd suggest is more size options for a wider range of customers.<\/p>",
+            "author_name": "Emily Blunt",
+            "author_info": "Customers in U.S.A",
+            "author_image": "shopify:\/\/shop_images\/smi-customer-3.jpg",
+            "author_shape": "round",
+            "star": "4"
+          }
+        },
+        "testimonial_block_nbd78K": {
+          "type": "testimonial_block",
+          "settings": {
+            "heading": "Highly recommended!",
+            "heading_size": "smi-h5",
+            "description": "<p>This website has transformed my wardrobe! I can always count on them for the latest fashion trends. The service is excellent, and the delivery is fast.<\/p>",
+            "author_name": "Olivia Wilde",
+            "author_info": "Customers in U.S.A",
+            "author_image": "shopify:\/\/shop_images\/smi-customer-5.jpg",
+            "author_shape": "round",
+            "star": "4.5"
+          }
+        },
+        "testimonial_block_FWHtwx": {
+          "type": "testimonial_block",
+          "settings": {
+            "heading": "Fast delivery.",
+            "heading_size": "smi-h5",
+            "description": "<p>Absolutely in love with my recent fashion haul! The quality of the clothes exceeded my expectations. Will definitely be a repeat customer!<\/p>",
+            "author_name": "Olivia Blunt",
+            "author_info": "Customers in U.S.A",
+            "author_image": "shopify:\/\/shop_images\/smi-customer-2.jpg",
+            "author_shape": "round",
+            "star": "5"
+          }
+        },
+        "testimonial_block_zRDbzT": {
+          "type": "testimonial_block",
+          "settings": {
+            "heading": "Dress fits perfectly.",
+            "heading_size": "smi-h5",
+            "description": "<p>I love it so much! The outfits fit perfectly, and the fabrics are so comfortable. Can't wait to show off my new looks. Highly recommend this brand.<\/p>",
+            "author_name": "Emily Wilde",
+            "author_info": "Customers in U.S.A",
+            "author_image": "shopify:\/\/shop_images\/smi-customer-5.jpg",
+            "author_shape": "round",
+            "star": "5"
+          }
+        },
+        "testimonial_block_bnXQmQ": {
+          "type": "testimonial_block",
+          "settings": {
+            "heading": "Fantastic choices!",
+            "heading_size": "smi-h5",
+            "description": "<p>Impressed with the fashion quality and unique designs. The pieces I ordered arrived promptly. A great online shopping experience overall!<\/p>",
+            "author_name": "Isabella Gonzalez",
+            "author_info": "Customers in U.S.A",
+            "author_image": "shopify:\/\/shop_images\/smi-customer-4.jpg",
+            "author_shape": "round",
+            "star": "5"
+          }
+        },
+        "testimonial_block_YJbyCm": {
+          "type": "testimonial_block",
+          "settings": {
+            "heading": "Impressed with it!",
+            "heading_size": "smi-h5",
+            "description": "<p>Fantastic fashion choices! The clothing is not only stylish but also comfortable. Quick shipping adds to the positive experience. Will shop here again!<\/p>",
+            "author_name": "Alexei Petrovich",
+            "author_info": "Customers in U.S.A",
+            "author_image": "shopify:\/\/shop_images\/smi-customer-8.jpg",
+            "author_shape": "round",
+            "star": "4"
+          }
+        },
+        "color_w7GnPx": {
+          "type": "color",
+          "settings": {
+            "background_color": "#ffffff",
+            "background_gradient_color": "",
+            "text_color": "#000000",
+            "subtext_color": "#000000",
+            "solid_background_button_color": "#000000",
+            "solid_button_label_color": "#ffffff",
+            "shadow_color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_block_GUtMNR",
+        "testimonial_block_6tmtCg",
+        "testimonial_block_nbd78K",
+        "testimonial_block_FWHtwx",
+        "testimonial_block_zRDbzT",
+        "testimonial_block_bnXQmQ",
+        "testimonial_block_YJbyCm",
+        "color_w7GnPx"
+      ],
+      "settings": {
+        "full_width": true,
+        "sub_heading": "TESTIMONIALS",
+        "heading": "Our happy customers share",
+        "heading_size": "smi-h2",
+        "description": "",
+        "heading_alignment": "center",
+        "content_alignment": "center",
+        "arrow_style": "none",
+        "sticky_page_dot_style": "line-style-1",
+        "auto_rotate_slides": false,
+        "change_slide_every": 5,
+        "number_of_item": "4",
+        "color_scheme": "scheme_1",
+        "color_rating": "#f8a427",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
     }
   },
   "order": [
     "collage_4CJ9CQ",
     "main",
     "smi_rich_text_1_1_at8VrL",
-    "smi_collapsible_content_1_3_QWmVjy"
+    "smi_collapsible_content_1_3_QWmVjy",
+    "smi_testimonial_1_7_3baw6f"
   ]
 }
