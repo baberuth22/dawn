@@ -54,26 +54,54 @@
       "settings": {
       }
     },
-    "sa_google_reviews_kr4gmV": {
-      "type": "sa-google-reviews",
+    "sp_accordion_3AiMWc": {
+      "type": "sp-accordion",
+      "blocks": {
+        "image_gpUKGF": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/dark-braids-in-hair-and-red-lips-fashion.jpg",
+            "link": ""
+          }
+        },
+        "image_qLDPKU": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/bright-floral-womens-summer-fashion.jpg",
+            "link": ""
+          }
+        },
+        "image_MnNyTJ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/model-laughs-barefoot.jpg",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_gpUKGF",
+        "image_qLDPKU",
+        "image_MnNyTJ"
+      ],
       "settings": {
-        "section_title": "Google Customer Reviews",
-        "title_alignment": "center",
-        "google_place_id": "ChIJcxJMdD4S6YARa4FeZG2BUsk",
-        "api_key": "AIzaSyDNsuWBgZRUSI6g9V3muAMPbtxFRxNdoOE",
-        "theme": "light",
-        "num_of_reviews": 20,
-        "num_of_words": 37,
-        "horizontal": true,
-        "auto_scroll": false,
-        "scroll_interval": 8,
-        "desktop_margin": 20
+        "background_color": "linear-gradient(164deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1))",
+        "button_background_color": "linear-gradient(164deg, rgba(17, 17, 17, 1), rgba(51, 51, 51, 1) 100%)",
+        "max_width": 1000,
+        "height": 300,
+        "gap": 5,
+        "padding_top": 25,
+        "padding_bottom": 25,
+        "padding_left": 10,
+        "padding_right": 10,
+        "media_radius": 5,
+        "media_shadow": true
       }
     }
   },
   "order": [
     "collage_4CJ9CQ",
     "main",
-    "sa_google_reviews_kr4gmV"
+    "sp_accordion_3AiMWc"
   ]
 }
