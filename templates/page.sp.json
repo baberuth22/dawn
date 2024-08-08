@@ -107,9 +107,9 @@
         "count_size": 75,
         "headline_font": "sans-serif",
         "headline_size": 25,
-        "text_color": "#fff",
-        "headline_color": "#fff",
-        "count_color": "#fff",
+        "text_color": "#ffffff",
+        "headline_color": "#ffffff",
+        "count_color": "#ffffff",
         "background_color": "linear-gradient(177deg, rgba(156, 18, 18, 1), rgba(24, 180, 180, 1) 100%)",
         "max_width": 1000,
         "padding_top": 50,
@@ -129,12 +129,90 @@
         "box_3_text": "Valuation $mm",
         "count_alignment": "center"
       }
+    },
+    "sp_hero_slider_jgDp7w": {
+      "type": "sp-hero-slider",
+      "blocks": {
+        "slide_yUDiYp": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/northern-forest.jpg",
+            "slide_text": "<strong>Slide Headline<\/strong>",
+            "slide_alt": "Sample slide text.",
+            "cta_text": "Lets go",
+            "cta_link": "shopify:\/\/products\/leather-anchor"
+          }
+        },
+        "slide_YptfAH": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/abandoned-iceland-farm-home.jpg",
+            "slide_text": "<strong>Slide Headline<\/strong>",
+            "slide_alt": "Sample slide text.",
+            "cta_text": "Lets go",
+            "cta_link": ""
+          }
+        },
+        "slide_jCWiLh": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/prairie-woman-at-sunset.jpg",
+            "slide_text": "<strong>Slide Headline<\/strong>",
+            "slide_alt": "Sample slide text.",
+            "cta_text": "Lets go",
+            "cta_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_yUDiYp",
+        "slide_YptfAH",
+        "slide_jCWiLh"
+      ],
+      "settings": {
+        "text_font": "sans-serif",
+        "text_size": 15,
+        "headline_font": "sans-serif",
+        "headline_size": 25,
+        "background_color": "linear-gradient(164deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1))",
+        "text_color": "#111",
+        "progress_background_color": "linear-gradient(177deg, rgba(255, 255, 255, .25) 3%, rgba(255, 255, 255, 0.25) 100%)",
+        "progress_foreground_color": "linear-gradient(177deg, rgba(255, 255, 255, 1) 3%, rgba(255, 255, 255, 1) 100%)",
+        "indicator_color": "#fff",
+        "cover_background": "linear-gradient(164deg, rgba(17, 17, 17, 1), rgba(85, 85, 85, 1) 100%)",
+        "cover_opacity": 25,
+        "caption_margin": 10,
+        "caption_padding": 20,
+        "caption_background_color": "linear-gradient(177deg, rgba(255, 255, 255, .5) 3%, rgba(255, 255, 255, .85) 100%)",
+        "show_glass_effect": true,
+        "button_padding_tb": 10,
+        "button_padding_lr": 25,
+        "button_border_radius": 5,
+        "button_background_color": "linear-gradient(164deg, rgba(17, 17, 17, 1), rgba(51, 51, 51, 1) 100%)",
+        "button_text_color": "#fff",
+        "max_width": 1000,
+        "padding_top": 25,
+        "padding_bottom": 25,
+        "padding_left": 10,
+        "padding_right": 10,
+        "element_spacing": 10,
+        "text_shadow": false,
+        "media_radius": 5,
+        "media_shadow": true,
+        "media_aspect_ratio": "4 \/ 3",
+        "mobile_media_aspect_ratio": "16 \/ 9",
+        "desktop_image_width": 1100,
+        "mobile_image_width": 800,
+        "enable_autoplay": true,
+        "autoplay_time": "5000"
+      }
     }
   },
   "order": [
     "collage_4CJ9CQ",
     "main",
     "sp_accordion_3AiMWc",
-    "sp_count_up_banner_PeCcFN"
+    "sp_count_up_banner_PeCcFN",
+    "sp_hero_slider_jgDp7w"
   ]
 }
