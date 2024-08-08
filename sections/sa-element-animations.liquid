@@ -1,6 +1,7 @@
-<style>
+
+			<style>
   {% if section.settings.shake_type == "explode" %}
-  .sa-add-to-cart-button-style {
+  .ss-atc-button-style {
       animation: explode 4s infinite {{ section.settings.animation_delay }}s; 
   }
   @keyframes explode {
@@ -9,7 +10,7 @@
       100% { transform: scale(1); opacity: 1; }
   }
   {% elsif section.settings.shake_type == "horizontal" %}
-  .sa-add-to-cart-button-style {
+  .ss-atc-button-style {
       animation: horizontal 6s infinite {{ section.settings.animation_delay }}s; 
   }
   @keyframes horizontal {
@@ -24,7 +25,7 @@
       100% { transform: translate(0px, 0px) rotate(0deg); }
   }
   {% elsif section.settings.shake_type == "shake" %}
-  .sa-add-to-cart-button-style {
+  .sa-atc-button-style {
       animation: shake 4s infinite {{ section.settings.animation_delay }}s; 
   }
   @keyframes shake {
@@ -35,7 +36,7 @@
       100% { transform: translate(0px, 0px) rotate(0deg); }
   }
   {% elsif section.settings.shake_type == "bounce" %}
-  .sa-add-to-cart-button-style {
+  .sa-atc-button-style {
       animation: bounce 4s infinite {{ section.settings.animation_delay }}s; 
   }
   @keyframes bounce {
@@ -44,7 +45,7 @@
       100% { transform: translateY(0); }
   }
   {% elsif section.settings.shake_type == "spin" %}
-  .sa-add-to-cart-button-style {
+  .ss-atc-button-style {
       animation: spin 4s infinite {{ section.settings.animation_delay }}s; 
   }
   @keyframes spin {
@@ -52,7 +53,7 @@
       100% { transform: rotate(360deg); }
   }
   {% elsif section.settings.shake_type == "zoom" %}
-  .sa-add-to-cart-button-style {
+  .ss-atc-button-style {
       animation: zoom 4s infinite {{ section.settings.animation_delay }}s; 
   }
   @keyframes zoom {
@@ -61,7 +62,7 @@
       100% { transform: scale(1); }
   }
   {% elsif section.settings.shake_type == "color-change" %}
-  .sa-add-to-cart-button-style {
+  .ss-atc-button-style {
       animation: color-change 4s infinite {{ section.settings.animation_delay }}s; 
   }
   @keyframes color-change {
@@ -70,7 +71,7 @@
       100% { background-color: #0000ff; }
   }
   {% elsif section.settings.shake_type == "fade" %}
-  .sa-add-to-cart-button-style {
+  .ss-atc-button-style {
       animation: fade 4s infinite {{ section.settings.animation_delay }}s; 
   }
   @keyframes fade {
@@ -79,7 +80,7 @@
       100% { opacity: 1; }
   }
   {% elsif section.settings.shake_type == "slide" %}
-  .sa-add-to-cart-button-style {
+  .ss-atc-button-style {
       animation: slide 4s infinite {{ section.settings.animation_delay }}s; 
   }
   @keyframes slide {
@@ -88,7 +89,7 @@
       100% { transform: translateX(0); }
   }
   {% elsif section.settings.shake_type == "rotate" %}
-  .sa-add-to-cart-button-style {
+  .ss-atc-button-style {
       animation: rotate 4s infinite {{ section.settings.animation_delay }}s; 
   }
   @keyframes rotate {
@@ -97,7 +98,7 @@
       100% { transform: rotate(360deg); }
   }
   {% else %}
-  .sa-add-to-cart-button-style {
+  .ss-atc-button-style {
       animation: default-animation 6s infinite {{ section.settings.animation_delay }}s; 
   }
   @keyframes default-animation {
@@ -123,13 +124,13 @@
           return;
       }
   
-      productForm.classList.add("sa-add-to-cart-button-style");
+      productForm.classList.add("ss-atc-button-style");
   });
   </script>
   
   {% schema %}
   {
-      "name": "SA - Element Animations",
+      "name": "➕ SA - Element Animations",
       "class": "section",
       "tag": "section",
       "settings": [
@@ -183,7 +184,7 @@
                       "label": "Rotate"
                   }
               ],
-              "default": "shake"
+              "default": "explode"
           },
           {
               "type": "text",
@@ -200,9 +201,13 @@
       ],
       "presets": [
           {
-              "name": "SA - Element Animations"
+              "name": "➕ SA - Element Animations"
           }
       ]
   }
   {% endschema %}
-  
+  {% stylesheet %}
+  {% endstylesheet %}
+  {% javascript %}
+  {% endjavascript %}
+  		
