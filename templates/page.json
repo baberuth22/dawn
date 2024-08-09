@@ -9,46 +9,6 @@
 */
 {
   "sections": {
-    "collage_4CJ9CQ": {
-      "type": "collage",
-      "blocks": {
-        "video_aX3B7P": {
-          "type": "video",
-          "settings": {
-            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
-            "description": "Describe the video",
-            "image_padding": false
-          }
-        },
-        "product_CFqH7h": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "second_image": false,
-            "image_padding": false,
-            "secondary_background": false
-          }
-        },
-        "collection_Nkj4wD": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image_padding": false,
-            "color_scheme": "background-1"
-          }
-        }
-      },
-      "block_order": [
-        "video_aX3B7P",
-        "product_CFqH7h",
-        "collection_Nkj4wD"
-      ],
-      "settings": {
-        "heading": "Multimedia collage",
-        "desktop_layout": "left",
-        "mobile_layout": "collage"
-      }
-    },
     "main": {
       "type": "main-page",
       "settings": {
@@ -56,7 +16,6 @@
     }
   },
   "order": [
-    "collage_4CJ9CQ",
     "main"
   ]
 }
