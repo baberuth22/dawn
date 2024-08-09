@@ -1,0 +1,349 @@
+
+			<!-- SA - Back to Top Section -->
+
+<!-- CSS -->
+<style>
+    .sa-back-to-top-arrow-{{ section.id }} {
+      position: fixed;
+      bottom: var(--y-dst-to-edge);
+      background-color: var(--bg-color, #fff);
+      border-radius: 50%;
+      border: var(--border-thickness, 1px) solid var(--border-color, #000);
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+      z-index: 999;
+      display: none;
+      opacity: var(--initial-opacity, 0);
+    }
+    .sa-back-to-top-arrow-{{ section.id }}:hover {
+      transform: scale(1.1);
+    }
+    @media screen and (max-width: 749.9px) {
+      .sa-back-to-top-arrow-{{ section.id }}-hide-on-mobile {
+        display: none;
+      }
+    }
+  </style>
+  
+  <!-- Button Element -->
+  <button
+    class="
+      sa-back-to-top-arrow-{{ section.id }}
+      {% if section.settings.hide_on_mobile %}
+        sa-back-to-top-arrow-{{ section.id }}-hide-on-mobile
+      {% endif %}
+    "
+    id="sa-back-to-top-arrow-{{ section.id }}"
+    style="
+      --x-dst-to-edge: {{ section.settings.side_dst_to_edge }}px;
+      {% if section.settings.pos == 'left' %}
+        left: var(--x-dst-to-edge);
+      {% elsif section.settings.pos == 'center' %}
+        left: 50%;
+        transform: translateX(-50%);
+      {% elsif section.settings.pos == 'right' %}
+        right: var(--x-dst-to-edge);
+      {% endif %}
+      --y-dst-to-edge: {{ section.settings.bottom_dst_to_edge }}px;
+      --border-color: {{ section.settings.border_color }};
+      --border-thickness: {{ section.settings.border_thickness }}px;
+      --bg-color: {{ section.settings.bg_color }};
+      opacity: {{ section.settings.initial_opacity | divided_by: 100.0 }};
+      width: {{ section.settings.button_size }}px;
+      height: {{ section.settings.button_size }}px;
+    "
+    aria-label="Back to top"
+    type="button"
+  >
+      <svg
+        id="sa-back-to-top-icon-{{ section.id }}"
+        style="
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: {{ section.settings.arrow_color }};
+          width: {{ section.settings.arrow_size }}px;
+          height: {{ section.settings.arrow_size }}px;
+        "
+        stroke="currentColor"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 512 512"
+      >
+        {% if section.settings.custom_svg == 'default' %}
+            <path d="M256 217.9L383 345c9.4 9.4 24.6 9.4 33.9 0 9.4-9.4 9.3-24.6 0-34L273 167c-9.1-9.1-23.7-9.3-33.1-.7L95 310.9c-4.7 4.7-7 10.9-7 17s2.3 12.3 7 17c9.4 9.4 24.6 9.4 33.9 0l127.1-127z"></path>
+          {% elsif section.settings.custom_svg == 'pointer' %}
+            <path d="M509.862,481.179L275.195,11.845c-7.862-15.724-30.3-15.724-38.162,0L2.366,481.179c-9.676,19.353,12.28,39.155,30.534,27.539l223.213-142.045l223.213,142.045C497.581,520.334,519.538,500.531,509.862,481.179zM267.567,323.388c-6.988-4.447-15.919-4.447-22.907,0L74.973,431.371L256.114,69.089l181.141,362.282L267.567,323.388z"></path>
+          {% elsif section.settings.custom_svg == 'outline' %}
+            <path d="m184.5,460.1h137.3v-223.1c0-11.3 9.1-20.4 20.3-20.4h69.3l-155.8-156.5-155.7,156.5h64.2c11.2,0 20.3,9.1 20.3,20.4v223.1h0.1zm157.5,40.9h-177.9c-11.2,0-20.3-9.1-20.3-20.4v-223.1h-92.9c-19.9,0-25.2-23.9-14.4-34.9l204.8-205.9c7.6-7.7 21.1-7.7 28.7,1.06581e-14l204.7,205.9c12.6,12.7 5.4,34.9-14.4,34.9h-98v223.1c0.1,11.3-9,20.4-20.3,20.4z"></path>
+          {% elsif section.settings.custom_svg == 'double' %}
+            <path d="M256 64l-128 128h256L256 64zM256 192l-128 128h256L256 192z"></path>
+          {% elsif section.settings.custom_svg == 'simple' %}
+            <path d="M256 64L128 192h64v192h128V192h64L256 64z"></path>
+          {% elsif section.settings.custom_svg == 'bold' %}
+            <path d="M256 32L96 192h96v192h128V192h96L256 32z"></path>
+          {% elsif section.settings.custom_svg == 'chevron' %}
+            <path d="M256 96L128 224h256L256 96z"></path>
+          {% elsif section.settings.custom_svg == 'wide' %}
+            <path d="M256 32L64 224h96v192h192V224h96L256 32z"></path>
+          {% elsif section.settings.custom_svg == 'narrow' %}
+            <path d="M256 48L208 208h32v176h32V208h32L256 48z"></path>
+          {% elsif section.settings.custom_svg == 'steep' %}
+            <path d="M256 64L192 224h32v192h64V224h32L256 64z"></path>
+          {% elsif section.settings.custom_svg == 'custom' %}
+            {{ section.settings.custom_svg_path }}
+          {% endif %}
+      </svg>
+  </button>
+  
+  
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var backToTopArrow = document.getElementById('sa-back-to-top-arrow-{{ section.id }}');
+      
+      // Scroll to top function
+      backToTopArrow.addEventListener('click', function () {
+        window.scrollTo({
+          top: 0,
+          behavior: '{{ section.settings.scroll_behavior }}' // smooth, auto, ease, linear, ease-in, ease-out, ease-in-out
+        });
+      });
+      
+      // Show/hide button based on scroll position
+      // Subtract from 1.01 to prevent 100% being zero and the button never showing
+      // it still seems to never show at 0% correctly, even though it should be at .01.
+      const precentOfPage = 1.01 - ( {{ section.settings.show_when_precent_of_page }} / 100);
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > precentOfPage * (document.body.scrollHeight - window.innerHeight)) {
+          backToTopArrow.style.display = 'block';
+          if ({{ section.settings.increase_opacity }}) {
+            var scrollHeight = document.body.scrollHeight - window.innerHeight;
+            var scrollPercent = window.scrollY / scrollHeight;
+            backToTopArrow.style.opacity = Math.min(scrollPercent * {{ section.settings.initial_opacity | divided_by: 100.0 }}, 1);
+          } else {
+            backToTopArrow.style.opacity = {{ section.settings.initial_opacity | divided_by: 100.0 }};
+          }
+        } else {
+          backToTopArrow.style.display = 'none';
+          backToTopArrow.style.opacity = {{ section.settings.initial_opacity | divided_by: 100.0 }};
+        }
+      });
+    });
+  </script>
+  
+  <!-- Schema -->
+  {% schema %}
+  {
+    "name": "➕ SA - Back to Top",
+    "settings": [
+    {
+        "type": "select",
+        "id": "custom_svg",
+        "label": "Custom SVG",
+        "options": [
+          {
+            "value": "default",
+            "label": "Default"
+          },
+          {
+            "value": "pointer",
+            "label": "Pointer"
+          },
+          {
+            "value": "outline",
+            "label": "Outline"
+          },
+          {
+            "value": "double",
+            "label": "Double"
+          },
+          {
+            "value": "simple",
+            "label": "Simple"
+          },
+          {
+            "value": "bold",
+            "label": "Bold"
+          },
+          {
+            "value": "chevron",
+            "label": "Chevron"
+          },
+          {
+            "value": "wide",
+            "label": "Wide"
+          },
+          {
+            "value": "narrow",
+            "label": "Narrow"
+          },
+          {
+            "value": "steep",
+            "label": "Steep"
+          },
+          {
+            "value": "custom",
+            "label": "Custom Path"
+          }
+        ],
+        "default": "default"
+      },
+      {
+        "type": "range",
+        "id": "show_when_precent_of_page",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "label": "Show when the view is in the bottom X% of the page",
+        "default": 30,
+        "info": "0% means it will never show, 100% means it will always show"
+      }, 
+      {
+        "type": "range",
+        "id": "initial_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "label": "Opacity",
+        "default": 100
+      },
+      {
+        "type": "checkbox",
+        "id": "increase_opacity",
+        "label": "Increase opacity as scrolling down?",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "pos",
+        "label": "Position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "right"
+      },
+      {
+        "type": "range",
+        "id": "side_dst_to_edge",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Distance top side",
+        "default": 20
+      },
+      {
+        "type": "range",
+        "id": "bottom_dst_to_edge",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Distance from bottom",
+        "default": 20
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background color",
+        "default":"#F4F2F2"
+      },
+      {
+        "type": "color",
+        "id": "border_color",
+        "label": "Border color",
+        "default": "#CEC5C5"
+      },
+      {
+        "type": "color",
+        "id": "arrow_color",
+        "label": "Arrow color",
+        "default": "#333333"
+      },
+      {
+        "type": "range",
+        "id": "button_size",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "unit": "px",
+        "label": "Button size",
+        "default": 54
+      },
+      {
+        "type": "range",
+        "id": "arrow_size",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "unit": "px",
+        "label": "Arrow size",
+        "default": 30
+      },
+      {
+        "type": "range",
+        "id": "border_thickness",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "px",
+        "label": "Border thickness",
+        "default": 1
+      },
+      {
+        "type": "select",
+        "id": "scroll_behavior",
+        "label": "Scroll Behavior",
+        "options": [
+          {
+            "value": "auto",
+            "label": "Auto"
+          },
+          {
+            "value": "smooth",
+            "label": "Smooth"
+          },
+          {
+            "value": "instant",
+            "label": "Instant"
+          }
+        ],
+        "default": "smooth"
+      },
+      {
+        "type": "checkbox",
+        "id": "hide_on_mobile",
+        "label": "Hide on mobile?",
+        "default": false
+      },
+      {
+        "type": "textarea",
+        "id": "custom_svg_path",
+        "label": "Custom SVG Path",
+        "default": "<path></path>",
+        "info": "Insert your custom SVG path here."
+      },
+    ],
+    "presets": [
+      {
+        "name": "➕ SA - Back to Top"
+      }
+    ]
+  }
+  {% endschema %}
+  		
