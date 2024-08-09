@@ -289,6 +289,13 @@
             "video_muted": true
           }
         },
+        "image_JjYJTt": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/running-cloudy-day.jpg",
+            "link": ""
+          }
+        },
         "image_KJtBHr": {
           "type": "image",
           "settings": {
@@ -307,13 +314,6 @@
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/young-woman-doing-yoga-outside.jpg",
-            "link": ""
-          }
-        },
-        "image_JjYJTt": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/running-cloudy-day.jpg",
             "link": ""
           }
         },
@@ -341,10 +341,10 @@
         "image_zz8qdw",
         "image_Dgntef",
         "video_jVp4Qr",
+        "image_JjYJTt",
         "image_KJtBHr",
         "image_m8khmH",
         "image_9BET8H",
-        "image_JjYJTt",
         "video_XwVARb",
         "image_xnEii9"
       ],
