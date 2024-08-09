@@ -334,7 +334,7 @@
       "type": "sa-back-to-top",
       "settings": {
         "custom_svg": "default",
-        "show_when_precent_of_page": 30,
+        "show_when_precent_of_page": 62,
         "initial_opacity": 100,
         "increase_opacity": true,
         "pos": "right",
