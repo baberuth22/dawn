@@ -216,9 +216,9 @@
           "settings": {
             "badge_corner_radius": 40,
             "sale_badge_background_color": "#d01717",
-            "sale_badge_text_color": "#FFFFFF",
-            "sold_out_badge_background_color": "#8C8C8C",
-            "sold_out_badge_text_color": "#FFFFFF"
+            "sale_badge_text_color": "#ffffff",
+            "sold_out_badge_background_color": "#8c8c8c",
+            "sold_out_badge_text_color": "#ffffff"
           }
         },
         "blog_cards_6FTqQe": {
@@ -281,9 +281,58 @@
       ],
       "settings": {
       }
+    },
+    "sa_image_with_labels_eyVNec": {
+      "type": "sa-image-with-labels",
+      "blocks": {
+        "label_gT4eUK": {
+          "type": "label",
+          "settings": {
+            "label_text": "New yellow pants",
+            "font_family": "Arial",
+            "text_size": 14,
+            "label_text_color": "#000000",
+            "label_bg_color": "#ffffff",
+            "label_bg_opacity": "1",
+            "label_border_color": "#000000",
+            "label_border_radius": 3,
+            "label_left": 31,
+            "label_top": 74,
+            "pointer_direction": "right",
+            "pointer_length": 120,
+            "line_style": "line"
+          }
+        },
+        "label_T4YTgp": {
+          "type": "label",
+          "settings": {
+            "label_text": "Floral top",
+            "font_family": "Arial",
+            "text_size": 14,
+            "label_text_color": "#000000",
+            "label_bg_color": "#ffffff",
+            "label_bg_opacity": "1",
+            "label_border_color": "#000000",
+            "label_border_radius": 3,
+            "label_left": 67,
+            "label_top": 29,
+            "pointer_direction": "left",
+            "pointer_length": 130,
+            "line_style": "line"
+          }
+        }
+      },
+      "block_order": [
+        "label_gT4eUK",
+        "label_T4YTgp"
+      ],
+      "settings": {
+        "main_image": "shopify:\/\/shop_images\/model-laughs-barefoot.jpg"
+      }
     }
   },
   "order": [
-    "smi_styles_B3cJyJ"
+    "smi_styles_B3cJyJ",
+    "sa_image_with_labels_eyVNec"
   ]
 }
