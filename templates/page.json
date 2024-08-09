@@ -13,9 +13,58 @@
       "type": "main-page",
       "settings": {
       }
+    },
+    "sa_image_with_labels_y6n6Tj": {
+      "type": "sa-image-with-labels",
+      "blocks": {
+        "label_TWNe3H": {
+          "type": "label",
+          "settings": {
+            "label_text": "yellow pants are bright",
+            "font_family": "Arial",
+            "text_size": 14,
+            "label_text_color": "#000000",
+            "label_bg_color": "#ffffff",
+            "label_bg_opacity": "1",
+            "label_border_color": "#000000",
+            "label_border_radius": 3,
+            "label_left": 34,
+            "label_top": 67,
+            "pointer_direction": "right",
+            "pointer_length": 80,
+            "line_style": "line"
+          }
+        },
+        "label_VCaqN9": {
+          "type": "label",
+          "settings": {
+            "label_text": "floral top is pretty",
+            "font_family": "Arial",
+            "text_size": 14,
+            "label_text_color": "#000000",
+            "label_bg_color": "#ffffff",
+            "label_bg_opacity": "1",
+            "label_border_color": "#000000",
+            "label_border_radius": 3,
+            "label_left": 67,
+            "label_top": 32,
+            "pointer_direction": "left",
+            "pointer_length": 110,
+            "line_style": "line"
+          }
+        }
+      },
+      "block_order": [
+        "label_TWNe3H",
+        "label_VCaqN9"
+      ],
+      "settings": {
+        "main_image": "shopify:\/\/shop_images\/model-laughs-barefoot.jpg"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "sa_image_with_labels_y6n6Tj"
   ]
 }
