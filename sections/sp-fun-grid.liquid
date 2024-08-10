@@ -1,0 +1,607 @@
+{% comment %}
+  © Sections Pro. You are free to use this section in your store. You may not redistribute this section in another Shopify app.
+{% endcomment %}
+<style>
+
+  {{ section.settings.text_font | font_face }}
+  {{ section.settings.headline_font | font_face }}
+  {{ section.settings.feature_headline_font | font_face }}
+  {{ section.settings.feature_text_font | font_face }}
+
+  #sp-fun-{{ section.id }}.sp-fun-wrap p,
+  #sp-fun-{{ section.id }}.sp-fun-wrap p a {
+      color: {{ section.settings.text_color }};
+      font-size: {{ section.settings.text_size }}px;
+      font-family: {{ section.settings.text_font.family }}, {{ section.settings.text_font.fallback_families }};
+      font-weight: {{ section.settings.text_font.weight }};
+      line-height: 1.15;
+      padding: 0;
+      margin: 0 0 {{ section.settings.element_spacing }}px 0;
+      text-align: {{ section.settings.text_alignment }};
+    }
+
+    #sp-fun-{{ section.id }}.sp-fun-wrap h2 {
+      color: {{ section.settings.headline_color }};
+      font-size: {{ section.settings.headline_size }}px;
+      font-family: {{ section.settings.headline_font.family }}, {{ section.settings.headline_font.fallback_families }};
+      font-weight: {{ section.settings.headline_font.weight }};
+      line-height: 1.15;
+      padding: 0;
+      margin: 0 0 {{ section.settings.element_spacing }}px 0;
+      text-align: {{ section.settings.text_alignment }};
+    }
+
+  #sp-fun-{{ section.id }}.sp-fun-wrap {
+    background-image: {{ section.settings.background_color }};
+    width: 100%;
+  }
+
+
+  #sp-fun-{{ section.id }} .sp-fun {
+    position: relative;
+    margin: 0 auto;
+    max-width: {{ section.settings.max_width }}px;
+    padding: {{ section.settings.padding_top }}px {{ section.settings.padding_right }}px {{ section.settings.padding_bottom }}px {{ section.settings.padding_left }}px;
+  }
+
+  #sp-fun-{{ section.id }}  .sp-fun .sp-fun-grid {
+    display: grid;
+    align-items: center;
+    gap: {{ section.settings.grid_gap}}px;
+    position: relative;
+    z-index: 2;
+    margin: 35px 0 0 0;
+  }
+
+  @media only screen and (min-width: 801px) {
+    .sp-fun .sp-fun-grid {
+      display: grid;
+      grid-auto-columns: 1fr;
+      grid-auto-flow: column;
+      
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    .sp-fun .sp-fun-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      
+    }
+  }
+
+  #sp-fun-{{ section.id }}  .sp-fun .sp-fun-cover {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background-image: {{section.settings.cover_background}};
+    opacity: {{section.settings.cover_opacity}}%;
+    transition: all .5s;
+    {% if section.settings.feature_show_only_on_hover %}visibility: hidden;{% endif %}
+  }
+
+  #sp-fun-{{ section.id }}  .sp-fun-col:hover .sp-fun-cover {
+    opacity: {{section.settings.cover_opacity | plus: 15 }}%;
+    visibility: visible;
+  }
+
+  .sp-fun-col {
+    position: relative;
+    min-height: 250px;
+    aspect-ratio: 1 /1;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 5px;
+    transition: .25s all ease;
+    border-radius: 5px;
+    border-radius: {{ section.settings.media_radius }}px;
+    {% if section.settings.media_shadow %}box-shadow: 0 0 5px 0 rgba(0,0,0,0.20);{% endif %}
+  }
+
+  .sp-fun-col:nth-child(odd) {
+    transform: rotate(5deg);
+    z-index: 2;
+  }
+
+  .sp-fun-col:nth-child(even) {
+    transform: rotate(-5deg);
+    z-index: 1;
+  }
+
+  .sp-fun-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: all .5s;
+  }
+
+  .sp-fun-col:hover {
+    z-index: 3;
+    transform: rotate(0);
+  }
+
+  .sp-fun-col:hover .sp-fun-img {
+    transform: scale(1.2);
+  }
+  
+  .sp-fun-content {
+    z-index: 3;
+    padding: 15px;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    {% if section.settings.feature_show_only_on_hover %}visibility: hidden;{% endif %}
+    {% if section.settings.feature_show_only_on_hover %}opacity: 0;{% endif %}
+    transition: all .5s;
+  }
+
+  .sp-fun-col:hover .sp-fun-content {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  #sp-fun-{{ section.id }} .sp-fun-content h2 {
+    font-size: {{ section.settings.feature_headline_size }}px;
+    color: {{ section.settings.feature_headline_color }};
+    font-family: {{ section.settings.feature_headline_font.family }}, {{ section.settings.feature_headline_font.fallback_families }};
+    font-weight: {{ section.settings.feature_headline_font.weight }};
+    padding: 0;
+    margin: 0 0 {{ section.settings.feature_element_spacing }}px 0;
+    text-align: {{ section.settings.feature_text_alignment }};
+    {% if section.settings.feature_text_shadow %}text-shadow: 0 2px 4px rgba(0,0,0,0.25);{% endif %}
+  }
+
+
+  #sp-fun-{{ section.id }} .sp-fun-content p {
+    font-size: {{ section.settings.feature_text_size }}px;
+    color: {{ section.settings.feature_text_color }};
+    font-family: {{ section.settings.feature_text_font.family }}, {{ section.settings.feature_text_font.fallback_families }};
+    font-weight: {{ section.settings.feature_text_font.weight }};
+    padding: 0;
+    margin: 0 0 {{ section.settings.feature_element_spacing }}px 0;
+    text-align: {{ section.settings.feature_text_alignment }};
+    text-shadow: 0 2px 4px rgba(0,0,0,0.25);
+    {% if section.settings.feature_text_shadow %}text-shadow: 0 2px 4px rgba(0,0,0,0.25);{% endif %}
+  }
+
+  #sp-fun-{{ section.id }} .sp-fun-content p:last-child {
+    margin: 0;
+  }
+
+  #sp-fun-{{ section.id }} .sp-fun-content a.sp-fun-cta {
+    display: inline-block;
+    padding: 5px 10px;
+    padding: {{ section.settings.button_padding_tb }}px {{ section.settings.button_padding_lr }}px;
+    background-image: {{ section.settings.button_background_color }};
+    border-radius: {{ section.settings.button_border_radius }}px;
+    color: {{ section.settings.button_text_color }};
+    text-decoration: none;
+    cursor: pointer;
+    text-shadow: none;
+    transition: .25s all;
+    margin: 0;
+    font-size: {{ section.settings.button_text_size }}px;
+  }
+
+  @media only screen and (max-width: 800px) {
+
+  }
+</style>
+
+<div id="sp-fun-{{ section.id }}" class="sp-fun-wrap" sp-wrap>
+
+<div class="sp-fun" sp-container>
+
+  {% if section.settings.headline %}<h2>{{ section.settings.headline }}</h2>{% endif %}
+  {% if section.settings.content %}<p>{{ section.settings.content }}</p>{% endif %}
+
+  <div class="sp-fun-grid">
+
+    {% for block in section.blocks %}
+      <div class="sp-fun-col" sp-column>
+        {% if block.settings.background_image %}
+        <img class="sp-fun-img" src="{{ block.settings.background_image | image_url: width: 600 }}">
+        {% else %}
+        <img class="sp-fun-img"  src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 500 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Crect x='2' y='2' width='496' height='496' fill='%23D8D8D8' stroke='%23D8D8D8' stroke-width='4'/%3E%3C/g%3E%3C/svg%3E">
+        {% endif %}
+        <div class="sp-fun-cover"></div>
+        <div class="sp-fun-content">
+          {% if block.settings.headline %}<h2>{{ block.settings.headline }}</h2>{% endif %}
+          {% if block.settings.text %}<p>{{ block.settings.text }}</p>{% endif %}
+          {% if block.settings.cta %}<p><a class="sp-fun-cta" href="{{ block.settings.cta_link }}">{{ block.settings.cta }}</a></p>{% endif %}
+        </div>
+      </div>
+      <!-- /.sp-fun-col -->
+
+      {% endfor %}
+
+  </div>
+  <!-- /.sp-fun-grid -->
+  
+</div>
+<!-- /.sp-fun -->
+
+</div>
+<!-- /.sp-fun-wrap -->
+
+{% schema %}
+  {
+    "name": "🚀SP - Fun Grid",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Text",
+        "info": "Set the text size for your widget"
+      },
+      {
+        "type": "font_picker",
+        "id": "headline_font",
+        "label": "Headline Font",
+        "default": "sans-serif"
+      },
+      {
+        "type": "range",
+        "id": "headline_size",
+        "min": 10,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Headline Size",
+        "default": 25
+      },
+      {
+        "type": "color",
+        "id": "headline_color",
+        "default": "#111",
+        "label": "Text Color"
+      },
+      {
+        "type": "font_picker",
+        "id": "text_font",
+        "label": "Text Font",
+        "default": "sans-serif"
+      },
+      {
+        "type": "range",
+        "id": "text_size",
+        "min": 10,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Text Size",
+        "default": 15
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "default": "#111",
+        "label": "Text Color"
+      },
+      {
+        "type": "header",
+        "content": "Feature Text",
+        "info": "Set text style for elements in the feature items"
+      },
+      {
+        "type": "font_picker",
+        "id": "feature_headline_font",
+        "label": "Feature Headline Font",
+        "default": "sans-serif"
+      },
+      {
+        "type": "range",
+        "id": "feature_headline_size",
+        "min": 10,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Feature Headline Size",
+        "default": 25
+      },
+      {
+        "type": "color",
+        "id": "feature_headline_color",
+        "default": "#fff",
+        "label": "Text Color"
+      },
+      {
+        "type": "font_picker",
+        "id": "feature_text_font",
+        "label": "Feature Text Font",
+        "default": "sans-serif"
+      },
+      {
+        "type": "color",
+        "id": "feature_text_color",
+        "default": "#fff",
+        "label": "Text Color"
+      },
+      {
+        "type": "range",
+        "id": "feature_text_size",
+        "min": 10,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Feature Text Size",
+        "default": 15
+      },
+      {
+        "type": "select",
+        "id": "feature_text_alignment",
+        "default": "left",
+        "label": "Feature Text Alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "number",
+        "id": "feature_element_spacing",
+        "default": 15,
+        "label": "Feature Element Spacing"
+      },
+      {
+        "type": "checkbox",
+        "id": "feature_text_shadow",
+        "default": true,
+        "label": "Subtle Shadow on Text"
+      },
+      {
+        "type": "checkbox",
+        "id": "feature_show_only_on_hover",
+        "default": true,
+        "label": "Show content only on hover"
+      },
+      {
+        "type": "header",
+        "content": "Feature Button",
+        "info": "Set the style of the buttons"
+      },
+      {
+        "type": "color_background",
+        "id": "button_background_color",
+        "default": "linear-gradient(164deg, #111 0%, #333 100%)",
+        "label": "Button Background Color"
+      },
+      {
+        "type": "color",
+        "id": "button_text_color",
+        "default": "#fff",
+        "label": "Button Text Color"
+      },
+      {
+        "type": "range",
+        "id": "button_text_size",
+        "min": 10,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Text Size",
+        "default": 15
+      },
+      {
+        "type": "number",
+        "id": "button_padding_tb",
+        "default": 10,
+        "label": "Padding Top/Bottom"
+      },
+      {
+        "type": "number",
+        "id": "button_padding_lr",
+        "default": 25,
+        "label": "Padding Left/Right"
+      },
+      {
+        "type": "number",
+        "id": "button_border_radius",
+        "default": 5,
+        "label": "Border Radius"
+      },
+      {
+        "type": "header",
+        "content": "Colors",
+        "info": "Set colors for the section."
+      },
+      {
+        "type": "color_background",
+        "id": "background_color",
+        "default": "linear-gradient(164deg, #fff 0%, #fff 0%)",
+        "label": "Background"
+      },
+      {
+        "type": "color_background",
+        "id": "cover_background",
+        "default": "linear-gradient(164deg, #111 0%, #555 100%)",
+        "label": "Cover Background"
+      },
+      {
+        "type": "range",
+        "id": "cover_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "label": "Cover Opacity",
+        "default": 25
+      },
+      {
+        "type": "header",
+        "content": "Dimensions",
+        "info": "Set the section dimensions in pixels."
+      },
+      {
+        "type": "number",
+        "id": "max_width",
+        "default": 1000,
+        "label": "Max Width of Section"
+      },
+      {
+        "type": "number",
+        "id": "grid_gap",
+        "default": 0,
+        "label": "Gap Between Features"
+      },
+      {
+        "type": "number",
+        "id": "padding_top",
+        "default": 25,
+        "label": "Padding Top"
+      },
+      {
+        "type": "number",
+        "id": "padding_bottom",
+        "default": 25,
+        "label": "Padding Bottom"
+      },
+      {
+        "type": "number",
+        "id": "padding_left",
+        "default": 10,
+        "label": "Padding Left"
+      },
+      {
+        "type": "number",
+        "id": "padding_right",
+        "default": 10,
+        "label": "Padding Right"
+      },
+      {
+        "type": "number",
+        "id": "element_spacing",
+        "default": 15,
+        "label": "Element Spacing"
+      },
+      {
+        "type": "header",
+        "content": "Content",
+        "info": "Set the section content"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "headline",
+        "default": "<strong>Sample Headline</strong>",
+        "label": "Headline"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "content",
+        "default": "Lets get to the fun",
+        "label": "Text"
+      },
+      {
+        "type": "select",
+        "id": "text_alignment",
+        "default": "center",
+        "label": "Text Alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Design",
+        "info": "Set the design details"
+      },
+      {
+        "type": "range",
+        "id": "media_radius",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Round Borders on Feature",
+        "default": 5
+      },
+      {
+        "type": "checkbox",
+        "id": "media_shadow",
+        "default": true,
+        "label": "Subtle Shadow on Feature"
+      }
+    ],
+	"blocks": [
+      {
+       "name": "Feature",
+       "type": "feature",
+       "settings": [
+         
+          {
+            "type": "image_picker",
+            "id": "background_image",
+            "label": "Background Image"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "headline",
+            "label": "Headline",
+            "default": "<b>Feature Headline</b>"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "This is sample text for the feature sections."
+          },
+          {
+            "type": "inline_richtext",
+            "id": "cta",
+            "default": "Shop Now",
+            "label": "Call to Action"
+          },
+          {
+            "type": "url",
+            "id": "cta_link",
+            "label": "Call to Action Link"
+          }
+       ]
+      }
+    ],
+	"presets": [
+      {
+        "name": "🚀SP - Fun Grid",
+        "blocks": [
+          {
+            "type": "feature"
+          },
+          {
+            "type": "feature"
+          },
+          {
+            "type": "feature"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
