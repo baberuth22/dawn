@@ -1,0 +1,421 @@
+{% comment %}
+  © Sections Pro. You are free to use this section in your store. You may not redistribute this section in another Shopify app.
+{% endcomment %}
+<style>
+
+  {% if section.settings.override_fonts %}
+  {{ section.settings.text_font | font_face }}
+  {{ section.settings.headline_font | font_face }}
+  {% endif %}
+
+  #sp-countdown-{{ section.id }} {
+    background-image: {{ section.settings.background_color }};
+  }
+
+  #sp-countdown-{{ section.id }} .sp-headline p {
+    font-size: {{ section.settings.text_size }}px;
+    {% if section.settings.override_fonts %}
+    font-family: {{ section.settings.text_font.family }}, {{ section.settings.text_font.fallback_families }};
+    font-weight: {{ section.settings.text_font.weight }};
+    {% endif %}
+    color: {{ section.settings.text_color }};
+    line-height: 1.15;
+    margin: 0;
+    padding: 0 0 25px 0;
+    text-align: {{ section.settings.text_alignment }};
+  }
+
+  #sp-countdown-{{ section.id }} .sp-headline h2 {
+    font-size: {{ section.settings.headline_size }}px;
+    {% if section.settings.override_fonts %}
+    font-family: {{ section.settings.headline_font.family }}, {{ section.settings.headline_font.fallback_families }};
+    font-weight: {{ section.settings.headline_font.weight }};
+    {% endif %}
+    color: {{ section.settings.headline_color }};
+    line-height: 1.15;
+    margin: 0;
+    padding: 0 0 5px 0;
+    text-align: {{ section.settings.text_alignment }};
+  }
+
+  #sp-countdown-{{ section.id }} .sp-wrapper {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    max-width: {{ section.settings.max_width }}px;
+    padding: {{ section.settings.padding_top }}px {{ section.settings.padding_right }}px {{ section.settings.padding_bottom }}px {{ section.settings.padding_left }}px;
+    align-items: center;
+  }
+
+  #sp-countdown-{{ section.id }} .sp-grid {
+    display: grid;
+    grid-auto-columns: 1fr;
+    gap: {{ section.settings.grid_gap }}px;
+  }
+
+  #sp-countdown-{{ section.id }} .sp-grid-item {
+    background-image: {{ section.settings.countdown_background_color }};
+    padding: 20px;
+    text-align: center;
+    border-radius: {{ section.settings.media_radius }}px;
+    {% if section.settings.media_shadow %}box-shadow: 0 0 5px 0 rgba(0,0,0,0.20);{% endif %}
+  }
+
+  #sp-countdown-{{ section.id }} .sp-timer {
+    {% if section.settings.override_fonts %}
+    font-family: {{ section.settings.text_font.family }}, {{ section.settings.text_font.fallback_families }};
+    font-weight: {{ section.settings.text_font.weight }};
+    {% endif %}
+    font-size: {{ section.settings.timer_size }}px;
+    font-weight: bold;
+    color: {{ section.settings.timer_color }};
+  }
+
+  #sp-countdown-{{ section.id }} .sp-label {
+    {% if section.settings.override_fonts %}
+      font-family: {{ section.settings.text_font.family }}, {{ section.settings.text_font.fallback_families }};
+      font-weight: {{ section.settings.text_font.weight }};
+    {% endif %}
+    font-size: {{ section.settings.text_size }}px;
+    font-weight: bold;
+    color: {{ section.settings.timer_color }};
+    display: block;
+  }
+
+  #sp-countdown-{{ section.id }} .sp-section {
+    position: relative;
+    padding: 10px;
+    margin: 0;
+  }
+
+  #sp-countdown-{{ section.id }} .sp-section * {
+    box-sizing: border-box;
+  }
+  
+  #sp-countdown-{{ section.id }} .sp-grid {
+    display: grid;
+    margin: 0 auto;
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+    gap: 20px;
+  }
+</style>
+
+<!-- start content -->
+<section id="sp-countdown-{{ section.id }}" class="sp-section" sp-wrap>
+
+    <section class="sp-wrapper" sp-container>
+
+      <div class="sp-headline">
+        {% if section.settings.headline %}<h2>{{ section.settings.headline }}</h2>{% endif %}
+        {% if section.settings.text %}<p>{{ section.settings.text }}</p>{% endif %}
+      </div>
+
+      <div class="sp-grid">
+        <div class="sp-grid-item">
+          <div class="sp-countdown">
+            <span id="hours" class="sp-timer">{{ section.settings.start_hours }}</span>
+            <span class="sp-label">{{ section.settings.hours_text }}</span>
+          </div>
+        </div>
+        <div class="sp-grid-item">
+          <div class="sp-countdown">
+            <span id="minutes" class="sp-timer">00</span>
+            <span class="sp-label">{{ section.settings.minutes_text }}</span>
+          </div>
+        </div>
+        
+        <div class="sp-grid-item" {% if section.settings.show_seconds == false %}style="display:none;"{% endif %}>
+          <div class="sp-countdown">
+            <span id="seconds" class="sp-timer">00</span>
+            <span class="sp-label">{{ section.settings.seconds_text }}</span>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+  
+  </section>
+  <!-- end Sections.AI content -->
+
+  <script>
+    function startCountdown() {
+      var hoursElement = document.getElementById('hours');
+      var minutesElement = document.getElementById('minutes');
+      var secondsElement = document.getElementById('seconds');
+
+      var countdownInterval = setInterval(function () {
+        var hours = parseInt(hoursElement.innerText);
+        var minutes = parseInt(minutesElement.innerText);
+        var seconds = parseInt(secondsElement.innerText);
+
+        if (hours === 0 && minutes === 0 && seconds === 0) {
+          clearInterval(countdownInterval);
+          return;
+        }
+
+        if (seconds === 0) {
+          seconds = 59;
+
+          if (minutes === 0) {
+            minutes = 59;
+            hours--;
+          } else {
+            minutes--;
+          }
+        } else {
+          seconds--;
+        }
+
+        hoursElement.innerText = hours.toString().padStart(2, '0');
+        minutesElement.innerText = minutes.toString().padStart(2, '0');
+        if(secondsElement)secondsElement.innerText = seconds.toString().padStart(2, '0');
+      }, 1000);
+    }
+
+    startCountdown();
+  </script>
+  <!-- end snippet code -->
+
+  <!-- start schema -->
+  {% schema %}
+  {
+    "name": "🚀SP - 24 Hour Count Down",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Font",
+        "info": "Set the fonts for your section"
+      },
+      {
+        "type": "checkbox",
+        "id": "override_fonts",
+        "label": "Override theme fonts",
+        "default": false
+      },
+      {
+        "type": "font_picker",
+        "id": "text_font",
+        "label": "Text Font",
+        "default": "sans-serif"
+      },
+      {
+        "type": "font_picker",
+        "id": "headline_font",
+        "label": "Headline Font",
+        "default": "sans-serif"
+      },
+      {
+        "type": "header",
+        "content": "Text",
+        "info": "Set the text for your section"
+      },
+      {
+        "type": "range",
+        "id": "text_size",
+        "min": 10,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Text Size",
+        "default": 15
+      },
+      {
+        "type": "range",
+        "id": "timer_size",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Timer Size",
+        "default": 60
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "default": "#111",
+        "label": "Text Color"
+      },
+      {
+        "type": "range",
+        "id": "headline_size",
+        "min": 10,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Headline Size",
+        "default": 25
+      },
+      {
+        "type": "color",
+        "id": "headline_color",
+        "default": "#111",
+        "label": "Headline Color"
+      },
+      {
+        "type": "header",
+        "content": "Colors",
+        "info": "Set colors for the section."
+      },
+      {
+        "type": "color_background",
+        "id": "background_color",
+        "label": "Background Color"
+      },
+      {
+        "type": "color_background",
+        "id": "countdown_background_color",
+        "default": "linear-gradient(164deg, #111 0%, #555 100%)",
+        "label": "Countdown Background Color"
+      },
+      {
+        "type": "color",
+        "id": "timer_color",
+        "default": "#FFF",
+        "label": "Timer Color"
+      },
+      {
+        "type": "header",
+        "content": "Alignment",
+        "info": "Set alignment of the text."
+      },
+      {
+          "type": "select",
+          "id": "text_alignment",
+          "default": "center",
+          "label": "Text Alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+      },
+      {
+        "type": "header",
+        "content": "Dimensions",
+        "info": "Set the section dimensions"
+      },
+      {
+        "type": "number",
+        "id": "max_width",
+        "default": 1000,
+        "label": "Max Width of Section"
+      },
+      {
+        "type": "number",
+        "id": "padding_top",
+        "default": 25,
+        "label": "Padding Top"
+      },
+      {
+        "type": "number",
+        "id": "padding_bottom",
+        "default": 25,
+        "label": "Padding Bottom"
+      },
+      {
+        "type": "number",
+        "id": "padding_left",
+        "default": 10,
+        "label": "Padding Left"
+      },
+      {
+        "type": "number",
+        "id": "padding_right",
+        "default": 10,
+        "label": "Padding Right"
+      },
+      {
+        "type": "number",
+        "id": "grid_gap",
+        "default": 15,
+        "label": "Space between Columns"
+      },
+      {
+        "type": "header",
+        "content": "Content",
+        "info": "Customize the content for the section"
+      },
+      {
+        "type": "number",
+        "id": "start_hours",
+        "label": "Start Hours Left",
+        "default": 14
+      },
+      {
+        "type": "inline_richtext",
+        "id": "headline",
+        "label": "Headline",
+        "default": "<b>Limited Time Offer</b>"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "text",
+        "label": "Content",
+        "default": "Act Now! Time is running out. This is a limited time offer."
+      },
+      {
+        "type": "inline_richtext",
+        "id": "hours_text",
+        "label": "Hours Text",
+        "default": "hours"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "minutes_text",
+        "label": "Minutes Text",
+        "default": "minutes"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "seconds_text",
+        "label": "Seconds Text",
+        "default": "seconds"
+      },
+      {
+        "type": "header",
+        "content": "Display",
+        "info": "Display settings for the section"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_seconds",
+        "label": "Show Seconds Column",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "media_radius",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Round Borders on Media",
+        "default": 5
+      },
+      {
+        "type": "checkbox",
+        "id": "media_shadow",
+        "default": true,
+        "label": "Subtle Shadow on Media"
+      }
+    ],
+    "blocks": [],
+    "presets": [
+      {
+        "name": "🚀SP - 24 Hour Count Down"
+      }
+    ]
+  }
+  {% endschema %}
+  <!-- end schema -->
+  
