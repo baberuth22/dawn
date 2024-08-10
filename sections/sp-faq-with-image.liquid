@@ -1,0 +1,584 @@
+{% comment %}
+  © Sections Pro. You are free to use this section in your store. You may not redistribute this section in another Shopify app.
+{% endcomment %}
+<style>
+
+  {{ section.settings.text_font | font_face }}
+  {{ section.settings.headline_font | font_face }}
+
+  @keyframes animateFAQ {
+    from {opacity: 0; }
+    to {opacity: 1; }
+  }
+
+  #sp-faq-{{ section.id }}.sp-faq-wrap p {
+    font-size: {{ section.settings.text_size }}px;
+    font-family: {{ section.settings.text_font.family }}, {{ section.settings.text_font.fallback_families }};
+    font-weight: {{ section.settings.text_font.weight }};
+    {% if section.settings.text_line_height != 'inherit' %}line-height: {{ section.settings.text_line_height }};{% endif %}
+  }
+
+  #sp-faq-{{ section.id }}.sp-faq-wrap h3 {
+    font-size: {{ section.settings.headline_size }}px;
+    font-family: {{ section.settings.headline_font.family }}, {{ section.settings.headline_font.fallback_families }};
+    font-weight: {{ section.settings.headline_font.weight }};
+    {% if section.settings.headline_line_height != 'inherit' %}line-height: {{ section.settings.headline_line_height }};{% endif %}
+  }
+
+  #sp-faq-{{ section.id }}.sp-faq-wrap h1,
+  #sp-faq-{{ section.id }}.sp-faq-wrap h2,
+  #sp-faq-{{ section.id }}.sp-faq-wrap h3,
+  #sp-faq-{{ section.id }}.sp-faq-wrap h4,
+  #sp-faq-{{ section.id }}.sp-faq-wrap h5,
+  #sp-faq-{{ section.id }}.sp-faq-wrap h6 {
+    font-size: {{ section.settings.headline_size }}px;
+    font-family: {{ section.settings.headline_font.family }}, {{ section.settings.headline_font.fallback_families }};
+    font-weight: {{ section.settings.headline_font.weight }};
+    {% if section.settings.headline_line_height != 'inherit' %}line-height: {{ section.settings.headline_line_height }};{% endif %}
+    padding: 0;
+    margin: 0 0 {{ section.settings.element_spacing }}px 0;
+    color: {{ section.settings.headline_color }};
+  }
+
+  #sp-faq-{{ section.id }}.sp-faq-wrap h2 {
+    font-size: {{ section.settings.headline_size | minus: 5 }}px;
+  }
+
+  #sp-faq-{{ section.id }}.sp-faq-wrap h3 {
+    font-size: {{ section.settings.headline_size }}px;
+  }
+
+  #sp-faq-{{ section.id }}.sp-faq-wrap {
+    background-image: {{ section.settings.background_color }};
+    width: 100%;
+  }
+  
+  #sp-faq-{{ section.id }} .sp-faq {
+    position: relative;
+    margin: 0 auto;
+    max-width: {{ section.settings.max_width }}px;
+    padding: {{ section.settings.padding_top }}px {{ section.settings.padding_right }}px {{ section.settings.padding_bottom }}px {{ section.settings.padding_left }}px;
+  }
+  
+  #sp-faq-{{ section.id }} .sp-faq .sp-faq-grid {
+    position: relative;
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+
+  #sp-faq-{{ section.id }} .sp-faq .sp-faq-grid-left {
+    display: grid;
+    {% if section.settings.image_aspect_ratio == "21 / 9" %}
+    grid-template-columns: 3fr 1fr;
+    {% elsif section.settings.image_aspect_ratio == "16 / 9"%}
+    grid-template-columns: 2fr 1fr;
+    {% else %}
+    grid-template-columns: 1fr 1fr;
+    {% endif %}
+    align-items: {{ section.settings.vertical_alignment }};
+    gap: 30px;
+  }
+
+  #sp-faq-{{ section.id }} .sp-faq .sp-faq-grid-right {
+    display: grid;
+    {% if section.settings.image_aspect_ratio == "21 / 9" %}
+    grid-template-columns: 1fr 3fr;
+    {% elsif section.settings.image_aspect_ratio == "16 / 9"%}
+    grid-template-columns: 1fr 2fr;
+    {% else %}
+    grid-template-columns: 1fr 1fr;
+    {% endif %}
+    align-items: {{ section.settings.vertical_alignment }};
+    gap: 20px;
+  }
+
+  #sp-faq-{{ section.id }} .sp-faq .sp-faq-grid-left .sp-faq-column-image {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  
+  #sp-faq-{{ section.id }} .sp-faq .sp-faq-grid-left .sp-faq-column-text {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  #sp-faq-{{ section.id }} .sp-faq .sp-faq-grid-right .sp-faq-column-image {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  
+  #sp-faq-{{ section.id }} .sp-faq .sp-faq-grid-right .sp-faq-column-text {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  #sp-faq-{{ section.id }} .sp-faq .sp-faq-grid img {
+    aspect-ratio: {{ section.settings.image_aspect_ratio }};
+    object-fit: cover;
+    width: 100%;
+    display: block;
+    border-radius: {{ section.settings.media_radius }}%;
+    {% if section.settings.media_shadow %}box-shadow: 0 0 5px 0 rgba(0,0,0,0.20);{% endif %}
+  }
+
+  @media only screen and (max-width: 900px) {
+    #sp-faq-{{ section.id }} .sp-faq .sp-faq-grid-left,
+    #sp-faq-{{ section.id }} .sp-faq .sp-faq-grid-right {
+      display: block;
+    }
+  }
+
+  #sp-faq-{{ section.id }} .sp-faq-group {
+    position: relative;
+    margin: 0;
+    padding: 0 0 15px 0;
+    cursor: pointer;
+  }
+
+  #sp-faq-{{ section.id }} .sp-faq-group * {
+    pointer-events: none;
+  }
+
+  #sp-faq-{{ section.id }} .sp-faq-group a {
+    pointer-events: auto !important;
+  }
+
+  #sp-faq-{{ section.id }} .sp-faq-group h3.question {
+    color: {{ section.settings.question_color }};
+    margin: 0;
+    padding: 0 10px 10px 10px;
+  }
+
+  #sp-faq-{{ section.id }} .sp-faq-group .answer {
+    color: {{ section.settings.answer_color }};
+    display: none;
+    margin: 0;
+    padding: 0 10px 15px 10px;
+  }
+
+  #sp-faq-{{ section.id }} .sp-faq-group[active] .answer {
+    display: block;
+    animation: animateFAQ 250ms ease-in-out both;
+  }
+
+  #sp-faq-{{ section.id }} .sp-faq-group::before {
+    content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path fill="%23888888" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>');
+    display:block;
+    position: absolute;
+    top: 5px;
+    right: 0;
+  }
+  
+  #sp-faq-{{ section.id }} .sp-faq-group[active]::before {
+    content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path fill="%23888888" d="M19 13H5v-2h14v2z"/></svg>');
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 0;
+  }
+
+  @media only screen and (max-width: 800px) {
+
+  }
+</style>
+
+<div id="sp-faq-{{ section.id }}" class="sp-faq-wrap" sp-wrap>
+
+  <div class="sp-faq" sp-container>
+
+    <div class="sp-faq-grid sp-faq-grid-{{ section.settings.image_location }}">
+
+      <div class="sp-faq-col sp-faq-column-image" sp-column>
+        {% if section.settings.image %}
+        <img class="sp-faq-image-{{ section.settings.image }}" 
+            src="{{ section.settings.image | image_url: width: 600 }}"
+            srcset="{{ section.settings.image| image_url: width: 600 }} 600w,
+              {{ section.settings.image | image_url: width: 800 }} 800w,
+              {{ section.settings.image | image_url: width: 1000 }} 1000w,
+              {{ section.settings.image | image_url: width: 1100 }} 1100w">
+        {% else %}
+          <img class="sp-faq-image-{{ section.settings.image }}" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 500 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Crect x='2' y='2' width='496' height='496' fill='%23D8D8D8' stroke='%23D8D8D8' stroke-width='4'/%3E%3C/g%3E%3C/svg%3E">
+        {% endif %}
+      </div>
+
+      <div class="sp-faq-col sp-faq-column-text" sp-column>
+
+        {% for block in section.blocks %}
+        <div class="sp-faq-group">
+            <h3 class="question">{{ block.settings.question }}</h3>
+            <div class="answer">{{ block.settings.answer }}</div>
+        </div>
+        {% endfor %}
+      
+      </div>
+      <!-- /.sp-faq-col -->
+    </div>
+    <!-- /.sp-faq-container -->
+
+  </div>
+  <!-- /.sp-faq -->
+  
+</div>
+<!-- /.sp-faq-wrap -->
+
+<script>
+  var fs_container = document.querySelector(`#sp-faq-{{ section.id }}`);
+
+  var fs_els = fs_container.querySelectorAll(`.sp-faq-group`);
+
+  if(fs_els.length>0) {
+    fs_els[0].setAttribute('active', '');
+  }
+
+  for(var x=0; x<fs_els.length; x++) {
+    fs_els[x].addEventListener('click', (e)=> {
+      if(e.target.hasAttribute('active')) { e.target.removeAttribute('active'); }
+      else { e.target.setAttribute('active', ''); }
+    });
+  }
+</script>
+
+{% schema %}
+  {
+    "name": "🚀SP - FAQ with Image",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Text",
+        "info": "Set the text size for your widget"
+      },
+      {
+        "type": "font_picker",
+        "id": "text_font",
+        "label": "Text Font",
+        "default": "sans-serif"
+      },
+      {
+        "type": "range",
+        "id": "text_size",
+        "min": 10,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Text Size",
+        "default": 15
+      },
+      {
+        "type": "select",
+        "id": "text_line_height",
+        "label": "Text Line Height",
+        "options": [
+          {
+            "value": "0.75",
+            "label": "0.75"
+          },
+          {
+            "value": "1.0",
+            "label": "1.0"
+          },
+          {
+            "value": "1.1",
+            "label": "1.1"
+          },
+          {
+            "value": "1.2",
+            "label": "1.2"
+          },
+          {
+            "value": "1.3",
+            "label": "1.3"
+          },
+          {
+            "value": "1.4",
+            "label": "1.4"
+          },
+          {
+            "value": "1.5",
+            "label": "1.5"
+          },
+          {
+            "value": "1.6",
+            "label": "1.6"
+          },
+          {
+            "value": "1.7",
+            "label": "1.7"
+          },
+          {
+            "value": "1.8",
+            "label": "1.8"
+          },
+          {
+            "value": "1.9",
+            "label": "1.9"
+          },
+          {
+            "value": "2.0",
+            "label": "2.0"
+          },
+          {
+            "value": "inherit",
+            "label": "Inherit"
+          }
+        ],
+        "default": "1.5"
+      },
+      {
+        "type": "font_picker",
+        "id": "headline_font",
+        "label": "Headline Font",
+        "default": "sans-serif"
+      },
+      {
+        "type": "range",
+        "id": "headline_size",
+        "min": 10,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Headline Size",
+        "default": 25
+      },
+      {
+        "type": "select",
+        "id": "headline_line_height",
+        "label": "Headline Line Height",
+        "options": [
+          {
+            "value": "0.75",
+            "label": "0.75"
+          },
+          {
+            "value": "1.0",
+            "label": "1.0"
+          },
+          {
+            "value": "1.1",
+            "label": "1.1"
+          },
+          {
+            "value": "1.2",
+            "label": "1.2"
+          },
+          {
+            "value": "1.3",
+            "label": "1.3"
+          },
+          {
+            "value": "1.4",
+            "label": "1.4"
+          },
+          {
+            "value": "1.5",
+            "label": "1.5"
+          },
+          {
+            "value": "1.6",
+            "label": "1.6"
+          },
+          {
+            "value": "1.7",
+            "label": "1.7"
+          },
+          {
+            "value": "1.8",
+            "label": "1.8"
+          },
+          {
+            "value": "1.9",
+            "label": "1.9"
+          },
+          {
+            "value": "2.0",
+            "label": "2.0"
+          },
+          {
+            "value": "inherit",
+            "label": "Inherit"
+          }
+        ],
+        "default": "1.5"
+      },
+      {
+        "type": "header",
+        "content": "Colors",
+        "info": "Set colors for the section."
+      },
+      {
+        "type": "color_background",
+        "id": "background_color",
+        "default": "linear-gradient(164deg, #FFF 0%, #FFF 100%)",
+        "label": "Background Color"
+      },
+      {
+        "type": "color",
+        "id": "question_color",
+        "default": "#111111",
+        "label": "Question Color"
+      },
+      {
+        "type": "color",
+        "id": "answer_color",
+        "default": "#555555",
+        "label": "Answer Color"
+      },
+      {
+        "type": "header",
+        "content": "Dimensions",
+        "info": "Set the section dimensions in pixels."
+      },
+      {
+        "type": "number",
+        "id": "max_width",
+        "default": 1000,
+        "label": "Max Width of Section"
+      },
+      {
+        "type": "number",
+        "id": "padding_top",
+        "default": 25,
+        "label": "Padding Top"
+      },
+      {
+        "type": "number",
+        "id": "padding_bottom",
+        "default": 25,
+        "label": "Padding Bottom"
+      },
+      {
+        "type": "number",
+        "id": "padding_left",
+        "default": 10,
+        "label": "Padding Left"
+      },
+      {
+        "type": "number",
+        "id": "padding_right",
+        "default": 10,
+        "label": "Padding Right"
+      },
+      {
+        "type": "header",
+        "content": "Design",
+        "info": "Set the design for your section"
+      },
+      {
+        "type": "select",
+        "id": "vertical_alignment",
+        "label": "Vertical Alignment",
+        "options": [
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "start",
+            "label": "Top"
+          },
+          {
+            "value": "end",
+            "label": "Bottom"
+          }
+        ],
+        "default": "start"
+      },
+      {
+        "type": "select",
+        "id": "image_location",
+        "label": "Image Location",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "left"
+      },
+      {
+        "type": "select",
+        "id": "image_aspect_ratio",
+        "label": "Image Aspect Ratio",
+        "options": [
+          {
+            "value": "21 / 9",
+            "label": "21:9"
+          },
+          {
+            "value": "16 / 9",
+            "label": "16:9"
+          },
+          {
+            "value": "4 / 3",
+            "label": "4:3"
+          },
+          {
+            "value": "1 / 1",
+            "label": "1:1"
+          }
+        ],
+        "default": "4 / 3"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "range",
+        "id": "media_radius",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "%",
+        "label": "Round Borders on Image",
+        "default": 2
+      },
+      {
+        "type": "checkbox",
+        "id": "media_shadow",
+        "default": true,
+        "label": "Subtle Shadow on Image"
+      }
+    ],
+    "blocks": [
+      {
+       "name": "Question",
+       "type": "question",
+       "settings": [
+          {
+          "type": "inline_richtext",
+          "id": "question",
+          "label": "Question",
+          "default": "How does the FAQ section work?"
+          },
+          {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Its simple really. You just add the questions as blocks and then you edit the question and answer.</p>"
+          }
+       ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "🚀SP - FAQ with Image",
+        "blocks": [
+          {
+            "type": "question"
+          },
+          {
+            "type": "question"
+          },
+          {
+            "type": "question"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
