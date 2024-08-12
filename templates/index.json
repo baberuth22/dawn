@@ -97,11 +97,62 @@
         "heading": "Questions",
         "description": "<p>Some description about the section.<\/p>"
       }
+    },
+    "sa_about_PwCQVY": {
+      "type": "sa-about",
+      "blocks": {
+        "heading_kzXntj": {
+          "type": "heading",
+          "settings": {
+            "heading_text": "World Of Custom Made",
+            "heading_tag": "h2"
+          }
+        },
+        "divider_xDkBGj": {
+          "type": "divider",
+          "settings": {
+            "divider_color": "#ff6303"
+          }
+        },
+        "text_qEGeqP": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Bringing forward a collection with an aesthetic appeal for a broad market while ensuring exceptional results is a challenge for any organization. We provide a systematic approach to creating timeless designs that are consistently reproduced through the company’s in-house capabilities.<\/p>"
+          }
+        },
+        "buttons_heqtcL": {
+          "type": "buttons",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "",
+            "btn_bg": "#ff6303",
+            "btn_color": "#ffffff",
+            "button_is_rounded": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_kzXntj",
+        "divider_xDkBGj",
+        "text_qEGeqP",
+        "buttons_heqtcL"
+      ],
+      "settings": {
+        "txt_align": "center",
+        "box_width": "sa-box",
+        "txt_color": "#333333",
+        "background_color": "transparent",
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "padding_top_mobile": 50,
+        "padding_bottom_mobile": 50
+      }
     }
   },
   "order": [
     "image_banner_H6wJ6U",
     "sa_reveal_blogs_eXHqdg",
-    "sa_collapse_content_GXcLiC"
+    "sa_collapse_content_GXcLiC",
+    "sa_about_PwCQVY"
   ]
 }
