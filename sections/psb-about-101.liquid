@@ -1,111 +1,99 @@
 
-			{%- comment -%}
-  {
-    "name": "About 01",
-    "author": "PusherCommerce"
-    "description": "Please DO NOT copy in any form. Any act of copying will be sued and held responsible with the law"
-  }
-{%- endcomment -%}
-
-{%- capture minify -%}
+{%- capture localcss -%}
   <style>
-    #psb-{{ section.id }} {
-      --psb-gutter-x: 25px;
-      background-color: {{section.settings.background_color}};
-      color: {{section.settings.text_color}};
-      {% if section.settings.section_height == true %}
-        min-height: 100vh;
-      {% endif %}
-      padding-top: {{section.settings.section_padding_top}}px;
-      padding-bottom: {{section.settings.section_padding_bottom}}px;
+    #sa-{{ section.id }} {
+      padding-top: {{section.settings.padding_top}}px;
+      padding-bottom: {{section.settings.padding_bottom}}px;
       display: flex;
       align-items: center;
-      line-height: 1.5;
+      line-height: 1.7;
+      color: {{section.settings.txt_color}};
+      background-color: {{section.settings.background_color}};
     }
 
-    #psb-{{ section.id }} .psb-section-inner {
-      text-align: {{section.settings.text_align}};
+    #sa-{{ section.id }} .sa-inner {
+      text-align: {{section.settings.txt_align}};
     }
 
-    #psb-{{ section.id }} .psb-btn-wrapper {
-      text-align: {{ section.settings.text_align_mobile }};
+    #sa-{{ section.id }} .sa-btn-wrapper {
+      text-align: {{ section.settings.txt_align_mobile }};
     }
 
-    #psb-{{ section.id }} .psb-section-title::before,
-    #psb-{{ section.id }} .psb-section-title::after {
+    #sa-{{ section.id }} .sa-title::before,
+    #sa-{{ section.id }} .sa-title::after {
       display: none;
     }
 
-    #psb-{{ section.id }} .psb-section-title {
-      color: {{section.settings.text_color}};
+    #sa-{{ section.id }} .sa-title {
+      color: {{section.settings.txt_color}};
+      line-height: 1.2;
+      text-align: {{section.settings.txt_align}};
       margin-top: 0;
-      margin-bottom: 30px;
-      line-height: 1.25;
-      text-align: {{section.settings.text_align}};
+      margin-bottom: 35px;
     }
 
-    #psb-{{ section.id }} .psb-divider {
+    #sa-{{ section.id }} .sa-divider {
       display: inline-block;
-      width: 185px;
-      height: 4px;
       background-color: var(--divider-color);
-      margin: 0px auto 20px;
+      margin: 0px auto 30px;
+      width: 165px;
+      height: 3px;
     }
 
-    #psb-{{ section.id }} .psb-section-text p {
-      color: {{section.settings.text_color}};
+    #sa-{{ section.id }} .sa-text p {
+      color: {{section.settings.txt_color}};
       margin-top: 0;
-      max-width: 840px;
+      max-width: 820px;
       display: inline-block;
     }
 
-    #psb-{{ section.id }} .psb-btn-group {
-      margin-top: 30px;
+    #sa-{{ section.id }} .sa-btn-group {
+      margin-top: 35px;
     }
 
     @media only screen and (max-width: 767px) {
-      #psb-{{ section.id }} {
+      #sa-{{ section.id }} {
         min-height: auto;
-        padding-top: {{section.settings.section_padding_top_mobile}}px;
-        padding-bottom: {{section.settings.section_padding_bottom_mobile}}px;
+        padding-top: {{section.settings.padding_top_mobile}}px;
+        padding-bottom: {{section.settings.padding_bottom_mobile}}px;
       }
-      #psb-{{ section.id }} .psb-divider {
+      #sa-{{ section.id }} .sa-divider {
         width: 120px;
       }
     }
   </style>
 {%- endcapture -%}
-{{ minify | strip_newlines }}
+{{ localcss | strip_newlines }}
 
-<div id="psb-{{ section.id }}" class="psb-{{ section.id }} psb-section psb-about-about-01" style="display: none;">
-  <div class="{{ section.settings.container_width }}">
-    <div class="psb-section-inner">
+<div id="sa-{{ section.id }}" class="sa-{{ section.id }} sa-section sa-about" style="display: none;">
+  <div class="{{ section.settings.box_width }}">
+    <div class="sa-inner">
       {% for block in section.blocks %}
         {% case block.type %}
           {% when 'heading' %}
             {% if block.settings.heading_text != blank %}
-              <{{ block.settings.heading_tag }} class="psb-section-title" {{ block.shopify_attributes }}>
+              <{{ block.settings.heading_tag }} class="sa-title" {{ block.shopify_attributes }}>
                 {{ block.settings.heading_text | escape }}
               </{{ block.settings.heading_tag }}>
             {% endif %}
-          {% when 'divider' %}
-            <span class="psb-divider" style="--divider-color: {{block.settings.divider_color}}" {{ block.shopify_attributes }}></span>
           {% when 'text' %}
-            {% if block.settings.section_text != blank %}
-              <div class="psb-section-text" {{ block.shopify_attributes }}>
-                {{ block.settings.section_text }}
+            {% if block.settings.text != blank %}
+              <div class="sa-text" {{ block.shopify_attributes }}>
+                {{ block.settings.text }}
               </div>
             {% endif %}
+          {% when 'divider' %}
+            <span class="sa-divider" style="--divider-color: {{block.settings.divider_color}}" {{ block.shopify_attributes }}></span>
           {% when 'buttons' %}
-            <div class="psb-btn-wrapper">
-              <div class="psb-btn-group" {{ block.shopify_attributes }}>
-                {% if block.settings.button_label_1 != blank %}
+            <div class="sa-btn-wrapper">
+              <div class="sa-btn-group" {{ block.shopify_attributes }}>
+                {% if block.settings.button_label != blank %}
                   <a
-                    href="{{block.settings.button_link_1}}"
-                    class="psb-btn {% if block.settings.button_is_rounded_1 == true %} psb-btn-rounded {% endif %}"
-                    style="background-color: {{block.settings.btn_bg_1}}; color: {{block.settings.btn_color_1}};"
+                    href="{{block.settings.button_link}}"
+                    class="sa-btn {% if block.settings.button_is_rounded == true %} sa-btn-rounded {% endif %}"
+                    style="background-color: {{block.settings.btn_bg}}; color: {{block.settings.btn_color}};"
                   >
-                    {{ block.settings.button_label_1 }}
+                    {{ block.settings.button_label }}
                   </a>
                 {% endif %}
               </div>
@@ -118,36 +106,16 @@
 
 {% schema %}
 {
-  "name": "⚡︎PSB: About 01",
+  "name": "SA - About",
   "tag": "section",
   "settings": [
-    {
-      "type": "select",
-      "id": "container_width",
-      "options": [
-        {
-          "value": "psb-container",
-          "label": "Container"
-        },
-        {
-          "value": "psb-container-fluid",
-          "label": "Container Fluid"
-        },
-        {
-          "value": "psb-container-fullwidth",
-          "label": "Container Fullwidth"
-        }
-      ],
-      "default": "psb-container",
-      "label": "Container width"
-    },
     {
       "type": "header",
       "content": "Main settings"
     },
     {
       "type": "select",
-      "id": "text_align",
+      "id": "txt_align",
       "label": "Content alignment",
       "options": [
         {
@@ -161,8 +129,28 @@
       ]
     },
     {
+      "type": "select",
+      "id": "box_width",
+      "options": [
+        {
+          "value": "sa-box",
+          "label": "Box"
+        },
+        {
+          "value": "sa-box-fluid",
+          "label": "Box Fluid"
+        },
+        {
+          "value": "sa-box-fullwidth",
+          "label": "Box Fullwidth"
+        }
+      ],
+      "default": "sa-box",
+      "label": "Box width"
+    },
+    {
       "type": "color",
-      "id": "text_color",
+      "id": "txt_color",
       "label": "Text color"
     },
     {
@@ -177,22 +165,22 @@
     },
     {
       "type": "range",
-      "id": "section_padding_top",
+      "id": "padding_top",
       "min": 0,
       "max": 500,
       "step": 5,
       "unit": "px",
-      "label": "Section padding-top",
+      "label": "Padding Top",
       "default": 100
     },
     {
       "type": "range",
-      "id": "section_padding_bottom",
+      "id": "padding_bottom",
       "min": 0,
       "max": 500,
       "step": 5,
       "unit": "px",
-      "label": "Section padding-bottom",
+      "label": "Padding Bottom",
       "default": 100
     },
     {
@@ -201,22 +189,22 @@
     },
     {
       "type": "range",
-      "id": "section_padding_top_mobile",
+      "id": "padding_top_mobile",
       "min": 0,
       "max": 500,
       "step": 10,
       "unit": "px",
-      "label": "Section padding-top",
+      "label": "Padding Top mobile",
       "default": 50
     },
     {
       "type": "range",
-      "id": "section_padding_bottom_mobile",
+      "id": "padding_bottom_mobile",
       "min": 0,
       "max": 500,
       "step": 10,
       "unit": "px",
-      "label": "Section padding-bottom",
+      "label": "Padding Bottom mobile",
       "default": 50
     }
   ],
@@ -261,7 +249,7 @@
           "type": "color",
           "id": "divider_color",
           "label": "Color",
-          "default": "#ff6303"
+          "default": "#ff0000"
         }
       ]
     },
@@ -272,7 +260,7 @@
       "settings": [
         {
           "type": "richtext",
-          "id": "section_text",
+          "id": "text",
           "label": "Text"
         }
       ]
@@ -284,27 +272,27 @@
       "settings": [
         {
           "type": "text",
-          "id": "button_label_1",
+          "id": "button_label",
           "label": "Label"
         },
         {
           "type": "url",
-          "id": "button_link_1",
+          "id": "button_link",
           "label": "Link"
         },
         {
           "type": "color",
-          "id": "btn_bg_1",
+          "id": "btn_bg",
           "label": "Background color"
         },
         {
           "type": "color",
-          "id": "btn_color_1",
+          "id": "btn_color",
           "label": "Label color"
         },
         {
           "type": "checkbox",
-          "id": "button_is_rounded_1",
+          "id": "button_is_rounded",
           "default": false,
           "label": "Rounded"
         }
@@ -313,10 +301,10 @@
   ],
   "presets": [
     {
-      "name": "⚡︎PSB: About 01",
+      "name": "︎SA - About",
       "settings": {
-        "text_align": "center",
-        "text_color": "#262424"
+        "txt_align": "center",
+        "txt_color": "#333",
       },
       "blocks": [
         {
@@ -335,16 +323,16 @@
         {
           "type": "text",
           "settings": {
-            "section_text": "<p>Bringing forward a collection with an aesthetic appeal for a broad market while ensuring exceptional results is a challenge for any organization. We provide a systematic approach to creating timeless designs that are consistently reproduced through the company’s in-house capabilities.</p>"
+            "text": "<p>Bringing forward a collection with an aesthetic appeal for a broad market while ensuring exceptional results is a challenge for any organization. We provide a systematic approach to creating timeless designs that are consistently reproduced through the company’s in-house capabilities.</p>"
           }
         },
         {
           "type": "buttons",
           "settings": {
-            "btn_bg_1": "#ff6303",
-            "btn_color_1": "#fff",
-            "button_is_rounded_1": true,
-            "button_label_1": "Shop Now"
+            "btn_bg": "#ff6303",
+            "btn_color": "#fff",
+            "button_is_rounded": true,
+            "button_label": "Shop Now"
           }
         }
       ]
@@ -352,4 +340,3 @@
   ]
 }
 {% endschema %}
-		
