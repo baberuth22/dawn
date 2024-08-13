@@ -50,8 +50,8 @@
         var contextElement = document.getElementById(contextId)
         console.log('contextElement',contextElement)
         if (formElement) {
-          // Hide the original form
-          formElement.style.display = "none";
+          // Hide the entire shadow DOM container
+          shadowHostElement.style.display = "none";
 
           // Initialize the conversational form
           window.cf.ConversationalForm.startTheConversation({
