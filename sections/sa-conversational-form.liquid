@@ -45,7 +45,7 @@
       var shadowHostElement = document.querySelector(formEmbedSelector);
       console.log('shadowHostElement', shadowHostElement)
       if (shadowHostElement && shadowHostElement.shadowRoot) {
-        var formElement = shadowHostElement.shadowRoot.querySelector("form");
+        var formElement = shadowHostElement.shadowRoot.querySelector("form[data-testid='form']");
         console.log('formElement',formElement)
         var contextElement = document.getElementById(contextId)
         console.log('contextElement',contextElement)
