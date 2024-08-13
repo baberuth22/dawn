@@ -157,10 +157,18 @@
             "question_label": "What would you say if I asked you to dance?",
             "question_type": "yes_no"
           }
+        },
+        "question_tg8hFW": {
+          "type": "question",
+          "settings": {
+            "question_label": "What is your name?",
+            "question_type": "text"
+          }
         }
       },
       "block_order": [
-        "question_YdcrUt"
+        "question_YdcrUt",
+        "question_tg8hFW"
       ],
       "settings": {
         "form_header": "Please fill out the form below",
