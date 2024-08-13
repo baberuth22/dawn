@@ -164,11 +164,19 @@
             "question_label": "What is your name?",
             "question_type": "text"
           }
+        },
+        "question_BTLYRp": {
+          "type": "question",
+          "settings": {
+            "question_label": "Q1. Your question here",
+            "question_type": "yes_no"
+          }
         }
       },
       "block_order": [
         "question_YdcrUt",
-        "question_tg8hFW"
+        "question_tg8hFW",
+        "question_BTLYRp"
       ],
       "settings": {
         "form_header": "Please fill out the form below",
