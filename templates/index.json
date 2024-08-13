@@ -141,11 +141,30 @@
         "txt_align": "center",
         "box_width": "sa-box",
         "txt_color": "#333333",
-        "background_color": "transparent",
+        "background_color": "rgba(0,0,0,0)",
         "padding_top": 100,
         "padding_bottom": 100,
         "padding_top_mobile": 50,
         "padding_bottom_mobile": 50
+      }
+    },
+    "sa_form_YHYEL7": {
+      "type": "sa-form",
+      "blocks": {
+        "question_YdcrUt": {
+          "type": "question",
+          "settings": {
+            "question_label": "What would you say if I asked you to dance?",
+            "question_type": "yes_no"
+          }
+        }
+      },
+      "block_order": [
+        "question_YdcrUt"
+      ],
+      "settings": {
+        "form_header": "Please fill out the form below",
+        "submit_button_text": "Submit"
       }
     }
   },
@@ -153,6 +172,7 @@
     "image_banner_H6wJ6U",
     "sa_reveal_blogs_eXHqdg",
     "sa_collapse_content_GXcLiC",
-    "sa_about_PwCQVY"
+    "sa_about_PwCQVY",
+    "sa_form_YHYEL7"
   ]
 }
