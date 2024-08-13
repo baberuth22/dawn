@@ -40,6 +40,8 @@
 
       if (shadowHostElement && shadowHostElement.shadowRoot) {
         var formElement = shadowHostElement.shadowRoot.querySelector(formSelector);
+        var contextElement = document.getElementById(contextId)
+        console.log("contextElement " + contextElement)
 
         if (formElement) {
           // Hide the original form
@@ -48,7 +50,7 @@
           // Initialize the conversational form
           window.cf.ConversationalForm.startTheConversation({
             formEl: formElement,
-            context: document.getElementById(contextId),
+            context: contextElement,
             submitCallback: function() {
               formElement.submit(); // Submit the actual form
               conversationalForm.addRobotChatResponse(
