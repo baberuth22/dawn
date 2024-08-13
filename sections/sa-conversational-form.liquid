@@ -33,21 +33,37 @@
   document.addEventListener("DOMContentLoaded", function() {
     var shadowHostSelector = "{{ section.settings.shadow_host_identifier }}";
     var formSelector = "{{ section.settings.form_identifier }}";
-    
-    var shadowHostElement = document.querySelector(shadowHostSelector);
 
-    if (shadowHostElement && shadowHostElement.shadowRoot) {
-      var formElement = shadowHostElement.shadowRoot.querySelector(formSelector);
+    function initializeConversationalForm() {
+      var shadowHostElement = document.querySelector(shadowHostSelector);
 
-      if (formElement) {
-        new cf.ConversationalForm({
-          formEl: formElement
-        });
+      if (shadowHostElement && shadowHostElement.shadowRoot) {
+        var formElement = shadowHostElement.shadowRoot.querySelector(formSelector);
+
+        if (formElement) {
+          new cf.ConversationalForm({
+            formEl: formElement
+          });
+        } else {
+          console.error("Form element not found within the Shadow DOM with the identifier:", formSelector);
+        }
       } else {
-        console.error("Form element not found within the Shadow DOM with the identifier:", formSelector);
+        console.error("Shadow host element not found or does not contain a shadow root:", shadowHostSelector);
       }
-    } else {
-      console.error("Shadow host element not found or does not contain a shadow root:", shadowHostSelector);
     }
+
+    // Wait for the shadow DOM to be available
+    var observer = new MutationObserver(function(mutations, obs) {
+      var shadowHostElement = document.querySelector(shadowHostSelector);
+      if (shadowHostElement && shadowHostElement.shadowRoot) {
+        initializeConversationalForm();
+        obs.disconnect(); // Stop observing once we find the shadow DOM
+      }
+    });
+
+    observer.observe(document, {
+      childList: true,
+      subtree: true
+    });
   });
 </script>
