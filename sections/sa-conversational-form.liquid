@@ -46,13 +46,11 @@
       console.log('shadowHostElement', shadowHostElement)
       if (shadowHostElement && shadowHostElement.shadowRoot) {
         var formElement = shadowHostElement.shadowRoot.querySelector("form[data-testid='form']");
-        console.log('formElement',formElement)
-        var contextElement = document.getElementById(contextId)
-        console.log('contextElement',contextElement)
-        if (formElement) {
-          // Hide the entire shadow DOM container
-          shadowHostElement.style.display = "none";
+        console.log('formElement', formElement)
+        var contextElement = document.getElementById(contextId);
+        console.log('contextElement', contextElement);
 
+        if (formElement) {
           // Initialize the conversational form
           window.cf.ConversationalForm.startTheConversation({
             formEl: formElement,
@@ -64,6 +62,11 @@
               );
             }
           });
+
+          // Hide the entire shadow DOM container after a delay
+          setTimeout(function() {
+            shadowHostElement.style.display = "none";
+          }, 500); // 500ms delay, adjust if necessary
         } else {
           console.error("Form element not found within the Shadow DOM.");
         }
