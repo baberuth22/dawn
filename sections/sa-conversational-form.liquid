@@ -56,9 +56,17 @@
             formEl: formElement,
             context: contextElement,
             submitCallback: function() {
+              // Populate the original form with values from the conversational form
+              var inputs = formElement.querySelectorAll("input, textarea, select");
+              inputs.forEach(function(input) {
+                var cfInput = contextElement.querySelector(`[name="${input.name}"]`);
+                if (cfInput) {
+                  input.value = cfInput.value;
+                }
+              });
+
               // Hide the conversational form
               contextElement.style.display = "none";
-              shadowHostElement.style.display = "block";
               // formElement.submit(); // Submit the actual form
               conversationalForm.addRobotChatResponse(
                 "Congratulations, you have reached the end of the form!"
