@@ -31,8 +31,8 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/space10-community/conversational-form@1.0.1/dist/conversational-form.min.js" crossorigin></script>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    var shadowHostSelector = "{{ settings.shadow_host_identifier }}";
-    var formSelector = "{{ settings.form_identifier }}";
+    var shadowHostSelector = "{{ section.settings.shadow_host_identifier }}";
+    var formSelector = "{{ section.settings.form_identifier }}";
     
     var shadowHostElement = document.querySelector(shadowHostSelector);
 
