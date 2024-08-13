@@ -5,9 +5,16 @@
     {
       "type": "text",
       "id": "form_identifier",
-      "label": "Form Identifier (Class or ID)",
-      "default": "#myForm",
-      "info": "Provide the form's class or ID. For example: #myForm or .myFormClass"
+      "label": "Form Identifier (Class or ID within Shadow DOM)",
+      "default": "form",
+      "info": "Provide the form's class or ID within the Shadow DOM. For example: form, #myForm, or .myFormClass"
+    },
+    {
+      "type": "text",
+      "id": "shadow_host_identifier",
+      "label": "Shadow Host Identifier (Class or ID)",
+      "default": "#app-embed",
+      "info": "Provide the host element's class or ID that contains the Shadow DOM. For example: #app-embed or .embed-class"
     }
   ],
   "presets": [
@@ -24,15 +31,23 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/space10-community/conversational-form@1.0.1/dist/conversational-form.min.js" crossorigin></script>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    var formIdentifier = "{{ section.settings.form_identifier }}";
-    var formElement = document.querySelector(formIdentifier);
+    var shadowHostSelector = "{{ settings.shadow_host_identifier }}";
+    var formSelector = "{{ settings.form_identifier }}";
+    
+    var shadowHostElement = document.querySelector(shadowHostSelector);
 
-    if (formElement) {
-      new cf.ConversationalForm({
-        formEl: formElement
-      });
+    if (shadowHostElement && shadowHostElement.shadowRoot) {
+      var formElement = shadowHostElement.shadowRoot.querySelector(formSelector);
+
+      if (formElement) {
+        new cf.ConversationalForm({
+          formEl: formElement
+        });
+      } else {
+        console.error("Form element not found within the Shadow DOM with the identifier:", formSelector);
+      }
     } else {
-      console.error("Form element not found with the identifier:", formIdentifier);
+      console.error("Shadow host element not found or does not contain a shadow root:", shadowHostSelector);
     }
   });
 </script>
