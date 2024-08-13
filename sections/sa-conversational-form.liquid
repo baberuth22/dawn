@@ -43,21 +43,22 @@
 
     function initializeConversationalForm() {
       var shadowHostElement = document.querySelector(formEmbedSelector);
-      console.log('shadowHostElement', shadowHostElement)
+      console.log('shadowHostElement', shadowHostElement);
       if (shadowHostElement && shadowHostElement.shadowRoot) {
         var formElement = shadowHostElement.shadowRoot.querySelector("form[data-testid='form']");
-        console.log('formElement', formElement)
+        console.log('formElement', formElement);
         var contextElement = document.getElementById(contextId);
         console.log('contextElement', contextElement);
 
         if (formElement) {
           // Initialize the conversational form
-          window.cf.ConversationalForm.startTheConversation({
+          var conversationalForm = window.cf.ConversationalForm.startTheConversation({
             formEl: formElement,
             context: contextElement,
             submitCallback: function() {
-                // Hide the conversational form
+              // Hide the conversational form
               contextElement.style.display = "none";
+              shadowHostElement.style.display = "block";
               formElement.submit(); // Submit the actual form
               conversationalForm.addRobotChatResponse(
                 "Congratulations, you have reached the end of the form!"
@@ -65,17 +66,10 @@
             }
           });
 
-          // Observe for the conversational form being added to the context
-          var observer = new MutationObserver(function(mutations, obs) {
-            if (contextElement.querySelector("cf-conversational-form")) {
-              shadowHostElement.style.display = "none";
-              obs.disconnect(); // Stop observing once the form is added
-            }
-          });
-
-          observer.observe(contextElement, {
-            childList: true
-          });
+          // Wait until the conversational form is fully loaded
+          setTimeout(function() {
+            shadowHostElement.style.display = "none";
+          }, 500); // Adjust the delay if necessary
         } else {
           console.error("Form element not found within the Shadow DOM.");
         }
