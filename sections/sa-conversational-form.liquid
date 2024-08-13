@@ -56,18 +56,24 @@
             formEl: formElement,
             context: contextElement,
             submitCallback: function() {
+              // Diagnostic logging
+              console.log("Detected inputs in the conversational form:", contextElement.querySelectorAll("input, textarea, select"));
+              
               // Populate the original form with values from the conversational form
               var inputs = formElement.querySelectorAll("input, textarea, select");
               inputs.forEach(function(input) {
                 var cfInput = contextElement.querySelector(`[name="${input.name}"]`);
                 if (cfInput) {
+                  console.log(`Populating ${input.name} with value: ${cfInput.value}`);
                   input.value = cfInput.value;
+                } else {
+                  console.log(`No matching conversational form input found for ${input.name}`);
                 }
               });
 
               // Hide the conversational form
               contextElement.style.display = "none";
-              // formElement.submit(); // Submit the actual form
+              formElement.submit(); // Submit the actual form
               conversationalForm.addRobotChatResponse(
                 "Congratulations, you have reached the end of the form!"
               );
