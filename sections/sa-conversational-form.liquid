@@ -56,7 +56,7 @@
     var observer = new MutationObserver(function(mutations, obs) {
       var shadowHostElement = document.querySelector(shadowHostSelector);
       if (shadowHostElement && shadowHostElement.shadowRoot) {
-        initializeConversationalForm();
+        // initializeConversationalForm();
         obs.disconnect(); // Stop observing once we find the shadow DOM
       }
     });
