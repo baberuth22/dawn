@@ -29,10 +29,12 @@
 
     function initializeConversationalForm() {
       var shadowHostElement = document.querySelector(formEmbedSelector);
-
+      console.log('shadowHostElement', shadowHostElement)
       if (shadowHostElement && shadowHostElement.shadowRoot) {
         var formElement = shadowHostElement.shadowRoot.querySelector("form");
-
+        console.log('formElement',formElement)
+        var contextElement = document.getElementById(contextId)
+        console.log('contextElement',contextElement)
         if (formElement) {
           // Hide the original form
           formElement.style.display = "none";
@@ -40,7 +42,7 @@
           // Initialize the conversational form
           window.cf.ConversationalForm.startTheConversation({
             formEl: formElement,
-            /*context: document.getElementById(contextId),*/
+            context: contextElement,
             submitCallback: function() {
               formElement.submit(); // Submit the actual form
               conversationalForm.addRobotChatResponse(
