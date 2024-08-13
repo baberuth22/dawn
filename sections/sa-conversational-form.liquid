@@ -56,6 +56,8 @@
             formEl: formElement,
             context: contextElement,
             submitCallback: function() {
+                // Hide the conversational form
+              contextElement.style.display = "none";
               formElement.submit(); // Submit the actual form
               conversationalForm.addRobotChatResponse(
                 "Congratulations, you have reached the end of the form!"
@@ -63,10 +65,17 @@
             }
           });
 
-          // Hide the entire shadow DOM container after a delay
-          setTimeout(function() {
-            shadowHostElement.style.display = "none";
-          }, 500); // 500ms delay, adjust if necessary
+          // Observe for the conversational form being added to the context
+          var observer = new MutationObserver(function(mutations, obs) {
+            if (contextElement.querySelector("cf-conversational-form")) {
+              shadowHostElement.style.display = "none";
+              obs.disconnect(); // Stop observing once the form is added
+            }
+          });
+
+          observer.observe(contextElement, {
+            childList: true
+          });
         } else {
           console.error("Form element not found within the Shadow DOM.");
         }
