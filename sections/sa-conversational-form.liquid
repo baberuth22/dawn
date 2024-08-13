@@ -4,44 +4,34 @@
   "settings": [
     {
       "type": "text",
-      "id": "form_identifier",
-      "label": "Form Identifier (Class or ID within Shadow DOM)",
-      "default": "form",
-      "info": "Provide the form's class or ID within the Shadow DOM. For example: form, #myForm, or .myFormClass"
-    },
-    {
-      "type": "text",
-      "id": "shadow_host_identifier",
-      "label": "Shadow Host Identifier (Class or ID)",
-      "default": "#app-embed",
-      "info": "Provide the host element's class or ID that contains the Shadow DOM. For example: #app-embed or .embed-class"
+      "id": "form_id",
+      "label": "Form ID",
+      "default": "default-form-id",
+      "info": "Provide the form ID. This will be used in the data attribute selector."
     }
   ],
   "presets": [
     {
-      "name": "➕ SA - Conversational Form",
+      "name": "➕ SA - Conversation Form",
       "category": "Form"
     }
   ]
 }
 {% endschema %}
 
-<div class="sa-conversational-form" id="cf-context-{{ section.id }}" style="width:600px;height:400px;"></div>
+<div class="sa-conversational-form" id="cf-context-{{ section.id }}"></div>
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/space10-community/conversational-form@1.0.1/dist/conversational-form.js" crossorigin></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/space10-community/conversational-form@1.0.1/dist/conversational-form.min.js" crossorigin></script>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    var shadowHostSelector = "{{ section.settings.shadow_host_identifier }}";
-    var formSelector = "{{ section.settings.form_identifier }}";
+    var formEmbedSelector = '[data-forms-id="forms-root-{{ section.settings.form_id }}"] form-embed';
     var contextId = "cf-context-{{ section.id }}";
 
     function initializeConversationalForm() {
-      var shadowHostElement = document.querySelector(shadowHostSelector);
+      var shadowHostElement = document.querySelector(formEmbedSelector);
 
       if (shadowHostElement && shadowHostElement.shadowRoot) {
-        var formElement = shadowHostElement.shadowRoot.querySelector(formSelector);
-        var contextElement = document.getElementById(contextId)
-        console.log("contextElement " + contextElement)
+        var formElement = shadowHostElement.shadowRoot.querySelector("form");
 
         if (formElement) {
           // Hide the original form
@@ -50,7 +40,7 @@
           // Initialize the conversational form
           window.cf.ConversationalForm.startTheConversation({
             formEl: formElement,
-            /*context: contextElement,*/
+            context: document.getElementById(contextId),
             submitCallback: function() {
               formElement.submit(); // Submit the actual form
               conversationalForm.addRobotChatResponse(
@@ -59,16 +49,16 @@
             }
           });
         } else {
-          console.error("Form element not found within the Shadow DOM with the identifier:", formSelector);
+          console.error("Form element not found within the Shadow DOM.");
         }
       } else {
-        console.error("Shadow host element not found or does not contain a shadow root:", shadowHostSelector);
+        console.error("Shadow host element not found or does not contain a shadow root:", formEmbedSelector);
       }
     }
 
     // Wait for the shadow DOM to be available
     var observer = new MutationObserver(function(mutations, obs) {
-      var shadowHostElement = document.querySelector(shadowHostSelector);
+      var shadowHostElement = document.querySelector(formEmbedSelector);
       if (shadowHostElement && shadowHostElement.shadowRoot) {
         initializeConversationalForm();
         obs.disconnect(); // Stop observing once we find the shadow DOM
