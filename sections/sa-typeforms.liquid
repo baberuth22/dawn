@@ -1,4 +1,5 @@
 {% schema %}
+
 {
   "name": "➕ SA - Form Builder",
   "settings": [
@@ -48,7 +49,7 @@
       "type": "font_picker",
       "id": "font_family",
       "label": "Font",
-       "default": "sans-serif"
+      "default": "sans-serif"
     },
     {
       "type": "range",
@@ -119,7 +120,7 @@
   ]
 }
 
-
+  
 {% endschema %}
 
 {%  style %}
@@ -258,17 +259,17 @@ input[type="radio"].toggle:checked + label:after {
 
 {% endstyle %}
 
-<div class="upform" style="width: {{ settings.form_width }}px; height: {{ settings.form_height }}px; background-color: {{ settings.background_color }};">
+<div class="upform" style="width: {{ section.settings.form_width }}px; height: {{ section.settings.form_height }}px; background-color: {{ section.settings.background_color }};">
   <form>
     <div class="upform-header">
-      <h2 style="font-family: {{ settings.text_font }}; color: {{ settings.text_color }};">{{ settings.form_title }}</h2>
+      <h2 style="font-family: {{ section.settings.font_family }}; font-size: {{ section.settings.text_font_size }}px; color: {{ section.settings.text_color }};">{{ section.settings.form_title }}</h2>
     </div>
 
     <div class="upform-main">
       {% for block in section.blocks %}
         {% if block.type == 'radio_question' %}
           <div class="input-block">
-            <div class="label" style="font-family: {{ settings.text_font }}; color: {{ settings.text_color }};">{{ block.settings.question_label }}</div>
+            <div class="label" style="font-family: {{ section.settings.font_family }}; font-size: {{ section.settings.text_font_size }}px; color: {{ section.settings.text_color }};">{{ block.settings.question_label }}</div>
             <div class="input-control">
               <input id="toggle-on-q{{ forloop.index }}" class="toggle toggle-left" name="q{{ forloop.index }}" value="{{ block.settings.option_a | escape }}" type="radio">
               <label for="toggle-on-q{{ forloop.index }}" class="btn"><span>A</span> {{ block.settings.option_a }}</label>
@@ -278,7 +279,7 @@ input[type="radio"].toggle:checked + label:after {
           </div>
         {% elsif block.type == 'text_question' %}
           <div class="input-block">
-            <div class="label" style="font-family: {{ settings.text_font }}; color: {{ settings.text_color }};">{{ block.settings.question_label }}</div>
+            <div class="label" style="font-family: {{ section.settings.font_family }}; font-size: {{ section.settings.text_font_size }}px; color: {{ section.settings.text_color }};">{{ block.settings.question_label }}</div>
             <div class="input-control">
               <input type="text" class="{% if block.settings.required %}required{% endif %}" autocomplete="off">
             </div>
@@ -288,7 +289,7 @@ input[type="radio"].toggle:checked + label:after {
     </div>
 
     <div class="upform-footer">
-      <button type="submit" class="btn btn-primary btn-lg" style="background-color: {{ settings.button_color }}; color: {{ settings.button_text_color }}; font-family: {{ settings.button_font }};">Submit</button>
+      <button type="submit" class="btn btn-primary btn-lg" style="background-color: {{ section.settings.button_color }}; color: {{ section.settings.button_text_color }}; font-family: {{ section.settings.font_family }}; font-size: {{ section.settings.button_font_size }}px;">Submit</button>
     </div>
   </form>
 </div>
