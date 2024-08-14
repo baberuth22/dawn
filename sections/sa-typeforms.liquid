@@ -296,7 +296,10 @@ input[type="radio"].toggle:checked + label:after {
 
 {% javascript %}
 
+
+
 jQueryCode = function(){
+  window.$ = window.jQuery
   console.log('$',$)
     $.fn.upform = function() {
   var $this = $(this);
