@@ -296,85 +296,166 @@ input[type="radio"].toggle:checked + label:after {
 
 {% javascript %}
 
-  document.querySelectorAll('.upform').forEach(function(form) {
-  var container = form.querySelector('.upform-main');
+jQueryCode = function(){
+  console.log('$',$)
+    $.fn.upform = function() {
+  var $this = $(this);
+  var container = $this.find(".upform-main");
 
-  document.addEventListener('DOMContentLoaded', function() {
-    container.querySelector('.input-block').click();
+  $(document).ready(function() {
+    $(container).find(".input-block").first().click();
   });
 
-  form.querySelector('form').addEventListener('submit', function(event) {
-    event.preventDefault();
+  $($this).find("form").submit(function() {
+    return false;
   });
 
-  container.querySelectorAll('.input-block').forEach(function(block) {
-    if (!block.querySelector('input')) {
-      block.addEventListener('click', function() {
-        rescroll(this);
-      });
+  $(container)
+    .find(".input-block")
+    .not(".input-block input")
+    .on("click", function() {
+    rescroll(this);
+  });
+
+  $(container).find(".input-block input").keypress(function(e) {
+    if (e.which == 13) {
+      if ($(this).hasClass("required") && $(this).val() == "") {
+      } else moveNext(this);
     }
   });
 
-  container.querySelectorAll('.input-block input').forEach(function(input) {
-    input.addEventListener('keypress', function(e) {
-      if (e.which === 13) {
-        if (this.classList.contains('required') && this.value === '') {
-          // Do nothing if required field is empty
-        } else {
-          moveNext(this);
-        }
-      }
-    });
+  $(container).find('.input-block input[type="radio"]').change(function(e) {
+    moveNext(this);
   });
 
-  container.querySelectorAll('.input-block input[type="radio"]').forEach(function(radio) {
-    radio.addEventListener('change', function() {
-      moveNext(this);
-    });
-  });
-
-  window.addEventListener('scroll', function() {
-    container.querySelectorAll('.input-block').forEach(function(block) {
-      var etop = block.getBoundingClientRect().top;
-      var diff = etop - window.scrollY;
+  $(window).on("scroll", function() {
+    $(container).find(".input-block").each(function() {
+      var etop = $(this).offset().top;
+      var diff = etop - $(window).scrollTop();
 
       if (diff > 100 && diff < 300) {
-        reinitState(block);
+        reinitState(this);
       }
     });
   });
 
   function reinitState(e) {
-    container.querySelectorAll('.input-block').forEach(function(block) {
-      block.classList.remove('active');
-      block.querySelectorAll('input').forEach(function(input) {
-        input.blur();
-      });
+    $(container).find(".input-block").removeClass("active");
+
+    $(container).find(".input-block input").each(function() {
+      $(this).blur();
     });
-    e.classList.add('active');
-    // Uncomment the next line if you want to focus on the input
-    // e.querySelector('input').focus();
+    $(e).addClass("active");
+    /*$(e).find('input').focus();*/
   }
 
   function rescroll(e) {
-    var offset = e.getBoundingClientRect().top + window.scrollY - 200;
-    window.scrollTo({ top: offset, left: 100, behavior: 'smooth' });
+    $(window).scrollTo($(e), 200, {
+      offset: { left: 100, top: -200 },
+      queue: false
+    });
+  }
+
+  function reinit(e) {
+    reinitState(e);
+    rescroll(e);
   }
 
   function moveNext(e) {
-    var nextBlock = e.closest('.input-block').nextElementSibling;
-    if (nextBlock) {
-      nextBlock.click();
-    }
+    $(e).parent().parent().next().click();
   }
 
   function movePrev(e) {
-    var prevBlock = e.closest('.input-block').previousElementSibling;
-    if (prevBlock) {
-      prevBlock.click();
-    }
+    $(e).parent().parent().prev().click();
   }
-});
+};
 
+$(".upform").upform();
+  $.fn.upform = function() {
+    var $this = $(this);
+    var container = $this.find(".upform-main");
+  
+    $(document).ready(function() {
+      $(container).find(".input-block").first().click();
+    });
+  
+    $($this).find("form").submit(function() {
+      return false;
+    });
+  
+    $(container)
+      .find(".input-block")
+      .not(".input-block input")
+      .on("click", function() {
+        rescroll(this);
+      });
+  
+    $(container).find(".input-block input").keypress(function(e) {
+      if (e.which == 13) {
+        if ($(this).hasClass("required") && $(this).val() == "") {
+        } else moveNext(this);
+      }
+    });
+  
+    $(container).find('.input-block input[type="radio"]').change(function(e) {
+      moveNext(this);
+    });
+  
+    $(window).on("scroll", function() {
+      $(container).find(".input-block").each(function() {
+        var etop = $(this).offset().top;
+        var diff = etop - $(window).scrollTop();
+  
+        if (diff > 100 && diff < 300) {
+          reinitState(this);
+        }
+      });
+    });
+  
+    function reinitState(e) {
+      $(container).find(".input-block").removeClass("active");
+  
+      $(container).find(".input-block input").each(function() {
+        $(this).blur();
+      });
+      $(e).addClass("active");
+      /*$(e).find('input').focus();*/
+    }
+  
+    function rescroll(e) {
+      $(window).scrollTo($(e), 200, {
+        offset: { left: 100, top: -200 },
+        queue: false
+      });
+    }
+  
+    function reinit(e) {
+      reinitState(e);
+      rescroll(e);
+    }
+  
+    function moveNext(e) {
+      $(e).parent().parent().next().click();
+    }
+  
+    function movePrev(e) {
+      $(e).parent().parent().prev().click();
+    }
+  };
+  
+  $(".upform").upform();
+
+}
+
+if(window.$)  jQueryCode();
+else{   
+  console.log('loading jquery')
+    var script = document.createElement('script'); 
+    document.head.appendChild(script);  
+    script.type = 'text/javascript';
+    script.src = "//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js";
+
+    script.onload = jQueryCode;
+}
 
   {% endjavascript %}
