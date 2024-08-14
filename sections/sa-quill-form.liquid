@@ -1,0 +1,52 @@
+{% schema %}
+{
+  "name": "➕ SA - Quill Form",
+  "settings": [
+    {
+      "type": "text",
+      "id": "form_title",
+      "label": "Form Title",
+      "default": "My Quill Form"
+    },
+    {
+      "type": "textarea",
+      "id": "form_steps",
+      "label": "Form Steps JSON",
+      "default": "{\"steps\": [{\"title\": \"Step 1\",\"fields\": [{\"type\": \"text\",\"label\": \"Your Name\",\"placeholder\": \"Enter your name\",\"required\": true},{\"type\": \"email\",\"label\": \"Your Email\",\"placeholder\": \"Enter your email\",\"required\": true}]}]}"
+    },
+    {
+      "type": "text",
+      "id": "container_id",
+      "label": "Container ID",
+      "default": "quill-form-container"
+    }
+  ],
+  "presets": [
+    {
+      "name": "➕ SA - Quill Form",
+      "category": "Custom",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}
+
+<div id="{{ section.settings.container_id }}" class="quill-form-container"></div>
+
+<script src="https://cdn.quillforms.com/path-to-quillforms.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const formContainer = document.getElementById("{{ section.settings.container_id }}");
+
+    const quillForm = new QuillForms({
+      container: formContainer,
+      formData: {
+        "title": "{{ section.settings.form_title }}",
+        "steps": {{ section.settings.form_steps | escape }}
+      }
+    });
+
+    quillForm.render();
+  });
+</script>
