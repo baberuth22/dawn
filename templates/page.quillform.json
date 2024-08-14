@@ -14,17 +14,45 @@
       "settings": {
       }
     },
-    "sa_quill_form_gxTepg": {
-      "type": "sa-quill-form",
+    "sa_typeforms_JcVdeB": {
+      "type": "sa-typeforms",
+      "blocks": {
+        "text_question_BaCcF4": {
+          "type": "text_question",
+          "settings": {
+            "question_label": "What is your name?",
+            "required": true
+          }
+        },
+        "radio_question_NkkLPb": {
+          "type": "radio_question",
+          "settings": {
+            "question_label": "Sample Question?",
+            "option_a": "Yes",
+            "option_b": "No"
+          }
+        }
+      },
+      "block_order": [
+        "text_question_BaCcF4",
+        "radio_question_NkkLPb"
+      ],
       "settings": {
-        "form_title": "My Quill Form",
-        "form_steps": "{\"steps\": [{\"title\": \"Step 1\",\"fields\": [{\"type\": \"text\",\"label\": \"Your Name\",\"placeholder\": \"Enter your name\",\"required\": true},{\"type\": \"email\",\"label\": \"Your Email\",\"placeholder\": \"Enter your email\",\"required\": true}]}]}",
-        "container_id": "quill-form-container"
+        "form_title": "Custom Form",
+        "form_width": 600,
+        "form_height": 400,
+        "background_color": "#ffffff",
+        "button_color": "#007bff",
+        "text_color": "#000000",
+        "button_text_color": "#ffffff",
+        "font_family": "sans-serif",
+        "text_font_size": 16,
+        "button_font_size": 16
       }
     }
   },
   "order": [
     "main",
-    "sa_quill_form_gxTepg"
+    "sa_typeforms_JcVdeB"
   ]
 }
