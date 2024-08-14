@@ -43,7 +43,7 @@
       container: formContainer,
       formData: {
         "title": "{{ section.settings.form_title }}",
-        "steps": {{ section.settings.form_steps | escape }}
+        "steps": {{ section.settings.form_steps | json }}
       }
     });
 
