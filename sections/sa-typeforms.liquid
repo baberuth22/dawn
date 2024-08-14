@@ -293,3 +293,88 @@ input[type="radio"].toggle:checked + label:after {
     </div>
   </form>
 </div>
+
+{% javascript %}
+
+  document.querySelectorAll('.upform').forEach(function(form) {
+  var container = form.querySelector('.upform-main');
+
+  document.addEventListener('DOMContentLoaded', function() {
+    container.querySelector('.input-block').click();
+  });
+
+  form.querySelector('form').addEventListener('submit', function(event) {
+    event.preventDefault();
+  });
+
+  container.querySelectorAll('.input-block').forEach(function(block) {
+    if (!block.querySelector('input')) {
+      block.addEventListener('click', function() {
+        rescroll(this);
+      });
+    }
+  });
+
+  container.querySelectorAll('.input-block input').forEach(function(input) {
+    input.addEventListener('keypress', function(e) {
+      if (e.which === 13) {
+        if (this.classList.contains('required') && this.value === '') {
+          // Do nothing if required field is empty
+        } else {
+          moveNext(this);
+        }
+      }
+    });
+  });
+
+  container.querySelectorAll('.input-block input[type="radio"]').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      moveNext(this);
+    });
+  });
+
+  window.addEventListener('scroll', function() {
+    container.querySelectorAll('.input-block').forEach(function(block) {
+      var etop = block.getBoundingClientRect().top;
+      var diff = etop - window.scrollY;
+
+      if (diff > 100 && diff < 300) {
+        reinitState(block);
+      }
+    });
+  });
+
+  function reinitState(e) {
+    container.querySelectorAll('.input-block').forEach(function(block) {
+      block.classList.remove('active');
+      block.querySelectorAll('input').forEach(function(input) {
+        input.blur();
+      });
+    });
+    e.classList.add('active');
+    // Uncomment the next line if you want to focus on the input
+    // e.querySelector('input').focus();
+  }
+
+  function rescroll(e) {
+    var offset = e.getBoundingClientRect().top + window.scrollY - 200;
+    window.scrollTo({ top: offset, left: 100, behavior: 'smooth' });
+  }
+
+  function moveNext(e) {
+    var nextBlock = e.closest('.input-block').nextElementSibling;
+    if (nextBlock) {
+      nextBlock.click();
+    }
+  }
+
+  function movePrev(e) {
+    var prevBlock = e.closest('.input-block').previousElementSibling;
+    if (prevBlock) {
+      prevBlock.click();
+    }
+  }
+});
+
+
+  {% endjavascript %}
