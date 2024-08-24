@@ -90,6 +90,12 @@
         "disabled": false,
         "settings": {
         }
+      },
+      "14565837684350211961": {
+        "type": "shopify:\/\/apps\/suprimg-anti-theft-watermark\/blocks\/disable-right-click\/9f0f7ef9-45f3-4614-9c0f-7c70d1ea4189",
+        "disabled": false,
+        "settings": {
+        }
       }
     }
   },
