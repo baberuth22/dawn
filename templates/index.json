@@ -1,19 +1,39 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
+    "sa_qr_code_XKPDJ6": {
+      "type": "sa-qr-code",
+      "settings": {
+        "qr_contents": "https://pledgestar.com/viejavalley/",
+        "module_color": "#1c7d43",
+        "position_ring_color": "#13532d",
+        "position_center_color": "#70c559",
+        "mask_x_to_y_ratio": "1.2",
+        "icon_image": "shopify://shop_images/Screenshot_2024-10-13_at_10.40.09_AM.png",
+        "icon_width": "45",
+        "icon_height": "30",
+        "qr_width": "500",
+        "qr_height": "500",
+        "background_color": "#fff",
+        "margin_top": "2",
+        "margin_right": "auto",
+        "margin_bottom": "2",
+        "margin_left": "auto"
+      }
+    },
     "image_banner_H6wJ6U": {
       "type": "image-banner",
       "settings": {
-        "image": "shopify:\/\/shop_images\/bb9_865.jpg",
-        "image_2": "shopify:\/\/shop_images\/bb20_719.jpg",
+        "image": "shopify://shop_images/bb9_865.jpg",
+        "image_2": "shopify://shop_images/bb20_719.jpg",
         "image_height": "medium",
         "adapt_height_first_image": false,
         "desktop_text_box_position": "center",
@@ -23,45 +43,10 @@
         "stack_images_on_mobile": true,
         "show_text_below": true
       }
-    },
-    "17235637163534e323": {
-      "type": "apps",
-      "blocks": {
-        "forms_inline_mrWgxy": {
-          "type": "shopify:\/\/apps\/forms\/blocks\/inline\/8744a304-fcb1-4347-b211-bb6b4759a76a",
-          "settings": {
-            "form_id": "156819",
-            "text_color": "#202020",
-            "button_background_color": "#202020",
-            "button_label_color": "#ffffff",
-            "links_color": "#1878b9",
-            "errors_color": "#e02229",
-            "text_alignment": "center",
-            "form_alignment": "center",
-            "padding_top": 0,
-            "padding_bottom": 0,
-            "padding_right": 0,
-            "padding_left": 0
-          }
-        }
-      },
-      "block_order": [
-        "forms_inline_mrWgxy"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
-    "sa_conversational_form_k36MVx": {
-      "type": "sa-conversational-form",
-      "settings": {
-        "form_id": "156819"
-      }
     }
   },
   "order": [
-    "image_banner_H6wJ6U",
-    "17235637163534e323",
-    "sa_conversational_form_k36MVx"
+    "sa_qr_code_XKPDJ6",
+    "image_banner_H6wJ6U"
   ]
 }
