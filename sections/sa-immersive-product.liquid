@@ -1,6 +1,177 @@
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "SA - Immersive Product",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Explore Our Premium Product"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Discover the features and benefits of our latest innovation."
+    },
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "Product Video URL"
+    },
+    {
+      "type": "product",
+      "id": "featured_product",
+      "label": "Select Featured Product"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_testimonials",
+      "label": "Show Customer Testimonials",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature_title",
+          "label": "Feature Title"
+        },
+        {
+          "type": "textarea",
+          "id": "feature_description",
+          "label": "Feature Description"
+        },
+        {
+          "type": "image_picker",
+          "id": "feature_image",
+          "label": "Feature Image"
+        }
+      ]
+    },
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "text",
+          "id": "customer_name",
+          "label": "Customer Name"
+        },
+        {
+          "type": "textarea",
+          "id": "testimonial_text",
+          "label": "Testimonial Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "customer_image",
+          "label": "Customer Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SA - Immersive Product",
+      "category": "Product"
+    }
+  ]
+}
 {% endschema %}
+
+<div class="immersive-product-experience" style="background-image: url({{ section.settings.background_image | asset_url }});">
+  <div class="content-wrapper">
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.subheading }}</p>
+    
+    <div class="product-showcase">
+      {% if section.settings.featured_product %}
+        {% assign product = all_products[section.settings.featured_product] %}
+        <div class="product-image">
+          <img src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}">
+        </div>
+        <div class="product-details">
+          <h3>{{ product.title }}</h3>
+          <p>{{ product.description | strip_html | truncate: 150 }}</p>
+          <a href="{{ product.url }}" class="btn">View Product</a>
+        </div>
+      {% endif %}
+    </div>
+
+    {% if section.settings.video_url %}
+      <div class="video-container">
+        <a href="{{ section.settings.video_url }}" class="video-play-btn">Play Video</a>
+      </div>
+    {% endif %}
+
+    <div class="features-section">
+      {% for block in section.blocks %}
+        {% if block.type == 'feature' %}
+          <div class="feature">
+            <img src="{{ block.settings.feature_image | asset_url }}" alt="{{ block.settings.feature_title }}">
+            <h4>{{ block.settings.feature_title }}</h4>
+            <p>{{ block.settings.feature_description }}</p>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% if section.settings.show_testimonials %}
+      <div class="testimonials-slider">
+        {% for block in section.blocks %}
+          {% if block.type == 'testimonial' %}
+            <div class="testimonial">
+              <img src="{{ block.settings.customer_image | asset_url }}" alt="{{ block.settings.customer_name }}">
+              <p>"{{ block.settings.testimonial_text }}"</p>
+              <h5>{{ block.settings.customer_name }}</h5>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+/* Add your custom styles here */
+.immersive-product-experience {
+  padding: 50px;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #fff;
+}
+.content-wrapper {
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+}
+.product-showcase {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+.video-container {
+  margin-top: 20px;
+}
+.features-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+.testimonials-slider {
+  margin-top: 50px;
+  /* Add slider functionality with JavaScript or a slider library */
+}
+</style>
