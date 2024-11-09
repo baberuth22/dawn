@@ -43,10 +43,30 @@
         "stack_images_on_mobile": true,
         "show_text_below": true
       }
+    },
+    "sa_hero_MB3P6h": {
+      "type": "sa-hero",
+      "settings": {
+        "background_image": "shopify://shop_images/person-fishing-on-the-beach-is-silhouetted-at-sunset.jpg",
+        "headline": "Welcome to Our Store",
+        "headline_color": "#ffffff",
+        "headline_font": "anonymous_pro_n4",
+        "headline_size": 59,
+        "subheadline": "Discover our collection",
+        "subheadline_color": "#ffffff",
+        "subheadline_font": "mono",
+        "subheadline_size": 24,
+        "button_link": "",
+        "button_text": "Shop Now",
+        "button_color": "#ff6f61",
+        "button_text_color": "#ffffff",
+        "content_background_opacity": 0.2
+      }
     }
   },
   "order": [
     "sa_qr_code_XKPDJ6",
-    "image_banner_H6wJ6U"
+    "image_banner_H6wJ6U",
+    "sa_hero_MB3P6h"
   ]
 }
