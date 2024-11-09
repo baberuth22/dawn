@@ -14,10 +14,50 @@
       "default": "Welcome to Our Store"
     },
     {
+      "type": "color",
+      "id": "headline_color",
+      "label": "Headline Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "font_picker",
+      "id": "headline_font",
+      "label": "Headline Font",
+      "default": "sans-serif"
+    },
+    {
+      "type": "range",
+      "id": "headline_size",
+      "label": "Headline Font Size (px)",
+      "min": 20,
+      "max": 100,
+      "default": 40
+    },
+    {
       "type": "text",
       "id": "subheadline",
       "label": "Subheadline",
       "default": "Discover our collection"
+    },
+    {
+      "type": "color",
+      "id": "subheadline_color",
+      "label": "Subheadline Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "font_picker",
+      "id": "subheadline_font",
+      "label": "Subheadline Font",
+      "default": "sans-serif"
+    },
+    {
+      "type": "range",
+      "id": "subheadline_size",
+      "label": "Subheadline Font Size (px)",
+      "min": 14,
+      "max": 50,
+      "default": 24
     },
     {
       "type": "url",
@@ -29,6 +69,27 @@
       "id": "button_text",
       "label": "Button Text",
       "default": "Shop Now"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Background Color",
+      "default": "#ff6f61"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "content_background_opacity",
+      "label": "Content Background Opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.5
     }
   ],
   "presets": [
@@ -40,10 +101,16 @@
 {% endschema %}
 
 <div class="hero-section" style="background-image: url({{ section.settings.background_image | img_url: 'master' }});">
-  <div class="hero-content">
-    <h1>{{ section.settings.headline }}</h1>
-    <p>{{ section.settings.subheadline }}</p>
-    <a href="{{ section.settings.button_link }}" class="hero-button">{{ section.settings.button_text }}</a>
+  <div class="hero-content" style="background: rgba(0, 0, 0, {{ section.settings.content_background_opacity }});">
+    <h1 style="color: {{ section.settings.headline_color }}; font-family: {{ section.settings.headline_font }}; font-size: {{ section.settings.headline_size }}px;">
+      {{ section.settings.headline }}
+    </h1>
+    <p style="color: {{ section.settings.subheadline_color }}; font-family: {{ section.settings.subheadline_font }}; font-size: {{ section.settings.subheadline_size }}px;">
+      {{ section.settings.subheadline }}
+    </p>
+    <a href="{{ section.settings.button_link }}" class="hero-button" style="background-color: {{ section.settings.button_color }}; color: {{ section.settings.button_text_color }};">
+      {{ section.settings.button_text }}
+    </a>
   </div>
 </div>
 
@@ -63,7 +130,6 @@
 .hero-content {
   max-width: 600px;
   padding: 20px;
-  background: rgba(0, 0, 0, 0.5);
   border-radius: 8px;
 }
 
@@ -71,14 +137,12 @@
   display: inline-block;
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: #ff6f61;
-  color: #fff;
   text-decoration: none;
   border-radius: 5px;
   transition: background-color 0.3s;
 }
 
 .hero-button:hover {
-  background-color: #e65c54;
+  background-color: #e65c54; /* Can be further customized */
 }
 </style>
