@@ -102,10 +102,10 @@
 
 <div class="hero-section" style="background-image: url({{ section.settings.background_image | img_url: 'master' }});">
   <div class="hero-content" style="background: rgba(0, 0, 0, {{ section.settings.content_background_opacity }});">
-    <h1 class="hero-headline" style="color: {{ section.settings.headline_color }}; font-family: {{ section.settings.headline_font }}; font-size: {{ section.settings.headline_size }}px;">
+    <h1 class="hero-headline" style="color: {{ section.settings.headline_color }}; font-family: {{ section.settings.headline_font.family }}; font-size: {{ section.settings.headline_size }}px;">
       {{ section.settings.headline }}
     </h1>
-    <p class="hero-subheadline" style="color: {{ section.settings.subheadline_color }}; font-family: {{ section.settings.subheadline_font }}; font-size: {{ section.settings.subheadline_size }}px;">
+    <p class="hero-subheadline" style="color: {{ section.settings.subheadline_color }}; font-family: {{ section.settings.subheadline_font.family }}; font-size: {{ section.settings.subheadline_size }}px;">
       {{ section.settings.subheadline }}
     </p>
     <a href="{{ section.settings.button_link }}" class="hero-button" style="background-color: {{ section.settings.button_color }}; color: {{ section.settings.button_text_color }};">
