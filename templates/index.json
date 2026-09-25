@@ -65,6 +65,48 @@
     },
     "sa_image_with_labels_RwW6m4": {
       "type": "sa-image-with-labels",
+      "blocks": {
+        "label_p7A4QQ": {
+          "type": "label",
+          "settings": {
+            "label_text": "Nice Label",
+            "font_family": "Arial",
+            "text_size": 14,
+            "label_text_color": "#000000",
+            "label_bg_color": "#ffffff",
+            "label_bg_opacity": "1",
+            "label_border_color": "#000000",
+            "label_border_radius": 3,
+            "label_left": 0,
+            "label_top": 0,
+            "pointer_direction": "up",
+            "pointer_length": 50,
+            "line_style": "line"
+          }
+        },
+        "label_UQ9VCr": {
+          "type": "label",
+          "settings": {
+            "label_text": "Nice label bro!",
+            "font_family": "Arial",
+            "text_size": 14,
+            "label_text_color": "#000000",
+            "label_bg_color": "#ffffff",
+            "label_bg_opacity": "1",
+            "label_border_color": "#000000",
+            "label_border_radius": 3,
+            "label_left": 0,
+            "label_top": 0,
+            "pointer_direction": "up",
+            "pointer_length": 50,
+            "line_style": "line"
+          }
+        }
+      },
+      "block_order": [
+        "label_p7A4QQ",
+        "label_UQ9VCr"
+      ],
       "name": "➕ SA - Image with Labels",
       "settings": {
         "main_image": "shopify://shop_images/cross-fit-rope-workout.jpg"
