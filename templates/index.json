@@ -62,11 +62,19 @@
         "button_text_color": "#ffffff",
         "content_background_opacity": 0.2
       }
+    },
+    "sa_image_with_labels_RwW6m4": {
+      "type": "sa-image-with-labels",
+      "name": "➕ SA - Image with Labels",
+      "settings": {
+        "main_image": "shopify://shop_images/cross-fit-rope-workout.jpg"
+      }
     }
   },
   "order": [
     "sa_qr_code_XKPDJ6",
     "image_banner_H6wJ6U",
-    "sa_hero_MB3P6h"
+    "sa_hero_MB3P6h",
+    "sa_image_with_labels_RwW6m4"
   ]
 }
